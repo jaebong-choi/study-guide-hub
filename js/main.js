@@ -71,7 +71,7 @@ function openConsultForm() {
         // 국가 사이트(Phase 2)에서는 country / result / link를 함께 전달할 예정.
         window.Tally.openPopup(CONFIG.TALLY_FORM_ID, {
             layout: "modal",
-            width: 420,
+            width: Math.min(640, window.innerWidth - 32),
             hiddenFields: { source: "hub" }
         });
     } else {
