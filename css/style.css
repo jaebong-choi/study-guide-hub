@@ -158,13 +158,44 @@ a:focus-visible, button:focus-visible {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--line);
     border-radius: 20px;
-    padding: 28px 26px;
+    padding: 0;
+    overflow: hidden;
     transition: all 0.25s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 .country-card:hover { transform: translateY(-4px); }
 .country-card:active { transform: translateY(-2px) scale(0.99); }
+
+.card-photo {
+    position: relative;
+    height: 156px;
+    flex-shrink: 0;
+}
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.card--uk .card-photo img { object-position: center 28%; }
+.country-card:hover .card-photo img { transform: scale(1.04); }
+.card-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 11, 15, 0.05) 45%, rgba(17, 17, 21, 0.55) 80%, rgba(19, 19, 24, 0.96) 100%);
+    pointer-events: none;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px 26px 26px;
+}
 
 .country-badge {
     display: inline-flex;
@@ -176,11 +207,16 @@ a:focus-visible, button:focus-visible {
     letter-spacing: 0.06em;
     padding: 6px 12px;
     border-radius: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    margin-top: -36px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
-.badge--au { color: var(--au); background: rgba(41, 151, 255, 0.14); }
-.badge--uk { color: var(--uk); background: rgba(255, 222, 89, 0.12); }
-.badge--ca { color: var(--ca); background: rgba(255, 112, 89, 0.14); }
+.badge--au { color: var(--au); background: rgba(13, 24, 36, 0.72); }
+.badge--uk { color: var(--uk); background: rgba(30, 27, 12, 0.72); }
+.badge--ca { color: var(--ca); background: rgba(34, 18, 14, 0.72); }
 .country-card h3 {
     font-size: 22px;
     font-weight: 700;
@@ -224,15 +260,16 @@ a:focus-visible, button:focus-visible {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    background: rgba(110, 231, 183, 0.06);
+    background:
+        linear-gradient(90deg, rgba(6, 15, 12, 0.94) 0%, rgba(6, 15, 12, 0.82) 55%, rgba(6, 15, 12, 0.5) 100%),
+        url("../images/esl.jpg") center 38% / cover no-repeat;
     border: 1px solid rgba(110, 231, 183, 0.25);
     border-radius: 20px;
-    padding: 24px 28px;
+    padding: 28px 28px;
     transition: all 0.25s ease;
 }
 .esl-banner:hover {
     border-color: var(--esl);
-    background: rgba(110, 231, 183, 0.1);
     transform: translateY(-2px);
 }
 .esl-banner .esl-text strong {
