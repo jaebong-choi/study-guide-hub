@@ -18,7 +18,7 @@
  * ========================================================= */
 const CONFIG = {
     BRAND_NAME: "Study Guide Hub",          // {{BRAND_NAME}}
-    TALLY_FORM_ID: "",                      // {{TALLY_FORM_ID}}
+    TALLY_FORM_ID: "0Qz7E6",                // https://tally.so/r/0Qz7E6
     KAKAO_CHANNEL_URL: "",                  // {{KAKAO_CHANNEL_URL}}
     CONTACT_EMAIL: "",                      // {{CONTACT_EMAIL}}
     GA4_ID: ""                              // {{GA4_ID}}
