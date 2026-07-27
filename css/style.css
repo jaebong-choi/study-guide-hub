@@ -9,12 +9,66 @@
     --bg: #0b0b0f;
     --surface: #1d1d1f;
     --text: #f5f5f7;
+    --body-text: #c7c7cc;
     --mute: #86868b;
     --line: rgba(255, 255, 255, 0.14);
+    --line-strong: rgba(255, 255, 255, 0.4);
+    --header-bg: rgba(0, 0, 0, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-fade: rgba(19, 19, 24, 0.96);
+    --card-fade-mid: rgba(17, 17, 21, 0.55);
+    --badge-bg-au: rgba(13, 24, 36, 0.72);
+    --badge-bg-uk: rgba(30, 27, 12, 0.72);
+    --badge-bg-ca: rgba(34, 18, 14, 0.72);
+    --esl-overlay-1: rgba(6, 15, 12, 0.94);
+    --esl-overlay-2: rgba(6, 15, 12, 0.82);
+    --esl-overlay-3: rgba(6, 15, 12, 0.5);
+    --esl-text: #6EE7B7;
+    --glow: #0f4c8c;
+    --glow-opacity: 0.18;
+    --footer-link: #a1a1a6;
+    --doc-text: #d2d2d7;
     --au: #2997ff;
     --uk: #FFDE59;
     --ca: #FF7059;
     --esl: #6EE7B7;
+}
+
+/* 라이트 모드 */
+html[data-theme="light"] {
+    --bg: #ffffff;
+    --surface: #f5f5f7;
+    --text: #1d1d1f;
+    --body-text: #4a4a4f;
+    --mute: #6e6e73;
+    --line: rgba(0, 0, 0, 0.12);
+    --line-strong: rgba(0, 0, 0, 0.32);
+    --header-bg: rgba(255, 255, 255, 0.82);
+    --card-bg: #ffffff;
+    --card-fade: rgba(255, 255, 255, 0.97);
+    --card-fade-mid: rgba(255, 255, 255, 0.5);
+    --badge-bg-au: rgba(41, 151, 255, 0.13);
+    --badge-bg-uk: rgba(180, 140, 0, 0.14);
+    --badge-bg-ca: rgba(255, 112, 89, 0.14);
+    --esl-overlay-1: rgba(255, 255, 255, 0.95);
+    --esl-overlay-2: rgba(255, 255, 255, 0.84);
+    --esl-overlay-3: rgba(255, 255, 255, 0.45);
+    --esl-text: #0f9b6c;
+    --glow: #9ec9f5;
+    --glow-opacity: 0.3;
+    --footer-link: #515154;
+    --doc-text: #3a3a3c;
+    --uk: #A87E00;
+    --esl: #0f9b6c;
+}
+
+/* 라이트 모드에서 카드 그림자로 깊이 표현 */
+html[data-theme="light"] .country-card,
+html[data-theme="light"] .esl-banner {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+html[data-theme="light"] .country-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,6 +80,7 @@ body {
         BlinkMacSystemFont, system-ui, sans-serif;
     background-color: var(--bg);
     color: var(--text);
+    transition: background-color 0.25s ease, color 0.25s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -55,10 +110,10 @@ a:focus-visible, button:focus-visible {
     left: 0;
     right: 0;
     z-index: 50;
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--header-bg);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--line);
 }
 .site-header .container {
     height: 56px;
@@ -90,7 +145,30 @@ a:focus-visible, button:focus-visible {
     padding: 7px 16px;
     transition: all 0.2s ease;
 }
-.header-cta:hover { opacity: 1; border-color: rgba(255, 255, 255, 0.4); }
+.header-cta:hover { opacity: 1; border-color: var(--line-strong); }
+
+/* 화면 모드 전환 버튼 */
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.theme-toggle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--text);
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.85;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+.theme-toggle:hover { opacity: 1; border-color: var(--line-strong); }
+.theme-toggle .icon-dark { display: none; }
+.theme-toggle .icon-light { display: block; }
+html[data-theme="light"] .theme-toggle .icon-dark { display: block; }
+html[data-theme="light"] .theme-toggle .icon-light { display: none; }
 
 /* ---------- 히어로 ---------- */
 .hero {
@@ -105,8 +183,8 @@ a:focus-visible, button:focus-visible {
     height: 480px;
     border-radius: 50%;
     filter: blur(140px);
-    opacity: 0.18;
-    background: #0f4c8c;
+    opacity: var(--glow-opacity);
+    background: var(--glow);
     top: -160px;
     left: 50%;
     transform: translateX(-50%);
@@ -129,7 +207,7 @@ a:focus-visible, button:focus-visible {
 }
 .hero p {
     font-size: 19px;
-    color: #c7c7cc;
+    color: var(--body-text);
     max-width: 560px;
     margin: 0 auto;
     word-break: keep-all;
@@ -155,7 +233,7 @@ a:focus-visible, button:focus-visible {
 .country-card {
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: 20px;
     padding: 0;
@@ -186,7 +264,7 @@ a:focus-visible, button:focus-visible {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(11, 11, 15, 0.05) 45%, rgba(17, 17, 21, 0.55) 80%, rgba(19, 19, 24, 0.96) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, var(--card-fade-mid) 80%, var(--card-fade) 100%);
     pointer-events: none;
 }
 
@@ -214,9 +292,9 @@ a:focus-visible, button:focus-visible {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
-.badge--au { color: var(--au); background: rgba(13, 24, 36, 0.72); }
-.badge--uk { color: var(--uk); background: rgba(30, 27, 12, 0.72); }
-.badge--ca { color: var(--ca); background: rgba(34, 18, 14, 0.72); }
+.badge--au { color: var(--au); background: var(--badge-bg-au); }
+.badge--uk { color: var(--uk); background: var(--badge-bg-uk); }
+.badge--ca { color: var(--ca); background: var(--badge-bg-ca); }
 .country-card h3 {
     font-size: 22px;
     font-weight: 700;
@@ -230,7 +308,7 @@ a:focus-visible, button:focus-visible {
 }
 .country-card .card-desc {
     font-size: 14.5px;
-    color: #c7c7cc;
+    color: var(--body-text);
     line-height: 1.55;
     word-break: keep-all;
     flex-grow: 1;
@@ -261,7 +339,7 @@ a:focus-visible, button:focus-visible {
     justify-content: space-between;
     gap: 20px;
     background:
-        linear-gradient(90deg, rgba(6, 15, 12, 0.94) 0%, rgba(6, 15, 12, 0.82) 55%, rgba(6, 15, 12, 0.5) 100%),
+        linear-gradient(90deg, var(--esl-overlay-1) 0%, var(--esl-overlay-2) 55%, var(--esl-overlay-3) 100%),
         url("../images/esl.jpg") center 38% / cover no-repeat;
     border: 1px solid rgba(110, 231, 183, 0.25);
     border-radius: 20px;
@@ -281,10 +359,10 @@ a:focus-visible, button:focus-visible {
 }
 .esl-banner .esl-text span {
     font-size: 14px;
-    color: #c7c7cc;
+    color: var(--body-text);
     word-break: keep-all;
 }
-.esl-banner .card-go { color: var(--esl); white-space: nowrap; }
+.esl-banner .card-go { color: var(--esl-text); white-space: nowrap; }
 
 /* ---------- 문의 섹션 ---------- */
 .contact {
@@ -299,7 +377,7 @@ a:focus-visible, button:focus-visible {
 }
 .contact .contact-lead {
     font-size: 16px;
-    color: #c7c7cc;
+    color: var(--body-text);
     max-width: 520px;
     margin: 0 auto 30px;
     word-break: keep-all;
@@ -346,7 +424,7 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- 푸터 ---------- */
 .site-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--line);
     padding: 40px 0 50px;
     font-size: 13px;
     color: var(--mute);
@@ -357,7 +435,7 @@ a:focus-visible, button:focus-visible {
     gap: 8px 20px;
     margin-bottom: 16px;
 }
-.footer-links a { color: #a1a1a6; transition: color 0.2s ease; }
+.footer-links a { color: var(--footer-link); transition: color 0.2s ease; }
 .footer-links a:hover { color: var(--text); }
 .footer-disclaimer {
     line-height: 1.6;
@@ -406,7 +484,7 @@ a:focus-visible, button:focus-visible {
 }
 .doc-page p, .doc-page li {
     font-size: 15px;
-    color: #d2d2d7;
+    color: var(--doc-text);
     line-height: 1.7;
     word-break: keep-all;
 }

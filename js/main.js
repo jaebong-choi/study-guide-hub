@@ -24,6 +24,16 @@ const CONFIG = {
     GA4_ID: ""                              // {{GA4_ID}}
 };
 
+/* ---------- 화면 모드(다크/라이트) 전환 ----------
+ * 기본값은 다크. 사용자가 고른 값은 localStorage("sgh-theme")에 저장되고,
+ * 각 페이지 <head>의 인라인 스크립트가 렌더링 전에 적용해 깜빡임을 막는다.
+ */
+function toggleTheme() {
+    const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("sgh-theme", next); } catch (e) {}
+}
+
 /* ---------- 브랜드명 반영 ---------- */
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-brand]").forEach(el => {
