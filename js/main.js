@@ -28,11 +28,27 @@ const CONFIG = {
  * 기본값은 다크. 사용자가 고른 값은 localStorage("sgh-theme")에 저장되고,
  * 각 페이지 <head>의 인라인 스크립트가 렌더링 전에 적용해 깜빡임을 막는다.
  */
+function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    const isLight = theme === "light";
+    document.querySelectorAll(".theme-switch").forEach(btn => {
+        btn.setAttribute("aria-checked", isLight ? "true" : "false");
+    });
+    document.querySelectorAll("[data-theme-label]").forEach(el => {
+        el.textContent = isLight ? "라이트" : "다크";
+    });
+}
+
 function toggleTheme() {
     const next = document.documentElement.getAttribute("data-theme") === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", next);
+    applyTheme(next);
     try { localStorage.setItem("sgh-theme", next); } catch (e) {}
 }
+
+/* <head> 인라인 스크립트가 먼저 적용한 값에 스위치 상태(라벨·aria)를 맞춘다. */
+document.addEventListener("DOMContentLoaded", () => {
+    applyTheme(document.documentElement.getAttribute("data-theme") === "light" ? "light" : "dark");
+});
 
 /* ---------- 브랜드명 반영 ---------- */
 document.addEventListener("DOMContentLoaded", () => {

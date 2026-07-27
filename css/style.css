@@ -147,28 +147,73 @@ a:focus-visible, button:focus-visible {
 }
 .header-cta:hover { opacity: 1; border-color: var(--line-strong); }
 
-/* 화면 모드 전환 버튼 */
+/* 화면 모드 전환 스위치
+ * 노브가 왼쪽(달)에 있으면 다크, 오른쪽(해)으로 밀리면 라이트.
+ * 노브에 덮인 쪽 아이콘은 배경색으로 반전시켜 현재 상태를 드러낸다. */
 .header-actions { display: flex; align-items: center; gap: 10px; }
-.theme-toggle {
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: transparent;
-    color: var(--text);
-    font-size: 14px;
+.theme-switch {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    opacity: 0.85;
-    transition: all 0.2s ease;
+    gap: 8px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text);
+    cursor: pointer;
     flex-shrink: 0;
 }
-.theme-toggle:hover { opacity: 1; border-color: var(--line-strong); }
-.theme-toggle .icon-dark { display: none; }
-.theme-toggle .icon-light { display: block; }
-html[data-theme="light"] .theme-toggle .icon-dark { display: block; }
-html[data-theme="light"] .theme-toggle .icon-light { display: none; }
+.switch-track {
+    position: relative;
+    display: block;
+    width: 52px;
+    height: 28px;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    background: var(--card-bg);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+.theme-switch:hover .switch-track { border-color: var(--text); }
+.theme-switch:focus-visible { outline: none; }
+.theme-switch:focus-visible .switch-track {
+    outline: 2px solid var(--au);
+    outline-offset: 3px;
+}
+.switch-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--text);
+    z-index: 1;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+html[data-theme="light"] .switch-knob { transform: translateX(24px); }
+.switch-icon {
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    z-index: 2;
+    color: var(--mute);
+    transition: color 0.25s ease;
+    pointer-events: none;
+}
+.switch-icon.icon-moon { left: 6px; color: var(--bg); }
+.switch-icon.icon-sun { right: 6px; }
+html[data-theme="light"] .switch-icon.icon-moon { color: var(--mute); }
+html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
+.switch-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--mute);
+    letter-spacing: -0.01em;
+    width: 30px;
+    text-align: left;
+}
+@media (max-width: 520px) {
+    .switch-label { display: none; }
+}
 
 /* ---------- 히어로 ---------- */
 .hero {
