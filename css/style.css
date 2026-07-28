@@ -208,7 +208,10 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     font-weight: 600;
     color: var(--mute);
     letter-spacing: -0.01em;
-    width: 30px;
+    /* "라이트"(3글자)가 줄바꿈되지 않을 만큼 확보하되,
+     * "다크"(2글자)와 폭을 맞춰 전환 시 헤더가 흔들리지 않게 한다. */
+    min-width: 40px;
+    white-space: nowrap;
     text-align: left;
 }
 @media (max-width: 520px) {
