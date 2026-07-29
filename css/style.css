@@ -147,6 +147,29 @@ a:focus-visible, button:focus-visible {
 }
 .header-cta:hover { opacity: 1; border-color: var(--line-strong); }
 
+/* 언어 전환 (한국어 / English)
+ * 두 칸짜리 세그먼트 컨트롤. 선택된 쪽만 채워서 현재 언어를 드러낸다. */
+.lang-switch {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.lang-switch button {
+    border: 0;
+    background: transparent;
+    color: var(--mute);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    padding: 6px 11px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+.lang-switch button:hover { color: var(--text); }
+.lang-switch button.on { background: var(--text); color: var(--bg); }
+.lang-switch button:focus-visible { outline: 2px solid var(--au); outline-offset: -2px; }
+
 /* 화면 모드 전환 스위치
  * 노브가 왼쪽(달)에 있으면 다크, 오른쪽(해)으로 밀리면 라이트.
  * 노브에 덮인 쪽 아이콘은 배경색으로 반전시켜 현재 상태를 드러낸다. */

@@ -30,12 +30,18 @@ const CONFIG = {
  */
 function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    const isLight = theme === "light";
+    syncThemeLabel();
+}
+
+/* 스위치의 aria 상태와 라벨을 현재 테마·언어에 맞춘다.
+ * 언어를 바꿀 때도 라벨을 다시 써야 하므로 i18n.js에서 이 함수를 호출한다. */
+function syncThemeLabel() {
+    const isLight = document.documentElement.getAttribute("data-theme") === "light";
     document.querySelectorAll(".theme-switch").forEach(btn => {
         btn.setAttribute("aria-checked", isLight ? "true" : "false");
     });
     document.querySelectorAll("[data-theme-label]").forEach(el => {
-        el.textContent = isLight ? "라이트" : "다크";
+        el.textContent = isLight ? t("themeLight") : t("themeDark");
     });
 }
 
@@ -65,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             kakaoBtn.classList.add("is-disabled");
             kakaoBtn.addEventListener("click", e => {
                 e.preventDefault();
-                showNotice("카카오톡 채널은 준비 중입니다. 아래 무료 상담 신청을 이용해 주세요.");
+                showNotice(t("noticeKakaoPending"));
             });
         }
     }
@@ -89,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ---------- Tally 팝업 ---------- */
 function openConsultForm() {
     if (!CONFIG.TALLY_FORM_ID) {
-        showNotice("상담 신청 폼은 준비 중입니다. 잠시 후 다시 시도해 주세요.");
+        showNotice(t("noticeFormPending"));
         return;
     }
     if (window.Tally) {

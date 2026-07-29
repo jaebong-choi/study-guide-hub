@@ -18,15 +18,19 @@
     </script>
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20260730">
+    <link rel="stylesheet" href="css/style.css?v=20260731">
 </head>
-<body>
+<body data-doc-title-key="privDocTitle" data-doc-desc-key="privDocDesc">
 
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="brand"><span class="brand-dot"></span><span data-brand>Study Guide Hub</span></a>
             <div class="header-actions">
-                <button type="button" class="theme-switch" role="switch" aria-checked="false" onclick="toggleTheme()" aria-label="화면 모드 전환" title="밝게 / 어둡게">
+                <div class="lang-switch" role="group" data-i18n-aria="langAria" aria-label="언어 선택">
+                    <button type="button" data-lang="ko" onclick="setLang('ko')" aria-pressed="true">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')" aria-pressed="false">EN</button>
+                </div>
+                <button type="button" class="theme-switch" role="switch" aria-checked="false" onclick="toggleTheme()" data-i18n-aria="themeAria" data-i18n-title="themeTitle" aria-label="화면 모드 전환" title="밝게 / 어둡게">
                     <span class="switch-track" aria-hidden="true">
                         <span class="switch-knob"></span>
                         <svg class="switch-icon icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
@@ -34,51 +38,43 @@
                     </span>
                     <span class="switch-label" data-theme-label>다크</span>
                 </button>
-                <a href="index.html#contact" class="header-cta">상담 문의</a>
+                <a href="index.html#contact" class="header-cta" data-i18n="headerCta">상담 문의</a>
             </div>
         </div>
     </header>
 
     <main class="container doc-page">
-        <h1>개인정보처리방침</h1>
-        <p class="doc-date">시행일: 2026년 7월 27일</p>
+        <h1 data-i18n="privTitle">개인정보처리방침</h1>
+        <p class="doc-date" data-i18n="privDate">시행일: 2026년 7월 27일</p>
 
-        <p>
-            <span data-brand>Study Guide Hub</span>(이하 "본 사이트")는 유학 상담 안내를 위해 최소한의
-            개인정보만을 수집하며, 아래와 같이 처리합니다.
-        </p>
+        <p data-i18n="privIntro">본 사이트는 유학 상담 안내를 위해 최소한의 개인정보만을 수집하며, 아래와 같이 처리합니다.</p>
 
-        <h2>1. 수집하는 개인정보 항목</h2>
+        <h2 data-i18n="priv1Title">1. 수집하는 개인정보 항목</h2>
         <ul>
-            <li>이름</li>
-            <li>연락처 (전화번호 또는 카카오톡 ID)</li>
-            <li>(선택) 관심 국가, 남기고 싶은 말</li>
+            <li data-i18n="priv1Item1">이름</li>
+            <li data-i18n="priv1Item2">연락처 (전화번호 또는 카카오톡 ID)</li>
+            <li data-i18n="priv1Item3">(선택) 관심 국가, 남기고 싶은 말</li>
         </ul>
 
-        <h2>2. 수집 및 이용 목적</h2>
-        <p>유학 상담 안내를 위한 연락 목적으로만 이용합니다. 그 외 목적으로 이용하지 않습니다.</p>
+        <h2 data-i18n="priv2Title">2. 수집 및 이용 목적</h2>
+        <p data-i18n="priv2Body">유학 상담 안내를 위한 연락 목적으로만 이용합니다. 그 외 목적으로 이용하지 않습니다.</p>
 
-        <h2>3. 보유 및 이용 기간</h2>
-        <p>
-            상담 종료 또는 동의 철회 시까지 보유하며, 최대 1년을 넘기지 않습니다.
-            기간이 지나면 지체 없이 파기합니다.
-        </p>
+        <h2 data-i18n="priv3Title">3. 보유 및 이용 기간</h2>
+        <p data-i18n="priv3Body">상담 종료 또는 동의 철회 시까지 보유하며, 최대 1년을 넘기지 않습니다. 기간이 지나면 지체 없이 파기합니다.</p>
 
-        <h2>4. 제3자 제공 및 처리 위탁</h2>
-        <p>
-            수집한 개인정보를 제3자에게 제공하거나 외부에 처리를 위탁하지 않습니다.
-            (상담 신청 폼은 폼 서비스(Tally)를 통해 접수되며, 접수된 정보는 위 목적으로만 사용합니다.)
-        </p>
+        <h2 data-i18n="priv4Title">4. 제3자 제공 및 처리 위탁</h2>
+        <p data-i18n="priv4Body">수집한 개인정보를 제3자에게 제공하거나 외부에 처리를 위탁하지 않습니다. (상담 신청 폼은 폼 서비스(Tally)를 통해 접수되며, 접수된 정보는 위 목적으로만 사용합니다.)</p>
 
-        <h2>5. 동의 철회 및 문의</h2>
+        <h2 data-i18n="priv5Title">5. 동의 철회 및 문의</h2>
         <p data-contact-email-row>
-            개인정보 열람·수정·삭제 및 동의 철회는 아래 이메일로 요청하실 수 있습니다.<br>
-            문의처: <a data-contact-email href="#" style="color:#2997ff;"></a>
+            <span data-i18n="priv5Body">개인정보 열람·수정·삭제 및 동의 철회는 아래 이메일로 요청하실 수 있습니다.</span><br>
+            <span data-i18n="privContact">문의처:</span> <a data-contact-email href="#" style="color:#2997ff;"></a>
         </p>
 
-        <a href="index.html" class="back-link">← 홈으로 돌아가기</a>
+        <a href="index.html" class="back-link" data-i18n="privBack">← 홈으로 돌아가기</a>
     </main>
 
-    <script src="js/main.js?v=20260729"></script>
+    <script src="js/i18n.js?v=20260730"></script>
+    <script src="js/main.js?v=20260730"></script>
 </body>
 </html>

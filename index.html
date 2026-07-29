@@ -32,7 +32,7 @@
     </script>
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20260730">
+    <link rel="stylesheet" href="css/style.css?v=20260731">
 
     <!-- Tally 팝업 위젯 (무료 상담 신청 폼) -->
     <script async src="https://tally.so/widgets/embed.js"></script>
@@ -55,7 +55,11 @@
         <div class="container">
             <a href="#" class="brand"><span class="brand-dot"></span><span data-brand>Study Guide Hub</span></a>
             <div class="header-actions">
-                <button type="button" class="theme-switch" role="switch" aria-checked="false" onclick="toggleTheme()" aria-label="화면 모드 전환" title="밝게 / 어둡게">
+                <div class="lang-switch" role="group" data-i18n-aria="langAria" aria-label="언어 선택">
+                    <button type="button" data-lang="ko" onclick="setLang('ko')" aria-pressed="true">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')" aria-pressed="false">EN</button>
+                </div>
+                <button type="button" class="theme-switch" role="switch" aria-checked="false" onclick="toggleTheme()" data-i18n-aria="themeAria" data-i18n-title="themeTitle" aria-label="화면 모드 전환" title="밝게 / 어둡게">
                     <span class="switch-track" aria-hidden="true">
                         <span class="switch-knob"></span>
                         <svg class="switch-icon icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
@@ -63,7 +67,7 @@
                     </span>
                     <span class="switch-label" data-theme-label>다크</span>
                 </button>
-                <a href="#contact" class="header-cta">상담 문의</a>
+                <a href="#contact" class="header-cta" data-i18n="headerCta">상담 문의</a>
             </div>
         </div>
     </header>
@@ -73,45 +77,45 @@
         <section class="hero">
             <div class="hero-glow"></div>
             <div class="container">
-                <p class="hero-eyebrow">Free Study Abroad Guide · AU / UK / CA / ESL</p>
-                <h1>유학, 진단에서<br>시작하세요</h1>
-                <p>국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class="br-desktop">결과 그대로 상담까지 이어가세요.</p>
+                <p class="hero-eyebrow" data-i18n="heroEyebrow">Free Study Abroad Guide · AU / UK / CA / ESL</p>
+                <h1 data-i18n-html="heroTitle">유학, 진단에서<br>시작하세요</h1>
+                <p data-i18n-html="heroSub">국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class="br-desktop">결과 그대로 상담까지 이어가세요.</p>
             </div>
         </section>
 
         <!-- 국가 선택 카드 -->
         <section class="countries">
             <div class="container">
-                <p class="section-title">국가별 진단 시작하기</p>
+                <p class="section-title" data-i18n="sectionCountries">국가별 진단 시작하기</p>
                 <div class="card-grid">
                     <a class="country-card card--au" href="https://jaebong-choi.github.io/studyabroad-au-ai/">
                         <div class="card-photo"><img src="images/au.jpg" alt="세계지도 위 호주 국기" loading="lazy"></div>
                         <div class="card-body">
                             <span class="country-badge badge--au">AU</span>
-                            <h3>호주</h3>
+                            <h3 data-i18n="auName">호주</h3>
                             <p class="card-sub">AU Study Guide</p>
-                            <p class="card-desc">학부(디플로마·파운데이션)부터 석사(GE)까지 3분 진단. 2026 대학 공식 학비 데이터 기반.</p>
-                            <span class="card-go">진단 시작</span>
+                            <p class="card-desc" data-i18n="auDesc">학부(디플로마·파운데이션)부터 석사(GE)까지 3분 진단. 2026 대학 공식 학비 데이터 기반.</p>
+                            <span class="card-go" data-i18n="cardGo">진단 시작</span>
                         </div>
                     </a>
                     <a class="country-card card--uk" href="https://jaebong-choi.github.io/uk-study-guide/">
                         <div class="card-photo"><img src="images/uk.jpg" alt="세계지도 위 영국 국기" loading="lazy"></div>
                         <div class="card-body">
                             <span class="country-badge badge--uk">UK</span>
-                            <h3>영국</h3>
+                            <h3 data-i18n="ukName">영국</h3>
                             <p class="card-sub">UK Study Guide</p>
-                            <p class="card-desc">학부(파운데이션·IYO)부터 석사(프리마스터)까지 진단. QS 2027 랭킹 데이터 기반.</p>
-                            <span class="card-go">진단 시작</span>
+                            <p class="card-desc" data-i18n="ukDesc">학부(파운데이션·IYO)부터 석사(프리마스터)까지 진단. QS 2027 랭킹 데이터 기반.</p>
+                            <span class="card-go" data-i18n="cardGo">진단 시작</span>
                         </div>
                     </a>
                     <a class="country-card card--ca" href="https://jaebong-choi.github.io/ca-study-guide/">
                         <div class="card-photo"><img src="images/ca.jpg" alt="세계지도 위 캐나다 국기" loading="lazy"></div>
                         <div class="card-body">
                             <span class="country-badge badge--ca">CA</span>
-                            <h3>캐나다</h3>
+                            <h3 data-i18n="caName">캐나다</h3>
                             <p class="card-sub">CA Study Guide</p>
-                            <p class="card-desc">공립 컬리지 PGWP(졸업 후 취업허가)·대학 편입 진단. 2026 IRCC 정책 기준.</p>
-                            <span class="card-go">진단 시작</span>
+                            <p class="card-desc" data-i18n="caDesc">공립 컬리지 PGWP(졸업 후 취업허가)·대학 편입 진단. 2026 IRCC 정책 기준.</p>
+                            <span class="card-go" data-i18n="cardGo">진단 시작</span>
                         </div>
                     </a>
                 </div>
@@ -123,10 +127,10 @@
             <div class="container">
                 <a class="esl-banner" href="https://jaebong-choi.github.io/esl-study-map/">
                     <div class="esl-text">
-                        <strong>🗺️ 대학 진학이 아니라 어학연수를 알아보고 있다면</strong>
-                        <span>영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.</span>
+                        <strong data-i18n="eslTitle">🗺️ 대학 진학이 아니라 어학연수를 알아보고 있다면</strong>
+                        <span data-i18n="eslSub">영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.</span>
                     </div>
-                    <span class="card-go">지도 보기</span>
+                    <span class="card-go" data-i18n="eslGo">지도 보기</span>
                 </a>
             </div>
         </section>
@@ -134,13 +138,13 @@
         <!-- 문의 섹션 -->
         <section class="contact" id="contact">
             <div class="container">
-                <h2>진단 결과, 그대로 상담받으세요</h2>
-                <p class="contact-lead">진단을 마친 뒤 궁금한 점이 있다면 편한 창구로 문의해 주세요. 특정 유학원과 무관한 무료 안내입니다.</p>
+                <h2 data-i18n="contactTitle">진단 결과, 그대로 상담받으세요</h2>
+                <p class="contact-lead" data-i18n="contactLead">진단을 마친 뒤 궁금한 점이 있다면 편한 창구로 문의해 주세요. 특정 유학원과 무관한 무료 안내입니다.</p>
                 <div class="contact-buttons">
-                    <button type="button" class="btn btn-primary" onclick="openConsultForm()">무료 상담 신청</button>
-                    <a id="kakao-btn" class="btn btn-kakao" href="#" target="_blank" rel="noopener">카카오톡 채널 추가</a>
+                    <button type="button" class="btn btn-primary" onclick="openConsultForm()" data-i18n="btnConsult">무료 상담 신청</button>
+                    <a id="kakao-btn" class="btn btn-kakao" href="#" target="_blank" rel="noopener" data-i18n="btnKakao">카카오톡 채널 추가</a>
                 </div>
-                <p class="contact-note">진단 결과 링크를 함께 보내주시면 더 정확한 안내가 가능합니다.</p>
+                <p class="contact-note" data-i18n="contactNote">진단 결과 링크를 함께 보내주시면 더 정확한 안내가 가능합니다.</p>
             </div>
         </section>
     </main>
@@ -149,20 +153,21 @@
     <footer class="site-footer">
         <div class="container">
             <div class="footer-links">
-                <a href="privacy.html">개인정보처리방침</a>
+                <a href="privacy.html" data-i18n="footerPrivacy">개인정보처리방침</a>
                 <a href="https://www.studyaustralia.gov.au/" target="_blank" rel="noopener">Study Australia</a>
                 <a href="https://study-uk.britishcouncil.org/" target="_blank" rel="noopener">Study UK</a>
                 <a href="https://www.educanada.ca/" target="_blank" rel="noopener">EduCanada</a>
             </div>
-            <p class="footer-disclaimer">
+            <p class="footer-disclaimer" data-i18n="footerDisclaimer">
                 본 사이트는 특정 유학원·기관과 무관한 무료 정보 페이지입니다. 각 진단에 사용된 학비는 정규 공식 학비 기준이며,
                 실제 등록 비용은 프로모션·할인에 따라 달라질 수 있으므로 상담에서 확인하시기 바랍니다.
             </p>
-            <p class="footer-copy" data-contact-email-row>문의: <a data-contact-email href="#"></a></p>
+            <p class="footer-copy" data-contact-email-row><span data-i18n="footerContact">문의:</span> <a data-contact-email href="#"></a></p>
             <p class="footer-copy">© <span data-year>2026</span> <span data-brand>Study Guide Hub</span></p>
         </div>
     </footer>
 
-    <script src="js/main.js?v=20260729"></script>
+    <script src="js/i18n.js?v=20260730"></script>
+    <script src="js/main.js?v=20260730"></script>
 </body>
 </html>
