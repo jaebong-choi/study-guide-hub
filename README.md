@@ -10,6 +10,7 @@
 | 호주 | https://jaebong-choi.github.io/studyabroad-au-ai/ |
 | 영국 | https://jaebong-choi.github.io/uk-study-guide/ |
 | 캐나다 | https://jaebong-choi.github.io/ca-study-guide/ |
+| 미국 | https://jaebong-choi.github.io/us-study-guide/ |
 | 어학연수 | https://jaebong-choi.github.io/esl-study-map/ |
 
 ## 설정값

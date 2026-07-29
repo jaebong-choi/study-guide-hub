@@ -20,6 +20,7 @@
     --badge-bg-au: rgba(13, 24, 36, 0.72);
     --badge-bg-uk: rgba(30, 27, 12, 0.72);
     --badge-bg-ca: rgba(34, 18, 14, 0.72);
+    --badge-bg-us: rgba(36, 14, 20, 0.72);
     --esl-overlay-1: rgba(6, 15, 12, 0.94);
     --esl-overlay-2: rgba(6, 15, 12, 0.82);
     --esl-overlay-3: rgba(6, 15, 12, 0.5);
@@ -31,6 +32,7 @@
     --au: #2997ff;
     --uk: #FFDE59;
     --ca: #FF7059;
+    --us: #FF5C77;
     --esl: #6EE7B7;
 }
 
@@ -50,6 +52,7 @@ html[data-theme="light"] {
     --badge-bg-au: rgba(41, 151, 255, 0.13);
     --badge-bg-uk: rgba(180, 140, 0, 0.14);
     --badge-bg-ca: rgba(255, 112, 89, 0.14);
+    --badge-bg-us: rgba(194, 31, 58, 0.13);
     --esl-overlay-1: rgba(255, 255, 255, 0.95);
     --esl-overlay-2: rgba(255, 255, 255, 0.84);
     --esl-overlay-3: rgba(255, 255, 255, 0.45);
@@ -59,6 +62,7 @@ html[data-theme="light"] {
     --footer-link: #515154;
     --doc-text: #3a3a3c;
     --uk: #A87E00;
+    --us: #C21F3A;
     --esl: #0f9b6c;
 }
 
@@ -321,7 +325,8 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 }
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    /* 국가가 4개가 되면서 고정 3열 대신 가변 열로. 데스크톱 4열 → 중간 2×2 → 모바일 1열 */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 18px;
 }
 .country-card {
@@ -389,6 +394,7 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .badge--au { color: var(--au); background: var(--badge-bg-au); }
 .badge--uk { color: var(--uk); background: var(--badge-bg-uk); }
 .badge--ca { color: var(--ca); background: var(--badge-bg-ca); }
+.badge--us { color: var(--us); background: var(--badge-bg-us); }
 .country-card h3 {
     font-size: 22px;
     font-weight: 700;
@@ -425,6 +431,8 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .card--uk .card-sub, .card--uk .card-go { color: var(--uk); }
 .card--ca:hover { border-color: var(--ca); background: rgba(255, 112, 89, 0.09); }
 .card--ca .card-sub, .card--ca .card-go { color: var(--ca); }
+.card--us:hover { border-color: var(--us); background: rgba(255, 92, 119, 0.09); }
+.card--us .card-sub, .card--us .card-go { color: var(--us); }
 
 /* ---------- 어학연수 배너 ---------- */
 .esl-banner-wrap { padding: 22px 0 10px; }

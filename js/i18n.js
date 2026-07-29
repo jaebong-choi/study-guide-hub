@@ -27,7 +27,7 @@ const I18N = {
         themeTitle: "밝게 / 어둡게",
         langAria: "언어 선택",
 
-        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / ESL",
+        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / US / ESL",
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
@@ -38,10 +38,13 @@ const I18N = {
         ukDesc: "학부(파운데이션·IYO)부터 석사(프리마스터)까지 진단. QS 2027 랭킹 데이터 기반.",
         caName: "캐나다",
         caDesc: "공립 컬리지 PGWP(졸업 후 취업허가)·대학 편입 진단. 2026 IRCC 정책 기준.",
+        usName: "미국",
+        usDesc: "Direct·패스웨이·2+2 편입 3개 경로 진단. US News 2026 랭킹 데이터 기반.",
         cardGo: "진단 시작",
         auAlt: "세계지도 위 호주 국기",
         ukAlt: "세계지도 위 영국 국기",
         caAlt: "세계지도 위 캐나다 국기",
+        usAlt: "뉴욕 거리의 미국 성조기",
 
         eslTitle: "🗺️ 대학 진학이 아니라 어학연수를 알아보고 있다면",
         eslSub: "영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.",
@@ -95,7 +98,7 @@ const I18N = {
         themeTitle: "Light / dark",
         langAria: "Select language",
 
-        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / ESL",
+        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / US / ESL",
         heroTitle: "Find your route to<br>studying abroad",
         /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
@@ -108,10 +111,13 @@ const I18N = {
         ukDesc: "Undergraduate routes through foundation and international year one, plus pre-master's entry. Based on QS 2027 ranking data.",
         caName: "Canada",
         caDesc: "Public college routes to a post-graduation work permit (PGWP), and transfer to a university degree. Based on 2026 IRCC policy.",
+        usName: "United States",
+        usDesc: "Three routes compared — direct entry, pathways and 2+2 community-college transfer. Based on US News 2026 ranking data.",
         cardGo: "Start assessment",
         auAlt: "Australian flag pinned to a world map",
         ukAlt: "British flag pinned to a world map",
         caAlt: "Canadian flag pinned to a world map",
+        usAlt: "The American flag on a New York street",
 
         eslTitle: "🗺️ Looking for a language course rather than a degree?",
         eslSub: "Compare language schools across six countries — the UK, Ireland, Malta, Canada, Australia and New Zealand — on a single map.",
