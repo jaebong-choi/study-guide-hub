@@ -128,6 +128,9 @@ a:focus-visible, button:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    /* 좁은 화면에서 "Study Guide Hub"가 두 줄로 접히던 문제 */
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .brand .brand-dot {
     width: 8px;
@@ -144,6 +147,9 @@ a:focus-visible, button:focus-visible {
     border-radius: 980px;
     padding: 7px 16px;
     transition: all 0.2s ease;
+    /* 영어 문구("Get in touch")가 두 줄로 접히던 문제 */
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 .header-cta:hover { opacity: 1; border-color: var(--line-strong); }
 
@@ -239,6 +245,13 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 }
 @media (max-width: 520px) {
     .switch-label { display: none; }
+}
+/* 좁은 화면에서는 브랜드 + 언어 + 모드 전환만 남긴다.
+ * 넷을 모두 한 줄에 넣으면 375px에서 가로로 넘친다.
+ * 상담 문의는 바로 아래 문의 섹션에 큰 버튼으로 있으므로 헤더에서는 감춘다. */
+@media (max-width: 480px) {
+    .header-cta { display: none; }
+    .header-actions { gap: 8px; }
 }
 
 /* ---------- 히어로 ---------- */
