@@ -39,6 +39,9 @@ const I18N = {
         caName: "캐나다",
         caDesc: "공립 컬리지 PGWP(졸업 후 취업허가)·대학 편입 진단. 2026 IRCC 정책 기준.",
         cardGo: "진단 시작",
+        auAlt: "세계지도 위 호주 국기",
+        ukAlt: "세계지도 위 영국 국기",
+        caAlt: "세계지도 위 캐나다 국기",
 
         eslTitle: "🗺️ 대학 진학이 아니라 어학연수를 알아보고 있다면",
         eslSub: "영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.",
@@ -104,6 +107,9 @@ const I18N = {
         caName: "Canada",
         caDesc: "Public college routes to a post-graduation work permit (PGWP), and transfer to a university degree. Based on 2026 IRCC policy.",
         cardGo: "Start assessment",
+        auAlt: "Australian flag pinned to a world map",
+        ukAlt: "British flag pinned to a world map",
+        caAlt: "Canadian flag pinned to a world map",
 
         eslTitle: "🗺️ Looking for a language course rather than a degree?",
         eslSub: "Compare language schools across six countries — the UK, Ireland, Malta, Canada, Australia and New Zealand — on a single map.",
@@ -185,6 +191,10 @@ function applyLang() {
     document.querySelectorAll("[data-i18n-title]").forEach(function (el) {
         var v = t(el.dataset.i18nTitle);
         if (v !== undefined) el.setAttribute("title", v);
+    });
+    document.querySelectorAll("[data-i18n-alt]").forEach(function (el) {
+        var v = t(el.dataset.i18nAlt);
+        if (v !== undefined) el.setAttribute("alt", v);
     });
 
     /* 언어 버튼 활성 표시 */
