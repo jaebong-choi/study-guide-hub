@@ -97,7 +97,9 @@ const I18N = {
 
         heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / ESL",
         heroTitle: "Find your route to<br>studying abroad",
-        heroSub: "Take a three-minute assessment for your chosen country, see which entry<br class=\"br-desktop\">pathways match your grades and goals, then take the result to an advisor.",
+        /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
+           줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
+        heroSub: "Take a three-minute assessment for your chosen country, see which entry pathways match your grades and goals, then take the result to an advisor.",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",
