@@ -153,13 +153,16 @@ const I18N = {
     }
 };
 
-/* 현재 언어. 저장값이 없으면 브라우저 언어가 한국어일 때만 ko, 그 외는 en. */
+/* 현재 언어. 허브의 기본값은 한국어다(브라우저 언어와 무관하게 항상 동일).
+ * 저장된 선택이 없으면 "ko"를 저장까지 해서, 이어서 여는 국가별 사이트
+ * (같은 도메인·같은 키)에도 그대로 이어지게 한다. */
 let LANG = (function () {
     try {
         var saved = localStorage.getItem("sgh-lang");
         if (saved === "ko" || saved === "en") return saved;
+        localStorage.setItem("sgh-lang", "ko");
     } catch (e) {}
-    return (navigator.language || "").toLowerCase().startsWith("ko") ? "ko" : "en";
+    return "ko";
 })();
 
 /* 번역 조회. 키가 없으면 한국어로 대체한다. */
