@@ -10,6 +10,7 @@
 - pathways.level enum: ug(학사) | pg(석사), 생략 시 ug — 둘 다 있으면 페이지에서 학사/석사 그룹으로 표시
 - youtube_id: 대학 공식 채널 영상 ID만(URL 아님), 없으면 null — 있으면 하단에 임베드
 - 배너 이미지: images/uni/{id}.jpg 파일이 리포에 있으면 상세 페이지 상단에 자동 표시 (스키마 필드 아님)
+- 로고: images/uni/{id}-logo.png(또는 .svg), 반드시 투명 배경 — 모든 학교 동일한 160x88 박스에 표시되고 다크 모드에선 흰색 단색으로 자동 반전
 - last_verified: YYYY-MM
 - 2차 백로그(지금 넣지 않음): pathways.naeshin_max, 시험별 상세 점수, editor_note 본문, related_ids
 
