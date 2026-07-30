@@ -189,6 +189,8 @@ $TEMPLATE = @'
         .stat-label { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
         .stat-value { font-size: 17px; font-weight: 700; line-height: 1.3; }
         .stat-sub { font-size: 12px; color: var(--body-text); margin-top: 4px; }
+        .stat-card .krw { white-space: nowrap; }
+        .fx-date { font-size: 12px; color: var(--mute); margin-top: 10px; text-align: right; }
 
         .pathway-card {
             background: var(--card-bg); border: 1px solid var(--line);
@@ -308,6 +310,7 @@ $TEMPLATE = @'
                         <p class="stat-value">{{PATHWAY_COUNT}}개</p>
                     </div>
                 </div>
+                <p class="fx-date"></p>
             </div>
         </section>
 
@@ -384,7 +387,12 @@ $TEMPLATE = @'
                     if (isNaN(min) && isNaN(max)) return;
                     if (isNaN(min)) min = max;
                     if (isNaN(max)) max = min;
-                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min).replace(' 원', '') + ' ~ ' + fmt(max)) + ' · 오늘 환율 기준';
+                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min).replace(' 원', '') + '~' + fmt(max));
+                });
+                var today = new Date();
+                var dateNote = today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
+                document.querySelectorAll('.fx-date').forEach(function (el) {
+                    el.textContent = dateNote;
                 });
             })
             .catch(function () {});
