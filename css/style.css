@@ -349,6 +349,10 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     /* 2열 배치로 카드 폭이 넓어진 만큼 사진도 살짝 높여 비율을 맞춘다 */
     height: 190px;
     flex-shrink: 0;
+    /* 마우스를 올리면 사진이 1.04배로 커지는데, 잘라내지 않으면 사진 영역 밖으로
+     * 위아래 약 4px씩 삐져나온다. 아래쪽으로 넘친 부분은 그라데이션이 덮지 못해
+     * 본문과의 경계에 생이미지 띠가 생긴다. */
+    overflow: hidden;
 }
 .card-photo img {
     width: 100%;
