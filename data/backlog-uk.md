@@ -3,7 +3,7 @@
 진행 표시: [x] = universities-uk.json 입력 완료
 
 ## 1차 배치 (수요 상위)
-- [x] uk-loughborough 러프버러 (숫자 공식값 교체 필요)
+- [x] uk-loughborough 러프버러
 - [x] uk-ucl UCL
 - [x] uk-edinburgh 에든버러
 - [x] uk-manchester 맨체스터
@@ -16,16 +16,16 @@
 - [x] uk-exeter 엑시터
 
 ## 2차 배치
-- [ ] uk-lse LSE
-- [ ] uk-imperial 임페리얼
-- [ ] uk-bath 바스
-- [ ] uk-sheffield 셰필드
-- [ ] uk-glasgow 글래스고
-- [ ] uk-durham 더럼
-- [ ] uk-southampton 사우스햄튼
-- [ ] uk-newcastle 뉴캐슬
-- [ ] uk-lancaster 랭커스터
-- [ ] uk-york 요크
+- [x] uk-lse LSE
+- [x] uk-imperial 임페리얼
+- [x] uk-bath 바스
+- [x] uk-sheffield 셰필드
+- [x] uk-glasgow 글래스고
+- [x] uk-durham 더럼
+- [x] uk-southampton 사우스햄튼
+- [x] uk-newcastle 뉴캐슬
+- [x] uk-lancaster 랭커스터
+- [x] uk-york 요크
 
 ## 3차 배치
 - [ ] uk-cardiff 카디프
