@@ -1,0 +1,27 @@
+[
+  {
+    "id": "uk-loughborough",
+    "type": "university",
+    "name_ko": "러프버러대학교",
+    "name_en": "Loughborough University",
+    "country": "UK",
+    "city": "Loughborough",
+    "qs_rank": 222,
+    "qs_subject_ranks": [{ "subject": "스포츠관련학", "rank": 1 }],
+    "tuition_ug_min": 27000,
+    "tuition_ug_max": 31000,
+    "tuition_pg_min": 28500,
+    "tuition_pg_max": 32000,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": null },
+    "popular_majors": ["스포츠매니지먼트", "경영", "기계공학", "산업디자인"],
+    "pathways": [
+      { "type": "foundation", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £19,000", "note": null }
+    ],
+    "intakes": ["9월", "1월"],
+    "official_url": "https://www.lboro.ac.uk",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  }
+]
