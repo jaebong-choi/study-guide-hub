@@ -225,7 +225,7 @@ $TEMPLATE = @'
         .fact-table th { color: var(--mute); font-weight: 600; width: 38%; }
         .fact-table td { color: var(--text); font-weight: 600; }
         .fact-table .krw { display: block; font-size: 12px; color: var(--mute); font-weight: 500; margin-top: 2px; }
-        .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; }
+        .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; line-height: 1.8; }
 
         .editor-note {
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
@@ -338,7 +338,7 @@ $TEMPLATE = @'
                 <table class="fact-table">
                     {{FACT_ROWS}}
                 </table>
-                <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다. 원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다. 최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
+                <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.<br>원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다.<br>최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
             </div>
         </section>
 {{VIDEO_SECTION}}{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
