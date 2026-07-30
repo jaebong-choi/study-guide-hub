@@ -5,16 +5,6 @@
  *  AU #2997ff / UK #FFDE59 / CA #FF7059 / ESL #6EE7B7
  * ========================================================= */
 
-/* --card-fade를 색상 속성으로 등록해 두면 hover로 값이 바뀔 때
- * 카드의 transition(all 0.25s)을 타고 그라데이션 끝색도 배경색과
- * 같은 속도로 부드럽게 바뀐다. 등록하지 않으면 배경은 서서히,
- * 그라데이션은 즉시 바뀌어 전환 중에 띠가 보인다. */
-@property --card-fade {
-    syntax: "<color>";
-    inherits: true;
-    initial-value: rgb(23, 23, 27);
-}
-
 :root {
     --bg: #0b0b0f;
     --surface: #1d1d1f;
@@ -349,10 +339,9 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     border: 1px solid var(--line);
     border-radius: 20px;
     padding: 0;
+    position: relative;
     overflow: hidden;
-    /* transition: all은 커스텀 속성(--card-fade)을 포함하지 않으므로 따로 명시.
-     * hover 시 배경 틴트와 사진 그라데이션 끝색이 같은 속도로 바뀌어야 경계 띠가 없다. */
-    transition: all 0.25s ease, --card-fade 0.25s ease;
+    transition: all 0.25s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -399,6 +388,9 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     flex-direction: column;
     flex-grow: 1;
     padding: 20px 26px 26px;
+    /* hover 틴트 오버레이(.country-card::after) 위로 올려 글자는 틴트되지 않게 */
+    position: relative;
+    z-index: 1;
 }
 
 .country-badge {
@@ -452,26 +444,33 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .card-go::after { content: "→"; transition: transform 0.2s ease; }
 .country-card:hover .card-go::after { transform: translateX(3px); }
 
-.card--au:hover { border-color: var(--au); background: rgba(41, 151, 255, 0.09); }
+.card--au:hover { border-color: var(--au); }
 .card--au .card-sub, .card--au .card-go { color: var(--au); }
-.card--uk:hover { border-color: var(--uk); background: rgba(255, 222, 89, 0.08); }
+.card--uk:hover { border-color: var(--uk); }
 .card--uk .card-sub, .card--uk .card-go { color: var(--uk); }
-.card--ca:hover { border-color: var(--ca); background: rgba(255, 112, 89, 0.09); }
+.card--ca:hover { border-color: var(--ca); }
 .card--ca .card-sub, .card--ca .card-go { color: var(--ca); }
-.card--us:hover { border-color: var(--us); background: rgba(255, 92, 119, 0.09); }
+.card--us:hover { border-color: var(--us); }
 .card--us .card-sub, .card--us .card-go { color: var(--us); }
 
-/* hover 시 카드 배경이 국가색 반투명 틴트로 바뀌므로, 사진 하단 그라데이션의
- * 끝색(--card-fade)도 그 틴트를 실제 배경 위에 합성한 불투명 색으로 함께 바꾼다.
- * 기본 카드색으로 고정해 두면 사진과 본문 경계에 색이 다른 띠(틈)가 생긴다. */
-.card--au:hover { --card-fade: rgb(14, 24, 37); }   /* rgba(41,151,255,.09) over #0b0b0f */
-.card--uk:hover { --card-fade: rgb(31, 28, 21); }   /* rgba(255,222,89,.08) over #0b0b0f */
-.card--ca:hover { --card-fade: rgb(33, 20, 22); }   /* rgba(255,112,89,.09) over #0b0b0f */
-.card--us:hover { --card-fade: rgb(33, 18, 24); }   /* rgba(255,92,119,.09) over #0b0b0f */
-html[data-theme="light"] .card--au:hover { --card-fade: rgb(236, 246, 255); }
-html[data-theme="light"] .card--uk:hover { --card-fade: rgb(255, 252, 242); }
-html[data-theme="light"] .card--ca:hover { --card-fade: rgb(255, 242, 240); }
-html[data-theme="light"] .card--us:hover { --card-fade: rgb(255, 240, 243); }
+/* hover 틴트는 카드 배경을 바꾸는 대신, 사진과 본문을 한 장으로 덮는
+ * 오버레이의 투명도만 올린다. 배경색과 사진 그라데이션을 각각 전환하면
+ * 전환 중간 프레임에서 두 보간이 미세하게 어긋나 경계에 띠(틈)가 보이는데,
+ * 오버레이 한 장이면 경계 양쪽이 어떤 프레임에서든 항상 같은 색이다. */
+.card--au { --hover-tint: rgba(41, 151, 255, 0.09); }
+.card--uk { --hover-tint: rgba(255, 222, 89, 0.08); }
+.card--ca { --hover-tint: rgba(255, 112, 89, 0.09); }
+.card--us { --hover-tint: rgba(255, 92, 119, 0.09); }
+.country-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--hover-tint);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+.country-card:hover::after { opacity: 1; }
 
 /* ---------- 어학연수 배너 ---------- */
 .esl-banner-wrap { padding: 22px 0 10px; }
