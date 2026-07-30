@@ -136,7 +136,7 @@ $TEMPLATE = @'
         .theme-btn::before { content: '\1F319'; }
         :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
 
-        .uni-hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
+        .uni-hero { padding: 48px 0 36px; }
         .crumb { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
         .meta-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
         .meta-badge {
@@ -172,7 +172,9 @@ $TEMPLATE = @'
         .btn-primary { background: var(--text); color: var(--bg); }
         .btn-secondary { border: 1px solid var(--line); color: var(--text); }
 
-        section { padding: 36px 0; border-bottom: 1px solid var(--line); }
+        /* 구분선 대신 배경색 교차로 섹션을 나눈다 (애플 스타일 흰색-연회색 교차) */
+        section { padding: 44px 0; }
+        main > section:nth-of-type(even) { background: var(--surface); }
         h2 { font-size: 20px; margin-bottom: 18px; letter-spacing: -0.01em; }
 
         .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
@@ -205,7 +207,7 @@ $TEMPLATE = @'
         .major-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
         .major-tag {
             font-size: 13px; font-weight: 600; color: var(--body-text);
-            background: var(--surface); border-radius: 999px; padding: 6px 14px;
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
         }
         .subject-ranks li { list-style: none; font-size: 14px; color: var(--body-text); margin-bottom: 6px; }
         .subject-ranks .rank-chip {
@@ -220,7 +222,7 @@ $TEMPLATE = @'
         .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; }
 
         .editor-note {
-            background: var(--surface); border-radius: 14px; padding: 18px;
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
             font-size: 14px; color: var(--body-text);
         }
         .related-links { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -234,7 +236,7 @@ $TEMPLATE = @'
         .cta-lead { font-size: 14px; color: var(--body-text); margin-bottom: 20px; }
         .cta-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
 
-        .site-footer { border-top: 1px solid var(--line); padding: 28px 0 40px; }
+        .site-footer { background: var(--surface); padding: 28px 0 40px; }
         .site-footer p { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
     </style>
 </head>
