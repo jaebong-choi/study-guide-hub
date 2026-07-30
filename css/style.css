@@ -342,8 +342,9 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     position: relative;
     overflow: hidden;
     transition: all 0.25s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    /* backdrop-filter는 쓰지 않는다. 페이지 배경이 단색이라 시각 효과가 없는 반면,
+     * transform 애니메이션 중 레이어 정렬을 흐트러뜨려 사진/본문 경계에
+     * 헤어라인 틈을 만드는 주범이 된다. */
 }
 .country-card:hover { transform: translateY(-4px); }
 .country-card:active { transform: translateY(-2px) scale(0.99); }
@@ -353,10 +354,12 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     /* 2열 배치로 카드 폭이 넓어진 만큼 사진도 살짝 높여 비율을 맞춘다 */
     height: 190px;
     flex-shrink: 0;
-    /* 마우스를 올리면 사진이 1.04배로 커지는데, 잘라내지 않으면 사진 영역 밖으로
-     * 위아래 약 4px씩 삐져나온다. 아래쪽으로 넘친 부분은 그라데이션이 덮지 못해
-     * 본문과의 경계에 생이미지 띠가 생긴다. */
-    overflow: hidden;
+    /* 여기서 overflow:hidden으로 잘라내면 사진 하단이 정확히 경계선에서 끝나는데,
+     * 애니메이션 중 이미지 레이어가 소수점 픽셀로 어긋나면 그 경계에 헤어라인
+     * 틈이 보인다. 그래서 자르지 않고: 위·좌·우 넘침은 카드의 overflow:hidden이
+     * 잘라 주고, 아래 넘침(확대 시 최대 약 4px)은 ::after 그라데이션을 사진보다
+     * 6px 아래까지 연장해 불투명하게 덮는다. 경계선이 한 요소의 연속 페인트
+     * 내부에 묻히므로 어떤 프레임에서도 틈이 생길 수 없다. */
 }
 .card-photo img {
     width: 100%;
@@ -365,20 +368,25 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     object-position: center;
     display: block;
     transition: transform 0.4s ease;
+    /* 확대 애니메이션 시작 시 레이어 승격으로 인한 순간 어긋남 방지 */
+    will-change: transform;
 }
 .card--uk .card-photo img { object-position: center 28%; }
 .country-card:hover .card-photo img { transform: scale(1.04); }
 .card-photo::after {
     content: "";
     position: absolute;
-    inset: 0;
-    /* 94%에서 이미 카드색으로 완전히 덮고 마지막까지 유지한다.
-     * 이렇게 해두면 카드가 떠오르는 애니메이션 중 1px 어긋남이 생겨도
-     * 드러나는 색이 카드 배경과 같아 경계가 보이지 않는다. */
+    /* 사진 아래로 6px 더 내려가 사진/본문 경계선을 통째로 덮는다.
+     * 확대 시 아래로 삐져나오는 이미지(최대 약 4px)도 여기에 묻힌다. */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    /* 91%(사진 하단 약 12px 위)에서 이미 카드색으로 완전히 덮고 끝까지 유지 */
     background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 45%,
-        var(--card-fade-mid) 78%,
-        var(--card-fade) 94%,
+        rgba(0, 0, 0, 0) 44%,
+        var(--card-fade-mid) 76%,
+        var(--card-fade) 91%,
         var(--card-fade) 100%);
     pointer-events: none;
 }
@@ -407,8 +415,8 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     margin-top: -36px;
     position: relative;
     z-index: 1;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    /* backdrop-filter 금지: 배지가 사진/본문 경계에 걸쳐 있어서, 애니메이션 중
+     * backdrop 샘플링이 어긋나면 배지 주변에 경계선이 밀린 잔상(틈)이 보인다. */
 }
 .badge--au { color: var(--au); background: var(--badge-bg-au); }
 .badge--uk { color: var(--uk); background: var(--badge-bg-uk); }
