@@ -384,7 +384,7 @@ $TEMPLATE = @'
                     if (isNaN(min) && isNaN(max)) return;
                     if (isNaN(min)) min = max;
                     if (isNaN(max)) max = min;
-                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min) + '~' + fmt(max)) + ' · 오늘 환율 기준';
+                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min).replace(' 원', '') + ' ~ ' + fmt(max)) + ' · 오늘 환율 기준';
                 });
             })
             .catch(function () {});
