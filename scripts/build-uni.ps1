@@ -127,7 +127,14 @@ $TEMPLATE = @'
         }
         .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 52px; }
         .brand { font-weight: 700; color: var(--text); font-size: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 14px; }
         .header-cta { font-size: 13px; font-weight: 600; }
+        .theme-btn {
+            width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+            border: 1px solid var(--line); background: none; font-size: 15px; line-height: 1;
+        }
+        .theme-btn::before { content: '\1F319'; }
+        :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
 
         .uni-hero { padding: 48px 0 36px; border-bottom: 1px solid var(--line); }
         .crumb { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
@@ -138,6 +145,12 @@ $TEMPLATE = @'
         }
         .hero-banner { margin-bottom: 22px; border-radius: 16px; overflow: hidden; }
         .hero-banner img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        .uni-logo {
+            flex-shrink: 0; max-width: 160px; max-height: 88px; object-fit: contain;
+            background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px;
+        }
+        @media (max-width: 720px) { .uni-logo { max-width: 110px; max-height: 64px; padding: 8px 10px; } }
         .uni-hero h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.02em; }
         .en-name { font-size: 17px; color: var(--mute); margin: 4px 0 18px; }
         .rank-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
@@ -151,8 +164,9 @@ $TEMPLATE = @'
         }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
         .btn {
-            display: inline-block; font-size: 14px; font-weight: 700;
-            border-radius: 999px; padding: 11px 22px; transition: opacity .15s;
+            display: inline-flex; align-items: center; min-height: 44px;
+            font-size: 15px; font-weight: 700;
+            border-radius: 999px; padding: 0 24px; transition: opacity .15s;
         }
         .btn:hover { opacity: .85; }
         .btn-primary { background: var(--text); color: var(--bg); }
@@ -229,7 +243,10 @@ $TEMPLATE = @'
     <header class="site-header">
         <div class="container">
             <a href="../index.html" class="brand">Study Guide Hub</a>
-            <a href="../index.html#contact" class="header-cta">상담 문의</a>
+            <div class="header-actions">
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" title="밝게 / 어둡게" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta">상담 문의</a>
+            </div>
         </div>
     </header>
 
@@ -239,13 +256,18 @@ $TEMPLATE = @'
             <div class="container">
                 <p class="crumb"><a href="../index.html">홈</a> › {{COUNTRY}} › {{NAME_KO}}</p>
                 {{HERO_BANNER}}
-                <div class="meta-badges">
-                    <span class="meta-badge">{{CITY}}</span>
-                    <span class="meta-badge">{{TYPE_LABEL}}</span>
-                    <span class="meta-badge">{{COUNTRY}}</span>
+                <div class="hero-top">
+                    <div>
+                        <div class="meta-badges">
+                            <span class="meta-badge">{{CITY}}</span>
+                            <span class="meta-badge">{{TYPE_LABEL}}</span>
+                            <span class="meta-badge">{{COUNTRY}}</span>
+                        </div>
+                        <h1>{{NAME_KO}}</h1>
+                        <p class="en-name">{{NAME_EN}}</p>
+                    </div>
+                    {{UNI_LOGO}}
                 </div>
-                <h1>{{NAME_KO}}</h1>
-                <p class="en-name">{{NAME_EN}}</p>
                 <div class="rank-badges">{{RANK_BADGES}}</div>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="{{DIAG_URL}}">3분 진단 시작</a>
@@ -378,6 +400,16 @@ foreach ($file in $dataFiles) {
             foreach ($pw in @($u.pathways)) { if ($null -ne $pw) { $pathwayCards += New-PathwayCard $pw $diagUrl } }
         }
 
+        # 학교 로고 — images/uni/{id}-logo.(png|svg) 파일이 있으면 학교명 우측에 표시
+        $uniLogo = ''
+        foreach ($ext in @('png', 'svg')) {
+            $logoRel = 'images/uni/' + $u.id + '-logo.' + $ext
+            if (Test-Path (Join-Path $repoRoot $logoRel)) {
+                $uniLogo = '<img class="uni-logo" src="../' + $logoRel + '" alt="' + (Esc $u.name_ko) + ' 로고">'
+                break
+            }
+        }
+
         # 배너 이미지 — images/uni/{id}.jpg 파일이 있으면 자동 표시
         $heroBanner = ''
         $bannerRel = 'images/uni/' + $u.id + '.jpg'
@@ -471,6 +503,7 @@ foreach ($file in $dataFiles) {
             '{{SUBJECT_RANK_LIST}}'   = $subjectRankList
             '{{FACT_ROWS}}'           = $rows
             '{{LAST_VERIFIED}}'       = Esc $u.last_verified
+            '{{UNI_LOGO}}'            = $uniLogo
             '{{HERO_BANNER}}'         = $heroBanner
             '{{VIDEO_SECTION}}'       = $videoSection
             '{{EDITOR_NOTE_SECTION}}' = $editorSection
