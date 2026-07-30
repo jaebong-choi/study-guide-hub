@@ -163,6 +163,9 @@ $TEMPLATE = @'
             border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; align-self: center;
         }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .map-wrap { margin-top: 28px; height: 300px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+        @media (max-width: 720px) { .map-wrap { height: 220px; } }
         .btn {
             display: inline-flex; align-items: center; min-height: 44px;
             font-size: 15px; font-weight: 700;
@@ -274,6 +277,9 @@ $TEMPLATE = @'
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="{{DIAG_URL}}">3분 진단 시작</a>
                     <a class="btn btn-secondary" href="{{OFFICIAL_URL}}" target="_blank" rel="noopener">공식 홈페이지</a>
+                </div>
+                <div class="map-wrap">
+                    <iframe src="https://www.google.com/maps?q={{MAP_QUERY}}&amp;output=embed&amp;hl=ko" title="{{NAME_KO}} 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -505,6 +511,7 @@ foreach ($file in $dataFiles) {
             '{{SUBJECT_RANK_LIST}}'   = $subjectRankList
             '{{FACT_ROWS}}'           = $rows
             '{{LAST_VERIFIED}}'       = Esc $u.last_verified
+            '{{MAP_QUERY}}'           = [uri]::EscapeDataString($u.name_en + ', ' + $u.city)
             '{{UNI_LOGO}}'            = $uniLogo
             '{{HERO_BANNER}}'         = $heroBanner
             '{{VIDEO_SECTION}}'       = $videoSection
