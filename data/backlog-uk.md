@@ -40,21 +40,21 @@
 - [x] uk-brunel 브루넬
 
 ## 4차 배치 (옥스브리지·특수·나머지)
-- [ ] uk-oxford 옥스퍼드
-- [ ] uk-cambridge 케임브리지
-- [ ] uk-st-andrews 세인트앤드루스
-- [ ] uk-soas SOAS
-- [ ] uk-goldsmiths 골드스미스
-- [ ] uk-birkbeck 버크벡
-- [ ] uk-cranfield 크랜필드 (대학원)
-- [ ] uk-lbs 런던비즈니스스쿨 (대학원)
-- [ ] uk-rvc 로열수의대학
-- [ ] uk-aston 아스턴
-- [ ] uk-oxford-brookes 옥스퍼드브룩스
-- [ ] uk-westminster 웨스트민스터
-- [ ] uk-northumbria 노섬브리아
-- [ ] uk-middlesex 미들섹스
-- [ ] uk-uclan 센트럴랭커셔
-- [ ] uk-dmu 드몽포트
-- [ ] uk-anglia-ruskin 앵글리아러스킨
-- [ ] uk-ljmu 리버풀존무어스
+- [x] uk-oxford 옥스퍼드
+- [x] uk-cambridge 케임브리지
+- [x] uk-st-andrews 세인트앤드루스
+- [x] uk-soas SOAS
+- [x] uk-goldsmiths 골드스미스
+- [x] uk-birkbeck 버크벡
+- [x] uk-cranfield 크랜필드 (대학원)
+- [x] uk-lbs 런던비즈니스스쿨 (대학원)
+- [x] uk-rvc 로열수의대학
+- [x] uk-aston 아스턴
+- [x] uk-oxford-brookes 옥스퍼드브룩스
+- [x] uk-westminster 웨스트민스터
+- [x] uk-northumbria 노섬브리아
+- [x] uk-middlesex 미들섹스
+- [x] uk-uclan 센트럴랭커셔
+- [x] uk-dmu 드몽포트
+- [x] uk-anglia-ruskin 앵글리아러스킨
+- [x] uk-ljmu 리버풀존무어스
