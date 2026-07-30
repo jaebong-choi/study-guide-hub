@@ -107,6 +107,9 @@ foreach ($file in $dataFiles) {
                 } elseif ($PATHWAY_ENUM -cnotcontains $pw.type) {
                     $errors.Add("[$label] pathways[$p].type enum 오타: '$($pw.type)' (허용: $($PATHWAY_ENUM -join ', '))")
                 }
+                if ($pw.level -and @('ug', 'pg') -cnotcontains $pw.level) {
+                    $errors.Add("[$label] pathways[$p].level enum 오타: '$($pw.level)' (허용: ug, pg)")
+                }
             }
         }
 
@@ -118,6 +121,11 @@ foreach ($file in $dataFiles) {
         # official_url
         if ($u.official_url -and $u.official_url -notmatch '^https?://') {
             $errors.Add("[$label] official_url 은 http(s):// 로 시작해야 합니다: '$($u.official_url)'")
+        }
+
+        # youtube_id: null 또는 영상 ID (URL이 아니라 ID만)
+        if ($u.youtube_id -and $u.youtube_id -notmatch '^[A-Za-z0-9_-]{6,20}$') {
+            $errors.Add("[$label] youtube_id 는 영상 ID만 넣어야 합니다(URL 불가): '$($u.youtube_id)'")
         }
 
         # last_verified: YYYY-MM

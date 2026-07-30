@@ -16,10 +16,12 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": null },
     "popular_majors": ["스포츠매니지먼트", "경영", "기계공학", "산업디자인"],
     "pathways": [
-      { "type": "foundation", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £19,000", "note": null }
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £19,000", "note": null },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£28,500~32,000", "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
     "intakes": ["9월", "1월"],
     "official_url": "https://www.lboro.ac.uk",
+    "youtube_id": "8RHZ1K-ev2w",
     "editor_note": null,
     "related_ids": [],
     "last_verified": "2026-07"

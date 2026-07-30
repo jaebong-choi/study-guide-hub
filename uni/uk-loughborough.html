@@ -57,6 +57,8 @@
             font-size: 12px; font-weight: 600; color: var(--body-text);
             border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
         }
+        .hero-banner { margin-bottom: 22px; border-radius: 16px; overflow: hidden; }
+        .hero-banner img { width: 100%; height: 240px; object-fit: cover; display: block; }
         .uni-hero h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.02em; }
         .en-name { font-size: 17px; color: var(--mute); margin: 4px 0 18px; }
         .rank-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
@@ -101,6 +103,11 @@
         .pw-facts b { color: var(--text); }
         .pw-note { font-size: 13px; color: var(--mute); margin-bottom: 12px; }
         .pw-link { font-size: 14px; font-weight: 700; }
+        .pw-group { font-size: 15px; color: var(--mute); margin: 22px 0 10px; }
+        .pw-group:first-child { margin-top: 0; }
+
+        .video-wrap { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--surface); }
+        .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
 
         .major-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
         .major-tag {
@@ -152,6 +159,7 @@
         <section class="uni-hero">
             <div class="container">
                 <p class="crumb"><a href="../index.html">홈</a> › UK › 러프버러대학교</p>
+                
                 <div class="meta-badges">
                     <span class="meta-badge">Loughborough</span>
                     <span class="meta-badge">종합대학</span>
@@ -186,7 +194,7 @@
                     </div>
                     <div class="stat-card">
                         <p class="stat-label">진학 경로</p>
-                        <p class="stat-value">1개</p>
+                        <p class="stat-value">2개</p>
                     </div>
                 </div>
             </div>
@@ -196,10 +204,15 @@
         <section>
             <div class="container">
                 <h2>진학 경로</h2>
-                                <div class="pathway-card">
+                <h3 class="pw-group">학사 과정</h3>                <div class="pathway-card">
                     <div class="pw-head"><span class="pw-type">파운데이션</span><span class="pw-provider">자체 운영</span></div>
                     <div class="pw-facts"><span>IELTS <b>5.5</b></span><span>기간 <b>1년</b></span><span>비용 <b>약 £19,000</b></span></div>
                     
+                    <a class="pw-link" href="https://jaebong-choi.github.io/uk-study-guide/">이 경로로 진단 &rarr;</a>
+                </div><h3 class="pw-group">석사 과정</h3>                <div class="pathway-card">
+                    <div class="pw-head"><span class="pw-type">직접 입학</span></div>
+                    <div class="pw-facts"><span>IELTS <b>6.5</b></span><span>기간 <b>1년 (풀타임)</b></span><span>비용 <b>£28,500~32,000</b></span></div>
+                    <p class="pw-note">석사 직접 지원 · 전공별 요건 상이</p>
                     <a class="pw-link" href="https://jaebong-choi.github.io/uk-study-guide/">이 경로로 진단 &rarr;</a>
                 </div>
             </div>
@@ -225,6 +238,13 @@
             </div>
         </section>
 
+        <section>
+            <div class="container">
+                <h2>캠퍼스 둘러보기</h2>
+                <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/8RHZ1K-ev2w" title="러프버러대학교 공식 캠퍼스 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <p class="disclaimer">출처: 대학 공식 유튜브 채널</p>
+            </div>
+        </section>
         <!-- ⑥ 하단 CTA -->
         <section class="cta-section">
             <div class="container">

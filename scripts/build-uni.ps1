@@ -47,6 +47,24 @@ function Esc([string]$s) {
     return $s.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;').Replace('"', '&quot;')
 }
 
+function New-PathwayCard($pw, [string]$diagUrl) {
+    $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
+    $provider = if ($pw.provider) { '<span class="pw-provider">' + (Esc $pw.provider) + '</span>' } else { '' }
+    $facts = ''
+    if ($null -ne $pw.ielts_min) { $facts += '<span>IELTS <b>' + $pw.ielts_min + '</b></span>' }
+    if ($pw.duration)  { $facts += '<span>기간 <b>' + (Esc $pw.duration) + '</b></span>' }
+    if ($pw.cost_note) { $facts += '<span>비용 <b>' + (Esc $pw.cost_note) + '</b></span>' }
+    $noteHtml = if ($pw.note) { '<p class="pw-note">' + (Esc $pw.note) + '</p>' } else { '' }
+    return @"
+                <div class="pathway-card">
+                    <div class="pw-head"><span class="pw-type">$(Esc $pwLabel)</span>$provider</div>
+                    <div class="pw-facts">$facts</div>
+                    $noteHtml
+                    <a class="pw-link" href="$diagUrl">이 경로로 진단 &rarr;</a>
+                </div>
+"@
+}
+
 function Fmt-Tuition($min, $max, [string]$symbol) {
     if ($null -eq $min -and $null -eq $max) { return $null }
     if ($null -ne $min -and $null -ne $max) {
@@ -118,6 +136,8 @@ $TEMPLATE = @'
             font-size: 12px; font-weight: 600; color: var(--body-text);
             border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
         }
+        .hero-banner { margin-bottom: 22px; border-radius: 16px; overflow: hidden; }
+        .hero-banner img { width: 100%; height: 240px; object-fit: cover; display: block; }
         .uni-hero h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.02em; }
         .en-name { font-size: 17px; color: var(--mute); margin: 4px 0 18px; }
         .rank-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
@@ -162,6 +182,11 @@ $TEMPLATE = @'
         .pw-facts b { color: var(--text); }
         .pw-note { font-size: 13px; color: var(--mute); margin-bottom: 12px; }
         .pw-link { font-size: 14px; font-weight: 700; }
+        .pw-group { font-size: 15px; color: var(--mute); margin: 22px 0 10px; }
+        .pw-group:first-child { margin-top: 0; }
+
+        .video-wrap { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--surface); }
+        .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
 
         .major-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
         .major-tag {
@@ -213,6 +238,7 @@ $TEMPLATE = @'
         <section class="uni-hero">
             <div class="container">
                 <p class="crumb"><a href="../index.html">홈</a> › {{COUNTRY}} › {{NAME_KO}}</p>
+                {{HERO_BANNER}}
                 <div class="meta-badges">
                     <span class="meta-badge">{{CITY}}</span>
                     <span class="meta-badge">{{TYPE_LABEL}}</span>
@@ -280,7 +306,7 @@ $TEMPLATE = @'
                 <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다. 최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
             </div>
         </section>
-{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
+{{VIDEO_SECTION}}{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
         <!-- ⑥ 하단 CTA -->
         <section class="cta-section">
             <div class="container">
@@ -339,24 +365,38 @@ foreach ($file in $dataFiles) {
         $acceptedOther = @($u.english.accepted | Where-Object { $_ -ne 'ielts' } | ForEach-Object { $ENGLISH_LABEL[$_] })
         $acceptedSub = if ($acceptedOther.Count -gt 0) { ($acceptedOther -join [char]0x00B7) + ' 인정' } else { 'IELTS 기준' }
 
-        # 진학 경로 카드
+        # 진학 경로 카드 — level(ug/pg)이 섞여 있으면 학사/석사 그룹으로 나눔
+        $ugPaths = @($u.pathways | Where-Object { $null -ne $_ -and $_.level -ne 'pg' })
+        $pgPaths = @($u.pathways | Where-Object { $null -ne $_ -and $_.level -eq 'pg' })
         $pathwayCards = ''
-        foreach ($pw in @($u.pathways)) {
-            if ($null -eq $pw) { continue }
-            $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
-            $provider = if ($pw.provider) { '<span class="pw-provider">' + (Esc $pw.provider) + '</span>' } else { '' }
-            $facts = ''
-            if ($null -ne $pw.ielts_min) { $facts += '<span>IELTS <b>' + $pw.ielts_min + '</b></span>' }
-            if ($pw.duration)  { $facts += '<span>기간 <b>' + (Esc $pw.duration) + '</b></span>' }
-            if ($pw.cost_note) { $facts += '<span>비용 <b>' + (Esc $pw.cost_note) + '</b></span>' }
-            $noteHtml = if ($pw.note) { '<p class="pw-note">' + (Esc $pw.note) + '</p>' } else { '' }
-            $pathwayCards += @"
-                <div class="pathway-card">
-                    <div class="pw-head"><span class="pw-type">$(Esc $pwLabel)</span>$provider</div>
-                    <div class="pw-facts">$facts</div>
-                    $noteHtml
-                    <a class="pw-link" href="$diagUrl">이 경로로 진단 &rarr;</a>
-                </div>
+        if ($ugPaths.Count -gt 0 -and $pgPaths.Count -gt 0) {
+            $pathwayCards += '<h3 class="pw-group">학사 과정</h3>'
+            foreach ($pw in $ugPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl }
+            $pathwayCards += '<h3 class="pw-group">석사 과정</h3>'
+            foreach ($pw in $pgPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl }
+        } else {
+            foreach ($pw in @($u.pathways)) { if ($null -ne $pw) { $pathwayCards += New-PathwayCard $pw $diagUrl } }
+        }
+
+        # 배너 이미지 — images/uni/{id}.jpg 파일이 있으면 자동 표시
+        $heroBanner = ''
+        $bannerRel = 'images/uni/' + $u.id + '.jpg'
+        if (Test-Path (Join-Path $repoRoot $bannerRel)) {
+            $heroBanner = '<div class="hero-banner"><img src="../' + $bannerRel + '" alt="' + (Esc $u.name_ko) + ' 캠퍼스"></div>'
+        }
+
+        # 공식 유튜브 임베드 — youtube_id 없으면 섹션 자체를 생략
+        $videoSection = ''
+        if ($u.youtube_id) {
+            $videoSection = @"
+
+        <section>
+            <div class="container">
+                <h2>캠퍼스 둘러보기</h2>
+                <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/$($u.youtube_id)" title="$(Esc $u.name_ko) 공식 캠퍼스 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <p class="disclaimer">출처: 대학 공식 유튜브 채널</p>
+            </div>
+        </section>
 "@
         }
 
@@ -431,6 +471,8 @@ foreach ($file in $dataFiles) {
             '{{SUBJECT_RANK_LIST}}'   = $subjectRankList
             '{{FACT_ROWS}}'           = $rows
             '{{LAST_VERIFIED}}'       = Esc $u.last_verified
+            '{{HERO_BANNER}}'         = $heroBanner
+            '{{VIDEO_SECTION}}'       = $videoSection
             '{{EDITOR_NOTE_SECTION}}' = $editorSection
             '{{RELATED_SECTION}}'     = $relatedSection
         }
