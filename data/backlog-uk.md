@@ -4,16 +4,16 @@
 
 ## 1차 배치 (수요 상위)
 - [x] uk-loughborough 러프버러 (숫자 공식값 교체 필요)
-- [ ] uk-ucl UCL
-- [ ] uk-edinburgh 에든버러
-- [ ] uk-manchester 맨체스터
-- [ ] uk-kcl 킹스칼리지런던
-- [ ] uk-warwick 워릭
-- [ ] uk-bristol 브리스톨
-- [ ] uk-leeds 리즈
-- [ ] uk-birmingham 버밍엄
-- [ ] uk-nottingham 노팅엄
-- [ ] uk-exeter 엑시터
+- [x] uk-ucl UCL
+- [x] uk-edinburgh 에든버러
+- [x] uk-manchester 맨체스터
+- [x] uk-kcl 킹스칼리지런던
+- [x] uk-warwick 워릭
+- [x] uk-bristol 브리스톨
+- [x] uk-leeds 리즈
+- [x] uk-birmingham 버밍엄
+- [x] uk-nottingham 노팅엄
+- [x] uk-exeter 엑시터
 
 ## 2차 배치
 - [ ] uk-lse LSE
@@ -54,7 +54,7 @@
 - [ ] uk-westminster 웨스트민스터
 - [ ] uk-northumbria 노섬브리아
 - [ ] uk-middlesex 미들섹스
-- [ ] uk-uclan 센트럴랭커셔
+- [x] uk-uclan 센트럴랭커셔
 - [ ] uk-dmu 드몽포트
 - [ ] uk-anglia-ruskin 앵글리아러스킨
 - [ ] uk-ljmu 리버풀존무어스

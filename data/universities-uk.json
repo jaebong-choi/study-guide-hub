@@ -25,5 +25,312 @@
     "editor_note": null,
     "related_ids": [],
     "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-ucl",
+    "type": "university",
+    "name_ko": "유니버시티칼리지런던(UCL)",
+    "name_en": "University College London (UCL)",
+    "country": "UK",
+    "city": "London",
+    "qs_rank": 9,
+    "qs_subject_ranks": [
+      { "subject": "교육학", "rank": 1 },
+      { "subject": "건축학", "rank": 1 }
+    ],
+    "tuition_ug_min": 32000,
+    "tuition_ug_max": 42700,
+    "tuition_pg_min": 34000,
+    "tuition_pg_max": 43000,
+    "currency": "GBP",
+    "english": {
+      "ielts_min": 6.5,
+      "accepted": ["ielts", "toefl", "pte", "cambridge"],
+      "note": "전공별 Level 1(6.5)~Level 5 요구 수준 상이 · 다수 인기 전공은 7.0 요구 · 듀오링고 미인정"
+    },
+    "popular_majors": ["건축학", "교육학", "경제학", "법학", "컴퓨터공학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "£25,500~27,000", "note": "UPC(UPCSE 이공계·UPCH 인문계) · UCL 및 러셀그룹 진학 경로" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£34,000~43,000", "note": "석사 직접 지원 · 전공별 영어 Level 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.ucl.ac.uk",
+    "youtube_id": "jxYFg3ygMgk",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-edinburgh",
+    "type": "university",
+    "name_ko": "에든버러대학교",
+    "name_en": "The University of Edinburgh",
+    "country": "UK",
+    "city": "Edinburgh",
+    "qs_rank": 34,
+    "qs_subject_ranks": [
+      { "subject": "수의학", "rank": 5 }
+    ],
+    "tuition_ug_min": 26500,
+    "tuition_ug_max": 37500,
+    "tuition_pg_min": 28000,
+    "tuition_pg_max": 40500,
+    "currency": "GBP",
+    "english": {
+      "ielts_min": 6.5,
+      "accepted": ["ielts", "toefl", "cambridge"],
+      "note": "PTE·듀오링고 미인정 · Trinity ISE, Oxford ELLT 등 추가 인정 · 전공별 6.5~7.0"
+    },
+    "popular_majors": ["컴퓨터과학(AI)", "언어학", "수의학", "경영학", "영문학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "£29,600", "note": "International Foundation Programme · 인문·사회과학 계열 중심 (UKVI IELTS 필수)" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£28,000~40,500", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.ed.ac.uk",
+    "youtube_id": "1ICI1guR6fA",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-manchester",
+    "type": "university",
+    "name_ko": "맨체스터대학교",
+    "name_en": "The University of Manchester",
+    "country": "UK",
+    "city": "Manchester",
+    "qs_rank": 35,
+    "qs_subject_ranks": [
+      { "subject": "간호학", "rank": 10 },
+      { "subject": "화학공학", "rank": 16 }
+    ],
+    "tuition_ug_min": 26500,
+    "tuition_ug_max": 36500,
+    "tuition_pg_min": 28000,
+    "tuition_pg_max": 36000,
+    "currency": "GBP",
+    "english": {
+      "ielts_min": 6.5,
+      "accepted": ["ielts", "toefl", "pte", "cambridge"],
+      "note": "듀오링고 미인정 · 전공별 6.0~7.0"
+    },
+    "popular_majors": ["경영학", "컴퓨터과학", "화학공학", "간호학", "국제개발학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "INTO Manchester (NCUK)", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £24,000", "note": "NCUK International Foundation Year · 대학 자체 이공계 파운데이션도 별도 운영" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£28,000~36,000", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.manchester.ac.uk",
+    "youtube_id": "9foPV3IGWhY",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-kcl",
+    "type": "university",
+    "name_ko": "킹스칼리지런던(KCL)",
+    "name_en": "King's College London",
+    "country": "UK",
+    "city": "London",
+    "qs_rank": 31,
+    "qs_subject_ranks": [
+      { "subject": "간호학", "rank": 1 },
+      { "subject": "치의학", "rank": 4 }
+    ],
+    "tuition_ug_min": 27100,
+    "tuition_ug_max": 35800,
+    "tuition_pg_min": 28500,
+    "tuition_pg_max": 40450,
+    "currency": "GBP",
+    "english": {
+      "ielts_min": 7.0,
+      "accepted": ["ielts", "toefl", "pte", "cambridge"],
+      "note": "대다수 학부 과정 밴드 B 기준 7.0(각 영역 6.5) · 일부 과정 6.5 · 듀오링고 미인정"
+    },
+    "popular_majors": ["간호학", "치의학", "법학", "국제관계학", "심리학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "9개월~1년", "cost_note": "£28,150", "note": "King's International Foundation Programme (연장형 £32,600)" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£28,500~40,450", "note": "석사 직접 지원 · 전공별 밴드 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.kcl.ac.uk",
+    "youtube_id": "Qbciag5oBfg",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-warwick",
+    "type": "university",
+    "name_ko": "워릭대학교",
+    "name_en": "The University of Warwick",
+    "country": "UK",
+    "city": "Coventry",
+    "qs_rank": 74,
+    "qs_subject_ranks": [
+      { "subject": "수학", "rank": 31 },
+      { "subject": "경제학", "rank": 36 }
+    ],
+    "tuition_ug_min": 27870,
+    "tuition_ug_max": 35530,
+    "tuition_pg_min": 24800,
+    "tuition_pg_max": 39700,
+    "currency": "GBP",
+    "english": {
+      "ielts_min": 6.5,
+      "accepted": ["ielts", "toefl", "pte", "duolingo", "cambridge"],
+      "note": "듀오링고 인정(4개 영역 점수 필수) · 경쟁률 높은 과정은 7.0 요구"
+    },
+    "popular_majors": ["경제학", "수학", "경영학(WBS)", "컴퓨터과학", "제조공학(WMG)"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "9개월~1년", "cost_note": "£27,150", "note": "Warwick IFP · 계열별 영어 요건 5.5~6.0 · 연장형(영어 포함) £29,950" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£24,800~39,700", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://warwick.ac.uk",
+    "youtube_id": "HCCtzxQ-w6c",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-bristol",
+    "type": "university",
+    "name_ko": "브리스톨대학교",
+    "name_en": "University of Bristol",
+    "country": "UK",
+    "city": "Bristol",
+    "qs_rank": 51,
+    "qs_subject_ranks": [{ "subject": "사회정책·행정", "rank": 18 }],
+    "tuition_ug_min": 25500,
+    "tuition_ug_max": 33400,
+    "tuition_pg_min": 28200,
+    "tuition_pg_max": 36600,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte", "cambridge"], "note": "전공별 프로필(A~E)제 운영 · 인문계는 7.0 요구 과정 다수" },
+    "popular_majors": ["공학", "법학", "경제학", "컴퓨터공학", "사회정책"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영 (Kaplan 제휴)", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £26,000", "note": "국제파운데이션 수료 후 학부 진학" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£28,200~36,600", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.bristol.ac.uk",
+    "youtube_id": "ft42fIka-qc",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-leeds",
+    "type": "university",
+    "name_ko": "리즈대학교",
+    "name_en": "University of Leeds",
+    "country": "UK",
+    "city": "Leeds",
+    "qs_rank": 86,
+    "qs_subject_ranks": [{ "subject": "커뮤니케이션·미디어학", "rank": 34 }],
+    "tuition_ug_min": 24500,
+    "tuition_ug_max": 31500,
+    "tuition_pg_min": 25000,
+    "tuition_pg_max": 34000,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "cambridge"], "note": "듀오링고 미인정 · LanguageCert 등 추가 인정" },
+    "popular_majors": ["미디어커뮤니케이션", "경영", "회계·금융", "국제관계", "화학공학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "£24,000~24,500", "note": "International Foundation Year(IFY) · 학부 연계" },
+      { "type": "pre-master", "level": "pg", "provider": "Study Group", "ielts_min": 5.5, "duration": "2~3학기", "cost_note": "약 £22,000", "note": "Leeds International Study Centre 운영" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£25,000~34,000", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.leeds.ac.uk",
+    "youtube_id": "EBM2wxw_834",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-birmingham",
+    "type": "university",
+    "name_ko": "버밍엄대학교",
+    "name_en": "University of Birmingham",
+    "country": "UK",
+    "city": "Birmingham",
+    "qs_rank": 76,
+    "qs_subject_ranks": [{ "subject": "스포츠관련학", "rank": 9 }],
+    "tuition_ug_min": 24480,
+    "tuition_ug_max": 33360,
+    "tuition_pg_min": 24130,
+    "tuition_pg_max": 32510,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte", "cambridge"], "note": "전공별 밴드제(6.0~7.0) · 입학 첫해 학비 졸업까지 동결" },
+    "popular_majors": ["스포츠과학", "경영", "컴퓨터공학", "국제관계", "심리학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £23,000", "note": "Birmingham International Academy 파운데이션" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£24,130~32,510", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.birmingham.ac.uk",
+    "youtube_id": "4XGgo3zRzko",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-nottingham",
+    "type": "university",
+    "name_ko": "노팅엄대학교",
+    "name_en": "University of Nottingham",
+    "country": "UK",
+    "city": "Nottingham",
+    "qs_rank": 97,
+    "qs_subject_ranks": [{ "subject": "약학·약리학", "rank": 8 }, { "subject": "수의학", "rank": 39 }],
+    "tuition_ug_min": 24700,
+    "tuition_ug_max": 33000,
+    "tuition_pg_min": 25750,
+    "tuition_pg_max": 33800,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "PTE 온라인 시험 미인정 · 과정별 6.0~7.0" },
+    "popular_majors": ["약학", "경영", "기계공학", "법학", "컴퓨터공학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "Kaplan", "ielts_min": 5.0, "duration": "1년", "cost_note": "약 £22,450", "note": "University of Nottingham International College(UNIC)" },
+      { "type": "iyo", "level": "ug", "provider": "Kaplan", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £23,000", "note": "International Year One 수료 후 2학년 진입" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£25,750~33,800", "note": "석사 직접 지원 · 전공별 요건 상이" }
+    ],
+    "intakes": ["9월"],
+    "official_url": "https://www.nottingham.ac.uk",
+    "youtube_id": "i0FirXKjksQ",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
+  },
+  {
+    "id": "uk-exeter",
+    "type": "university",
+    "name_ko": "엑시터대학교",
+    "name_en": "University of Exeter",
+    "country": "UK",
+    "city": "Exeter",
+    "qs_rank": 155,
+    "qs_subject_ranks": [{ "subject": "광산공학", "rank": 19 }, { "subject": "스포츠관련학", "rank": 37 }],
+    "tuition_ug_min": 24900,
+    "tuition_ug_max": 31200,
+    "tuition_pg_min": 23700,
+    "tuition_pg_max": 32000,
+    "currency": "GBP",
+    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "듀오링고 120점 이상 인정" },
+    "popular_majors": ["경영", "회계·금융", "스포츠과학", "광산공학", "심리학"],
+    "pathways": [
+      { "type": "foundation", "level": "ug", "provider": "Study Group", "ielts_min": 5.0, "duration": "1년", "cost_note": "약 £23,000", "note": "Exeter International Study Centre 운영" },
+      { "type": "iyo", "level": "ug", "provider": "Study Group", "ielts_min": 5.5, "duration": "1년", "cost_note": "약 £24,000", "note": "International Year One 수료 후 2학년 진입" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1년 (풀타임)", "cost_note": "£23,700~32,000", "note": "석사 직접 지원 · 1월 입학 과정 다수" }
+    ],
+    "intakes": ["9월", "1월"],
+    "official_url": "https://www.exeter.ac.uk",
+    "youtube_id": "BUN0sSa2e9c",
+    "editor_note": null,
+    "related_ids": [],
+    "last_verified": "2026-07"
   }
 ]
