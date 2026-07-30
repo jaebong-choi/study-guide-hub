@@ -222,6 +222,7 @@ $TEMPLATE = @'
         .fact-table th, .fact-table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
         .fact-table th { color: var(--mute); font-weight: 600; width: 38%; }
         .fact-table td { color: var(--text); font-weight: 600; }
+        .fact-table .krw { display: block; font-size: 12px; color: var(--mute); font-weight: 500; margin-top: 2px; }
         .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; }
 
         .editor-note {
@@ -291,6 +292,7 @@ $TEMPLATE = @'
                     <div class="stat-card">
                         <p class="stat-label">연간 학비 (학부)</p>
                         <p class="stat-value">{{TUITION_UG}}</p>
+                        <p class="stat-sub krw" data-min="{{UG_MIN}}" data-max="{{UG_MAX}}"></p>
                     </div>
                     <div class="stat-card">
                         <p class="stat-label">IELTS 기준</p>
@@ -333,7 +335,7 @@ $TEMPLATE = @'
                 <table class="fact-table">
                     {{FACT_ROWS}}
                 </table>
-                <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다. 최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
+                <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다. 원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다. 최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
             </div>
         </section>
 {{VIDEO_SECTION}}{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
@@ -358,6 +360,36 @@ $TEMPLATE = @'
         </div>
     </footer>
 
+    <!-- 원화 환산 — 조회 시점의 환율을 받아 학비 옆에 표시. 실패하면 조용히 생략 -->
+    <script>
+    (function () {
+        var els = document.querySelectorAll('.krw');
+        if (!els.length) return;
+        fetch('https://open.er-api.com/v6/latest/{{CURRENCY}}')
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                var rate = d && d.rates && d.rates.KRW;
+                if (!rate) return;
+                function fmt(v) {
+                    var man = Math.round(v * rate / 10000);
+                    if (man >= 10000) {
+                        var eok = Math.floor(man / 10000), rest = man % 10000;
+                        return eok + '억' + (rest ? ' ' + rest.toLocaleString('ko-KR') + '만' : '') + ' 원';
+                    }
+                    return man.toLocaleString('ko-KR') + '만 원';
+                }
+                els.forEach(function (el) {
+                    var min = parseFloat(el.getAttribute('data-min'));
+                    var max = parseFloat(el.getAttribute('data-max'));
+                    if (isNaN(min) && isNaN(max)) return;
+                    if (isNaN(min)) min = max;
+                    if (isNaN(max)) max = min;
+                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min) + '~' + fmt(max)) + ' · 오늘 환율 기준';
+                });
+            })
+            .catch(function () {});
+    })();
+    </script>
 </body>
 </html>
 '@
@@ -455,8 +487,8 @@ foreach ($file in $dataFiles) {
         $rows = ''
         $ugText = Fmt-Tuition $u.tuition_ug_min $u.tuition_ug_max $symbol
         $pgText = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
-        if ($ugText) { $rows += '<tr><th>학부 연간 학비</th><td>' + $ugText + '</td></tr>' }
-        if ($pgText) { $rows += '<tr><th>석사 연간 학비</th><td>' + $pgText + '</td></tr>' }
+        if ($ugText) { $rows += '<tr><th>학부 연간 학비</th><td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
+        if ($pgText) { $rows += '<tr><th>석사 연간 학비</th><td>' + $pgText + ' <small class="krw" data-min="' + $u.tuition_pg_min + '" data-max="' + $u.tuition_pg_max + '"></small></td></tr>' }
         $ieltsText = 'IELTS ' + $u.english.ielts_min
         if ($u.english.note) { $ieltsText += ' (' + (Esc $u.english.note) + ')' }
         $rows += '<tr><th>영어 최소 기준</th><td>' + $ieltsText + '</td></tr>'
@@ -512,6 +544,9 @@ foreach ($file in $dataFiles) {
             '{{FACT_ROWS}}'           = $rows
             '{{LAST_VERIFIED}}'       = Esc $u.last_verified
             '{{MAP_QUERY}}'           = [uri]::EscapeDataString($u.name_en + ', ' + $u.city)
+            '{{CURRENCY}}'            = Esc $u.currency
+            '{{UG_MIN}}'              = [string]$u.tuition_ug_min
+            '{{UG_MAX}}'              = [string]$u.tuition_ug_max
             '{{UNI_LOGO}}'            = $uniLogo
             '{{HERO_BANNER}}'         = $heroBanner
             '{{VIDEO_SECTION}}'       = $videoSection
