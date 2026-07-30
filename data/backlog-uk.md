@@ -28,16 +28,16 @@
 - [x] uk-york 요크
 
 ## 3차 배치
-- [ ] uk-cardiff 카디프
-- [ ] uk-liverpool 리버풀
-- [ ] uk-surrey 서리
-- [ ] uk-sussex 서식스
-- [ ] uk-leicester 레스터
-- [ ] uk-qmul 퀸메리런던
-- [ ] uk-reading 리딩
-- [ ] uk-royal-holloway 로열홀로웨이
-- [ ] uk-city 시티 세인트조지스
-- [ ] uk-brunel 브루넬
+- [x] uk-cardiff 카디프
+- [x] uk-liverpool 리버풀
+- [x] uk-surrey 서리
+- [x] uk-sussex 서식스
+- [x] uk-leicester 레스터
+- [x] uk-qmul 퀸메리런던
+- [x] uk-reading 리딩
+- [x] uk-royal-holloway 로열홀로웨이
+- [x] uk-city 시티 세인트조지스
+- [x] uk-brunel 브루넬
 
 ## 4차 배치 (옥스브리지·특수·나머지)
 - [ ] uk-oxford 옥스퍼드
