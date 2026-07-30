@@ -15,7 +15,10 @@
     --line-strong: rgba(255, 255, 255, 0.4);
     --header-bg: rgba(0, 0, 0, 0.8);
     --card-bg: rgba(255, 255, 255, 0.05);
-    --card-fade: rgba(19, 19, 24, 0.96);
+    /* 그라데이션 끝색은 카드 본문의 실제 합성색과 정확히 같은 불투명 색이어야 한다.
+     * 반투명(0.96 등)으로 두면 마지막 몇 px에서 사진이 비쳐 경계선처럼 보인다.
+     * 다크: rgba(255,255,255,.05) 카드배경 위 #0b0b0f 페이지배경 = rgb(23,23,27) */
+    --card-fade: rgb(23, 23, 27);
     --card-fade-mid: rgba(17, 17, 21, 0.55);
     --badge-bg-au: rgba(13, 24, 36, 0.72);
     --badge-bg-uk: rgba(30, 27, 12, 0.72);
@@ -47,7 +50,7 @@ html[data-theme="light"] {
     --line-strong: rgba(0, 0, 0, 0.32);
     --header-bg: rgba(255, 255, 255, 0.82);
     --card-bg: #ffffff;
-    --card-fade: rgba(255, 255, 255, 0.97);
+    --card-fade: #ffffff;
     --card-fade-mid: rgba(255, 255, 255, 0.5);
     --badge-bg-au: rgba(41, 151, 255, 0.13);
     --badge-bg-uk: rgba(180, 140, 0, 0.14);
@@ -368,7 +371,14 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 45%, var(--card-fade-mid) 80%, var(--card-fade) 100%);
+    /* 94%에서 이미 카드색으로 완전히 덮고 마지막까지 유지한다.
+     * 이렇게 해두면 카드가 떠오르는 애니메이션 중 1px 어긋남이 생겨도
+     * 드러나는 색이 카드 배경과 같아 경계가 보이지 않는다. */
+    background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 45%,
+        var(--card-fade-mid) 78%,
+        var(--card-fade) 94%,
+        var(--card-fade) 100%);
     pointer-events: none;
 }
 
