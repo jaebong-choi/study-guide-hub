@@ -402,10 +402,218 @@ $TEMPLATE = @'
 </html>
 '@
 
+# ---------- 목록 페이지 템플릿 ----------
+$LIST_TEMPLATE = @'
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영국 대학교 안내 | Study Guide Hub</title>
+    <meta name="description" content="영국 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+
+    <script>
+        (function () {
+            var t = 'light';
+            try {
+                var saved = localStorage.getItem('sgh-theme');
+                if (saved === 'light' || saved === 'dark') t = saved;
+                else localStorage.setItem('sgh-theme', t);
+            } catch (e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0f; --surface: #1d1d1f; --text: #f5f5f7; --body-text: #c7c7cc;
+            --mute: #86868b; --line: rgba(255,255,255,0.14); --card-bg: rgba(255,255,255,0.05);
+            --accent: #FFDE59; --accent-text: #1d1d1f; --link: #2997ff;
+            --header-bg: rgba(0,0,0,0.8);
+        }
+        :root[data-theme="light"] {
+            --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --body-text: #4a4a4f;
+            --mute: #6e6e73; --line: rgba(0,0,0,0.12); --card-bg: #ffffff;
+            --accent: #A87E00; --accent-text: #ffffff; --link: #0066cc;
+            --header-bg: rgba(255,255,255,0.82);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1024px; margin: 0 auto; padding: 0 20px; }
+        a { color: var(--link); text-decoration: none; }
+
+        .site-header {
+            position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+            background: var(--header-bg); border-bottom: 1px solid var(--line);
+        }
+        .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+        .brand { font-weight: 700; color: var(--text); font-size: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 14px; }
+        .header-cta { font-size: 13px; font-weight: 600; }
+        .theme-btn {
+            width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+            border: 1px solid var(--line); background: none; font-size: 15px; line-height: 1;
+        }
+        .theme-btn::before { content: '\1F319'; }
+        :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+
+        .list-hero { padding: 44px 0 28px; }
+        .crumb { font-size: 13px; color: var(--mute); margin-bottom: 16px; }
+        .list-hero h1 { font-size: clamp(26px, 4.5vw, 36px); letter-spacing: -0.02em; margin-bottom: 8px; }
+        .list-hero p { font-size: 15px; color: var(--body-text); }
+
+        .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 22px 0 6px; }
+        .search-box {
+            flex: 1 1 240px; min-height: 44px; padding: 0 16px; font-size: 15px;
+            font-family: inherit; color: var(--text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 12px;
+        }
+        .search-box::placeholder { color: var(--mute); }
+        .sort-group { display: flex; gap: 6px; }
+        .sort-btn {
+            min-height: 44px; padding: 0 16px; font-size: 14px; font-weight: 600; cursor: pointer;
+            font-family: inherit; color: var(--body-text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
+        }
+        .sort-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
+
+        .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
+        @media (max-width: 860px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .uni-grid { grid-template-columns: 1fr; } }
+        .uni-card {
+            display: flex; flex-direction: column; gap: 10px;
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 16px; padding: 18px; color: var(--text);
+            transition: border-color .15s, transform .15s;
+        }
+        .uni-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .uni-card.is-hidden { display: none; }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; min-height: 46px; }
+        .card-logo { width: 74px; height: 44px; object-fit: contain; flex-shrink: 0; }
+        :root[data-theme="dark"] .card-logo { filter: brightness(0) invert(1); opacity: .9; }
+        .qs-badge {
+            font-size: 12px; font-weight: 700; white-space: nowrap;
+            background: var(--accent); color: var(--accent-text);
+            border-radius: 8px; padding: 3px 9px;
+        }
+        .qs-badge.is-unranked { background: none; color: var(--mute); border: 1px solid var(--line); font-weight: 600; }
+        .uni-card h2 { font-size: 17px; letter-spacing: -0.01em; }
+        .card-en { font-size: 12px; color: var(--mute); margin-top: -6px; }
+        .card-meta { font-size: 13px; color: var(--body-text); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+        .card-meta b { color: var(--text); }
+        .card-go { font-size: 14px; font-weight: 700; color: var(--link); margin-top: auto; }
+        .empty { padding: 40px 0 80px; color: var(--mute); font-size: 15px; }
+
+        .site-footer { background: var(--surface); padding: 28px 0 40px; }
+        .site-footer p { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="brand">Study Guide Hub</a>
+            <div class="header-actions">
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" title="밝게 / 어둡게" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta">상담 문의</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="list-hero">
+            <div class="container">
+                <p class="crumb"><a href="../index.html">홈</a> › 영국 대학교</p>
+                <h1>영국 대학교 {{COUNT}}곳</h1>
+                <p>학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
+
+                <div class="toolbar">
+                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" aria-label="학교 검색">
+                    <div class="sort-group" role="group" aria-label="정렬 기준">
+                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true">QS 순위</button>
+                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false">학비 낮은 순</button>
+                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false">가나다순</button>
+                    </div>
+                </div>
+                <p class="result-count" id="count"></p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="uni-grid" id="grid">
+{{CARDS}}
+            </div>
+            <p class="empty is-hidden" id="empty" hidden>검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: {{LAST_VERIFIED}})</p>
+            <p>학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
+            <p>© 2026 Study Guide Hub</p>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var grid = document.getElementById('grid');
+        var cards = [].slice.call(grid.children);
+        var q = document.getElementById('q');
+        var count = document.getElementById('count');
+        var empty = document.getElementById('empty');
+        var sortKey = 'qs';
+
+        function num(el, attr) {
+            var v = parseFloat(el.getAttribute(attr));
+            return isNaN(v) ? Infinity : v;   // 값 없는 학교는 항상 뒤로
+        }
+        function render() {
+            var term = q.value.trim().toLowerCase();
+            cards.sort(function (a, b) {
+                if (sortKey === 'name') return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'), 'ko');
+                return num(a, 'data-' + sortKey) - num(b, 'data-' + sortKey);
+            });
+            var shown = 0;
+            cards.forEach(function (c) {
+                var hit = !term || c.getAttribute('data-search').indexOf(term) > -1;
+                c.classList.toggle('is-hidden', !hit);
+                if (hit) shown++;
+                grid.appendChild(c);
+            });
+            count.textContent = shown + '개 학교';
+            empty.hidden = shown > 0;
+        }
+        q.addEventListener('input', render);
+        document.querySelectorAll('.sort-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                sortKey = btn.getAttribute('data-sort');
+                document.querySelectorAll('.sort-btn').forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b === btn));
+                });
+                render();
+            });
+        });
+        render();
+    })();
+    </script>
+</body>
+</html>
+'@
+
 # ---------- 생성 ----------
 if (-not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir | Out-Null }
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $built = 0
+$listCards = ''
+$listCount = 0
+$latestVerified = ''
 
 $dataFiles = Get-ChildItem -Path (Join-Path $repoRoot 'data') -Filter 'universities-*.json' -File
 foreach ($file in $dataFiles) {
@@ -567,8 +775,39 @@ foreach ($file in $dataFiles) {
         [IO.File]::WriteAllText($outPath, $html, $utf8NoBom)
         Write-Host ("생성: uni\{0}.html" -f $u.id) -ForegroundColor Green
         $built++
+
+        # ---- 목록 페이지용 카드 ----
+        $cardLogo = if ($uniLogo) { $uniLogo.Replace('class="uni-logo"', 'class="card-logo"').Replace('src="../', 'src="../') } else { '<span></span>' }
+        $qsBadge = if ($null -ne $u.qs_rank) {
+            '<span class="qs-badge">QS ' + $u.qs_rank + '위</span>'
+        } else {
+            '<span class="qs-badge is-unranked">QS 200위권 밖</span>'
+        }
+        $sortFee = if ($null -ne $u.tuition_ug_min) { $u.tuition_ug_min } elseif ($null -ne $u.tuition_pg_min) { $u.tuition_pg_min } else { '' }
+        $searchKey = ($u.name_ko + ' ' + $u.name_en + ' ' + $u.city).ToLower()
+        $listCards += @"
+                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-search="$(Esc $searchKey)">
+                    <div class="card-top">$cardLogo$qsBadge</div>
+                    <h2>$(Esc $u.name_ko)</h2>
+                    <p class="card-en">$(Esc $u.name_en)</p>
+                    <div class="card-meta">
+                        <span>$(Esc $u.city)</span>
+                        <span>학비 <b>$tuitionUg</b></span>
+                        <span>IELTS <b>$($u.english.ielts_min)</b></span>
+                    </div>
+                    <span class="card-go">자세히 보기 &rarr;</span>
+                </a>
+
+"@
+        $listCount++
+        if ($u.last_verified -gt $latestVerified) { $latestVerified = $u.last_verified }
     }
 }
 
+# ---------- 목록 페이지 ----------
+$listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $listCards).Replace('{{COUNT}}', [string]$listCount).Replace('{{LAST_VERIFIED}}', $latestVerified)
+[IO.File]::WriteAllText((Join-Path $outDir 'index.html'), $listHtml, $utf8NoBom)
+Write-Host '생성: uni\index.html (목록)' -ForegroundColor Green
+
 Write-Host ''
-Write-Host "완료 — 상세 페이지 ${built}개 생성" -ForegroundColor Cyan
+Write-Host "완료 — 상세 페이지 ${built}개 + 목록 페이지 1개 생성" -ForegroundColor Cyan

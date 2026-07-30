@@ -31,6 +31,17 @@ const I18N = {
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
+        sectionUniGuide: "학교별로 알아보기",
+        uniGuideTitle: "🎓 영국 대학교 49곳, 학비·요건을 학교별로 확인하세요",
+        uniGuideSub: "QS 순위·연간 학비·IELTS 기준·파운데이션과 석사 진학 경로까지, 공식 요강 기준으로 정리했습니다.",
+        uniGuideGo: "학교 목록 보기",
+        uniChipMore: "전체 보기 →",
+        chipOxford: "옥스퍼드",
+        chipCambridge: "케임브리지",
+        chipImperial: "임페리얼",
+        chipEdinburgh: "에든버러",
+        chipManchester: "맨체스터",
+
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
         auDesc: "학부(디플로마·파운데이션)부터 석사(GE)까지 3분 진단. 2026 대학 공식 학비 데이터 기반.",
@@ -103,6 +114,17 @@ const I18N = {
         /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
         heroSub: "Take a three-minute assessment for your chosen country, see which entry pathways match your grades and goals, then take the result to an advisor.",
+
+        sectionUniGuide: "Browse by university",
+        uniGuideTitle: "🎓 49 UK universities — compare fees and entry requirements",
+        uniGuideSub: "QS rankings, annual tuition, IELTS requirements, and foundation or master's pathways, based on official published information.",
+        uniGuideGo: "See the list",
+        uniChipMore: "See all →",
+        chipOxford: "Oxford",
+        chipCambridge: "Cambridge",
+        chipImperial: "Imperial",
+        chipEdinburgh: "Edinburgh",
+        chipManchester: "Manchester",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",
