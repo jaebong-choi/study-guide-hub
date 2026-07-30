@@ -54,7 +54,7 @@
 - [ ] uk-westminster 웨스트민스터
 - [ ] uk-northumbria 노섬브리아
 - [ ] uk-middlesex 미들섹스
-- [x] uk-uclan 센트럴랭커셔
+- [ ] uk-uclan 센트럴랭커셔
 - [ ] uk-dmu 드몽포트
 - [ ] uk-anglia-ruskin 앵글리아러스킨
 - [ ] uk-ljmu 리버풀존무어스
