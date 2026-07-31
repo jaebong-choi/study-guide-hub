@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>울런공대학교(UOW) (University of Wollongong) | Study Guide Hub</title>
+    <meta name="description" content="울런공대학교(UOW) 학비·입학 요건·진학 경로 정리. AU 3분 진단으로 내 조건에 맞는 경로를 확인하세요.">
+    <link rel="canonical" href="https://jaebong-choi.github.io/study-guide-hub/uni/au-wollongong.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Study Guide Hub">
+    <meta property="og:title" content="울런공대학교(UOW) (University of Wollongong) | Study Guide Hub">
+    <meta property="og:description" content="울런공대학교(UOW) 학비·입학 요건·진학 경로 정리. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:url" content="https://jaebong-choi.github.io/study-guide-hub/uni/au-wollongong.html">
+    <meta property="og:image" content="https://jaebong-choi.github.io/study-guide-hub/images/og-image.jpg?v=20260727">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- 화면 모드를 렌더링 전에 적용 (허브와 같은 키 sgh-theme 공유) -->
+    <script>
+        (function () {
+            var t = 'light';
+            try {
+                var saved = localStorage.getItem('sgh-theme');
+                if (saved === 'light' || saved === 'dark') t = saved;
+                else localStorage.setItem('sgh-theme', t);
+            } catch (e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0f; --surface: #1d1d1f; --text: #f5f5f7; --body-text: #c7c7cc;
+            --mute: #86868b; --line: rgba(255,255,255,0.14); --card-bg: rgba(255,255,255,0.05);
+            --accent: #FFDE59; --accent-text: #1d1d1f; --link: #2997ff;
+            --header-bg: rgba(0,0,0,0.8);
+        }
+        :root[data-theme="light"] {
+            --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --body-text: #4a4a4f;
+            --mute: #6e6e73; --line: rgba(0,0,0,0.12); --card-bg: #ffffff;
+            --accent: #A87E00; --accent-text: #ffffff; --link: #0066cc;
+            --header-bg: rgba(255,255,255,0.82);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+        a { color: var(--link); text-decoration: none; }
+
+        .site-header {
+            position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+            background: var(--header-bg); border-bottom: 1px solid var(--line);
+        }
+        .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+        .brand { font-weight: 700; color: var(--text); font-size: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 14px; }
+        .header-cta { font-size: 13px; font-weight: 600; }
+        .theme-btn {
+            width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+            border: 1px solid var(--line); background: none; font-size: 15px; line-height: 1;
+        }
+        .theme-btn::before { content: '\1F319'; }
+        :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+        .lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+        .lang-switch button {
+            border: 0; background: transparent; color: var(--mute); cursor: pointer;
+            font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+        }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch button.on { background: var(--text); color: var(--bg); }
+
+        .uni-hero { padding: 48px 0 36px; }
+        .crumb { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
+        .meta-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .meta-badge {
+            font-size: 12px; font-weight: 600; color: var(--body-text);
+            border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px;
+        }
+        .hero-banner { margin-bottom: 22px; border-radius: 16px; overflow: hidden; }
+        .hero-banner img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .hero-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+        /* 로고는 모든 학교 동일한 160x88 박스(contain). 투명 PNG/SVG 전제.
+           다크 모드에서는 흰색 단색으로 반전시켜 배경에 녹인다. */
+        .uni-logo { flex-shrink: 0; width: 160px; height: 88px; object-fit: contain; }
+        :root[data-theme="dark"] .uni-logo { filter: brightness(0) invert(1); opacity: .92; }
+        @media (max-width: 720px) { .uni-logo { width: 110px; height: 64px; } }
+        .uni-hero h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.02em; }
+        .en-name { font-size: 17px; color: var(--mute); margin: 4px 0 18px; }
+        .rank-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+        .rank-badge--subject {
+            background: var(--accent); color: var(--accent-text);
+            font-size: 14px; font-weight: 700; border-radius: 10px; padding: 8px 14px;
+        }
+        .rank-badge--overall {
+            font-size: 13px; font-weight: 600; color: var(--mute);
+            border: 1px solid var(--line); border-radius: 10px; padding: 8px 14px; align-self: center;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+        .map-wrap { margin-top: 28px; height: 300px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); }
+        .map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+        @media (max-width: 720px) { .map-wrap { height: 220px; } }
+        .btn {
+            display: inline-flex; align-items: center; min-height: 44px;
+            font-size: 15px; font-weight: 700;
+            border-radius: 999px; padding: 0 24px; transition: opacity .15s;
+        }
+        .btn:hover { opacity: .85; }
+        .btn-primary { background: var(--text); color: var(--bg); }
+        .btn-secondary { border: 1px solid var(--line); color: var(--text); }
+
+        /* 구분선 대신 배경색 교차로 섹션을 나눈다 (애플 스타일 흰색-연회색 교차) */
+        section { padding: 44px 0; }
+        main > section:nth-of-type(even) { background: var(--surface); }
+        h2 { font-size: 20px; margin-bottom: 18px; letter-spacing: -0.01em; }
+
+        .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        @media (max-width: 720px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+        .stat-card {
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 14px; padding: 16px;
+        }
+        .stat-label { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
+        .stat-value { font-size: 17px; font-weight: 700; line-height: 1.3; }
+        .stat-sub { font-size: 12px; color: var(--body-text); margin-top: 4px; }
+        .stat-card .krw { white-space: nowrap; }
+        .fx-date { font-size: 12px; color: var(--mute); margin-top: 10px; text-align: right; }
+
+        .pathway-card {
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 14px; padding: 18px; margin-bottom: 12px;
+        }
+        .pw-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+        .pw-type { font-size: 16px; font-weight: 700; }
+        .pw-provider { font-size: 13px; color: var(--mute); }
+        .pw-facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--body-text); margin-bottom: 12px; }
+        .pw-facts b { color: var(--text); }
+        .pw-note { font-size: 13px; color: var(--mute); margin-bottom: 12px; }
+        .pw-link { font-size: 14px; font-weight: 700; }
+        .pw-group { font-size: 15px; color: var(--mute); margin: 22px 0 10px; }
+        .pw-group:first-child { margin-top: 0; }
+
+        .video-wrap { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--surface); }
+        .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+        .major-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+        .major-tag {
+            font-size: 13px; font-weight: 600; color: var(--body-text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px;
+        }
+        .subject-ranks li { list-style: none; font-size: 14px; color: var(--body-text); margin-bottom: 6px; }
+        .subject-ranks .rank-chip {
+            display: inline-block; background: var(--accent); color: var(--accent-text);
+            font-size: 12px; font-weight: 700; border-radius: 6px; padding: 2px 8px; margin-left: 8px;
+        }
+
+        .fact-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .fact-table th, .fact-table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+        .fact-table th { color: var(--mute); font-weight: 600; width: 38%; }
+        .fact-table td { color: var(--text); font-weight: 600; }
+        .fact-table .krw { display: block; font-size: 12px; color: var(--mute); font-weight: 500; margin-top: 2px; }
+        .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; line-height: 1.8; }
+
+        .editor-note {
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
+            font-size: 14px; color: var(--body-text);
+        }
+        .related-links { display: flex; flex-wrap: wrap; gap: 10px; }
+        .related-links a {
+            border: 1px solid var(--line); border-radius: 999px;
+            padding: 8px 16px; font-size: 14px; font-weight: 600; color: var(--text);
+        }
+
+        .cta-section { text-align: center; border-bottom: none; padding: 48px 0; }
+        .cta-section h2 { margin-bottom: 8px; }
+        .cta-lead { font-size: 14px; color: var(--body-text); margin-bottom: 20px; }
+        .cta-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+        .site-footer { background: var(--surface); padding: 28px 0 40px; }
+        .site-footer p { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="brand">Study Guide Hub</a>
+            <div class="header-actions">
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ① 헤더 -->
+        <section class="uni-hero">
+            <div class="container">
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › AU › University of Wollongong"><a href="../index.html">홈</a> › AU › 울런공대학교(UOW)</p>
+                
+                <div class="hero-top">
+                    <div>
+                        <div class="meta-badges">
+                            <span class="meta-badge">Wollongong</span>
+                            <span class="meta-badge" data-en="University">종합대학</span>
+                            <span class="meta-badge">AU</span>
+                        </div>
+                        <h1 data-en="University of Wollongong">울런공대학교(UOW)</h1>
+                        <p class="en-name" data-en="울런공대학교(UOW)">University of Wollongong</p>
+                    </div>
+                    <img class="uni-logo" src="../images/uni/au-wollongong-logo.svg" alt="울런공대학교(UOW) 로고" data-en-alt="University of Wollongong logo">
+                </div>
+                <div class="rank-badges"><span class="rank-badge--overall" data-en="QS World #195">QS 종합 195위</span></div>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://jaebong-choi.github.io/au-study-guide/" data-en="Start the 3-minute quiz">3분 진단 시작</a>
+                    <a class="btn btn-secondary" href="https://www.uow.edu.au" target="_blank" rel="noopener" data-en="Official website">공식 홈페이지</a>
+                </div>
+                <div class="map-wrap">
+                    <iframe src="https://www.google.com/maps?q=University%20of%20Wollongong%2C%20Wollongong&amp;output=embed&amp;hl=ko" title="울런공대학교(UOW) 위치 지도" data-en-title="University of Wollongong location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- ② 핵심 수치 -->
+        <section>
+            <div class="container">
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <p class="stat-label" data-en="Annual tuition (PG)">연간 학비 (석사)</p>
+                        <p class="stat-value" data-en="Enquire">문의</p>
+                        <p class="stat-sub krw" data-min="" data-max=""></p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label" data-en="IELTS requirement">IELTS 기준</p>
+                        <p class="stat-value">6.0</p>
+                        <p class="stat-sub" data-en="Also accepts TOEFL iBT·PTE Academic">TOEFL iBT·PTE Academic 인정</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label" data-en="Intakes">입학 시기</p>
+                        <p class="stat-value" data-en="Feb &amp;middot; Jul">2월 &middot; 7월</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label" data-en="Entry routes">진학 경로</p>
+                        <p class="stat-value" data-en="3">3개</p>
+                    </div>
+                </div>
+                <p class="fx-date"></p>
+            </div>
+        </section>
+
+        <!-- ③ 진학 경로 -->
+        <section>
+            <div class="container">
+                <h2 data-en="Entry routes">진학 경로</h2>
+                <h3 class="pw-group" data-en="Undergraduate">학사 과정</h3>                <div class="pathway-card">
+                    <div class="pw-head"><span class="pw-type" data-en="Foundation">파운데이션</span><span class="pw-provider">UOW College</span></div>
+                    <div class="pw-facts"><span>IELTS <b>5.5</b></span><span data-en="Duration &lt;b&gt;8 months–1 year&lt;/b&gt;">기간 <b>8개월~1년</b></span></div>
+                    <p class="pw-note" data-en="Its own college foundation and diploma · progress to the university on completion">자체 컬리지 파운데이션·디플로마 · 수료 시 본교 진학</p>
+                    <a class="pw-link" href="https://jaebong-choi.github.io/au-study-guide/" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</a>
+                </div>                <div class="pathway-card">
+                    <div class="pw-head"><span class="pw-type" data-en="Direct entry">직접 입학</span></div>
+                    <div class="pw-facts"><span>IELTS <b>6.0</b></span><span data-en="Duration &lt;b&gt;3–4 years&lt;/b&gt;">기간 <b>3~4년</b></span></div>
+                    <p class="pw-note" data-en="A coastal city an hour south of Sydney · strong IT and engineering employment outcomes">시드니 남쪽 1시간 해안 도시 · IT·공학 취업 성과 우수</p>
+                    <a class="pw-link" href="https://jaebong-choi.github.io/au-study-guide/" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</a>
+                </div><h3 class="pw-group" data-en="Postgraduate">석사 과정</h3>                <div class="pathway-card">
+                    <div class="pw-head"><span class="pw-type" data-en="Direct entry">직접 입학</span></div>
+                    <div class="pw-facts"><span>IELTS <b>6.5</b></span><span data-en="Duration &lt;b&gt;1–2 years&lt;/b&gt;">기간 <b>1~2년</b></span></div>
+                    <p class="pw-note" data-en="Direct entry to master's · requirements vary by course">석사 직접 지원 · 전공별 요건 상이</p>
+                    <a class="pw-link" href="https://jaebong-choi.github.io/au-study-guide/" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ④ 전공 -->
+        <section>
+            <div class="container">
+                <h2 data-en="Popular subjects">인기 전공</h2>
+                <div class="major-tags"><span class="major-tag" data-en="Computer Science">컴퓨터과학</span><span class="major-tag" data-en="Engineering">공학</span><span class="major-tag" data-en="Nursing">간호학</span></div>
+                
+            </div>
+        </section>
+
+        <!-- ⑤ 학비·요건 표 -->
+        <section>
+            <div class="container">
+                <h2 data-en="Tuition and requirements">학비·요건 한눈에</h2>
+                <table class="fact-table">
+                    <tr><th data-en="Minimum English">영어 최소 기준</th><td data-en="IELTS 6.0 (Standard 6.0 (6.0 in each) · 6.5–7.0 by course)">IELTS 6.0 (표준 6.0 (각 6.0) · 전공별 6.5~7.0)</td></tr><tr><th data-en="Accepted English tests">인정 영어 시험</th><td>IELTS·TOEFL iBT·PTE Academic</td></tr><tr><th data-en="Intakes">입학 시기</th><td data-en="Feb &amp;middot; Jul">2월 &middot; 7월</td></tr>
+                </table>
+                <p class="disclaimer" data-en="Figures follow official university publications and vary by course and year.&lt;br&gt;KRW amounts are indicative, converted at the exchange rate at the time of viewing.&lt;br&gt;Check the official website for the latest information. (Verified: 2026-07)">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.<br>원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다.<br>최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: 2026-07)</p>
+            </div>
+        </section>
+
+        <!-- ⑥ 하단 CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-en="Which route fits your profile?">내 조건이면 어떤 경로가 맞을까?</h2>
+                <p class="cta-lead" data-en="Take the 3-minute quiz to see how you match University of Wollongong.">3분 진단으로 울런공대학교(UOW) 진학 가능성을 바로 확인해 보세요.</p>
+                <div class="cta-buttons">
+                    <a class="btn btn-primary" href="https://jaebong-choi.github.io/au-study-guide/" data-en="Start the 3-minute quiz">3분 진단 시작</a>
+                    <a class="btn btn-secondary" href="../index.html#contact" data-en="Contact">상담 문의</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p data-en="Sources: QS World University Rankings and official university publications">출처: QS World University Rankings · 각 대학 공식 공시 자료</p>
+            <p data-en="A free information page, independent of any agency or institution.">본 페이지는 특정 유학원·기관과 무관한 무료 정보 페이지입니다.</p>
+            <p>© 2026 Study Guide Hub</p>
+        </div>
+    </footer>
+
+    <!-- 언어 전환 — data-en 속성에 영어 문구를 심어 두고 통째로 스왑한다 (허브와 같은 키 sgh-lang 공유) -->
+    <script>
+    var LANG = 'ko';
+    try { if (localStorage.getItem('sgh-lang') === 'en') LANG = 'en'; } catch (e) {}
+    function applyLang() {
+        document.documentElement.lang = LANG;
+        document.title = LANG === 'en' ? 'University of Wollongong | Study Guide Hub' : '울런공대학교(UOW) (University of Wollongong) | Study Guide Hub';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
+            el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
+        });
+        [['data-en-title', 'title'], ['data-en-aria', 'aria-label'], ['data-en-alt', 'alt']].forEach(function (pair) {
+            document.querySelectorAll('[' + pair[0] + ']').forEach(function (el) {
+                var koAttr = pair[0] + '-ko';
+                if (!el.hasAttribute(koAttr)) el.setAttribute(koAttr, el.getAttribute(pair[1]) || '');
+                el.setAttribute(pair[1], el.getAttribute(LANG === 'en' ? pair[0] : koAttr));
+            });
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+            b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
+        });
+        renderKrw();
+    }
+    function setLang(l) {
+        LANG = l;
+        try { localStorage.setItem('sgh-lang', l); } catch (e) {}
+        applyLang();
+    }
+    </script>
+
+    <!-- 원화 환산 — 조회 시점의 환율을 받아 학비 옆에 표시. 실패하면 조용히 생략 -->
+    <script>
+    var FX_RATE = null;
+    function renderKrw() {
+        if (!FX_RATE) return;
+        var en = LANG === 'en';
+        function fmt(v) {
+            var man = Math.round(v * FX_RATE / 10000);
+            if (en) return '₩' + (man * 10000).toLocaleString('en-US');
+            if (man >= 10000) {
+                var eok = Math.floor(man / 10000), rest = man % 10000;
+                return eok + '억' + (rest ? ' ' + rest.toLocaleString('ko-KR') + '만' : '') + ' 원';
+            }
+            return man.toLocaleString('ko-KR') + '만 원';
+        }
+        document.querySelectorAll('.krw').forEach(function (el) {
+            var min = parseFloat(el.getAttribute('data-min'));
+            var max = parseFloat(el.getAttribute('data-max'));
+            if (isNaN(min) && isNaN(max)) return;
+            if (isNaN(min)) min = max;
+            if (isNaN(max)) max = min;
+            var range = min === max ? fmt(min) : (en ? fmt(min) + ' ~ ' + fmt(max) : fmt(min).replace(' 원', '') + '~' + fmt(max));
+            el.textContent = (en ? 'approx. ' : '약 ') + range;
+        });
+        var today = new Date();
+        var dateNote = en
+            ? 'Rate as of ' + today.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })
+            : today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
+        document.querySelectorAll('.fx-date').forEach(function (el) { el.textContent = dateNote; });
+    }
+    fetch('https://open.er-api.com/v6/latest/AUD')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            FX_RATE = d && d.rates && d.rates.KRW;
+            renderKrw();
+        })
+        .catch(function () {});
+    applyLang();
+    </script>
+</body>
+</html>

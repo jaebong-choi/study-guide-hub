@@ -330,7 +330,7 @@ $TEMPLATE = @'
                 <div class="hero-top">
                     <div>
                         <div class="meta-badges">
-                            <span class="meta-badge">{{CITY}}</span>
+                            {{CITY_BADGE}}
                             {{TYPE_BADGE}}
                             <span class="meta-badge">{{COUNTRY}}</span>
                         </div>
@@ -927,7 +927,7 @@ foreach ($file in $dataFiles) {
             '{{NAME_KO}}'             = Esc $u.name_ko
             '{{NAME_EN}}'             = Esc $u.name_en
             '{{COUNTRY}}'             = Esc $u.country
-            '{{CITY}}'                = Esc $u.city
+            '{{CITY_BADGE}}'          = '<span class="meta-badge"' + (EnAttr $u.city (En $u.city)) + '>' + (Esc $u.city) + '</span>'
             '{{TYPE_BADGE}}'          = '<span class="meta-badge"' + (EnAttr $typeText (En $typeText)) + '>' + (Esc $typeText) + '</span>'
             '{{RANK_BADGES}}'         = $rankBadges
             '{{DIAG_URL}}'            = $diagUrl
@@ -980,7 +980,7 @@ foreach ($file in $dataFiles) {
                     <h2 data-en="$(Esc $u.name_en)">$(Esc $u.name_ko)</h2>
                     <p class="card-en" data-en="$(Esc $u.name_ko)">$(Esc $u.name_en)</p>
                     <div class="card-meta">
-                        <span>$(Esc $u.city)</span>
+                        <span$(EnAttr $u.city (En $u.city))>$(Esc $u.city)</span>
                         <span data-en="Fees <b>$feeEnVal</b>">학비 <b>$tuitionUg</b></span>
                         <span>IELTS <b>$($u.english.ielts_min)</b></span>
                     </div>
