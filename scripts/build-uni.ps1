@@ -38,9 +38,16 @@ $CURRENCY_SYMBOL = @{
 # 국가별 3분 진단 사이트
 $DIAG_URL = @{
     'UK' = 'https://jaebong-choi.github.io/uk-study-guide/'
-    'AU' = 'https://jaebong-choi.github.io/studyabroad-au-ai/'
+    'AU' = 'https://jaebong-choi.github.io/au-study-guide/'
     'CA' = 'https://jaebong-choi.github.io/ca-study-guide/'
     'US' = 'https://jaebong-choi.github.io/us-study-guide/'
+}
+# 국가별 목록 페이지 정보 — UK는 기존 URL(uni/index.html) 유지, 나머지는 uni/{cc}.html
+$COUNTRY_INFO = @{
+    'UK' = @{ ko = '영국';   enAdj = 'UK';         file = 'index.html' }
+    'AU' = @{ ko = '호주';   enAdj = 'Australian'; file = 'au.html' }
+    'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html' }
+    'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html' }
 }
 
 function Esc([string]$s) {
@@ -499,14 +506,14 @@ $LIST_TEMPLATE = @'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>영국 대학교 안내 | Study Guide Hub</title>
-    <meta name="description" content="영국 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
-    <link rel="canonical" href="{{SITE}}uni/">
+    <title>{{CN_KO}} 대학교 안내 | Study Guide Hub</title>
+    <meta name="description" content="{{CN_KO}} 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <link rel="canonical" href="{{SITE}}uni/{{LIST_PATH}}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Study Guide Hub">
-    <meta property="og:title" content="영국 대학교 {{COUNT}}곳 안내 | Study Guide Hub">
-    <meta property="og:description" content="영국 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
-    <meta property="og:url" content="{{SITE}}uni/">
+    <meta property="og:title" content="{{CN_KO}} 대학교 {{COUNT}}곳 안내 | Study Guide Hub">
+    <meta property="og:description" content="{{CN_KO}} 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:url" content="{{SITE}}uni/{{LIST_PATH}}">
     <meta property="og:image" content="{{SITE}}images/og-image.jpg?v=20260727">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -641,8 +648,8 @@ $LIST_TEMPLATE = @'
     <main>
         <section class="list-hero">
             <div class="container">
-                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › UK universities"><a href="../index.html">홈</a> › 영국 대학교</p>
-                <h1 data-en="{{COUNT}} UK universities">영국 대학교 {{COUNT}}곳</h1>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › {{CN_EN}} universities"><a href="../index.html">홈</a> › {{CN_KO}} 대학교</p>
+                <h1 data-en="{{COUNT}} {{CN_EN}} universities">{{CN_KO}} 대학교 {{COUNT}}곳</h1>
                 <p data-en="Tuition, IELTS requirements and entry routes, school by school. Select a university for details.">학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
 
                 <div class="toolbar">
@@ -679,7 +686,7 @@ $LIST_TEMPLATE = @'
     var render;   // applyLang에서 재호출할 수 있게 밖으로 꺼내 둔다
     function applyLang() {
         document.documentElement.lang = LANG;
-        document.title = LANG === 'en' ? 'UK universities | Study Guide Hub' : '영국 대학교 안내 | Study Guide Hub';
+        document.title = LANG === 'en' ? '{{CN_EN}} universities | Study Guide Hub' : '{{CN_KO}} 대학교 안내 | Study Guide Hub';
         document.querySelectorAll('[data-en]').forEach(function (el) {
             if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
             el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
@@ -753,9 +760,7 @@ $LIST_TEMPLATE = @'
 if (-not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir | Out-Null }
 $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $built = 0
-$listCards = ''
-$listCount = 0
-$latestVerified = ''
+$lists = @{}   # country → @{cards; count; latest}
 $allIds = @()
 
 $dataFiles = Get-ChildItem -Path (Join-Path $repoRoot 'data') -Filter 'universities-*.json' -File
@@ -968,7 +973,8 @@ foreach ($file in $dataFiles) {
         $sortFee = if ($null -ne $u.tuition_ug_min) { $u.tuition_ug_min } elseif ($null -ne $u.tuition_pg_min) { $u.tuition_pg_min } else { '' }
         $searchKey = ($u.name_ko + ' ' + $u.name_en + ' ' + $u.city).ToLower()
         $feeEnVal = if ($tuitionUgEn) { 'Enquire' } else { $tuitionUg }
-        $listCards += @"
+        if (-not $lists.ContainsKey($u.country)) { $lists[$u.country] = @{ cards = ''; count = 0; latest = '' } }
+        $lists[$u.country].cards += @"
                 <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)">
                     <div class="card-top">$cardLogo$($qsBadge)</div>
                     <h2 data-en="$(Esc $u.name_en)">$(Esc $u.name_ko)</h2>
@@ -982,19 +988,29 @@ foreach ($file in $dataFiles) {
                 </a>
 
 "@
-        $listCount++
+        $lists[$u.country].count++
         $allIds += $u.id
-        if ($u.last_verified -gt $latestVerified) { $latestVerified = $u.last_verified }
+        if ($u.last_verified -gt $lists[$u.country].latest) { $lists[$u.country].latest = $u.last_verified }
     }
 }
 
-# ---------- 목록 페이지 ----------
-$listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $listCards).Replace('{{COUNT}}', [string]$listCount).Replace('{{LAST_VERIFIED}}', $latestVerified).Replace('{{SITE}}', $SITE)
-[IO.File]::WriteAllText((Join-Path $outDir 'index.html'), $listHtml, $utf8NoBom)
-Write-Host '생성: uni\index.html (목록)' -ForegroundColor Green
+# ---------- 국가별 목록 페이지 ----------
+$listLocs = @()
+foreach ($cc in $lists.Keys) {
+    $info = $COUNTRY_INFO[$cc]
+    if (-not $info) { $info = @{ ko = $cc; enAdj = $cc; file = ($cc.ToLower() + '.html') } }
+    $listPath = if ($info.file -eq 'index.html') { '' } else { $info.file }   # canonical: index.html은 uni/
+    $l = $lists[$cc]
+    $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).
+        Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
+        Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath)
+    [IO.File]::WriteAllText((Join-Path $outDir $info.file), $listHtml, $utf8NoBom)
+    $listLocs += ('uni/' + $listPath)
+    Write-Host ("생성: uni\{0} ({1} 목록 {2}곳)" -f $info.file, $cc, $l.count) -ForegroundColor Green
+}
 
 # ---------- sitemap.xml / robots.txt ----------
-$locs = @('', 'privacy.html', 'uni/') + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
+$locs = @('', 'privacy.html') + $listLocs + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
 $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" +
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n" +
            (($locs | ForEach-Object { '  <url><loc>' + $SITE + $_ + '</loc></url>' }) -join "`n") + "`n" +
