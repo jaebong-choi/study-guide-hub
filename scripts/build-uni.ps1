@@ -6,6 +6,7 @@
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $outDir   = Join-Path $repoRoot 'uni'
+$SITE     = 'https://jaebong-choi.github.io/study-guide-hub/'
 
 # ---------- 표시용 매핑 ----------
 $TYPE_LABEL = @{
@@ -84,6 +85,17 @@ $TEMPLATE = @'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{NAME_KO}} ({{NAME_EN}}) | Study Guide Hub</title>
     <meta name="description" content="{{NAME_KO}} 학비·입학 요건·진학 경로 정리. {{COUNTRY}} 3분 진단으로 내 조건에 맞는 경로를 확인하세요.">
+    <link rel="canonical" href="{{SITE}}uni/{{ID}}.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Study Guide Hub">
+    <meta property="og:title" content="{{NAME_KO}} ({{NAME_EN}}) | Study Guide Hub">
+    <meta property="og:description" content="{{NAME_KO}} 학비·입학 요건·진학 경로 정리. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:url" content="{{SITE}}uni/{{ID}}.html">
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- 화면 모드를 렌더링 전에 적용 (허브와 같은 키 sgh-theme 공유) -->
     <script>
@@ -411,6 +423,17 @@ $LIST_TEMPLATE = @'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>영국 대학교 안내 | Study Guide Hub</title>
     <meta name="description" content="영국 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <link rel="canonical" href="{{SITE}}uni/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Study Guide Hub">
+    <meta property="og:title" content="영국 대학교 {{COUNT}}곳 안내 | Study Guide Hub">
+    <meta property="og:description" content="영국 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:url" content="{{SITE}}uni/">
+    <meta property="og:image" content="{{SITE}}images/og-image.jpg?v=20260727">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
 
     <script>
         (function () {
@@ -614,6 +637,7 @@ $built = 0
 $listCards = ''
 $listCount = 0
 $latestVerified = ''
+$allIds = @()
 
 $dataFiles = Get-ChildItem -Path (Join-Path $repoRoot 'data') -Filter 'universities-*.json' -File
 foreach ($file in $dataFiles) {
@@ -739,8 +763,14 @@ foreach ($file in $dataFiles) {
 "@
         }
 
+        # OG 이미지 — 학교 배너가 있으면 그걸, 없으면 허브 공용 이미지
+        $ogImage = if ($heroBanner) { $SITE + $bannerRel } else { $SITE + 'images/og-image.jpg?v=20260727' }
+
         $html = $TEMPLATE
         $tokens = @{
+            '{{ID}}'                  = $u.id
+            '{{SITE}}'                = $SITE
+            '{{OG_IMAGE}}'            = $ogImage
             '{{NAME_KO}}'             = Esc $u.name_ko
             '{{NAME_EN}}'             = Esc $u.name_en
             '{{COUNTRY}}'             = Esc $u.country
@@ -800,14 +830,25 @@ foreach ($file in $dataFiles) {
 
 "@
         $listCount++
+        $allIds += $u.id
         if ($u.last_verified -gt $latestVerified) { $latestVerified = $u.last_verified }
     }
 }
 
 # ---------- 목록 페이지 ----------
-$listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $listCards).Replace('{{COUNT}}', [string]$listCount).Replace('{{LAST_VERIFIED}}', $latestVerified)
+$listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $listCards).Replace('{{COUNT}}', [string]$listCount).Replace('{{LAST_VERIFIED}}', $latestVerified).Replace('{{SITE}}', $SITE)
 [IO.File]::WriteAllText((Join-Path $outDir 'index.html'), $listHtml, $utf8NoBom)
 Write-Host '생성: uni\index.html (목록)' -ForegroundColor Green
+
+# ---------- sitemap.xml / robots.txt ----------
+$locs = @('', 'privacy.html', 'uni/') + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
+$sitemap = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" +
+           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n" +
+           (($locs | ForEach-Object { '  <url><loc>' + $SITE + $_ + '</loc></url>' }) -join "`n") + "`n" +
+           '</urlset>' + "`n"
+[IO.File]::WriteAllText((Join-Path $repoRoot 'sitemap.xml'), $sitemap, $utf8NoBom)
+[IO.File]::WriteAllText((Join-Path $repoRoot 'robots.txt'), "User-agent: *`nAllow: /`nSitemap: ${SITE}sitemap.xml`n", $utf8NoBom)
+Write-Host ("생성: sitemap.xml ({0}개 URL) + robots.txt" -f $locs.Count) -ForegroundColor Green
 
 Write-Host ''
 Write-Host "완료 — 상세 페이지 ${built}개 + 목록 페이지 1개 생성" -ForegroundColor Cyan
