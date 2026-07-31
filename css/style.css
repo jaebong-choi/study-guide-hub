@@ -742,3 +742,12 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     .contact-buttons { flex-direction: column; }
     .btn { width: 100%; max-width: 320px; }
 }
+
+/* 국가별 진학 가이드 링크 (배너 카드 아래 텍스트 링크 2개) */
+.guide-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 14px; }
+.guide-links a {
+    font-size: 14px; font-weight: 600; color: var(--au);
+    border-bottom: 1px solid transparent; padding-bottom: 1px;
+}
+.guide-links a:first-child { color: var(--uk); }
+.guide-links a:hover { border-bottom-color: currentColor; }

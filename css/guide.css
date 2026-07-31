@@ -1,0 +1,164 @@
+/* =========================================================
+ * 국가별 진학 가이드 페이지 (guide/uk.html, guide/au.html)
+ * uni/ 상세 페이지와 같은 톤. 변수·헤더·푸터는 이 파일에서 자립적으로 정의해
+ * 허브 style.css 없이도 단독 렌더된다.
+ * ========================================================= */
+:root {
+    --bg: #0b0b0f; --surface: #1d1d1f; --text: #f5f5f7; --body-text: #c7c7cc;
+    --mute: #86868b; --line: rgba(255,255,255,0.14); --card-bg: rgba(255,255,255,0.05);
+    --accent: #FFDE59; --accent-text: #1d1d1f; --link: #2997ff;
+    --header-bg: rgba(0,0,0,0.8);
+}
+:root[data-theme="light"] {
+    --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --body-text: #4a4a4f;
+    --mute: #6e6e73; --line: rgba(0,0,0,0.12); --card-bg: #ffffff;
+    --accent: #A87E00; --accent-text: #ffffff; --link: #0066cc;
+    --header-bg: rgba(255,255,255,0.82);
+}
+/* 국가별 포인트 컬러 */
+:root[data-country="au"] { --accent: #2997ff; --accent-text: #ffffff; }
+:root[data-country="au"][data-theme="light"] { --accent: #0071e3; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+a { color: var(--link); text-decoration: none; }
+
+/* ---------- 헤더 (uni 상세와 동일) ---------- */
+.site-header {
+    position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+    background: var(--header-bg); border-bottom: 1px solid var(--line);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+.brand { font-weight: 700; color: var(--text); font-size: 15px; }
+.header-actions { display: flex; align-items: center; gap: 14px; }
+.header-cta { font-size: 13px; font-weight: 600; }
+.theme-btn {
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+    border: 1px solid var(--line); background: none; font-size: 15px; line-height: 1;
+}
+.theme-btn::before { content: '\1F319'; }
+:root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+.lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+.lang-switch button {
+    border: 0; background: transparent; color: var(--mute); cursor: pointer;
+    font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+}
+.lang-switch button:hover { color: var(--text); }
+.lang-switch button.on { background: var(--text); color: var(--bg); }
+
+/* ---------- 히어로 ---------- */
+.guide-hero { padding: 40px 0 34px; }
+.crumb { font-size: 13px; color: var(--mute); margin-bottom: 16px; }
+.guide-hero h1 { font-size: clamp(27px, 4.6vw, 38px); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px; word-break: keep-all; }
+.guide-lead { font-size: 16px; color: var(--body-text); max-width: 60ch; word-break: keep-all; margin-bottom: 22px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.hero-photo { margin-top: 28px; border-radius: 16px; overflow: hidden; }
+.hero-photo img { width: 100%; height: 220px; object-fit: cover; display: block; }
+@media (max-width: 720px) { .hero-photo img { height: 150px; } }
+
+.btn {
+    display: inline-flex; align-items: center; min-height: 44px;
+    font-size: 15px; font-weight: 700; white-space: nowrap;
+    border-radius: 999px; padding: 0 22px; transition: opacity .15s;
+}
+.btn:hover { opacity: .85; }
+.btn-primary { background: var(--text); color: var(--bg); }
+.btn-secondary { border: 1px solid var(--line); color: var(--text); }
+
+/* ---------- 섹션 공통 ---------- */
+section { padding: 44px 0; }
+main > section:nth-of-type(even) { background: var(--surface); }
+h2 { font-size: clamp(20px, 3vw, 24px); letter-spacing: -0.01em; margin-bottom: 8px; word-break: keep-all; }
+.sec-lead { font-size: 14.5px; color: var(--body-text); margin-bottom: 22px; max-width: 62ch; word-break: keep-all; }
+
+/* ---------- 경로 카드 (학부) ---------- */
+.route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+@media (max-width: 860px) { .route-grid { grid-template-columns: 1fr; } }
+.route-card {
+    background: var(--card-bg); border: 1px solid var(--line);
+    border-radius: 16px; padding: 20px; display: flex; flex-direction: column;
+}
+.route-card h3 { font-size: 17px; margin-bottom: 4px; }
+.route-card .route-en { font-size: 12px; color: var(--mute); margin-bottom: 14px; }
+.route-spec { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.route-spec div { display: flex; gap: 10px; font-size: 13.5px; }
+.route-spec dt { color: var(--mute); flex-shrink: 0; width: 52px; }
+.route-spec dd { color: var(--text); font-weight: 600; word-break: keep-all; }
+.route-note { font-size: 13px; color: var(--mute); line-height: 1.65; margin-top: auto; word-break: keep-all; }
+
+/* ---------- 석사 경로 (가로 행) ---------- */
+.pg-rows { display: flex; flex-direction: column; gap: 12px; }
+.pg-row {
+    display: grid; grid-template-columns: 190px 1fr; gap: 20px; align-items: start;
+    border-top: 1px solid var(--line); padding-top: 16px;
+}
+.pg-row:first-child { border-top: 0; padding-top: 0; }
+@media (max-width: 720px) { .pg-row { grid-template-columns: 1fr; gap: 6px; } }
+.pg-row h3 { font-size: 16px; margin-bottom: 2px; }
+.pg-row .route-en { font-size: 12px; color: var(--mute); }
+.pg-row p { font-size: 14px; color: var(--body-text); word-break: keep-all; }
+
+/* ---------- 표 ---------- */
+.table-wrap { overflow-x: auto; }
+.fact-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 460px; }
+.fact-table th, .fact-table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+.fact-table thead th { color: var(--mute); font-weight: 600; font-size: 13px; }
+.fact-table tbody th { color: var(--body-text); font-weight: 600; width: 38%; }
+.fact-table td { color: var(--text); font-weight: 600; }
+.note { font-size: 12.5px; color: var(--mute); margin-top: 12px; line-height: 1.8; word-break: keep-all; }
+
+/* ---------- 절차 (번호 단계) ---------- */
+.steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; counter-reset: step; }
+@media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+.step {
+    background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px;
+    padding: 16px 18px; display: flex; gap: 14px;
+}
+.step-num {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-text);
+    font-size: 13px; font-weight: 800; display: flex; align-items: center; justify-content: center;
+}
+.step h3 { font-size: 15px; margin-bottom: 3px; }
+.step p { font-size: 13.5px; color: var(--body-text); word-break: keep-all; }
+
+/* ---------- FAQ ---------- */
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+    padding: 16px 30px 16px 0; font-size: 15px; font-weight: 700; cursor: pointer;
+    list-style: none; position: relative; word-break: keep-all;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+    content: '+'; position: absolute; right: 4px; top: 14px;
+    font-size: 20px; font-weight: 400; color: var(--mute);
+}
+.faq details[open] summary::after { content: '\2212'; }
+.faq details p { padding: 0 0 18px; font-size: 14px; color: var(--body-text); line-height: 1.75; word-break: keep-all; }
+
+/* ---------- 공식 출처 ---------- */
+.source-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.source-links a {
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 8px 16px; font-size: 13.5px; font-weight: 600; color: var(--text);
+}
+.source-links a:hover { border-color: var(--accent); }
+
+/* ---------- 하단 CTA ---------- */
+.cta-section { text-align: center; padding: 48px 0; }
+.cta-section h2 { margin-bottom: 8px; }
+.cta-lead { font-size: 14.5px; color: var(--body-text); margin-bottom: 20px; }
+.cta-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+
+.site-footer { background: var(--surface); padding: 28px 0 40px; }
+.site-footer p { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+    .btn, .source-links a { transition: none; }
+}

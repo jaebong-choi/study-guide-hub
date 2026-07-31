@@ -309,6 +309,8 @@ $TEMPLATE = @'
         .pw-modal h3 { font-size: 19px; letter-spacing: -0.01em; margin-bottom: 12px; padding-right: 32px; }
         .pw-modal p { font-size: 14.5px; line-height: 1.7; color: var(--body-text); margin-bottom: 10px; word-break: keep-all; }
         .pw-modal .btn { width: 100%; justify-content: center; margin-top: 14px; }
+        .pw-guide-more { display: block; text-align: center; margin-top: 12px; font-size: 13.5px; font-weight: 600; }
+        .pw-guide-more[hidden] { display: none; }
 
         .video-wrap { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--surface); }
         .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
@@ -486,6 +488,7 @@ $TEMPLATE = @'
             <h3 id="pw-guide-title"></h3>
             <div id="pw-guide-body"></div>
             <a class="btn btn-primary" id="pw-guide-cta" href="{{DIAG_URL}}"></a>
+            <a class="pw-guide-more" id="pw-guide-more" href="#"></a>
         </div>
     </div>
     <script>
@@ -508,12 +511,22 @@ $TEMPLATE = @'
             en: { t: 'What is a pathway-college transfer?', b: ['On-campus pathway colleges such as FIC (SFU) and ICM (Manitoba) teach first-year university courses (UTP) in smaller classes; meet the grade threshold and you transfer into Year 2.', 'Entry starts with lower grades and English (around IELTS 5.5) than direct admission, and classes run on the same campus as the university.'] }
         }
     };
+    // 경로 키 → 국가별 전체 가이드 페이지
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
         document.getElementById('pw-guide-title').textContent = c.t;
         document.getElementById('pw-guide-body').innerHTML = c.b.map(function (p) { return '<p>' + p + '</p>'; }).join('');
         document.getElementById('pw-guide-cta').textContent = LANG === 'en' ? 'Take the 3-minute quiz →' : '3분 진단 하러 가기 →';
+        var more = document.getElementById('pw-guide-more');
+        if (PW_GUIDE_PAGE[key]) {
+            more.href = PW_GUIDE_PAGE[key];
+            more.textContent = LANG === 'en' ? 'Read the full guide' : '전체 가이드 보기';
+            more.hidden = false;
+        } else {
+            more.hidden = true;
+        }
         document.getElementById('pw-guide').hidden = false;
         document.body.style.overflow = 'hidden';
     }
@@ -1139,7 +1152,7 @@ foreach ($cc in $lists.Keys) {
 }
 
 # ---------- sitemap.xml / robots.txt ----------
-$locs = @('', 'privacy.html') + $listLocs + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
+$locs = @('', 'privacy.html', 'guide/uk.html', 'guide/au.html') + $listLocs + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
 $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" +
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n" +
            (($locs | ForEach-Object { '  <url><loc>' + $SITE + $_ + '</loc></url>' }) -join "`n") + "`n" +

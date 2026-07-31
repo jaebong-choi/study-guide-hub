@@ -42,6 +42,8 @@ const I18N = {
         bannerCaTitle: "캐나다 대학·컬리지 17곳",
         bannerCaSub: "UofT·UBC부터 핵심 공립 컬리지까지, 편입·PGWP 경로를 정리했습니다.",
         bannerCaAlt: "캐나다 랜드마크 미니어처와 입국 심사 장면",
+        guideLinkUk: "영국 진학 가이드: 경로 · 학비 · 비자 →",
+        guideLinkAu: "호주 진학 가이드: 경로 · 학비 · 비자 →",
 
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
@@ -127,6 +129,8 @@ const I18N = {
         bannerCaTitle: "17 Canadian universities and colleges",
         bannerCaSub: "From UofT and UBC to the key public colleges: transfer and PGWP routes.",
         bannerCaAlt: "Miniature Canadian landmarks and a border-arrival scene",
+        guideLinkUk: "UK guide: routes, costs and visas →",
+        guideLinkAu: "Australia guide: routes, costs and visas →",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",
