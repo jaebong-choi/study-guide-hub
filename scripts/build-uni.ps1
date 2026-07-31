@@ -292,6 +292,9 @@ $TEMPLATE = @'
             position: fixed; inset: 0; z-index: 100;
             background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 20px;
         }
+        /* display:flex가 hidden 속성(UA의 display:none)을 이겨버려 빈 모달이 항상 보였다.
+         * hidden일 때는 어떤 경우에도 감춘다. */
+        .pw-modal-overlay[hidden] { display: none !important; }
         .pw-modal {
             background: var(--bg); color: var(--text);
             border: 1px solid var(--line); border-radius: 20px;
