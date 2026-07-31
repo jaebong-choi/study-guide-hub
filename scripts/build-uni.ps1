@@ -828,11 +828,14 @@ foreach ($file in $dataFiles) {
             }
         }
 
-        # 배너 이미지 — images/uni/{id}.jpg 파일이 있으면 자동 표시
+        # 배너 이미지 — images/uni/{id}.jpg가 있으면 학교 전용, 없으면 국가 공용 {국가코드}-banner.jpg
         $heroBanner = ''
         $bannerRel = 'images/uni/' + $u.id + '.jpg'
+        if (-not (Test-Path (Join-Path $repoRoot $bannerRel))) {
+            $bannerRel = 'images/uni/' + $u.country.ToLower() + '-banner.jpg'
+        }
         if (Test-Path (Join-Path $repoRoot $bannerRel)) {
-            $heroBanner = '<div class="hero-banner"><img src="../' + $bannerRel + '" alt="' + (Esc $u.name_ko) + ' 캠퍼스"></div>'
+            $heroBanner = '<div class="hero-banner"><img src="../' + $bannerRel + '" alt="' + (Esc $u.name_ko) + ' 캠퍼스" data-en-alt="' + (Esc $u.name_en) + ' campus"></div>'
         }
 
         # 공식 유튜브 임베드 — youtube_id 없으면 섹션 자체를 생략
