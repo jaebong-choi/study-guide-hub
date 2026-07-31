@@ -146,9 +146,32 @@
         .pw-facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--body-text); margin-bottom: 12px; }
         .pw-facts b { color: var(--text); }
         .pw-note { font-size: 13px; color: var(--mute); margin-bottom: 12px; }
-        .pw-link { font-size: 14px; font-weight: 700; }
+        .pw-link {
+            font-size: 14px; font-weight: 700; color: var(--link);
+            background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit;
+        }
         .pw-group { font-size: 15px; color: var(--mute); margin: 22px 0 10px; }
         .pw-group:first-child { margin-top: 0; }
+
+        /* 경로 안내 모달 — 파운데이션·디플로마 등은 진단 전에 프로그램 설명을 먼저 보여준다 */
+        .pw-modal-overlay {
+            position: fixed; inset: 0; z-index: 100;
+            background: rgba(0,0,0,0.55); display: flex; align-items: center; justify-content: center; padding: 20px;
+        }
+        .pw-modal {
+            background: var(--bg); color: var(--text);
+            border: 1px solid var(--line); border-radius: 20px;
+            max-width: 480px; width: 100%; max-height: 85vh; overflow-y: auto;
+            padding: 28px 28px 24px; position: relative;
+        }
+        .pw-modal-close {
+            position: absolute; top: 14px; right: 14px; width: 32px; height: 32px;
+            border-radius: 50%; border: 1px solid var(--line); background: var(--card-bg);
+            color: var(--text); font-size: 15px; line-height: 1; cursor: pointer;
+        }
+        .pw-modal h3 { font-size: 19px; letter-spacing: -0.01em; margin-bottom: 12px; padding-right: 32px; }
+        .pw-modal p { font-size: 14.5px; line-height: 1.7; color: var(--body-text); margin-bottom: 10px; word-break: keep-all; }
+        .pw-modal .btn { width: 100%; justify-content: center; margin-top: 14px; }
 
         .video-wrap { aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--surface); }
         .video-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
@@ -335,6 +358,52 @@
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
+
+    <!-- 경로 안내 모달 -->
+    <div class="pw-modal-overlay" id="pw-guide" hidden>
+        <div class="pw-modal" role="dialog" aria-modal="true" aria-labelledby="pw-guide-title">
+            <button type="button" class="pw-modal-close" onclick="closePwGuide()" aria-label="닫기">&#10005;</button>
+            <h3 id="pw-guide-title"></h3>
+            <div id="pw-guide-body"></div>
+            <a class="btn btn-primary" id="pw-guide-cta" href="https://jaebong-choi.github.io/uk-study-guide/"></a>
+        </div>
+    </div>
+    <script>
+    // 경로별 안내문 (ko/en) — 진단으로 넘어가기 전에 프로그램 개념을 설명한다
+    var PW_GUIDES = {
+        'au-foundation': {
+            ko: { t: '파운데이션(대학예비과정)이란?', b: ['고교 성적이나 영어가 대학 직접 입학 기준에 조금 못 미쳐도, 대학 부설 기관에서 8개월~1년간 영어와 전공 기초를 이수한 뒤 수료 성적으로 본교 1학년에 진학하는 경로입니다.', '내신 부담이 컸던 학생이 상위권 대학으로 재도전하는 대표 루트로, 수료 기준(성적·출석)을 충족하면 진학이 보장되는 과정도 많습니다. 보통 IELTS 5.5 수준부터 시작할 수 있습니다.'] },
+            en: { t: 'What is a foundation year?', b: ['A university-run preparatory course (8 months to a year) combining English with academic subjects, leading into Year 1 on completion grades, even if your school grades or English fall short of direct entry.', 'Many programs guarantee progression once you meet the completion criteria. Entry typically starts from around IELTS 5.5.'] }
+        },
+        'au-diploma': {
+            ko: { t: '디플로마 편입이란?', b: ['학부 1학년 과목을 대학 부설 컬리지에서 소규모 수업으로 이수한 뒤, 기준 성적(보통 60~70%)을 충족하면 본교 2학년으로 편입하는 경로입니다.', '파운데이션보다 빠르게 학위를 마칠 수 있고 1학년 학비도 절감됩니다. 보통 IELTS 5.5~6.0 수준부터 지원할 수 있으며, 학교·전공별 편입 인정 범위가 다르니 상세 요건은 진단에서 확인하세요.'] },
+            en: { t: 'What is a diploma transfer?', b: ['You complete first-year subjects at the university’s college in smaller classes, then transfer into Year 2 once you meet the grade threshold (usually 60–70%).', 'It is faster than a foundation route and saves first-year fees. Entry typically starts around IELTS 5.5–6.0; credit recognition varies by school and course.'] }
+        },
+        'uk-foundation': {
+            ko: { t: '파운데이션(Foundation)이란?', b: ['영국 학부는 13년제 교육(A-level)을 전제로 하기 때문에, 한국 고교 졸업생은 보통 파운데이션 1년을 거쳐 학부 1학년으로 진학합니다.', '대학 부설 또는 제휴 기관에서 영어와 전공 기초를 이수하며, 수료 성적을 충족하면 진학이 보장되는 과정이 많습니다. 보통 IELTS 5.0~5.5 수준부터 시작할 수 있습니다.'] },
+            en: { t: 'What is a foundation year?', b: ['UK degrees assume 13 years of schooling (A-levels), so Korean high-school graduates usually take a one-year foundation before entering Year 1.', 'Run by the university or a partner provider, it combines English with academic subjects, and many programs guarantee progression on completion grades. Entry typically starts from around IELTS 5.0–5.5.'] }
+        },
+        'ca-pathway': {
+            ko: { t: '패스웨이 컬리지 편입이란?', b: ['FIC(SFU)·ICM(매니토바)처럼 대학 캠퍼스 안에 있는 패스웨이 컬리지에서 학부 1학년 과정(UTP)을 소규모 수업으로 이수하고, 기준 성적을 충족하면 본교 2학년으로 편입하는 경로입니다.', '직접 입학보다 낮은 성적·영어(보통 IELTS 5.5 수준)로 시작할 수 있고, 수업은 본교와 같은 캠퍼스에서 진행됩니다.'] },
+            en: { t: 'What is a pathway-college transfer?', b: ['On-campus pathway colleges such as FIC (SFU) and ICM (Manitoba) teach first-year university courses (UTP) in smaller classes; meet the grade threshold and you transfer into Year 2.', 'Entry starts with lower grades and English (around IELTS 5.5) than direct admission, and classes run on the same campus as the university.'] }
+        }
+    };
+    function openPwGuide(key) {
+        var g = PW_GUIDES[key]; if (!g) return;
+        var c = g[LANG] || g.ko;
+        document.getElementById('pw-guide-title').textContent = c.t;
+        document.getElementById('pw-guide-body').innerHTML = c.b.map(function (p) { return '<p>' + p + '</p>'; }).join('');
+        document.getElementById('pw-guide-cta').textContent = LANG === 'en' ? 'Take the 3-minute quiz →' : '3분 진단 하러 가기 →';
+        document.getElementById('pw-guide').hidden = false;
+        document.body.style.overflow = 'hidden';
+    }
+    function closePwGuide() {
+        document.getElementById('pw-guide').hidden = true;
+        document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePwGuide(); });
+    document.getElementById('pw-guide').addEventListener('click', function (e) { if (e.target === this) closePwGuide(); });
+    </script>
 
     <!-- 언어 전환 — data-en 속성에 영어 문구를 심어 두고 통째로 스왑한다 (허브와 같은 키 sgh-lang 공유) -->
     <script>
