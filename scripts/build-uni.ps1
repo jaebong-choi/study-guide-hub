@@ -296,11 +296,19 @@ $TEMPLATE = @'
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
             font-size: 14px; color: var(--body-text);
         }
-        .related-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .related-links a {
-            border: 1px solid var(--line); border-radius: 999px;
-            padding: 8px 16px; font-size: 14px; font-weight: 600; color: var(--text);
+        .related-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+        .related-card {
+            display: flex; align-items: center; gap: 14px;
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 14px; padding: 14px 16px;
+            transition: border-color .15s, transform .15s;
         }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .related-card img { width: 64px; height: 40px; object-fit: contain; flex-shrink: 0; }
+        :root[data-theme="dark"] .related-card img { background: #f2f2f4; border-radius: 8px; padding: 4px 6px; }
+        .related-names { display: flex; flex-direction: column; min-width: 0; }
+        .related-ko { font-size: 15px; font-weight: 700; color: var(--text); word-break: keep-all; }
+        .related-en { font-size: 12px; color: var(--mute); }
 
         .cta-section { text-align: center; border-bottom: none; padding: 48px 0; }
         .cta-section h2 { margin-bottom: 8px; }
@@ -773,11 +781,27 @@ $lists = @{}   # country → @{cards; count; latest}
 $allIds = @()
 
 $dataFiles = Get-ChildItem -Path (Join-Path $repoRoot 'data') -Filter 'universities-*.json' -File
+
+# 1차 로딩 — related_ids가 다른 학교의 이름·로고를 참조할 수 있게 전체를 먼저 읽는다
+$allUnis = @()
+$UNI_INDEX = @{}
 foreach ($file in $dataFiles) {
     $unis = Get-Content -Path $file.FullName -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($unis -isnot [System.Array]) { $unis = @($unis) }
+    foreach ($u in $unis) { $allUnis += $u; $UNI_INDEX[$u.id] = $u }
+}
 
-    foreach ($u in $unis) {
+# 로고 파일 경로 찾기 (없으면 null)
+function Get-LogoRel([string]$id) {
+    foreach ($ext in @('png', 'svg')) {
+        $rel = 'images/uni/' + $id + '-logo.' + $ext
+        if (Test-Path (Join-Path $repoRoot $rel)) { return $rel }
+    }
+    return $null
+}
+
+foreach ($nothing in @(1)) {
+    foreach ($u in $allUnis) {
         $symbol   = if ($CURRENCY_SYMBOL.ContainsKey($u.currency)) { $CURRENCY_SYMBOL[$u.currency] } else { $u.currency + ' ' }
         $diagUrl  = if ($DIAG_URL.ContainsKey($u.country)) { $DIAG_URL[$u.country] } else { '../index.html' }
         $typeText = if ($TYPE_LABEL.ContainsKey($u.type)) { $TYPE_LABEL[$u.type] } else { $u.type }
@@ -913,8 +937,18 @@ foreach ($file in $dataFiles) {
         }
         $relatedSection = ''
         if (@($u.related_ids).Count -gt 0 -and $null -ne $u.related_ids) {
-            $links = (@($u.related_ids) | ForEach-Object { '<a href="./' + (Esc $_) + '.html">' + (Esc $_) + '</a>' }) -join ''
-            $relatedSection = @"
+            # id 나열 대신 로고 + 한국어명 + 영문명 카드로 표시
+            $links = (@($u.related_ids) | ForEach-Object {
+                $r = $UNI_INDEX[$_]
+                if ($null -eq $r) { return }
+                $logoRel = Get-LogoRel $r.id
+                $logoHtml = if ($logoRel) { '<img src="../' + $logoRel + '" alt="' + (Esc $r.name_ko) + ' 로고" data-en-alt="' + (Esc $r.name_en) + ' logo" loading="lazy">' } else { '' }
+                '<a class="related-card" href="./' + $r.id + '.html">' + $logoHtml +
+                '<span class="related-names"><span class="related-ko"' + (EnAttr $r.name_ko (Esc $r.name_en)) + '>' + (Esc $r.name_ko) + '</span>' +
+                '<span class="related-en"' + (EnAttr $r.name_en (Esc $r.name_ko)) + '>' + (Esc $r.name_en) + '</span></span></a>'
+            }) -join ''
+            if ($links) {
+                $relatedSection = @"
 
         <section>
             <div class="container">
@@ -923,6 +957,7 @@ foreach ($file in $dataFiles) {
             </div>
         </section>
 "@
+            }
         }
 
         # OG 이미지 — 학교 배너가 있으면 그걸, 없으면 허브 공용 이미지

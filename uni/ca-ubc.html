@@ -175,11 +175,19 @@
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
             font-size: 14px; color: var(--body-text);
         }
-        .related-links { display: flex; flex-wrap: wrap; gap: 10px; }
-        .related-links a {
-            border: 1px solid var(--line); border-radius: 999px;
-            padding: 8px 16px; font-size: 14px; font-weight: 600; color: var(--text);
+        .related-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+        .related-card {
+            display: flex; align-items: center; gap: 14px;
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 14px; padding: 14px 16px;
+            transition: border-color .15s, transform .15s;
         }
+        .related-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .related-card img { width: 64px; height: 40px; object-fit: contain; flex-shrink: 0; }
+        :root[data-theme="dark"] .related-card img { background: #f2f2f4; border-radius: 8px; padding: 4px 6px; }
+        .related-names { display: flex; flex-direction: column; min-width: 0; }
+        .related-ko { font-size: 15px; font-weight: 700; color: var(--text); word-break: keep-all; }
+        .related-en { font-size: 12px; color: var(--mute); }
 
         .cta-section { text-align: center; border-bottom: none; padding: 48px 0; }
         .cta-section h2 { margin-bottom: 8px; }
@@ -319,7 +327,7 @@
         <section>
             <div class="container">
                 <h2 data-en="Related universities">함께 보면 좋은 대학</h2>
-                <div class="related-links"><a href="./ca-uoft.html">ca-uoft</a><a href="./ca-vcc.html">ca-vcc</a></div>
+                <div class="related-links"><a class="related-card" href="./ca-uoft.html"><img src="../images/uni/ca-uoft-logo.svg" alt="토론토대학교(UofT) 로고" data-en-alt="University of Toronto logo" loading="lazy"><span class="related-names"><span class="related-ko" data-en="University of Toronto">토론토대학교(UofT)</span><span class="related-en" data-en="토론토대학교(UofT)">University of Toronto</span></span></a><a class="related-card" href="./ca-vcc.html"><img src="../images/uni/ca-vcc-logo.svg" alt="밴쿠버 커뮤니티 컬리지(VCC) 로고" data-en-alt="Vancouver Community College logo" loading="lazy"><span class="related-names"><span class="related-ko" data-en="Vancouver Community College">밴쿠버 커뮤니티 컬리지(VCC)</span><span class="related-en" data-en="밴쿠버 커뮤니티 컬리지(VCC)">Vancouver Community College</span></span></a></div>
             </div>
         </section>
         <!-- ⑥ 하단 CTA -->
