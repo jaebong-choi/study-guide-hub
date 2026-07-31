@@ -349,7 +349,7 @@
                     <div class="pw-head"><span class="pw-type" data-en="Pre-Master's">프리마스터</span><span class="pw-provider">Kaplan</span></div>
                     <div class="pw-facts"><span>IELTS <b>5.5</b></span><span data-en="Duration &lt;b&gt;2–3 terms&lt;/b&gt;">기간 <b>2~3학기</b></span><span data-en="Cost &lt;b&gt;GIC Pre-Master's programme&lt;/b&gt;">비용 <b>GIC Pre-Master's 과정</b></span></div>
                     <p class="pw-note" data-en="Progress to the university's master's after the preparation course">석사 진학 준비 과정 후 본교 석사 진학</p>
-                    <a class="pw-link" href="https://jaebong-choi.github.io/uk-study-guide/" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</a>
+                    <button type="button" class="pw-link" onclick="openPwGuide('pre-master')" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</button>
                 </div>                <div class="pathway-card">
                     <div class="pw-head"><span class="pw-type" data-en="Direct entry">직접 입학</span></div>
                     <div class="pw-facts"><span>IELTS <b>6.5</b></span><span data-en="Duration &lt;b&gt;1 year (full-time)&lt;/b&gt;">기간 <b>1년 (풀타임)</b></span><span data-en="Cost &lt;b&gt;£25,320~35,640&lt;/b&gt;">비용 <b>£25,320~35,640</b></span></div>
@@ -463,6 +463,34 @@
                     'Run by the university or a partner provider, it combines English with academic subjects, and many programs <mark>guarantee progression</mark> on completion grades. Entry typically starts from around <mark>IELTS 5.0-5.5</mark>.']
             }
         },
+        'uk-iyo': {
+            ko: {
+                t: 'IY1(International Year One)이란?',
+                f: [['한국 고교 졸업', '12년제'], ['아카데믹 영어', '필요한 경우'], ['IY1', '1년'], ['학사 2학년', '남은 2년']],
+                b: ['파운데이션이 학부 <mark>1학년 진입</mark>을 준비하는 과정이라면, IY1은 <mark>학부 1학년 과목 자체</mark>를 소규모 수업으로 이수하고 곧바로 <mark>2학년으로 올라가는</mark> 경로입니다.',
+                    '직접 지원한 학생과 <mark>졸업 시점이 같아져</mark> 파운데이션보다 1년을 아낍니다. 대신 요구 성적과 영어가 조금 높고(보통 <mark>IELTS 5.5~6.0</mark>), 모든 대학·전공에 개설되지는 않아 <mark>경영·공학 계열</mark>에 집중돼 있습니다.']
+            },
+            en: {
+                t: 'What is International Year One?',
+                f: [['High school', '12 years in Korea'], ['Academic English', 'if required'], ['IYO', '1 year'], ['Bachelor Year 2', '2 years left']],
+                b: ['Where a foundation year prepares you <mark>for Year 1</mark>, International Year One teaches <mark>the Year 1 subjects themselves</mark> in smaller classes and takes you straight <mark>into Year 2</mark>.',
+                    'You <mark>graduate at the same time</mark> as direct-entry students, saving a year against the foundation route. Entry sits a little higher (around <mark>IELTS 5.5-6.0</mark>), and it is not offered everywhere, concentrating in <mark>business and engineering</mark>.']
+            }
+        },
+        'pre-master': {
+            ko: {
+                t: '프리마스터(석사 준비 과정)란?',
+                f: [['학사 학위', '한국 4년제'], ['프리마스터', '1~2학기'], ['석사 본과정', '1년제']],
+                b: ['학점이나 전공 배경, 영어가 석사 직접 지원 기준에 <mark>조금 못 미칠 때</mark> 거치는 과정입니다. 전공 기초와 학술 영어, 논문 작성법을 이수한 뒤 <mark>석사 본과정으로 진입</mark>합니다.',
+                    '수료 기준을 충족하면 <mark>진학이 보장</mark>되는 과정이 많고, <mark>전공을 바꿀 때</mark>의 전환 경로로도 쓰입니다. 학점이 4.5 만점에 <mark>3.0 미만</mark>이거나 비전공자라면 우선 검토할 만합니다.']
+            },
+            en: {
+                t: "What is a pre-master's course?",
+                f: [['Bachelor degree', 'from Korea'], ["Pre-master's", '1-2 terms'], ["Master's", '1 year']],
+                b: ["A bridge for applicants whose GPA, subject background or English sits <mark>just below</mark> direct master's entry. You cover subject fundamentals, academic English and dissertation skills, then <mark>move into the master's</mark>.",
+                    'Many programs <mark>guarantee progression</mark> on completion, and it doubles as a <mark>conversion route</mark> when you change field. Worth considering first if your GPA is <mark>below 3.0 out of 4.5</mark> or your degree is in another subject.']
+            }
+        },
         'ca-pathway': {
             ko: {
                 t: '패스웨이 컬리지 편입이란?',
@@ -479,7 +507,7 @@
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'ca-pathway': '../guide/ca.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-pathway': '../guide/ca.html' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
