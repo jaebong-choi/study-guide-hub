@@ -18,7 +18,7 @@ const I18N = {
         langName: "한국어",
 
         docTitle: "유학, 진단에서 시작하세요 | Study Guide Hub",
-        docDesc: "호주·영국·캐나다 국가별 3분 AI 진단으로 내 조건에 맞는 진학 경로를 확인하세요. 어학연수는 6개국 어학원 지도로. 특정 유학원과 무관한 무료 정보 가이드.",
+        docDesc: "미국·영국·호주·캐나다 국가별 3분 AI 진단으로 내 조건에 맞는 진학 경로를 확인하세요. 어학연수는 6개국 어학원 지도로. 특정 유학원과 무관한 무료 정보 가이드.",
 
         headerCta: "상담 문의",
         themeDark: "다크",
@@ -27,7 +27,7 @@ const I18N = {
         themeTitle: "밝게 / 어둡게",
         langAria: "언어 선택",
 
-        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / US / ESL",
+        heroEyebrow: "Free Study Abroad Guide · US / UK / AU / CA / ESL",
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
@@ -104,7 +104,7 @@ const I18N = {
         langName: "English",
 
         docTitle: "Find your route to studying abroad | Study Guide Hub",
-        docDesc: "Three-minute assessments for Australia, the UK and Canada, plus a map of language schools across six countries. Free guidance, independent of any agency.",
+        docDesc: "Three-minute assessments for the US, the UK, Australia and Canada, plus a map of language schools across six countries. Free guidance, independent of any agency.",
 
         headerCta: "Get in touch",
         themeDark: "Dark",
@@ -113,7 +113,7 @@ const I18N = {
         themeTitle: "Light / dark",
         langAria: "Select language",
 
-        heroEyebrow: "Free Study Abroad Guide · AU / UK / CA / US / ESL",
+        heroEyebrow: "Free Study Abroad Guide · US / UK / AU / CA / ESL",
         heroTitle: "Find your route to<br>studying abroad",
         /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
