@@ -44,6 +44,7 @@ const I18N = {
         bannerCaAlt: "캐나다 랜드마크 미니어처와 입국 심사 장면",
         guideLinkUk: "영국 진학 가이드: 경로 · 학비 · 비자 →",
         guideLinkAu: "호주 진학 가이드: 경로 · 학비 · 비자 →",
+        guideLinkCa: "캐나다 진학 가이드: 경로 · 학비 · 비자 →",
 
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
@@ -131,6 +132,7 @@ const I18N = {
         bannerCaAlt: "Miniature Canadian landmarks and a border-arrival scene",
         guideLinkUk: "UK guide: routes, costs and visas →",
         guideLinkAu: "Australia guide: routes, costs and visas →",
+        guideLinkCa: "Canada guide: routes, costs and visas →",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",

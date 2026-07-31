@@ -18,6 +18,8 @@
 /* 국가별 포인트 컬러 */
 :root[data-country="au"] { --accent: #2997ff; --accent-text: #ffffff; }
 :root[data-country="au"][data-theme="light"] { --accent: #0071e3; }
+:root[data-country="ca"] { --accent: #FF7059; --accent-text: #ffffff; }
+:root[data-country="ca"][data-theme="light"] { --accent: #D6402A; }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -78,7 +80,9 @@ h2 { font-size: clamp(20px, 3vw, 24px); letter-spacing: -0.01em; margin-bottom: 
 
 /* ---------- 경로 카드 (학부) ---------- */
 .route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-@media (max-width: 860px) { .route-grid { grid-template-columns: 1fr; } }
+/* 카드가 4장이면 2x2로 배치해 마지막 줄이 비지 않게 한다 */
+.route-grid--two { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 860px) { .route-grid, .route-grid--two { grid-template-columns: 1fr; } }
 .route-card {
     background: var(--card-bg); border: 1px solid var(--line);
     border-radius: 16px; padding: 20px; display: flex; flex-direction: column;
@@ -161,4 +165,46 @@ h2 { font-size: clamp(20px, 3vw, 24px); letter-spacing: -0.01em; margin-bottom: 
 
 @media (prefers-reduced-motion: reduce) {
     .btn, .source-links a { transition: none; }
+}
+
+/* ---------- 경로 흐름도 (모달과 동일 규칙) ---------- */
+.flow { display: flex; gap: 3px; list-style: none; margin: 0 0 14px; padding: 0; }
+.flow-step {
+    flex: 1 1 0; min-width: 0; padding: 10px 12px 10px 20px;
+    background: var(--surface); font-size: 12px; font-weight: 600;
+    color: var(--text); line-height: 1.35; word-break: keep-all;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+}
+.flow-step span { display: block; font-size: 10.5px; font-weight: 500; color: var(--mute); margin-top: 2px; }
+.flow-step:first-child {
+    padding-left: 12px;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+    background: var(--accent); color: var(--accent-text);
+}
+.flow-step:first-child span { color: var(--accent-text); opacity: .78; }
+.flow-step:last-child {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
+    background: var(--text); color: var(--bg);
+}
+.flow-step:last-child span { color: var(--bg); opacity: .72; }
+/* 짝수 섹션은 배경이 surface라 중간 단계가 묻힌다 */
+main > section:nth-of-type(even) .flow-step { background: var(--card-bg); }
+main > section:nth-of-type(even) .flow-step:first-child { background: var(--accent); }
+main > section:nth-of-type(even) .flow-step:last-child { background: var(--text); }
+@media (max-width: 560px) {
+    .flow { flex-direction: column; gap: 6px; }
+    .flow-step, .flow-step:first-child, .flow-step:last-child {
+        clip-path: none; border-radius: 10px; padding: 9px 12px; text-align: center;
+    }
+    .flow-step + .flow-step { position: relative; margin-top: 12px; }
+    .flow-step + .flow-step::before {
+        content: '\25BC'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+        font-size: 9px; color: var(--mute);
+    }
+}
+
+/* 본문 하이라이트 */
+mark {
+    background: color-mix(in srgb, var(--accent) 28%, transparent);
+    color: var(--text); font-weight: 700; padding: 0 3px; border-radius: 3px;
 }

@@ -749,5 +749,6 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     font-size: 14px; font-weight: 600; color: var(--au);
     border-bottom: 1px solid transparent; padding-bottom: 1px;
 }
-.guide-links a:first-child { color: var(--uk); }
+.guide-links a:nth-child(1) { color: var(--uk); }
+.guide-links a:nth-child(3) { color: var(--ca); }
 .guide-links a:hover { border-bottom-color: currentColor; }

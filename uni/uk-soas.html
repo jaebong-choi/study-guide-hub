@@ -172,8 +172,46 @@
             border-radius: 50%; border: 1px solid var(--line); background: var(--card-bg);
             color: var(--text); font-size: 15px; line-height: 1; cursor: pointer;
         }
-        .pw-modal h3 { font-size: 19px; letter-spacing: -0.01em; margin-bottom: 12px; padding-right: 32px; }
+        .pw-modal h3 { font-size: 19px; letter-spacing: -0.01em; margin-bottom: 14px; padding-right: 32px; }
         .pw-modal p { font-size: 14.5px; line-height: 1.7; color: var(--body-text); margin-bottom: 10px; word-break: keep-all; }
+        .pw-modal mark {
+            background: color-mix(in srgb, var(--accent) 28%, transparent);
+            color: var(--text); font-weight: 700; padding: 0 3px; border-radius: 3px;
+        }
+
+        /* 경로 흐름도 — 고교부터 학위까지의 단계를 화살표 띠로 보여준다 */
+        .flow { display: flex; gap: 3px; list-style: none; margin: 0 0 16px; padding: 0; }
+        .flow-step {
+            flex: 1 1 0; min-width: 0; padding: 10px 12px 10px 20px;
+            background: var(--card-bg); border: 0;
+            font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.35;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%, 12px 50%);
+            word-break: keep-all;
+        }
+        .flow-step span { display: block; font-size: 10.5px; font-weight: 500; color: var(--mute); margin-top: 2px; }
+        .flow-step:first-child {
+            padding-left: 12px;
+            clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 50%, calc(100% - 12px) 100%, 0 100%);
+            background: var(--accent); color: var(--accent-text);
+        }
+        .flow-step:first-child span { color: var(--accent-text); opacity: .78; }
+        .flow-step:last-child {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 12px 50%);
+            background: var(--text); color: var(--bg);
+        }
+        .flow-step:last-child span { color: var(--bg); opacity: .72; }
+        /* 좁은 화면에서는 화살표 띠 대신 세로 목록으로 (clip-path는 가로 전용) */
+        @media (max-width: 560px) {
+            .flow { flex-direction: column; gap: 6px; }
+            .flow-step, .flow-step:first-child, .flow-step:last-child {
+                clip-path: none; border-radius: 10px; padding: 9px 12px; text-align: center;
+            }
+            .flow-step + .flow-step { position: relative; margin-top: 12px; }
+            .flow-step + .flow-step::before {
+                content: '\25BC'; position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+                font-size: 9px; color: var(--mute);
+            }
+        }
         .pw-modal .btn { width: 100%; justify-content: center; margin-top: 14px; }
         .pw-guide-more { display: block; text-align: center; margin-top: 12px; font-size: 13.5px; font-weight: 600; }
         .pw-guide-more[hidden] { display: none; }
@@ -374,6 +412,7 @@
         <div class="pw-modal" role="dialog" aria-modal="true" aria-labelledby="pw-guide-title">
             <button type="button" class="pw-modal-close" onclick="closePwGuide()" aria-label="닫기">&#10005;</button>
             <h3 id="pw-guide-title"></h3>
+            <ol class="flow" id="pw-guide-flow"></ol>
             <div id="pw-guide-body"></div>
             <a class="btn btn-primary" id="pw-guide-cta" href="https://jaebong-choi.github.io/uk-study-guide/"></a>
             <a class="pw-guide-more" id="pw-guide-more" href="#"></a>
@@ -383,28 +422,71 @@
     // 경로별 안내문 (ko/en) — 진단으로 넘어가기 전에 프로그램 개념을 설명한다
     var PW_GUIDES = {
         'au-foundation': {
-            ko: { t: '파운데이션(대학예비과정)이란?', b: ['고교 성적이나 영어가 대학 직접 입학 기준에 조금 못 미쳐도, 대학 부설 기관에서 8개월~1년간 영어와 전공 기초를 이수한 뒤 수료 성적으로 본교 1학년에 진학하는 경로입니다.', '내신 부담이 컸던 학생이 상위권 대학으로 재도전하는 대표 루트로, 수료 기준(성적·출석)을 충족하면 진학이 보장되는 과정도 많습니다. 보통 IELTS 5.5 수준부터 시작할 수 있습니다.'] },
-            en: { t: 'What is a foundation year?', b: ['A university-run preparatory course (8 months to a year) combining English with academic subjects, leading into Year 1 on completion grades, even if your school grades or English fall short of direct entry.', 'Many programs guarantee progression once you meet the completion criteria. Entry typically starts from around IELTS 5.5.'] }
+            ko: {
+                t: '파운데이션(대학예비과정)이란?',
+                f: [['고교 2학년~졸업', '또는 동등 학력'], ['아카데믹 영어', '필요한 경우'], ['파운데이션', '8~12개월'], ['학사 1학년', '본교 진학']],
+                b: ['고교 성적이나 영어가 직접 입학 기준에 조금 못 미쳐도, 대학 부설 기관에서 <mark>8개월~1년</mark> 영어와 전공 기초를 이수한 뒤 수료 성적으로 <mark>본교 1학년</mark>에 진학하는 경로입니다.',
+                    '내신 부담이 컸던 학생이 상위권 대학으로 재도전하는 대표 루트이며, 수료 기준을 충족하면 <mark>진학이 보장</mark>되는 과정도 많습니다. 보통 <mark>IELTS 5.5</mark> 수준부터 시작할 수 있습니다.']
+            },
+            en: {
+                t: 'What is a foundation year?',
+                f: [['High school', 'Year 2 to graduate'], ['Academic English', 'if required'], ['Foundation', '8-12 months'], ['Bachelor Year 1', 'at the university']],
+                b: ['A university-run preparatory course of <mark>8 months to a year</mark> combining English with academic subjects, leading into <mark>Year 1</mark> on completion grades even if your school grades or English fall short of direct entry.',
+                    'Many programs <mark>guarantee progression</mark> once you meet the completion criteria. Entry typically starts from around <mark>IELTS 5.5</mark>.']
+            }
         },
         'au-diploma': {
-            ko: { t: '디플로마 편입이란?', b: ['학부 1학년 과목을 대학 부설 컬리지에서 소규모 수업으로 이수한 뒤, 기준 성적(보통 60~70%)을 충족하면 본교 2학년으로 편입하는 경로입니다.', '파운데이션보다 빠르게 학위를 마칠 수 있고 1학년 학비도 절감됩니다. 보통 IELTS 5.5~6.0 수준부터 지원할 수 있으며, 학교·전공별 편입 인정 범위가 다르니 상세 요건은 진단에서 확인하세요.'] },
-            en: { t: 'What is a diploma transfer?', b: ['You complete first-year subjects at the university’s college in smaller classes, then transfer into Year 2 once you meet the grade threshold (usually 60–70%).', 'It is faster than a foundation route and saves first-year fees. Entry typically starts around IELTS 5.5–6.0; credit recognition varies by school and course.'] }
+            ko: {
+                t: '디플로마 편입이란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['아카데믹 영어', '필요한 경우'], ['디플로마', '8~16개월'], ['학사 2학년', '편입']],
+                b: ['학부 1학년 과목을 대학 부설 컬리지에서 소규모 수업으로 이수한 뒤, 기준 성적(보통 <mark>60~70%</mark>)을 충족하면 <mark>본교 2학년으로 편입</mark>하는 경로입니다.',
+                    '파운데이션보다 <mark>1년 빠르게</mark> 학위를 마칠 수 있고 1학년 학비도 절감됩니다. 보통 <mark>IELTS 5.5~6.0</mark>부터 지원할 수 있으며, 학교·전공별 학점 인정 범위가 다릅니다.']
+            },
+            en: {
+                t: 'What is a diploma transfer?',
+                f: [['High school', 'graduate'], ['Academic English', 'if required'], ['Diploma', '8-16 months'], ['Bachelor Year 2', 'transfer in']],
+                b: ['You complete first-year subjects at the university college in smaller classes, then <mark>transfer into Year 2</mark> once you clear the grade threshold, usually <mark>60 to 70 per cent</mark>.',
+                    'It finishes <mark>a year sooner</mark> than a foundation route and saves first-year fees. Entry typically starts around <mark>IELTS 5.5-6.0</mark>; credit recognition varies by school and course.']
+            }
         },
         'uk-foundation': {
-            ko: { t: '파운데이션(Foundation)이란?', b: ['영국 학부는 13년제 교육(A-level)을 전제로 하기 때문에, 한국 고교 졸업생은 보통 파운데이션 1년을 거쳐 학부 1학년으로 진학합니다.', '대학 부설 또는 제휴 기관에서 영어와 전공 기초를 이수하며, 수료 성적을 충족하면 진학이 보장되는 과정이 많습니다. 보통 IELTS 5.0~5.5 수준부터 시작할 수 있습니다.'] },
-            en: { t: 'What is a foundation year?', b: ['UK degrees assume 13 years of schooling (A-levels), so Korean high-school graduates usually take a one-year foundation before entering Year 1.', 'Run by the university or a partner provider, it combines English with academic subjects, and many programs guarantee progression on completion grades. Entry typically starts from around IELTS 5.0–5.5.'] }
+            ko: {
+                t: '파운데이션(Foundation)이란?',
+                f: [['고교 졸업', '한국 12년제'], ['아카데믹 영어', '필요한 경우'], ['파운데이션', '1년'], ['학사 1학년', '본교 진학']],
+                b: ['영국 학부는 <mark>13년제 교육(A-level)</mark>을 전제로 하기 때문에, 한국 고교 졸업생은 보통 <mark>파운데이션 1년</mark>을 거쳐 학부 1학년으로 진학합니다.',
+                    '대학 부설 또는 제휴 기관에서 영어와 전공 기초를 이수하며, 수료 성적을 충족하면 <mark>진학이 보장</mark>되는 과정이 많습니다. 보통 <mark>IELTS 5.0~5.5</mark>부터 시작할 수 있습니다.']
+            },
+            en: {
+                t: 'What is a foundation year?',
+                f: [['High school', '12 years in Korea'], ['Academic English', 'if required'], ['Foundation', '1 year'], ['Bachelor Year 1', 'at the university']],
+                b: ['UK degrees assume <mark>13 years of schooling (A-levels)</mark>, so Korean high-school graduates usually take a <mark>one-year foundation</mark> before entering Year 1.',
+                    'Run by the university or a partner provider, it combines English with academic subjects, and many programs <mark>guarantee progression</mark> on completion grades. Entry typically starts from around <mark>IELTS 5.0-5.5</mark>.']
+            }
         },
         'ca-pathway': {
-            ko: { t: '패스웨이 컬리지 편입이란?', b: ['FIC(SFU)·ICM(매니토바)처럼 대학 캠퍼스 안에 있는 패스웨이 컬리지에서 학부 1학년 과정(UTP)을 소규모 수업으로 이수하고, 기준 성적을 충족하면 본교 2학년으로 편입하는 경로입니다.', '직접 입학보다 낮은 성적·영어(보통 IELTS 5.5 수준)로 시작할 수 있고, 수업은 본교와 같은 캠퍼스에서 진행됩니다.'] },
-            en: { t: 'What is a pathway-college transfer?', b: ['On-campus pathway colleges such as FIC (SFU) and ICM (Manitoba) teach first-year university courses (UTP) in smaller classes; meet the grade threshold and you transfer into Year 2.', 'Entry starts with lower grades and English (around IELTS 5.5) than direct admission, and classes run on the same campus as the university.'] }
+            ko: {
+                t: '패스웨이 컬리지 편입이란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['아카데믹 영어', '필요한 경우'], ['UTP 1학년', '8~12개월'], ['학사 2학년', '본교 편입']],
+                b: ['FIC(SFU)·ICM(매니토바)처럼 <mark>대학 캠퍼스 안</mark>에 있는 패스웨이 컬리지에서 학부 1학년 과정(UTP)을 소규모 수업으로 이수하고, 기준 성적을 충족하면 <mark>본교 2학년으로 편입</mark>합니다.',
+                    '직접 입학보다 낮은 성적과 영어(보통 <mark>IELTS 5.5</mark>)로 시작할 수 있고, 수업은 본교와 같은 캠퍼스에서 진행됩니다.']
+            },
+            en: {
+                t: 'What is a pathway-college transfer?',
+                f: [['High school', 'graduate'], ['Academic English', 'if required'], ['UTP Year 1', '8-12 months'], ['Bachelor Year 2', 'transfer in']],
+                b: ['Pathway colleges such as FIC (SFU) and ICM (Manitoba) sit <mark>on the university campus</mark> and teach first-year courses (UTP) in smaller classes; meet the grade threshold and you <mark>transfer into Year 2</mark>.',
+                    'Entry starts with lower grades and English (around <mark>IELTS 5.5</mark>) than direct admission, and classes run on the same campus as the university.']
+            }
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'ca-pathway': '../guide/ca.html' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
         document.getElementById('pw-guide-title').textContent = c.t;
+        document.getElementById('pw-guide-flow').innerHTML = (c.f || []).map(function (s) {
+            return '<li class="flow-step">' + s[0] + '<span>' + s[1] + '</span></li>';
+        }).join('');
         document.getElementById('pw-guide-body').innerHTML = c.b.map(function (p) { return '<p>' + p + '</p>'; }).join('');
         document.getElementById('pw-guide-cta').textContent = LANG === 'en' ? 'Take the 3-minute quiz →' : '3분 진단 하러 가기 →';
         var more = document.getElementById('pw-guide-more');
