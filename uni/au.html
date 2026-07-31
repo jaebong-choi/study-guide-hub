@@ -621,7 +621,7 @@
                 if (hit) shown++;
                 grid.appendChild(c);
             });
-            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' university' : ' universities') : shown + '개 학교';
+            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' school' : ' schools') : shown + '개 학교';
             empty.hidden = shown > 0;
         };
         q.addEventListener('input', render);

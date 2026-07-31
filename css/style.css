@@ -498,6 +498,7 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .uni-banner:hover { transform: translateY(-2px); }
 .uni-banner--uk:hover { border-color: var(--uk); }
 .uni-banner--au:hover { border-color: var(--au); }
+.uni-banner--ca:hover { border-color: var(--ca); }
 .uni-banner-text {
     display: flex;
     flex-direction: column;
@@ -525,6 +526,8 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .uni-banner-go { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 700; }
 .uni-banner--uk .uni-banner-go { color: var(--uk); }
 .uni-banner--au .uni-banner-go { color: var(--au); }
+.uni-banner--ca .uni-banner-go { color: var(--ca); }
+.uni-banner--ca .uni-banner-photo img { object-position: center 30%; }
 .uni-banner-photo { position: relative; min-height: 150px; }
 .uni-banner-photo img {
     position: absolute;

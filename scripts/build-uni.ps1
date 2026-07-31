@@ -43,11 +43,12 @@ $DIAG_URL = @{
     'US' = 'https://jaebong-choi.github.io/us-study-guide/'
 }
 # 국가별 목록 페이지 정보 — UK는 기존 URL(uni/index.html) 유지, 나머지는 uni/{cc}.html
+# noun: 캐나다는 컬리지 중심 DB라 명사를 달리 쓴다
 $COUNTRY_INFO = @{
-    'UK' = @{ ko = '영국';   enAdj = 'UK';         file = 'index.html' }
-    'AU' = @{ ko = '호주';   enAdj = 'Australian'; file = 'au.html' }
-    'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html' }
-    'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html' }
+    'UK' = @{ ko = '영국';   enAdj = 'UK';         file = 'index.html'; noun = '대학교'; enNoun = 'universities' }
+    'AU' = @{ ko = '호주';   enAdj = 'Australian'; file = 'au.html';    noun = '대학교'; enNoun = 'universities' }
+    'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html';    noun = '컬리지'; enNoun = 'colleges' }
+    'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html';    noun = '대학교'; enNoun = 'universities' }
 }
 
 function Esc([string]$s) {
@@ -511,13 +512,13 @@ $LIST_TEMPLATE = @'
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{CN_KO}} 대학교 안내 | Study Guide Hub</title>
-    <meta name="description" content="{{CN_KO}} 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <title>{{CN_KO}} {{CN_NOUN}} 안내 | Study Guide Hub</title>
+    <meta name="description" content="{{CN_KO}} {{CN_NOUN}} {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
     <link rel="canonical" href="{{SITE}}uni/{{LIST_PATH}}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Study Guide Hub">
-    <meta property="og:title" content="{{CN_KO}} 대학교 {{COUNT}}곳 안내 | Study Guide Hub">
-    <meta property="og:description" content="{{CN_KO}} 대학교 {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:title" content="{{CN_KO}} {{CN_NOUN}} {{COUNT}}곳 안내 | Study Guide Hub">
+    <meta property="og:description" content="{{CN_KO}} {{CN_NOUN}} {{COUNT}}곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
     <meta property="og:url" content="{{SITE}}uni/{{LIST_PATH}}">
     <meta property="og:image" content="{{SITE}}images/og-image.jpg?v=20260727">
     <meta property="og:image:width" content="1200">
@@ -656,8 +657,8 @@ $LIST_TEMPLATE = @'
     <main>
         <section class="list-hero">
             <div class="container">
-                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › {{CN_EN}} universities"><a href="../index.html">홈</a> › {{CN_KO}} 대학교</p>
-                <h1 data-en="{{COUNT}} {{CN_EN}} universities">{{CN_KO}} 대학교 {{COUNT}}곳</h1>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › {{CN_EN}} {{CN_ENNOUN}}"><a href="../index.html">홈</a> › {{CN_KO}} {{CN_NOUN}}</p>
+                <h1 data-en="{{COUNT}} {{CN_EN}} {{CN_ENNOUN}}">{{CN_KO}} {{CN_NOUN}} {{COUNT}}곳</h1>
                 <p data-en="Tuition, IELTS requirements and entry routes, school by school. Select a university for details.">학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
 
                 <div class="toolbar">
@@ -694,7 +695,7 @@ $LIST_TEMPLATE = @'
     var render;   // applyLang에서 재호출할 수 있게 밖으로 꺼내 둔다
     function applyLang() {
         document.documentElement.lang = LANG;
-        document.title = LANG === 'en' ? '{{CN_EN}} universities | Study Guide Hub' : '{{CN_KO}} 대학교 안내 | Study Guide Hub';
+        document.title = LANG === 'en' ? '{{CN_EN}} {{CN_ENNOUN}} | Study Guide Hub' : '{{CN_KO}} {{CN_NOUN}} 안내 | Study Guide Hub';
         document.querySelectorAll('[data-en]').forEach(function (el) {
             if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
             el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
@@ -744,7 +745,7 @@ $LIST_TEMPLATE = @'
                 if (hit) shown++;
                 grid.appendChild(c);
             });
-            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' university' : ' universities') : shown + '개 학교';
+            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' school' : ' schools') : shown + '개 학교';
             empty.hidden = shown > 0;
         };
         q.addEventListener('input', render);
@@ -1009,7 +1010,7 @@ foreach ($cc in $lists.Keys) {
     if (-not $info) { $info = @{ ko = $cc; enAdj = $cc; file = ($cc.ToLower() + '.html') } }
     $listPath = if ($info.file -eq 'index.html') { '' } else { $info.file }   # canonical: index.html은 uni/
     $l = $lists[$cc]
-    $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).
+    $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
         Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
         Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath)
     [IO.File]::WriteAllText((Join-Path $outDir $info.file), $listHtml, $utf8NoBom)
