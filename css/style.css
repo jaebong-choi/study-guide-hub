@@ -506,6 +506,9 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     padding: 24px 28px;
     min-width: 0;
 }
+/* 국가 진단 카드의 배지는 사진 겹침용 음수 마진(-36px)을 갖고 있어
+ * 배너 안에서는 위로 삐져나가 잘린다 — 배너에서는 제자리로 되돌린다. */
+.uni-banner-text .country-badge { margin-top: 0; margin-bottom: 2px; }
 .uni-banner-text strong {
     font-size: clamp(19px, 2.6vw, 23px);
     font-weight: 800;
