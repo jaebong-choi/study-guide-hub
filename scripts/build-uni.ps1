@@ -48,20 +48,53 @@ function Esc([string]$s) {
     return $s.Replace('&', '&amp;').Replace('<', '&lt;').Replace('>', '&gt;').Replace('"', '&quot;')
 }
 
+# ---------- 영어 전환 ----------
+# 데이터에서 나온 한국어만 data\i18n-uni.json(한국어 원문 → 영어)으로 옮긴다.
+# 템플릿의 고정 문구는 마크업에 data-en을 직접 적어 두므로 사전에 넣지 않는다.
+$dictPath = Join-Path $repoRoot 'data\i18n-uni.json'
+$I18N = @{}
+if (Test-Path $dictPath) {
+    (Get-Content $dictPath -Raw -Encoding UTF8 | ConvertFrom-Json).PSObject.Properties |
+        ForEach-Object { $I18N[$_.Name] = $_.Value }
+}
+$missing = [ordered]@{}
+
+function En([string]$s) {
+    if ([string]::IsNullOrEmpty($s)) { return $s }
+    if ($I18N.ContainsKey($s)) { return $I18N[$s] }
+    if ($s -match '[가-힣]') { $script:missing[$s] = $true }   # 번역 누락은 빌드 끝에 보고
+    return $s
+}
+
+# 한국어와 영어가 다를 때만 data-en 속성을 붙인다. 영어 쪽은 HTML 조각도 허용.
+function EnAttr([string]$ko, [string]$en) {
+    if ($en -eq $ko) { return '' }
+    return ' data-en="' + (Esc $en) + '"'
+}
+
 function New-PathwayCard($pw, [string]$diagUrl) {
     $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
-    $provider = if ($pw.provider) { '<span class="pw-provider">' + (Esc $pw.provider) + '</span>' } else { '' }
+    $provider = if ($pw.provider) {
+        '<span class="pw-provider"' + (EnAttr $pw.provider (En $pw.provider)) + '>' + (Esc $pw.provider) + '</span>'
+    } else { '' }
     $facts = ''
     if ($null -ne $pw.ielts_min) { $facts += '<span>IELTS <b>' + $pw.ielts_min + '</b></span>' }
-    if ($pw.duration)  { $facts += '<span>기간 <b>' + (Esc $pw.duration) + '</b></span>' }
-    if ($pw.cost_note) { $facts += '<span>비용 <b>' + (Esc $pw.cost_note) + '</b></span>' }
-    $noteHtml = if ($pw.note) { '<p class="pw-note">' + (Esc $pw.note) + '</p>' } else { '' }
+    if ($pw.duration) {
+        $d = En $pw.duration
+        $facts += '<span' + (EnAttr "기간 <b>$($pw.duration)</b>" "Duration <b>$d</b>") + '>기간 <b>' + (Esc $pw.duration) + '</b></span>'
+    }
+    if ($pw.cost_note) {
+        $facts += '<span' + (EnAttr "비용 <b>$($pw.cost_note)</b>" "Cost <b>$(En $pw.cost_note)</b>") + '>비용 <b>' + (Esc $pw.cost_note) + '</b></span>'
+    }
+    $noteHtml = if ($pw.note) {
+        '<p class="pw-note"' + (EnAttr $pw.note (En $pw.note)) + '>' + (Esc $pw.note) + '</p>'
+    } else { '' }
     return @"
                 <div class="pathway-card">
-                    <div class="pw-head"><span class="pw-type">$(Esc $pwLabel)</span>$provider</div>
+                    <div class="pw-head"><span class="pw-type"$(EnAttr $pwLabel (En $pwLabel))>$(Esc $pwLabel)</span>$provider</div>
                     <div class="pw-facts">$facts</div>
                     $noteHtml
-                    <a class="pw-link" href="$diagUrl">이 경로로 진단 &rarr;</a>
+                    <a class="pw-link" href="$diagUrl" data-en="Check this route &rarr;">이 경로로 진단 &rarr;</a>
                 </div>
 "@
 }
@@ -147,6 +180,13 @@ $TEMPLATE = @'
         }
         .theme-btn::before { content: '\1F319'; }
         :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+        .lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+        .lang-switch button {
+            border: 0; background: transparent; color: var(--mute); cursor: pointer;
+            font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+        }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch button.on { background: var(--text); color: var(--bg); }
 
         .uni-hero { padding: 48px 0 36px; }
         .crumb { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
@@ -264,8 +304,12 @@ $TEMPLATE = @'
         <div class="container">
             <a href="../index.html" class="brand">Study Guide Hub</a>
             <div class="header-actions">
-                <button type="button" class="theme-btn" aria-label="화면 모드 전환" title="밝게 / 어둡게" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
-                <a href="../index.html#contact" class="header-cta">상담 문의</a>
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
             </div>
         </div>
     </header>
@@ -274,27 +318,27 @@ $TEMPLATE = @'
         <!-- ① 헤더 -->
         <section class="uni-hero">
             <div class="container">
-                <p class="crumb"><a href="../index.html">홈</a> › {{COUNTRY}} › {{NAME_KO}}</p>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › {{COUNTRY}} › {{NAME_EN}}"><a href="../index.html">홈</a> › {{COUNTRY}} › {{NAME_KO}}</p>
                 {{HERO_BANNER}}
                 <div class="hero-top">
                     <div>
                         <div class="meta-badges">
                             <span class="meta-badge">{{CITY}}</span>
-                            <span class="meta-badge">{{TYPE_LABEL}}</span>
+                            {{TYPE_BADGE}}
                             <span class="meta-badge">{{COUNTRY}}</span>
                         </div>
-                        <h1>{{NAME_KO}}</h1>
-                        <p class="en-name">{{NAME_EN}}</p>
+                        <h1 data-en="{{NAME_EN}}">{{NAME_KO}}</h1>
+                        <p class="en-name" data-en="{{NAME_KO}}">{{NAME_EN}}</p>
                     </div>
                     {{UNI_LOGO}}
                 </div>
                 <div class="rank-badges">{{RANK_BADGES}}</div>
                 <div class="hero-actions">
-                    <a class="btn btn-primary" href="{{DIAG_URL}}">3분 진단 시작</a>
-                    <a class="btn btn-secondary" href="{{OFFICIAL_URL}}" target="_blank" rel="noopener">공식 홈페이지</a>
+                    <a class="btn btn-primary" href="{{DIAG_URL}}" data-en="Start the 3-minute quiz">3분 진단 시작</a>
+                    <a class="btn btn-secondary" href="{{OFFICIAL_URL}}" target="_blank" rel="noopener" data-en="Official website">공식 홈페이지</a>
                 </div>
                 <div class="map-wrap">
-                    <iframe src="https://www.google.com/maps?q={{MAP_QUERY}}&amp;output=embed&amp;hl=ko" title="{{NAME_KO}} 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                    <iframe src="https://www.google.com/maps?q={{MAP_QUERY}}&amp;output=embed&amp;hl=ko" title="{{NAME_KO}} 위치 지도" data-en-title="{{NAME_EN}} location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
                 </div>
             </div>
         </section>
@@ -304,22 +348,22 @@ $TEMPLATE = @'
             <div class="container">
                 <div class="stat-grid">
                     <div class="stat-card">
-                        <p class="stat-label">연간 학비 (학부)</p>
-                        <p class="stat-value">{{TUITION_UG}}</p>
+                        {{TUITION_LABEL}}
+                        <p class="stat-value"{{TUITION_UG_EN}}>{{TUITION_UG}}</p>
                         <p class="stat-sub krw" data-min="{{UG_MIN}}" data-max="{{UG_MAX}}"></p>
                     </div>
                     <div class="stat-card">
-                        <p class="stat-label">IELTS 기준</p>
+                        <p class="stat-label" data-en="IELTS requirement">IELTS 기준</p>
                         <p class="stat-value">{{IELTS_MIN}}</p>
-                        <p class="stat-sub">{{ACCEPTED_SUB}}</p>
+                        <p class="stat-sub"{{ACCEPTED_SUB_EN}}>{{ACCEPTED_SUB}}</p>
                     </div>
                     <div class="stat-card">
-                        <p class="stat-label">입학 시기</p>
-                        <p class="stat-value">{{INTAKES}}</p>
+                        <p class="stat-label" data-en="Intakes">입학 시기</p>
+                        <p class="stat-value"{{INTAKES_EN}}>{{INTAKES}}</p>
                     </div>
                     <div class="stat-card">
-                        <p class="stat-label">진학 경로</p>
-                        <p class="stat-value">{{PATHWAY_COUNT}}개</p>
+                        <p class="stat-label" data-en="Entry routes">진학 경로</p>
+                        <p class="stat-value" data-en="{{PATHWAY_COUNT}}">{{PATHWAY_COUNT}}개</p>
                     </div>
                 </div>
                 <p class="fx-date"></p>
@@ -329,7 +373,7 @@ $TEMPLATE = @'
         <!-- ③ 진학 경로 -->
         <section>
             <div class="container">
-                <h2>진학 경로</h2>
+                <h2 data-en="Entry routes">진학 경로</h2>
                 {{PATHWAY_CARDS}}
             </div>
         </section>
@@ -337,7 +381,7 @@ $TEMPLATE = @'
         <!-- ④ 전공 -->
         <section>
             <div class="container">
-                <h2>인기 전공</h2>
+                <h2 data-en="Popular subjects">인기 전공</h2>
                 <div class="major-tags">{{MAJOR_TAGS}}</div>
                 {{SUBJECT_RANK_LIST}}
             </div>
@@ -346,22 +390,22 @@ $TEMPLATE = @'
         <!-- ⑤ 학비·요건 표 -->
         <section>
             <div class="container">
-                <h2>학비·요건 한눈에</h2>
+                <h2 data-en="Tuition and requirements">학비·요건 한눈에</h2>
                 <table class="fact-table">
                     {{FACT_ROWS}}
                 </table>
-                <p class="disclaimer">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.<br>원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다.<br>최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
+                <p class="disclaimer" data-en="Figures follow official university publications and vary by course and year.&lt;br&gt;KRW amounts are indicative, converted at the exchange rate at the time of viewing.&lt;br&gt;Check the official website for the latest information. (Verified: {{LAST_VERIFIED}})">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.<br>원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다.<br>최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
             </div>
         </section>
 {{VIDEO_SECTION}}{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
         <!-- ⑥ 하단 CTA -->
         <section class="cta-section">
             <div class="container">
-                <h2>내 조건이면 어떤 경로가 맞을까?</h2>
-                <p class="cta-lead">3분 진단으로 {{NAME_KO}} 진학 가능성을 바로 확인해 보세요.</p>
+                <h2 data-en="Which route fits your profile?">내 조건이면 어떤 경로가 맞을까?</h2>
+                <p class="cta-lead" data-en="Take the 3-minute quiz to see how you match {{NAME_EN}}.">3분 진단으로 {{NAME_KO}} 진학 가능성을 바로 확인해 보세요.</p>
                 <div class="cta-buttons">
-                    <a class="btn btn-primary" href="{{DIAG_URL}}">3분 진단 시작</a>
-                    <a class="btn btn-secondary" href="../index.html#contact">상담 문의</a>
+                    <a class="btn btn-primary" href="{{DIAG_URL}}" data-en="Start the 3-minute quiz">3분 진단 시작</a>
+                    <a class="btn btn-secondary" href="../index.html#contact" data-en="Contact">상담 문의</a>
                 </div>
             </div>
         </section>
@@ -369,46 +413,80 @@ $TEMPLATE = @'
 
     <footer class="site-footer">
         <div class="container">
-            <p>출처: QS World University Rankings · 각 대학 공식 공시 자료</p>
-            <p>본 페이지는 특정 유학원·기관과 무관한 무료 정보 페이지입니다.</p>
+            <p data-en="Sources: QS World University Rankings and official university publications">출처: QS World University Rankings · 각 대학 공식 공시 자료</p>
+            <p data-en="A free information page, independent of any agency or institution.">본 페이지는 특정 유학원·기관과 무관한 무료 정보 페이지입니다.</p>
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
 
+    <!-- 언어 전환 — data-en 속성에 영어 문구를 심어 두고 통째로 스왑한다 (허브와 같은 키 sgh-lang 공유) -->
+    <script>
+    var LANG = 'ko';
+    try { if (localStorage.getItem('sgh-lang') === 'en') LANG = 'en'; } catch (e) {}
+    function applyLang() {
+        document.documentElement.lang = LANG;
+        document.title = LANG === 'en' ? '{{NAME_EN}} | Study Guide Hub' : '{{NAME_KO}} ({{NAME_EN}}) | Study Guide Hub';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
+            el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
+        });
+        [['data-en-title', 'title'], ['data-en-aria', 'aria-label'], ['data-en-alt', 'alt']].forEach(function (pair) {
+            document.querySelectorAll('[' + pair[0] + ']').forEach(function (el) {
+                var koAttr = pair[0] + '-ko';
+                if (!el.hasAttribute(koAttr)) el.setAttribute(koAttr, el.getAttribute(pair[1]) || '');
+                el.setAttribute(pair[1], el.getAttribute(LANG === 'en' ? pair[0] : koAttr));
+            });
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+            b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
+        });
+        renderKrw();
+    }
+    function setLang(l) {
+        LANG = l;
+        try { localStorage.setItem('sgh-lang', l); } catch (e) {}
+        applyLang();
+    }
+    </script>
+
     <!-- 원화 환산 — 조회 시점의 환율을 받아 학비 옆에 표시. 실패하면 조용히 생략 -->
     <script>
-    (function () {
-        var els = document.querySelectorAll('.krw');
-        if (!els.length) return;
-        fetch('https://open.er-api.com/v6/latest/{{CURRENCY}}')
-            .then(function (r) { return r.json(); })
-            .then(function (d) {
-                var rate = d && d.rates && d.rates.KRW;
-                if (!rate) return;
-                function fmt(v) {
-                    var man = Math.round(v * rate / 10000);
-                    if (man >= 10000) {
-                        var eok = Math.floor(man / 10000), rest = man % 10000;
-                        return eok + '억' + (rest ? ' ' + rest.toLocaleString('ko-KR') + '만' : '') + ' 원';
-                    }
-                    return man.toLocaleString('ko-KR') + '만 원';
-                }
-                els.forEach(function (el) {
-                    var min = parseFloat(el.getAttribute('data-min'));
-                    var max = parseFloat(el.getAttribute('data-max'));
-                    if (isNaN(min) && isNaN(max)) return;
-                    if (isNaN(min)) min = max;
-                    if (isNaN(max)) max = min;
-                    el.textContent = '약 ' + (min === max ? fmt(min) : fmt(min).replace(' 원', '') + '~' + fmt(max));
-                });
-                var today = new Date();
-                var dateNote = today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
-                document.querySelectorAll('.fx-date').forEach(function (el) {
-                    el.textContent = dateNote;
-                });
-            })
-            .catch(function () {});
-    })();
+    var FX_RATE = null;
+    function renderKrw() {
+        if (!FX_RATE) return;
+        var en = LANG === 'en';
+        function fmt(v) {
+            var man = Math.round(v * FX_RATE / 10000);
+            if (en) return '₩' + (man * 10000).toLocaleString('en-US');
+            if (man >= 10000) {
+                var eok = Math.floor(man / 10000), rest = man % 10000;
+                return eok + '억' + (rest ? ' ' + rest.toLocaleString('ko-KR') + '만' : '') + ' 원';
+            }
+            return man.toLocaleString('ko-KR') + '만 원';
+        }
+        document.querySelectorAll('.krw').forEach(function (el) {
+            var min = parseFloat(el.getAttribute('data-min'));
+            var max = parseFloat(el.getAttribute('data-max'));
+            if (isNaN(min) && isNaN(max)) return;
+            if (isNaN(min)) min = max;
+            if (isNaN(max)) max = min;
+            var range = min === max ? fmt(min) : (en ? fmt(min) + ' ~ ' + fmt(max) : fmt(min).replace(' 원', '') + '~' + fmt(max));
+            el.textContent = (en ? 'approx. ' : '약 ') + range;
+        });
+        var today = new Date();
+        var dateNote = en
+            ? 'Rate as of ' + today.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })
+            : today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
+        document.querySelectorAll('.fx-date').forEach(function (el) { el.textContent = dateNote; });
+    }
+    fetch('https://open.er-api.com/v6/latest/{{CURRENCY}}')
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+            FX_RATE = d && d.rates && d.rates.KRW;
+            renderKrw();
+        })
+        .catch(function () {});
+    applyLang();
     </script>
 </body>
 </html>
@@ -484,6 +562,13 @@ $LIST_TEMPLATE = @'
         }
         .theme-btn::before { content: '\1F319'; }
         :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+        .lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+        .lang-switch button {
+            border: 0; background: transparent; color: var(--mute); cursor: pointer;
+            font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+        }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch button.on { background: var(--text); color: var(--bg); }
 
         .list-hero { padding: 44px 0 28px; }
         .crumb { font-size: 13px; color: var(--mute); margin-bottom: 16px; }
@@ -543,8 +628,12 @@ $LIST_TEMPLATE = @'
         <div class="container">
             <a href="../index.html" class="brand">Study Guide Hub</a>
             <div class="header-actions">
-                <button type="button" class="theme-btn" aria-label="화면 모드 전환" title="밝게 / 어둡게" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
-                <a href="../index.html#contact" class="header-cta">상담 문의</a>
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
             </div>
         </div>
     </header>
@@ -552,16 +641,16 @@ $LIST_TEMPLATE = @'
     <main>
         <section class="list-hero">
             <div class="container">
-                <p class="crumb"><a href="../index.html">홈</a> › 영국 대학교</p>
-                <h1>영국 대학교 {{COUNT}}곳</h1>
-                <p>학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › UK universities"><a href="../index.html">홈</a> › 영국 대학교</p>
+                <h1 data-en="{{COUNT}} UK universities">영국 대학교 {{COUNT}}곳</h1>
+                <p data-en="Tuition, IELTS requirements and entry routes, school by school. Select a university for details.">학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
 
                 <div class="toolbar">
-                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" aria-label="학교 검색">
-                    <div class="sort-group" role="group" aria-label="정렬 기준">
-                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true">QS 순위</button>
-                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false">학비 낮은 순</button>
-                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false">가나다순</button>
+                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" data-en-ph="Search by name or city (e.g. Manchester)" aria-label="학교 검색" data-en-aria="Search universities">
+                    <div class="sort-group" role="group" aria-label="정렬 기준" data-en-aria="Sort by">
+                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true" data-en="QS rank">QS 순위</button>
+                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false" data-en="Lowest fees">학비 낮은 순</button>
+                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
                     </div>
                 </div>
                 <p class="result-count" id="count"></p>
@@ -572,19 +661,46 @@ $LIST_TEMPLATE = @'
             <div class="uni-grid" id="grid">
 {{CARDS}}
             </div>
-            <p class="empty is-hidden" id="empty" hidden>검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
+            <p class="empty is-hidden" id="empty" hidden data-en="No results. Try a different name.">검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: {{LAST_VERIFIED}})</p>
-            <p>학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
+            <p data-en="Sources: QS World University Rankings and official university publications (Verified: {{LAST_VERIFIED}})">출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: {{LAST_VERIFIED}})</p>
+            <p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
 
     <script>
+    var LANG = 'ko';
+    try { if (localStorage.getItem('sgh-lang') === 'en') LANG = 'en'; } catch (e) {}
+    var render;   // applyLang에서 재호출할 수 있게 밖으로 꺼내 둔다
+    function applyLang() {
+        document.documentElement.lang = LANG;
+        document.title = LANG === 'en' ? 'UK universities | Study Guide Hub' : '영국 대학교 안내 | Study Guide Hub';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
+            el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
+        });
+        [['data-en-title', 'title'], ['data-en-aria', 'aria-label'], ['data-en-ph', 'placeholder'], ['data-en-alt', 'alt']].forEach(function (pair) {
+            document.querySelectorAll('[' + pair[0] + ']').forEach(function (el) {
+                var koAttr = pair[0] + '-ko';
+                if (!el.hasAttribute(koAttr)) el.setAttribute(koAttr, el.getAttribute(pair[1]) || '');
+                el.setAttribute(pair[1], el.getAttribute(LANG === 'en' ? pair[0] : koAttr));
+            });
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+            b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
+        });
+        if (render) render();
+    }
+    function setLang(l) {
+        LANG = l;
+        try { localStorage.setItem('sgh-lang', l); } catch (e) {}
+        applyLang();
+    }
     (function () {
         var grid = document.getElementById('grid');
         var cards = [].slice.call(grid.children);
@@ -597,10 +713,13 @@ $LIST_TEMPLATE = @'
             var v = parseFloat(el.getAttribute(attr));
             return isNaN(v) ? Infinity : v;   // 값 없는 학교는 항상 뒤로
         }
-        function render() {
+        render = function () {
             var term = q.value.trim().toLowerCase();
             cards.sort(function (a, b) {
-                if (sortKey === 'name') return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'), 'ko');
+                if (sortKey === 'name') {
+                    var attr = LANG === 'en' ? 'data-name-en' : 'data-name';
+                    return a.getAttribute(attr).localeCompare(b.getAttribute(attr), LANG);
+                }
                 return num(a, 'data-' + sortKey) - num(b, 'data-' + sortKey);
             });
             var shown = 0;
@@ -610,9 +729,9 @@ $LIST_TEMPLATE = @'
                 if (hit) shown++;
                 grid.appendChild(c);
             });
-            count.textContent = shown + '개 학교';
+            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' university' : ' universities') : shown + '개 학교';
             empty.hidden = shown > 0;
-        }
+        };
         q.addEventListener('input', render);
         document.querySelectorAll('.sort-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
@@ -623,7 +742,7 @@ $LIST_TEMPLATE = @'
                 render();
             });
         });
-        render();
+        applyLang();
     })();
     </script>
 </body>
@@ -653,28 +772,47 @@ foreach ($file in $dataFiles) {
         $rankBadges = ''
         foreach ($sr in @($u.qs_subject_ranks)) {
             if ($null -ne $sr) {
-                $rankBadges += ('<span class="rank-badge--subject">{0} QS 세계 {1}위</span>' -f (Esc $sr.subject), $sr.rank)
+                $srEn = 'QS #{0} worldwide in {1}' -f $sr.rank, (En $sr.subject)
+                $rankBadges += ('<span class="rank-badge--subject" data-en="{2}">{0} QS 세계 {1}위</span>' -f (Esc $sr.subject), $sr.rank, (Esc $srEn))
             }
         }
         if ($null -ne $u.qs_rank) {
-            $rankBadges += ('<span class="rank-badge--overall">QS 종합 {0}위</span>' -f $u.qs_rank)
+            $rankBadges += ('<span class="rank-badge--overall" data-en="QS World #{0}">QS 종합 {0}위</span>' -f $u.qs_rank)
         }
 
-        # 핵심 수치
+        # 핵심 수치 — 학부 학비가 없는 대학원 전용 학교는 석사 학비로 라벨을 바꿔 표시
         $tuitionUg = Fmt-Tuition $u.tuition_ug_min $u.tuition_ug_max $symbol
-        if ($null -eq $tuitionUg) { $tuitionUg = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol }
-        if ($null -eq $tuitionUg) { $tuitionUg = '문의' }
+        $tuitionLabel = '<p class="stat-label" data-en="Annual tuition (UG)">연간 학비 (학부)</p>'
+        $statMin = $u.tuition_ug_min; $statMax = $u.tuition_ug_max
+        if ($null -eq $tuitionUg) {
+            $tuitionUg = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
+            $tuitionLabel = '<p class="stat-label" data-en="Annual tuition (PG)">연간 학비 (석사)</p>'
+            $statMin = $u.tuition_pg_min; $statMax = $u.tuition_pg_max
+        }
+        $tuitionUgEn = ''
+        if ($null -eq $tuitionUg) { $tuitionUg = '문의'; $tuitionUgEn = ' data-en="Enquire"' }
         $acceptedOther = @($u.english.accepted | Where-Object { $_ -ne 'ielts' } | ForEach-Object { $ENGLISH_LABEL[$_] })
-        $acceptedSub = if ($acceptedOther.Count -gt 0) { ($acceptedOther -join [char]0x00B7) + ' 인정' } else { 'IELTS 기준' }
+        if ($acceptedOther.Count -gt 0) {
+            $joined = $acceptedOther -join [char]0x00B7
+            $acceptedSub = $joined + ' 인정'
+            $acceptedSubEn = ' data-en="' + (Esc ('Also accepts ' + ((@($u.english.accepted | Where-Object { $_ -ne 'ielts' } | ForEach-Object { En $ENGLISH_LABEL[$_] })) -join [char]0x00B7))) + '"'
+        } else {
+            $acceptedSub = 'IELTS 기준'
+            $acceptedSubEn = ' data-en="IELTS only"'
+        }
+        # 입학 시기 — "9월" 같은 한국어 월 표기를 영어 약칭으로
+        $MONTH_EN = @{ '1월'='Jan';'2월'='Feb';'3월'='Mar';'4월'='Apr';'5월'='May';'6월'='Jun';'7월'='Jul';'8월'='Aug';'9월'='Sep';'10월'='Oct';'11월'='Nov';'12월'='Dec' }
+        $intakesKo = (@($u.intakes)) -join ' &middot; '
+        $intakesEn = (@($u.intakes) | ForEach-Object { if ($MONTH_EN.ContainsKey($_)) { $MONTH_EN[$_] } else { En $_ } }) -join ' &middot; '
 
         # 진학 경로 카드 — level(ug/pg)이 섞여 있으면 학사/석사 그룹으로 나눔
         $ugPaths = @($u.pathways | Where-Object { $null -ne $_ -and $_.level -ne 'pg' })
         $pgPaths = @($u.pathways | Where-Object { $null -ne $_ -and $_.level -eq 'pg' })
         $pathwayCards = ''
         if ($ugPaths.Count -gt 0 -and $pgPaths.Count -gt 0) {
-            $pathwayCards += '<h3 class="pw-group">학사 과정</h3>'
+            $pathwayCards += '<h3 class="pw-group" data-en="Undergraduate">학사 과정</h3>'
             foreach ($pw in $ugPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl }
-            $pathwayCards += '<h3 class="pw-group">석사 과정</h3>'
+            $pathwayCards += '<h3 class="pw-group" data-en="Postgraduate">석사 과정</h3>'
             foreach ($pw in $pgPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl }
         } else {
             foreach ($pw in @($u.pathways)) { if ($null -ne $pw) { $pathwayCards += New-PathwayCard $pw $diagUrl } }
@@ -685,7 +823,7 @@ foreach ($file in $dataFiles) {
         foreach ($ext in @('png', 'svg')) {
             $logoRel = 'images/uni/' + $u.id + '-logo.' + $ext
             if (Test-Path (Join-Path $repoRoot $logoRel)) {
-                $uniLogo = '<img class="uni-logo" src="../' + $logoRel + '" alt="' + (Esc $u.name_ko) + ' 로고">'
+                $uniLogo = '<img class="uni-logo" src="../' + $logoRel + '" alt="' + (Esc $u.name_ko) + ' 로고" data-en-alt="' + (Esc $u.name_en) + ' logo">'
                 break
             }
         }
@@ -704,21 +842,23 @@ foreach ($file in $dataFiles) {
 
         <section>
             <div class="container">
-                <h2>캠퍼스 둘러보기</h2>
-                <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/$($u.youtube_id)" title="$(Esc $u.name_ko) 공식 캠퍼스 영상" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-                <p class="disclaimer">출처: 대학 공식 유튜브 채널</p>
+                <h2 data-en="Campus tour">캠퍼스 둘러보기</h2>
+                <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/$($u.youtube_id)" title="$(Esc $u.name_ko) 공식 캠퍼스 영상" data-en-title="$(Esc $u.name_en) official campus video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                <p class="disclaimer" data-en="Source: the university's official YouTube channel">출처: 대학 공식 유튜브 채널</p>
             </div>
         </section>
 "@
         }
 
         # 전공 태그 + 전공별 QS 순위
-        $majorTags = (@($u.popular_majors) | ForEach-Object { '<span class="major-tag">' + (Esc $_) + '</span>' }) -join ''
+        $majorTags = (@($u.popular_majors) | ForEach-Object { '<span class="major-tag"' + (EnAttr $_ (En $_)) + '>' + (Esc $_) + '</span>' }) -join ''
         $subjectRankList = ''
         $srItems = ''
         foreach ($sr in @($u.qs_subject_ranks)) {
             if ($null -ne $sr) {
-                $srItems += ('<li>{0}<span class="rank-chip">QS 전공 {1}위</span></li>' -f (Esc $sr.subject), $sr.rank)
+                $srKo = '{0}<span class="rank-chip">QS 전공 {1}위</span>' -f (Esc $sr.subject), $sr.rank
+                $srEn = '{0}<span class="rank-chip">QS subject #{1}</span>' -f (Esc (En $sr.subject)), $sr.rank
+                $srItems += '<li' + (EnAttr $srKo $srEn) + '>' + $srKo + '</li>'
             }
         }
         if ($srItems) { $subjectRankList = '<ul class="subject-ranks">' + $srItems + '</ul>' }
@@ -727,14 +867,19 @@ foreach ($file in $dataFiles) {
         $rows = ''
         $ugText = Fmt-Tuition $u.tuition_ug_min $u.tuition_ug_max $symbol
         $pgText = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
-        if ($ugText) { $rows += '<tr><th>학부 연간 학비</th><td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
-        if ($pgText) { $rows += '<tr><th>석사 연간 학비</th><td>' + $pgText + ' <small class="krw" data-min="' + $u.tuition_pg_min + '" data-max="' + $u.tuition_pg_max + '"></small></td></tr>' }
-        $ieltsText = 'IELTS ' + $u.english.ielts_min
-        if ($u.english.note) { $ieltsText += ' (' + (Esc $u.english.note) + ')' }
-        $rows += '<tr><th>영어 최소 기준</th><td>' + $ieltsText + '</td></tr>'
-        $acceptedAll = (@($u.english.accepted | ForEach-Object { $ENGLISH_LABEL[$_] })) -join ([string][char]0x00B7)
-        $rows += '<tr><th>인정 영어 시험</th><td>' + $acceptedAll + '</td></tr>'
-        $rows += '<tr><th>입학 시기</th><td>' + ((@($u.intakes)) -join ' &middot; ') + '</td></tr>'
+        if ($ugText) { $rows += '<tr><th data-en="UG annual tuition">학부 연간 학비</th><td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
+        if ($pgText) { $rows += '<tr><th data-en="PG annual tuition">석사 연간 학비</th><td>' + $pgText + ' <small class="krw" data-min="' + $u.tuition_pg_min + '" data-max="' + $u.tuition_pg_max + '"></small></td></tr>' }
+        $ieltsKo = 'IELTS ' + $u.english.ielts_min
+        $ieltsEn = $ieltsKo
+        if ($u.english.note) {
+            $ieltsEn = $ieltsKo + ' (' + (Esc (En $u.english.note)) + ')'
+            $ieltsKo += ' (' + (Esc $u.english.note) + ')'
+        }
+        $rows += '<tr><th data-en="Minimum English">영어 최소 기준</th><td' + (EnAttr $ieltsKo $ieltsEn) + '>' + $ieltsKo + '</td></tr>'
+        $acceptedAllKo = (@($u.english.accepted | ForEach-Object { $ENGLISH_LABEL[$_] })) -join ([string][char]0x00B7)
+        $acceptedAllEn = (@($u.english.accepted | ForEach-Object { En $ENGLISH_LABEL[$_] })) -join ([string][char]0x00B7)
+        $rows += '<tr><th data-en="Accepted English tests">인정 영어 시험</th><td' + (EnAttr $acceptedAllKo $acceptedAllEn) + '>' + $acceptedAllKo + '</td></tr>'
+        $rows += '<tr><th data-en="Intakes">입학 시기</th><td' + (EnAttr $intakesKo $intakesEn) + '>' + $intakesKo + '</td></tr>'
 
         # 비어 있으면 렌더링하지 않는 섹션
         $editorSection = ''
@@ -743,8 +888,8 @@ foreach ($file in $dataFiles) {
 
         <section>
             <div class="container">
-                <h2>에디터 노트</h2>
-                <div class="editor-note">$(Esc $u.editor_note)</div>
+                <h2 data-en="Editor's note">에디터 노트</h2>
+                <div class="editor-note"$(EnAttr $u.editor_note (En $u.editor_note))>$(Esc $u.editor_note)</div>
             </div>
         </section>
 "@
@@ -756,7 +901,7 @@ foreach ($file in $dataFiles) {
 
         <section>
             <div class="container">
-                <h2>함께 보면 좋은 대학</h2>
+                <h2 data-en="Related universities">함께 보면 좋은 대학</h2>
                 <div class="related-links">$links</div>
             </div>
         </section>
@@ -775,14 +920,18 @@ foreach ($file in $dataFiles) {
             '{{NAME_EN}}'             = Esc $u.name_en
             '{{COUNTRY}}'             = Esc $u.country
             '{{CITY}}'                = Esc $u.city
-            '{{TYPE_LABEL}}'          = Esc $typeText
+            '{{TYPE_BADGE}}'          = '<span class="meta-badge"' + (EnAttr $typeText (En $typeText)) + '>' + (Esc $typeText) + '</span>'
             '{{RANK_BADGES}}'         = $rankBadges
             '{{DIAG_URL}}'            = $diagUrl
             '{{OFFICIAL_URL}}'        = Esc $u.official_url
+            '{{TUITION_LABEL}}'       = $tuitionLabel
             '{{TUITION_UG}}'          = $tuitionUg
+            '{{TUITION_UG_EN}}'       = $tuitionUgEn
             '{{IELTS_MIN}}'           = [string]$u.english.ielts_min
             '{{ACCEPTED_SUB}}'        = $acceptedSub
-            '{{INTAKES}}'             = (@($u.intakes)) -join ' &middot; '
+            '{{ACCEPTED_SUB_EN}}'     = $acceptedSubEn
+            '{{INTAKES}}'             = $intakesKo
+            '{{INTAKES_EN}}'          = (EnAttr $intakesKo $intakesEn)
             '{{PATHWAY_COUNT}}'       = [string](@($u.pathways).Count)
             '{{PATHWAY_CARDS}}'       = $pathwayCards
             '{{MAJOR_TAGS}}'          = $majorTags
@@ -791,8 +940,8 @@ foreach ($file in $dataFiles) {
             '{{LAST_VERIFIED}}'       = Esc $u.last_verified
             '{{MAP_QUERY}}'           = [uri]::EscapeDataString($u.name_en + ', ' + $u.city)
             '{{CURRENCY}}'            = Esc $u.currency
-            '{{UG_MIN}}'              = [string]$u.tuition_ug_min
-            '{{UG_MAX}}'              = [string]$u.tuition_ug_max
+            '{{UG_MIN}}'              = [string]$statMin
+            '{{UG_MAX}}'              = [string]$statMax
             '{{UNI_LOGO}}'            = $uniLogo
             '{{HERO_BANNER}}'         = $heroBanner
             '{{VIDEO_SECTION}}'       = $videoSection
@@ -809,23 +958,24 @@ foreach ($file in $dataFiles) {
         # ---- 목록 페이지용 카드 ----
         $cardLogo = if ($uniLogo) { $uniLogo.Replace('class="uni-logo"', 'class="card-logo"').Replace('src="../', 'src="../') } else { '<span></span>' }
         $qsBadge = if ($null -ne $u.qs_rank) {
-            '<span class="qs-badge">QS ' + $u.qs_rank + '위</span>'
+            '<span class="qs-badge" data-en="QS #' + $u.qs_rank + '">QS ' + $u.qs_rank + '위</span>'
         } else {
-            '<span class="qs-badge is-unranked">QS 200위권 밖</span>'
+            '<span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span>'
         }
         $sortFee = if ($null -ne $u.tuition_ug_min) { $u.tuition_ug_min } elseif ($null -ne $u.tuition_pg_min) { $u.tuition_pg_min } else { '' }
         $searchKey = ($u.name_ko + ' ' + $u.name_en + ' ' + $u.city).ToLower()
+        $feeEnVal = if ($tuitionUgEn) { 'Enquire' } else { $tuitionUg }
         $listCards += @"
-                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-search="$(Esc $searchKey)">
-                    <div class="card-top">$cardLogo$qsBadge</div>
-                    <h2>$(Esc $u.name_ko)</h2>
-                    <p class="card-en">$(Esc $u.name_en)</p>
+                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)">
+                    <div class="card-top">$cardLogo$($qsBadge)</div>
+                    <h2 data-en="$(Esc $u.name_en)">$(Esc $u.name_ko)</h2>
+                    <p class="card-en" data-en="$(Esc $u.name_ko)">$(Esc $u.name_en)</p>
                     <div class="card-meta">
                         <span>$(Esc $u.city)</span>
-                        <span>학비 <b>$tuitionUg</b></span>
+                        <span data-en="Fees <b>$feeEnVal</b>">학비 <b>$tuitionUg</b></span>
                         <span>IELTS <b>$($u.english.ielts_min)</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
 
 "@
@@ -852,3 +1002,13 @@ Write-Host ("생성: sitemap.xml ({0}개 URL) + robots.txt" -f $locs.Count) -For
 
 Write-Host ''
 Write-Host "완료 — 상세 페이지 ${built}개 + 목록 페이지 1개 생성" -ForegroundColor Cyan
+
+# ---------- 번역 누락 보고 ----------
+if ($missing.Count -gt 0) {
+    $missPath = Join-Path $repoRoot 'data\i18n-uni-missing.txt'
+    [IO.File]::WriteAllLines($missPath, [string[]]$missing.Keys, $utf8NoBom)
+    Write-Host ("번역 누락 {0}건 → data\i18n-uni-missing.txt (i18n-uni.json에 추가할 것)" -f $missing.Count) -ForegroundColor Yellow
+} elseif (Test-Path (Join-Path $repoRoot 'data\i18n-uni-missing.txt')) {
+    Remove-Item (Join-Path $repoRoot 'data\i18n-uni-missing.txt')
+    Write-Host '번역 누락 0건' -ForegroundColor Green
+}

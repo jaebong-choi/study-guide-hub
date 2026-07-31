@@ -66,6 +66,13 @@
         }
         .theme-btn::before { content: '\1F319'; }
         :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+        .lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+        .lang-switch button {
+            border: 0; background: transparent; color: var(--mute); cursor: pointer;
+            font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+        }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch button.on { background: var(--text); color: var(--bg); }
 
         .list-hero { padding: 44px 0 28px; }
         .crumb { font-size: 13px; color: var(--mute); margin-bottom: 16px; }
@@ -125,8 +132,12 @@
         <div class="container">
             <a href="../index.html" class="brand">Study Guide Hub</a>
             <div class="header-actions">
-                <button type="button" class="theme-btn" aria-label="화면 모드 전환" title="밝게 / 어둡게" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
-                <a href="../index.html#contact" class="header-cta">상담 문의</a>
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
             </div>
         </div>
     </header>
@@ -134,16 +145,16 @@
     <main>
         <section class="list-hero">
             <div class="container">
-                <p class="crumb"><a href="../index.html">홈</a> › 영국 대학교</p>
-                <h1>영국 대학교 49곳</h1>
-                <p>학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › UK universities"><a href="../index.html">홈</a> › 영국 대학교</p>
+                <h1 data-en="49 UK universities">영국 대학교 49곳</h1>
+                <p data-en="Tuition, IELTS requirements and entry routes, school by school. Select a university for details.">학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
 
                 <div class="toolbar">
-                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" aria-label="학교 검색">
-                    <div class="sort-group" role="group" aria-label="정렬 기준">
-                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true">QS 순위</button>
-                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false">학비 낮은 순</button>
-                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false">가나다순</button>
+                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" data-en-ph="Search by name or city (e.g. Manchester)" aria-label="학교 검색" data-en-aria="Search universities">
+                    <div class="sort-group" role="group" aria-label="정렬 기준" data-en-aria="Sort by">
+                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true" data-en="QS rank">QS 순위</button>
+                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false" data-en="Lowest fees">학비 낮은 순</button>
+                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
                     </div>
                 </div>
                 <p class="result-count" id="count"></p>
@@ -152,560 +163,587 @@
 
         <div class="container">
             <div class="uni-grid" id="grid">
-                <a class="uni-card" href="./uk-loughborough.html" data-qs="225" data-fee="24700" data-name="러프버러대학교" data-search="러프버러대학교 loughborough university loughborough">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-loughborough-logo.png" alt="러프버러대학교 로고"><span class="qs-badge">QS 225위</span></div>
-                    <h2>러프버러대학교</h2>
-                    <p class="card-en">Loughborough University</p>
+                <a class="uni-card" href="./uk-loughborough.html" data-qs="225" data-fee="24700" data-name="러프버러대학교" data-name-en="Loughborough University" data-search="러프버러대학교 loughborough university loughborough">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-loughborough-logo.png" alt="러프버러대학교 로고" data-en-alt="Loughborough University logo"><span class="qs-badge" data-en="QS #225">QS 225위</span></div>
+                    <h2 data-en="Loughborough University">러프버러대학교</h2>
+                    <p class="card-en" data-en="러프버러대학교">Loughborough University</p>
                     <div class="card-meta">
                         <span>Loughborough</span>
-                        <span>학비 <b>£24,700 ~ £30,700</b></span>
+                        <span data-en="Fees <b>£24,700 ~ £30,700</b>">학비 <b>£24,700 ~ £30,700</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-ucl.html" data-qs="9" data-fee="32000" data-name="유니버시티칼리지런던(UCL)" data-search="유니버시티칼리지런던(ucl) university college london (ucl) london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-ucl-logo.svg" alt="유니버시티칼리지런던(UCL) 로고"><span class="qs-badge">QS 9위</span></div>
-                    <h2>유니버시티칼리지런던(UCL)</h2>
-                    <p class="card-en">University College London (UCL)</p>
+                <a class="uni-card" href="./uk-ucl.html" data-qs="9" data-fee="32000" data-name="유니버시티칼리지런던(UCL)" data-name-en="University College London (UCL)" data-search="유니버시티칼리지런던(ucl) university college london (ucl) london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-ucl-logo.svg" alt="유니버시티칼리지런던(UCL) 로고" data-en-alt="University College London (UCL) logo"><span class="qs-badge" data-en="QS #9">QS 9위</span></div>
+                    <h2 data-en="University College London (UCL)">유니버시티칼리지런던(UCL)</h2>
+                    <p class="card-en" data-en="유니버시티칼리지런던(UCL)">University College London (UCL)</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£32,000 ~ £42,700</b></span>
+                        <span data-en="Fees <b>£32,000 ~ £42,700</b>">학비 <b>£32,000 ~ £42,700</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-edinburgh.html" data-qs="34" data-fee="26500" data-name="에든버러대학교" data-search="에든버러대학교 the university of edinburgh edinburgh">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-edinburgh-logo.svg" alt="에든버러대학교 로고"><span class="qs-badge">QS 34위</span></div>
-                    <h2>에든버러대학교</h2>
-                    <p class="card-en">The University of Edinburgh</p>
+                <a class="uni-card" href="./uk-edinburgh.html" data-qs="34" data-fee="26500" data-name="에든버러대학교" data-name-en="The University of Edinburgh" data-search="에든버러대학교 the university of edinburgh edinburgh">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-edinburgh-logo.svg" alt="에든버러대학교 로고" data-en-alt="The University of Edinburgh logo"><span class="qs-badge" data-en="QS #34">QS 34위</span></div>
+                    <h2 data-en="The University of Edinburgh">에든버러대학교</h2>
+                    <p class="card-en" data-en="에든버러대학교">The University of Edinburgh</p>
                     <div class="card-meta">
                         <span>Edinburgh</span>
-                        <span>학비 <b>£26,500 ~ £37,500</b></span>
+                        <span data-en="Fees <b>£26,500 ~ £37,500</b>">학비 <b>£26,500 ~ £37,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-manchester.html" data-qs="35" data-fee="26500" data-name="맨체스터대학교" data-search="맨체스터대학교 the university of manchester manchester">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-manchester-logo.svg" alt="맨체스터대학교 로고"><span class="qs-badge">QS 35위</span></div>
-                    <h2>맨체스터대학교</h2>
-                    <p class="card-en">The University of Manchester</p>
+                <a class="uni-card" href="./uk-manchester.html" data-qs="35" data-fee="26500" data-name="맨체스터대학교" data-name-en="The University of Manchester" data-search="맨체스터대학교 the university of manchester manchester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-manchester-logo.svg" alt="맨체스터대학교 로고" data-en-alt="The University of Manchester logo"><span class="qs-badge" data-en="QS #35">QS 35위</span></div>
+                    <h2 data-en="The University of Manchester">맨체스터대학교</h2>
+                    <p class="card-en" data-en="맨체스터대학교">The University of Manchester</p>
                     <div class="card-meta">
                         <span>Manchester</span>
-                        <span>학비 <b>£26,500 ~ £36,500</b></span>
+                        <span data-en="Fees <b>£26,500 ~ £36,500</b>">학비 <b>£26,500 ~ £36,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-kcl.html" data-qs="31" data-fee="27100" data-name="킹스칼리지런던(KCL)" data-search="킹스칼리지런던(kcl) king's college london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-kcl-logo.svg" alt="킹스칼리지런던(KCL) 로고"><span class="qs-badge">QS 31위</span></div>
-                    <h2>킹스칼리지런던(KCL)</h2>
-                    <p class="card-en">King's College London</p>
+                <a class="uni-card" href="./uk-kcl.html" data-qs="31" data-fee="27100" data-name="킹스칼리지런던(KCL)" data-name-en="King's College London" data-search="킹스칼리지런던(kcl) king's college london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-kcl-logo.svg" alt="킹스칼리지런던(KCL) 로고" data-en-alt="King's College London logo"><span class="qs-badge" data-en="QS #31">QS 31위</span></div>
+                    <h2 data-en="King's College London">킹스칼리지런던(KCL)</h2>
+                    <p class="card-en" data-en="킹스칼리지런던(KCL)">King's College London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£27,100 ~ £35,800</b></span>
+                        <span data-en="Fees <b>£27,100 ~ £35,800</b>">학비 <b>£27,100 ~ £35,800</b></span>
                         <span>IELTS <b>7.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-warwick.html" data-qs="74" data-fee="27870" data-name="워릭대학교" data-search="워릭대학교 the university of warwick coventry">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-warwick-logo.svg" alt="워릭대학교 로고"><span class="qs-badge">QS 74위</span></div>
-                    <h2>워릭대학교</h2>
-                    <p class="card-en">The University of Warwick</p>
+                <a class="uni-card" href="./uk-warwick.html" data-qs="74" data-fee="27870" data-name="워릭대학교" data-name-en="The University of Warwick" data-search="워릭대학교 the university of warwick coventry">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-warwick-logo.svg" alt="워릭대학교 로고" data-en-alt="The University of Warwick logo"><span class="qs-badge" data-en="QS #74">QS 74위</span></div>
+                    <h2 data-en="The University of Warwick">워릭대학교</h2>
+                    <p class="card-en" data-en="워릭대학교">The University of Warwick</p>
                     <div class="card-meta">
                         <span>Coventry</span>
-                        <span>학비 <b>£27,870 ~ £35,530</b></span>
+                        <span data-en="Fees <b>£27,870 ~ £35,530</b>">학비 <b>£27,870 ~ £35,530</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-bristol.html" data-qs="51" data-fee="25500" data-name="브리스톨대학교" data-search="브리스톨대학교 university of bristol bristol">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-bristol-logo.svg" alt="브리스톨대학교 로고"><span class="qs-badge">QS 51위</span></div>
-                    <h2>브리스톨대학교</h2>
-                    <p class="card-en">University of Bristol</p>
+                <a class="uni-card" href="./uk-bristol.html" data-qs="51" data-fee="25500" data-name="브리스톨대학교" data-name-en="University of Bristol" data-search="브리스톨대학교 university of bristol bristol">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-bristol-logo.svg" alt="브리스톨대학교 로고" data-en-alt="University of Bristol logo"><span class="qs-badge" data-en="QS #51">QS 51위</span></div>
+                    <h2 data-en="University of Bristol">브리스톨대학교</h2>
+                    <p class="card-en" data-en="브리스톨대학교">University of Bristol</p>
                     <div class="card-meta">
                         <span>Bristol</span>
-                        <span>학비 <b>£25,500 ~ £33,400</b></span>
+                        <span data-en="Fees <b>£25,500 ~ £33,400</b>">학비 <b>£25,500 ~ £33,400</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-leeds.html" data-qs="86" data-fee="24500" data-name="리즈대학교" data-search="리즈대학교 university of leeds leeds">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-leeds-logo.svg" alt="리즈대학교 로고"><span class="qs-badge">QS 86위</span></div>
-                    <h2>리즈대학교</h2>
-                    <p class="card-en">University of Leeds</p>
+                <a class="uni-card" href="./uk-leeds.html" data-qs="86" data-fee="24500" data-name="리즈대학교" data-name-en="University of Leeds" data-search="리즈대학교 university of leeds leeds">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-leeds-logo.svg" alt="리즈대학교 로고" data-en-alt="University of Leeds logo"><span class="qs-badge" data-en="QS #86">QS 86위</span></div>
+                    <h2 data-en="University of Leeds">리즈대학교</h2>
+                    <p class="card-en" data-en="리즈대학교">University of Leeds</p>
                     <div class="card-meta">
                         <span>Leeds</span>
-                        <span>학비 <b>£24,500 ~ £31,500</b></span>
+                        <span data-en="Fees <b>£24,500 ~ £31,500</b>">학비 <b>£24,500 ~ £31,500</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-birmingham.html" data-qs="76" data-fee="24480" data-name="버밍엄대학교" data-search="버밍엄대학교 university of birmingham birmingham">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-birmingham-logo.svg" alt="버밍엄대학교 로고"><span class="qs-badge">QS 76위</span></div>
-                    <h2>버밍엄대학교</h2>
-                    <p class="card-en">University of Birmingham</p>
+                <a class="uni-card" href="./uk-birmingham.html" data-qs="76" data-fee="24480" data-name="버밍엄대학교" data-name-en="University of Birmingham" data-search="버밍엄대학교 university of birmingham birmingham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-birmingham-logo.svg" alt="버밍엄대학교 로고" data-en-alt="University of Birmingham logo"><span class="qs-badge" data-en="QS #76">QS 76위</span></div>
+                    <h2 data-en="University of Birmingham">버밍엄대학교</h2>
+                    <p class="card-en" data-en="버밍엄대학교">University of Birmingham</p>
                     <div class="card-meta">
                         <span>Birmingham</span>
-                        <span>학비 <b>£24,480 ~ £33,360</b></span>
+                        <span data-en="Fees <b>£24,480 ~ £33,360</b>">학비 <b>£24,480 ~ £33,360</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-nottingham.html" data-qs="97" data-fee="24700" data-name="노팅엄대학교" data-search="노팅엄대학교 university of nottingham nottingham">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-nottingham-logo.svg" alt="노팅엄대학교 로고"><span class="qs-badge">QS 97위</span></div>
-                    <h2>노팅엄대학교</h2>
-                    <p class="card-en">University of Nottingham</p>
+                <a class="uni-card" href="./uk-nottingham.html" data-qs="97" data-fee="24700" data-name="노팅엄대학교" data-name-en="University of Nottingham" data-search="노팅엄대학교 university of nottingham nottingham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-nottingham-logo.svg" alt="노팅엄대학교 로고" data-en-alt="University of Nottingham logo"><span class="qs-badge" data-en="QS #97">QS 97위</span></div>
+                    <h2 data-en="University of Nottingham">노팅엄대학교</h2>
+                    <p class="card-en" data-en="노팅엄대학교">University of Nottingham</p>
                     <div class="card-meta">
                         <span>Nottingham</span>
-                        <span>학비 <b>£24,700 ~ £33,000</b></span>
+                        <span data-en="Fees <b>£24,700 ~ £33,000</b>">학비 <b>£24,700 ~ £33,000</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-exeter.html" data-qs="155" data-fee="24900" data-name="엑시터대학교" data-search="엑시터대학교 university of exeter exeter">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-exeter-logo.svg" alt="엑시터대학교 로고"><span class="qs-badge">QS 155위</span></div>
-                    <h2>엑시터대학교</h2>
-                    <p class="card-en">University of Exeter</p>
+                <a class="uni-card" href="./uk-exeter.html" data-qs="155" data-fee="24900" data-name="엑시터대학교" data-name-en="University of Exeter" data-search="엑시터대학교 university of exeter exeter">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-exeter-logo.svg" alt="엑시터대학교 로고" data-en-alt="University of Exeter logo"><span class="qs-badge" data-en="QS #155">QS 155위</span></div>
+                    <h2 data-en="University of Exeter">엑시터대학교</h2>
+                    <p class="card-en" data-en="엑시터대학교">University of Exeter</p>
                     <div class="card-meta">
                         <span>Exeter</span>
-                        <span>학비 <b>£24,900 ~ £31,200</b></span>
+                        <span data-en="Fees <b>£24,900 ~ £31,200</b>">학비 <b>£24,900 ~ £31,200</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lse.html" data-qs="56" data-fee="28900" data-name="런던정치경제대학교(LSE)" data-search="런던정치경제대학교(lse) the london school of economics and political science london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-lse-logo.svg" alt="런던정치경제대학교(LSE) 로고"><span class="qs-badge">QS 56위</span></div>
-                    <h2>런던정치경제대학교(LSE)</h2>
-                    <p class="card-en">The London School of Economics and Political Science</p>
+                <a class="uni-card" href="./uk-lse.html" data-qs="56" data-fee="28900" data-name="런던정치경제대학교(LSE)" data-name-en="The London School of Economics and Political Science" data-search="런던정치경제대학교(lse) the london school of economics and political science london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-lse-logo.svg" alt="런던정치경제대학교(LSE) 로고" data-en-alt="The London School of Economics and Political Science logo"><span class="qs-badge" data-en="QS #56">QS 56위</span></div>
+                    <h2 data-en="The London School of Economics and Political Science">런던정치경제대학교(LSE)</h2>
+                    <p class="card-en" data-en="런던정치경제대학교(LSE)">The London School of Economics and Political Science</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£28,900 ~ £39,900</b></span>
+                        <span data-en="Fees <b>£28,900 ~ £39,900</b>">학비 <b>£28,900 ~ £39,900</b></span>
                         <span>IELTS <b>7.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-imperial.html" data-qs="2" data-fee="42700" data-name="임페리얼칼리지런던" data-search="임페리얼칼리지런던 imperial college london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-imperial-logo.svg" alt="임페리얼칼리지런던 로고"><span class="qs-badge">QS 2위</span></div>
-                    <h2>임페리얼칼리지런던</h2>
-                    <p class="card-en">Imperial College London</p>
+                <a class="uni-card" href="./uk-imperial.html" data-qs="2" data-fee="42700" data-name="임페리얼칼리지런던" data-name-en="Imperial College London" data-search="임페리얼칼리지런던 imperial college london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-imperial-logo.svg" alt="임페리얼칼리지런던 로고" data-en-alt="Imperial College London logo"><span class="qs-badge" data-en="QS #2">QS 2위</span></div>
+                    <h2 data-en="Imperial College London">임페리얼칼리지런던</h2>
+                    <p class="card-en" data-en="임페리얼칼리지런던">Imperial College London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£42,700 ~ £45,500</b></span>
+                        <span data-en="Fees <b>£42,700 ~ £45,500</b>">학비 <b>£42,700 ~ £45,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-bath.html" data-qs="113" data-fee="25400" data-name="바스대학교" data-search="바스대학교 university of bath bath">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-bath-logo.svg" alt="바스대학교 로고"><span class="qs-badge">QS 113위</span></div>
-                    <h2>바스대학교</h2>
-                    <p class="card-en">University of Bath</p>
+                <a class="uni-card" href="./uk-bath.html" data-qs="113" data-fee="25400" data-name="바스대학교" data-name-en="University of Bath" data-search="바스대학교 university of bath bath">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-bath-logo.svg" alt="바스대학교 로고" data-en-alt="University of Bath logo"><span class="qs-badge" data-en="QS #113">QS 113위</span></div>
+                    <h2 data-en="University of Bath">바스대학교</h2>
+                    <p class="card-en" data-en="바스대학교">University of Bath</p>
                     <div class="card-meta">
                         <span>Bath</span>
-                        <span>학비 <b>£25,400 ~ £32,000</b></span>
+                        <span data-en="Fees <b>£25,400 ~ £32,000</b>">학비 <b>£25,400 ~ £32,000</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-sheffield.html" data-qs="92" data-fee="23810" data-name="셰필드대학교" data-search="셰필드대학교 the university of sheffield sheffield">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-sheffield-logo.svg" alt="셰필드대학교 로고"><span class="qs-badge">QS 92위</span></div>
-                    <h2>셰필드대학교</h2>
-                    <p class="card-en">The University of Sheffield</p>
+                <a class="uni-card" href="./uk-sheffield.html" data-qs="92" data-fee="23810" data-name="셰필드대학교" data-name-en="The University of Sheffield" data-search="셰필드대학교 the university of sheffield sheffield">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-sheffield-logo.svg" alt="셰필드대학교 로고" data-en-alt="The University of Sheffield logo"><span class="qs-badge" data-en="QS #92">QS 92위</span></div>
+                    <h2 data-en="The University of Sheffield">셰필드대학교</h2>
+                    <p class="card-en" data-en="셰필드대학교">The University of Sheffield</p>
                     <div class="card-meta">
                         <span>Sheffield</span>
-                        <span>학비 <b>£23,810 ~ £30,570</b></span>
+                        <span data-en="Fees <b>£23,810 ~ £30,570</b>">학비 <b>£23,810 ~ £30,570</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-glasgow.html" data-qs="79" data-fee="27720" data-name="글래스고대학교" data-search="글래스고대학교 university of glasgow glasgow">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-glasgow-logo.png" alt="글래스고대학교 로고"><span class="qs-badge">QS 79위</span></div>
-                    <h2>글래스고대학교</h2>
-                    <p class="card-en">University of Glasgow</p>
+                <a class="uni-card" href="./uk-glasgow.html" data-qs="79" data-fee="27720" data-name="글래스고대학교" data-name-en="University of Glasgow" data-search="글래스고대학교 university of glasgow glasgow">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-glasgow-logo.png" alt="글래스고대학교 로고" data-en-alt="University of Glasgow logo"><span class="qs-badge" data-en="QS #79">QS 79위</span></div>
+                    <h2 data-en="University of Glasgow">글래스고대학교</h2>
+                    <p class="card-en" data-en="글래스고대학교">University of Glasgow</p>
                     <div class="card-meta">
                         <span>Glasgow</span>
-                        <span>학비 <b>£27,720 ~ £33,210</b></span>
+                        <span data-en="Fees <b>£27,720 ~ £33,210</b>">학비 <b>£27,720 ~ £33,210</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-durham.html" data-qs="94" data-fee="28500" data-name="더럼대학교" data-search="더럼대학교 durham university durham">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-durham-logo.svg" alt="더럼대학교 로고"><span class="qs-badge">QS 94위</span></div>
-                    <h2>더럼대학교</h2>
-                    <p class="card-en">Durham University</p>
+                <a class="uni-card" href="./uk-durham.html" data-qs="94" data-fee="28500" data-name="더럼대학교" data-name-en="Durham University" data-search="더럼대학교 durham university durham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-durham-logo.svg" alt="더럼대학교 로고" data-en-alt="Durham University logo"><span class="qs-badge" data-en="QS #94">QS 94위</span></div>
+                    <h2 data-en="Durham University">더럼대학교</h2>
+                    <p class="card-en" data-en="더럼대학교">Durham University</p>
                     <div class="card-meta">
                         <span>Durham</span>
-                        <span>학비 <b>£28,500 ~ £34,500</b></span>
+                        <span data-en="Fees <b>£28,500 ~ £34,500</b>">학비 <b>£28,500 ~ £34,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-southampton.html" data-qs="87" data-fee="24000" data-name="사우스햄튼대학교" data-search="사우스햄튼대학교 university of southampton southampton">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-southampton-logo.svg" alt="사우스햄튼대학교 로고"><span class="qs-badge">QS 87위</span></div>
-                    <h2>사우스햄튼대학교</h2>
-                    <p class="card-en">University of Southampton</p>
+                <a class="uni-card" href="./uk-southampton.html" data-qs="87" data-fee="24000" data-name="사우스햄튼대학교" data-name-en="University of Southampton" data-search="사우스햄튼대학교 university of southampton southampton">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-southampton-logo.svg" alt="사우스햄튼대학교 로고" data-en-alt="University of Southampton logo"><span class="qs-badge" data-en="QS #87">QS 87위</span></div>
+                    <h2 data-en="University of Southampton">사우스햄튼대학교</h2>
+                    <p class="card-en" data-en="사우스햄튼대학교">University of Southampton</p>
                     <div class="card-meta">
                         <span>Southampton</span>
-                        <span>학비 <b>£24,000 ~ £31,000</b></span>
+                        <span data-en="Fees <b>£24,000 ~ £31,000</b>">학비 <b>£24,000 ~ £31,000</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-newcastle.html" data-qs="137" data-fee="24400" data-name="뉴캐슬대학교" data-search="뉴캐슬대학교 newcastle university newcastle upon tyne">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-newcastle-logo.svg" alt="뉴캐슬대학교 로고"><span class="qs-badge">QS 137위</span></div>
-                    <h2>뉴캐슬대학교</h2>
-                    <p class="card-en">Newcastle University</p>
+                <a class="uni-card" href="./uk-newcastle.html" data-qs="137" data-fee="24400" data-name="뉴캐슬대학교" data-name-en="Newcastle University" data-search="뉴캐슬대학교 newcastle university newcastle upon tyne">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-newcastle-logo.svg" alt="뉴캐슬대학교 로고" data-en-alt="Newcastle University logo"><span class="qs-badge" data-en="QS #137">QS 137위</span></div>
+                    <h2 data-en="Newcastle University">뉴캐슬대학교</h2>
+                    <p class="card-en" data-en="뉴캐슬대학교">Newcastle University</p>
                     <div class="card-meta">
                         <span>Newcastle upon Tyne</span>
-                        <span>학비 <b>£24,400 ~ £31,500</b></span>
+                        <span data-en="Fees <b>£24,400 ~ £31,500</b>">학비 <b>£24,400 ~ £31,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lancaster.html" data-qs="157" data-fee="24500" data-name="랭커스터대학교" data-search="랭커스터대학교 lancaster university lancaster">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-lancaster-logo.svg" alt="랭커스터대학교 로고"><span class="qs-badge">QS 157위</span></div>
-                    <h2>랭커스터대학교</h2>
-                    <p class="card-en">Lancaster University</p>
+                <a class="uni-card" href="./uk-lancaster.html" data-qs="157" data-fee="24500" data-name="랭커스터대학교" data-name-en="Lancaster University" data-search="랭커스터대학교 lancaster university lancaster">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-lancaster-logo.svg" alt="랭커스터대학교 로고" data-en-alt="Lancaster University logo"><span class="qs-badge" data-en="QS #157">QS 157위</span></div>
+                    <h2 data-en="Lancaster University">랭커스터대학교</h2>
+                    <p class="card-en" data-en="랭커스터대학교">Lancaster University</p>
                     <div class="card-meta">
                         <span>Lancaster</span>
-                        <span>학비 <b>£24,500 ~ £30,500</b></span>
+                        <span data-en="Fees <b>£24,500 ~ £30,500</b>">학비 <b>£24,500 ~ £30,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-york.html" data-qs="169" data-fee="26900" data-name="요크대학교" data-search="요크대학교 university of york york">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-york-logo.svg" alt="요크대학교 로고"><span class="qs-badge">QS 169위</span></div>
-                    <h2>요크대학교</h2>
-                    <p class="card-en">University of York</p>
+                <a class="uni-card" href="./uk-york.html" data-qs="169" data-fee="26900" data-name="요크대학교" data-name-en="University of York" data-search="요크대학교 university of york york">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-york-logo.svg" alt="요크대학교 로고" data-en-alt="University of York logo"><span class="qs-badge" data-en="QS #169">QS 169위</span></div>
+                    <h2 data-en="University of York">요크대학교</h2>
+                    <p class="card-en" data-en="요크대학교">University of York</p>
                     <div class="card-meta">
                         <span>York</span>
-                        <span>학비 <b>£26,900 ~ £33,000</b></span>
+                        <span data-en="Fees <b>£26,900 ~ £33,000</b>">학비 <b>£26,900 ~ £33,000</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cardiff.html" data-qs="181" data-fee="22450" data-name="카디프대학교" data-search="카디프대학교 cardiff university cardiff">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cardiff-logo.svg" alt="카디프대학교 로고"><span class="qs-badge">QS 181위</span></div>
-                    <h2>카디프대학교</h2>
-                    <p class="card-en">Cardiff University</p>
+                <a class="uni-card" href="./uk-cardiff.html" data-qs="181" data-fee="22450" data-name="카디프대학교" data-name-en="Cardiff University" data-search="카디프대학교 cardiff university cardiff">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cardiff-logo.svg" alt="카디프대학교 로고" data-en-alt="Cardiff University logo"><span class="qs-badge" data-en="QS #181">QS 181위</span></div>
+                    <h2 data-en="Cardiff University">카디프대학교</h2>
+                    <p class="card-en" data-en="카디프대학교">Cardiff University</p>
                     <div class="card-meta">
                         <span>Cardiff</span>
-                        <span>학비 <b>£22,450 ~ £30,450</b></span>
+                        <span data-en="Fees <b>£22,450 ~ £30,450</b>">학비 <b>£22,450 ~ £30,450</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-liverpool.html" data-qs="147" data-fee="27000" data-name="리버풀대학교" data-search="리버풀대학교 university of liverpool liverpool">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-liverpool-logo.svg" alt="리버풀대학교 로고"><span class="qs-badge">QS 147위</span></div>
-                    <h2>리버풀대학교</h2>
-                    <p class="card-en">University of Liverpool</p>
+                <a class="uni-card" href="./uk-liverpool.html" data-qs="147" data-fee="27000" data-name="리버풀대학교" data-name-en="University of Liverpool" data-search="리버풀대학교 university of liverpool liverpool">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-liverpool-logo.svg" alt="리버풀대학교 로고" data-en-alt="University of Liverpool logo"><span class="qs-badge" data-en="QS #147">QS 147위</span></div>
+                    <h2 data-en="University of Liverpool">리버풀대학교</h2>
+                    <p class="card-en" data-en="리버풀대학교">University of Liverpool</p>
                     <div class="card-meta">
                         <span>Liverpool</span>
-                        <span>학비 <b>£27,000 ~ £32,000</b></span>
+                        <span data-en="Fees <b>£27,000 ~ £32,000</b>">학비 <b>£27,000 ~ £32,000</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-surrey.html" data-qs="262" data-fee="22900" data-name="서리대학교" data-search="서리대학교 university of surrey guildford">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-surrey-logo.png" alt="서리대학교 로고"><span class="qs-badge">QS 262위</span></div>
-                    <h2>서리대학교</h2>
-                    <p class="card-en">University of Surrey</p>
+                <a class="uni-card" href="./uk-surrey.html" data-qs="262" data-fee="22900" data-name="서리대학교" data-name-en="University of Surrey" data-search="서리대학교 university of surrey guildford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-surrey-logo.png" alt="서리대학교 로고" data-en-alt="University of Surrey logo"><span class="qs-badge" data-en="QS #262">QS 262위</span></div>
+                    <h2 data-en="University of Surrey">서리대학교</h2>
+                    <p class="card-en" data-en="서리대학교">University of Surrey</p>
                     <div class="card-meta">
                         <span>Guildford</span>
-                        <span>학비 <b>£22,900 ~ £27,000</b></span>
+                        <span data-en="Fees <b>£22,900 ~ £27,000</b>">학비 <b>£22,900 ~ £27,000</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-sussex.html" data-qs="278" data-fee="23500" data-name="서식스대학교" data-search="서식스대학교 university of sussex brighton">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-sussex-logo.svg" alt="서식스대학교 로고"><span class="qs-badge">QS 278위</span></div>
-                    <h2>서식스대학교</h2>
-                    <p class="card-en">University of Sussex</p>
+                <a class="uni-card" href="./uk-sussex.html" data-qs="278" data-fee="23500" data-name="서식스대학교" data-name-en="University of Sussex" data-search="서식스대학교 university of sussex brighton">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-sussex-logo.svg" alt="서식스대학교 로고" data-en-alt="University of Sussex logo"><span class="qs-badge" data-en="QS #278">QS 278위</span></div>
+                    <h2 data-en="University of Sussex">서식스대학교</h2>
+                    <p class="card-en" data-en="서식스대학교">University of Sussex</p>
                     <div class="card-meta">
                         <span>Brighton</span>
-                        <span>학비 <b>£23,500 ~ £27,300</b></span>
+                        <span data-en="Fees <b>£23,500 ~ £27,300</b>">학비 <b>£23,500 ~ £27,300</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-leicester.html" data-qs="326" data-fee="22200" data-name="레스터대학교" data-search="레스터대학교 university of leicester leicester">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-leicester-logo.svg" alt="레스터대학교 로고"><span class="qs-badge">QS 326위</span></div>
-                    <h2>레스터대학교</h2>
-                    <p class="card-en">University of Leicester</p>
+                <a class="uni-card" href="./uk-leicester.html" data-qs="326" data-fee="22200" data-name="레스터대학교" data-name-en="University of Leicester" data-search="레스터대학교 university of leicester leicester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-leicester-logo.svg" alt="레스터대학교 로고" data-en-alt="University of Leicester logo"><span class="qs-badge" data-en="QS #326">QS 326위</span></div>
+                    <h2 data-en="University of Leicester">레스터대학교</h2>
+                    <p class="card-en" data-en="레스터대학교">University of Leicester</p>
                     <div class="card-meta">
                         <span>Leicester</span>
-                        <span>학비 <b>£22,200 ~ £26,550</b></span>
+                        <span data-en="Fees <b>£22,200 ~ £26,550</b>">학비 <b>£22,200 ~ £26,550</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-qmul.html" data-qs="110" data-fee="25000" data-name="퀸메리런던대학교(QMUL)" data-search="퀸메리런던대학교(qmul) queen mary university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-qmul-logo.png" alt="퀸메리런던대학교(QMUL) 로고"><span class="qs-badge">QS 110위</span></div>
-                    <h2>퀸메리런던대학교(QMUL)</h2>
-                    <p class="card-en">Queen Mary University of London</p>
+                <a class="uni-card" href="./uk-qmul.html" data-qs="110" data-fee="25000" data-name="퀸메리런던대학교(QMUL)" data-name-en="Queen Mary University of London" data-search="퀸메리런던대학교(qmul) queen mary university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-qmul-logo.png" alt="퀸메리런던대학교(QMUL) 로고" data-en-alt="Queen Mary University of London logo"><span class="qs-badge" data-en="QS #110">QS 110위</span></div>
+                    <h2 data-en="Queen Mary University of London">퀸메리런던대학교(QMUL)</h2>
+                    <p class="card-en" data-en="퀸메리런던대학교(QMUL)">Queen Mary University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£25,000 ~ £29,950</b></span>
+                        <span data-en="Fees <b>£25,000 ~ £29,950</b>">학비 <b>£25,000 ~ £29,950</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-reading.html" data-qs="194" data-fee="25850" data-name="리딩대학교" data-search="리딩대학교 university of reading reading">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-reading-logo.png" alt="리딩대학교 로고"><span class="qs-badge">QS 194위</span></div>
-                    <h2>리딩대학교</h2>
-                    <p class="card-en">University of Reading</p>
+                <a class="uni-card" href="./uk-reading.html" data-qs="194" data-fee="25850" data-name="리딩대학교" data-name-en="University of Reading" data-search="리딩대학교 university of reading reading">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-reading-logo.png" alt="리딩대학교 로고" data-en-alt="University of Reading logo"><span class="qs-badge" data-en="QS #194">QS 194위</span></div>
+                    <h2 data-en="University of Reading">리딩대학교</h2>
+                    <p class="card-en" data-en="리딩대학교">University of Reading</p>
                     <div class="card-meta">
                         <span>Reading</span>
-                        <span>학비 <b>£25,850 ~ £30,650</b></span>
+                        <span data-en="Fees <b>£25,850 ~ £30,650</b>">학비 <b>£25,850 ~ £30,650</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-royal-holloway.html" data-qs="461" data-fee="25900" data-name="로열홀로웨이런던대학교" data-search="로열홀로웨이런던대학교 royal holloway, university of london egham">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-royal-holloway-logo.png" alt="로열홀로웨이런던대학교 로고"><span class="qs-badge">QS 461위</span></div>
-                    <h2>로열홀로웨이런던대학교</h2>
-                    <p class="card-en">Royal Holloway, University of London</p>
+                <a class="uni-card" href="./uk-royal-holloway.html" data-qs="461" data-fee="25900" data-name="로열홀로웨이런던대학교" data-name-en="Royal Holloway, University of London" data-search="로열홀로웨이런던대학교 royal holloway, university of london egham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-royal-holloway-logo.png" alt="로열홀로웨이런던대학교 로고" data-en-alt="Royal Holloway, University of London logo"><span class="qs-badge" data-en="QS #461">QS 461위</span></div>
+                    <h2 data-en="Royal Holloway, University of London">로열홀로웨이런던대학교</h2>
+                    <p class="card-en" data-en="로열홀로웨이런던대학교">Royal Holloway, University of London</p>
                     <div class="card-meta">
                         <span>Egham</span>
-                        <span>학비 <b>£25,900 ~ £27,900</b></span>
+                        <span data-en="Fees <b>£25,900 ~ £27,900</b>">학비 <b>£25,900 ~ £27,900</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-city.html" data-qs="310" data-fee="19500" data-name="시티세인트조지스런던대학교" data-search="시티세인트조지스런던대학교 city st george's, university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-city-logo.svg" alt="시티세인트조지스런던대학교 로고"><span class="qs-badge">QS 310위</span></div>
-                    <h2>시티세인트조지스런던대학교</h2>
-                    <p class="card-en">City St George's, University of London</p>
+                <a class="uni-card" href="./uk-city.html" data-qs="310" data-fee="19500" data-name="시티세인트조지스런던대학교" data-name-en="City St George's, University of London" data-search="시티세인트조지스런던대학교 city st george's, university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-city-logo.svg" alt="시티세인트조지스런던대학교 로고" data-en-alt="City St George's, University of London logo"><span class="qs-badge" data-en="QS #310">QS 310위</span></div>
+                    <h2 data-en="City St George's, University of London">시티세인트조지스런던대학교</h2>
+                    <p class="card-en" data-en="시티세인트조지스런던대학교">City St George's, University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£19,500 ~ £27,000</b></span>
+                        <span data-en="Fees <b>£19,500 ~ £27,000</b>">학비 <b>£19,500 ~ £27,000</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-brunel.html" data-qs="385" data-fee="19320" data-name="브루넬런던대학교" data-search="브루넬런던대학교 brunel university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-brunel-logo.png" alt="브루넬런던대학교 로고"><span class="qs-badge">QS 385위</span></div>
-                    <h2>브루넬런던대학교</h2>
-                    <p class="card-en">Brunel University of London</p>
+                <a class="uni-card" href="./uk-brunel.html" data-qs="385" data-fee="19320" data-name="브루넬런던대학교" data-name-en="Brunel University of London" data-search="브루넬런던대학교 brunel university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-brunel-logo.png" alt="브루넬런던대학교 로고" data-en-alt="Brunel University of London logo"><span class="qs-badge" data-en="QS #385">QS 385위</span></div>
+                    <h2 data-en="Brunel University of London">브루넬런던대학교</h2>
+                    <p class="card-en" data-en="브루넬런던대학교">Brunel University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£19,320 ~ £21,795</b></span>
+                        <span data-en="Fees <b>£19,320 ~ £21,795</b>">학비 <b>£19,320 ~ £21,795</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-oxford.html" data-qs="4" data-fee="37380" data-name="옥스퍼드대학교" data-search="옥스퍼드대학교 university of oxford oxford">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-logo.svg" alt="옥스퍼드대학교 로고"><span class="qs-badge">QS 4위</span></div>
-                    <h2>옥스퍼드대학교</h2>
-                    <p class="card-en">University of Oxford</p>
+                <a class="uni-card" href="./uk-oxford.html" data-qs="4" data-fee="37380" data-name="옥스퍼드대학교" data-name-en="University of Oxford" data-search="옥스퍼드대학교 university of oxford oxford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-logo.svg" alt="옥스퍼드대학교 로고" data-en-alt="University of Oxford logo"><span class="qs-badge" data-en="QS #4">QS 4위</span></div>
+                    <h2 data-en="University of Oxford">옥스퍼드대학교</h2>
+                    <p class="card-en" data-en="옥스퍼드대학교">University of Oxford</p>
                     <div class="card-meta">
                         <span>Oxford</span>
-                        <span>학비 <b>£37,380 ~ £62,820</b></span>
+                        <span data-en="Fees <b>£37,380 ~ £62,820</b>">학비 <b>£37,380 ~ £62,820</b></span>
                         <span>IELTS <b>7.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cambridge.html" data-qs="6" data-fee="29052" data-name="케임브리지대학교" data-search="케임브리지대학교 university of cambridge cambridge">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cambridge-logo.svg" alt="케임브리지대학교 로고"><span class="qs-badge">QS 6위</span></div>
-                    <h2>케임브리지대학교</h2>
-                    <p class="card-en">University of Cambridge</p>
+                <a class="uni-card" href="./uk-cambridge.html" data-qs="6" data-fee="29052" data-name="케임브리지대학교" data-name-en="University of Cambridge" data-search="케임브리지대학교 university of cambridge cambridge">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cambridge-logo.svg" alt="케임브리지대학교 로고" data-en-alt="University of Cambridge logo"><span class="qs-badge" data-en="QS #6">QS 6위</span></div>
+                    <h2 data-en="University of Cambridge">케임브리지대학교</h2>
+                    <p class="card-en" data-en="케임브리지대학교">University of Cambridge</p>
                     <div class="card-meta">
                         <span>Cambridge</span>
-                        <span>학비 <b>£29,052 ~ £44,214</b></span>
+                        <span data-en="Fees <b>£29,052 ~ £44,214</b>">학비 <b>£29,052 ~ £44,214</b></span>
                         <span>IELTS <b>7.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-st-andrews.html" data-qs="113" data-fee="33250" data-name="세인트앤드루스대학교" data-search="세인트앤드루스대학교 university of st andrews st andrews">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-st-andrews-logo.svg" alt="세인트앤드루스대학교 로고"><span class="qs-badge">QS 113위</span></div>
-                    <h2>세인트앤드루스대학교</h2>
-                    <p class="card-en">University of St Andrews</p>
+                <a class="uni-card" href="./uk-st-andrews.html" data-qs="113" data-fee="33250" data-name="세인트앤드루스대학교" data-name-en="University of St Andrews" data-search="세인트앤드루스대학교 university of st andrews st andrews">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-st-andrews-logo.svg" alt="세인트앤드루스대학교 로고" data-en-alt="University of St Andrews logo"><span class="qs-badge" data-en="QS #113">QS 113위</span></div>
+                    <h2 data-en="University of St Andrews">세인트앤드루스대학교</h2>
+                    <p class="card-en" data-en="세인트앤드루스대학교">University of St Andrews</p>
                     <div class="card-meta">
                         <span>St Andrews</span>
-                        <span>학비 <b>£33,250</b></span>
+                        <span data-en="Fees <b>£33,250</b>">학비 <b>£33,250</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-soas.html" data-qs="" data-fee="21990" data-name="소아스런던대학교(SOAS)" data-search="소아스런던대학교(soas) soas university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-soas-logo.png" alt="소아스런던대학교(SOAS) 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>소아스런던대학교(SOAS)</h2>
-                    <p class="card-en">SOAS University of London</p>
+                <a class="uni-card" href="./uk-soas.html" data-qs="" data-fee="21990" data-name="소아스런던대학교(SOAS)" data-name-en="SOAS University of London" data-search="소아스런던대학교(soas) soas university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-soas-logo.png" alt="소아스런던대학교(SOAS) 로고" data-en-alt="SOAS University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="SOAS University of London">소아스런던대학교(SOAS)</h2>
+                    <p class="card-en" data-en="소아스런던대학교(SOAS)">SOAS University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£21,990 ~ £23,990</b></span>
+                        <span data-en="Fees <b>£21,990 ~ £23,990</b>">학비 <b>£21,990 ~ £23,990</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-goldsmiths.html" data-qs="" data-fee="19640" data-name="골드스미스런던대학교" data-search="골드스미스런던대학교 goldsmiths, university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-goldsmiths-logo.svg" alt="골드스미스런던대학교 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>골드스미스런던대학교</h2>
-                    <p class="card-en">Goldsmiths, University of London</p>
+                <a class="uni-card" href="./uk-goldsmiths.html" data-qs="" data-fee="19640" data-name="골드스미스런던대학교" data-name-en="Goldsmiths, University of London" data-search="골드스미스런던대학교 goldsmiths, university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-goldsmiths-logo.svg" alt="골드스미스런던대학교 로고" data-en-alt="Goldsmiths, University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Goldsmiths, University of London">골드스미스런던대학교</h2>
+                    <p class="card-en" data-en="골드스미스런던대학교">Goldsmiths, University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£19,640 ~ £27,500</b></span>
+                        <span data-en="Fees <b>£19,640 ~ £27,500</b>">학비 <b>£19,640 ~ £27,500</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-birkbeck.html" data-qs="388" data-fee="18500" data-name="버크벡런던대학교" data-search="버크벡런던대학교 birkbeck, university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-birkbeck-logo.png" alt="버크벡런던대학교 로고"><span class="qs-badge">QS 388위</span></div>
-                    <h2>버크벡런던대학교</h2>
-                    <p class="card-en">Birkbeck, University of London</p>
+                <a class="uni-card" href="./uk-birkbeck.html" data-qs="388" data-fee="18500" data-name="버크벡런던대학교" data-name-en="Birkbeck, University of London" data-search="버크벡런던대학교 birkbeck, university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-birkbeck-logo.png" alt="버크벡런던대학교 로고" data-en-alt="Birkbeck, University of London logo"><span class="qs-badge" data-en="QS #388">QS 388위</span></div>
+                    <h2 data-en="Birkbeck, University of London">버크벡런던대학교</h2>
+                    <p class="card-en" data-en="버크벡런던대학교">Birkbeck, University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£18,500</b></span>
+                        <span data-en="Fees <b>£18,500</b>">학비 <b>£18,500</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cranfield.html" data-qs="" data-fee="18720" data-name="크랜필드대학교" data-search="크랜필드대학교 cranfield university cranfield">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cranfield-logo.svg" alt="크랜필드대학교 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>크랜필드대학교</h2>
-                    <p class="card-en">Cranfield University</p>
+                <a class="uni-card" href="./uk-cranfield.html" data-qs="" data-fee="18720" data-name="크랜필드대학교" data-name-en="Cranfield University" data-search="크랜필드대학교 cranfield university cranfield">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-cranfield-logo.svg" alt="크랜필드대학교 로고" data-en-alt="Cranfield University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Cranfield University">크랜필드대학교</h2>
+                    <p class="card-en" data-en="크랜필드대학교">Cranfield University</p>
                     <div class="card-meta">
                         <span>Cranfield</span>
-                        <span>학비 <b>£18,720 ~ £35,950</b></span>
+                        <span data-en="Fees <b>£18,720 ~ £35,950</b>">학비 <b>£18,720 ~ £35,950</b></span>
                         <span>IELTS <b>6.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lbs.html" data-qs="" data-fee="52950" data-name="런던비즈니스스쿨(LBS)" data-search="런던비즈니스스쿨(lbs) london business school london">
-                    <div class="card-top"><span></span><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>런던비즈니스스쿨(LBS)</h2>
-                    <p class="card-en">London Business School</p>
+                <a class="uni-card" href="./uk-lbs.html" data-qs="" data-fee="52950" data-name="런던비즈니스스쿨(LBS)" data-name-en="London Business School" data-search="런던비즈니스스쿨(lbs) london business school london">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="London Business School">런던비즈니스스쿨(LBS)</h2>
+                    <p class="card-en" data-en="런던비즈니스스쿨(LBS)">London Business School</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£52,950 ~ £67,950</b></span>
+                        <span data-en="Fees <b>£52,950 ~ £67,950</b>">학비 <b>£52,950 ~ £67,950</b></span>
                         <span>IELTS <b>7.5</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-rvc.html" data-qs="" data-fee="18870" data-name="로열수의과대학(RVC)" data-search="로열수의과대학(rvc) royal veterinary college, university of london london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-rvc-logo.png" alt="로열수의과대학(RVC) 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>로열수의과대학(RVC)</h2>
-                    <p class="card-en">Royal Veterinary College, University of London</p>
+                <a class="uni-card" href="./uk-rvc.html" data-qs="" data-fee="18870" data-name="로열수의과대학(RVC)" data-name-en="Royal Veterinary College, University of London" data-search="로열수의과대학(rvc) royal veterinary college, university of london london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-rvc-logo.png" alt="로열수의과대학(RVC) 로고" data-en-alt="Royal Veterinary College, University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Royal Veterinary College, University of London">로열수의과대학(RVC)</h2>
+                    <p class="card-en" data-en="로열수의과대학(RVC)">Royal Veterinary College, University of London</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£18,870 ~ £47,960</b></span>
+                        <span data-en="Fees <b>£18,870 ~ £47,960</b>">학비 <b>£18,870 ~ £47,960</b></span>
                         <span>IELTS <b>7.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-aston.html" data-qs="395" data-fee="20850" data-name="아스턴대학교" data-search="아스턴대학교 aston university birmingham">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-aston-logo.svg" alt="아스턴대학교 로고"><span class="qs-badge">QS 395위</span></div>
-                    <h2>아스턴대학교</h2>
-                    <p class="card-en">Aston University</p>
+                <a class="uni-card" href="./uk-aston.html" data-qs="395" data-fee="20850" data-name="아스턴대학교" data-name-en="Aston University" data-search="아스턴대학교 aston university birmingham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-aston-logo.svg" alt="아스턴대학교 로고" data-en-alt="Aston University logo"><span class="qs-badge" data-en="QS #395">QS 395위</span></div>
+                    <h2 data-en="Aston University">아스턴대학교</h2>
+                    <p class="card-en" data-en="아스턴대학교">Aston University</p>
                     <div class="card-meta">
                         <span>Birmingham</span>
-                        <span>학비 <b>£20,850 ~ £26,300</b></span>
+                        <span data-en="Fees <b>£20,850 ~ £26,300</b>">학비 <b>£20,850 ~ £26,300</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-oxford-brookes.html" data-qs="374" data-fee="18250" data-name="옥스퍼드브룩스대학교" data-search="옥스퍼드브룩스대학교 oxford brookes university oxford">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-brookes-logo.svg" alt="옥스퍼드브룩스대학교 로고"><span class="qs-badge">QS 374위</span></div>
-                    <h2>옥스퍼드브룩스대학교</h2>
-                    <p class="card-en">Oxford Brookes University</p>
+                <a class="uni-card" href="./uk-oxford-brookes.html" data-qs="374" data-fee="18250" data-name="옥스퍼드브룩스대학교" data-name-en="Oxford Brookes University" data-search="옥스퍼드브룩스대학교 oxford brookes university oxford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-brookes-logo.svg" alt="옥스퍼드브룩스대학교 로고" data-en-alt="Oxford Brookes University logo"><span class="qs-badge" data-en="QS #374">QS 374위</span></div>
+                    <h2 data-en="Oxford Brookes University">옥스퍼드브룩스대학교</h2>
+                    <p class="card-en" data-en="옥스퍼드브룩스대학교">Oxford Brookes University</p>
                     <div class="card-meta">
                         <span>Oxford</span>
-                        <span>학비 <b>£18,250 ~ £19,700</b></span>
+                        <span data-en="Fees <b>£18,250 ~ £19,700</b>">학비 <b>£18,250 ~ £19,700</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-westminster.html" data-qs="" data-fee="17600" data-name="웨스트민스터대학교" data-search="웨스트민스터대학교 university of westminster london">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-westminster-logo.svg" alt="웨스트민스터대학교 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>웨스트민스터대학교</h2>
-                    <p class="card-en">University of Westminster</p>
+                <a class="uni-card" href="./uk-westminster.html" data-qs="" data-fee="17600" data-name="웨스트민스터대학교" data-name-en="University of Westminster" data-search="웨스트민스터대학교 university of westminster london">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-westminster-logo.svg" alt="웨스트민스터대학교 로고" data-en-alt="University of Westminster logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="University of Westminster">웨스트민스터대학교</h2>
+                    <p class="card-en" data-en="웨스트민스터대학교">University of Westminster</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£17,600</b></span>
+                        <span data-en="Fees <b>£17,600</b>">학비 <b>£17,600</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-northumbria.html" data-qs="" data-fee="19850" data-name="노섬브리아대학교" data-search="노섬브리아대학교 northumbria university newcastle upon tyne">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-northumbria-logo.svg" alt="노섬브리아대학교 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>노섬브리아대학교</h2>
-                    <p class="card-en">Northumbria University</p>
+                <a class="uni-card" href="./uk-northumbria.html" data-qs="" data-fee="19850" data-name="노섬브리아대학교" data-name-en="Northumbria University" data-search="노섬브리아대학교 northumbria university newcastle upon tyne">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-northumbria-logo.svg" alt="노섬브리아대학교 로고" data-en-alt="Northumbria University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Northumbria University">노섬브리아대학교</h2>
+                    <p class="card-en" data-en="노섬브리아대학교">Northumbria University</p>
                     <div class="card-meta">
                         <span>Newcastle upon Tyne</span>
-                        <span>학비 <b>£19,850 ~ £21,500</b></span>
+                        <span data-en="Fees <b>£19,850 ~ £21,500</b>">학비 <b>£19,850 ~ £21,500</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-middlesex.html" data-qs="" data-fee="17200" data-name="미들섹스대학교" data-search="미들섹스대학교 middlesex university london">
-                    <div class="card-top"><span></span><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>미들섹스대학교</h2>
-                    <p class="card-en">Middlesex University</p>
+                <a class="uni-card" href="./uk-middlesex.html" data-qs="" data-fee="17200" data-name="미들섹스대학교" data-name-en="Middlesex University" data-search="미들섹스대학교 middlesex university london">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Middlesex University">미들섹스대학교</h2>
+                    <p class="card-en" data-en="미들섹스대학교">Middlesex University</p>
                     <div class="card-meta">
                         <span>London</span>
-                        <span>학비 <b>£17,200</b></span>
+                        <span data-en="Fees <b>£17,200</b>">학비 <b>£17,200</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-uclan.html" data-qs="" data-fee="17750" data-name="센트럴랭커셔대학교(UCLan)" data-search="센트럴랭커셔대학교(uclan) university of central lancashire (uclan) preston">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-uclan-logo.svg" alt="센트럴랭커셔대학교(UCLan) 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>센트럴랭커셔대학교(UCLan)</h2>
-                    <p class="card-en">University of Central Lancashire (UCLan)</p>
+                <a class="uni-card" href="./uk-uclan.html" data-qs="" data-fee="17750" data-name="센트럴랭커셔대학교(UCLan)" data-name-en="University of Central Lancashire (UCLan)" data-search="센트럴랭커셔대학교(uclan) university of central lancashire (uclan) preston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-uclan-logo.svg" alt="센트럴랭커셔대학교(UCLan) 로고" data-en-alt="University of Central Lancashire (UCLan) logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="University of Central Lancashire (UCLan)">센트럴랭커셔대학교(UCLan)</h2>
+                    <p class="card-en" data-en="센트럴랭커셔대학교(UCLan)">University of Central Lancashire (UCLan)</p>
                     <div class="card-meta">
                         <span>Preston</span>
-                        <span>학비 <b>£17,750 ~ £19,500</b></span>
+                        <span data-en="Fees <b>£17,750 ~ £19,500</b>">학비 <b>£17,750 ~ £19,500</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-dmu.html" data-qs="" data-fee="16800" data-name="드몽포트대학교(DMU)" data-search="드몽포트대학교(dmu) de montfort university leicester">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-dmu-logo.svg" alt="드몽포트대학교(DMU) 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>드몽포트대학교(DMU)</h2>
-                    <p class="card-en">De Montfort University</p>
+                <a class="uni-card" href="./uk-dmu.html" data-qs="" data-fee="16800" data-name="드몽포트대학교(DMU)" data-name-en="De Montfort University" data-search="드몽포트대학교(dmu) de montfort university leicester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-dmu-logo.svg" alt="드몽포트대학교(DMU) 로고" data-en-alt="De Montfort University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="De Montfort University">드몽포트대학교(DMU)</h2>
+                    <p class="card-en" data-en="드몽포트대학교(DMU)">De Montfort University</p>
                     <div class="card-meta">
                         <span>Leicester</span>
-                        <span>학비 <b>£16,800 ~ £17,300</b></span>
+                        <span data-en="Fees <b>£16,800 ~ £17,300</b>">학비 <b>£16,800 ~ £17,300</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-anglia-ruskin.html" data-qs="" data-fee="16700" data-name="앵글리아러스킨대학교" data-search="앵글리아러스킨대학교 anglia ruskin university cambridge / chelmsford">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-anglia-ruskin-logo.svg" alt="앵글리아러스킨대학교 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>앵글리아러스킨대학교</h2>
-                    <p class="card-en">Anglia Ruskin University</p>
+                <a class="uni-card" href="./uk-anglia-ruskin.html" data-qs="" data-fee="16700" data-name="앵글리아러스킨대학교" data-name-en="Anglia Ruskin University" data-search="앵글리아러스킨대학교 anglia ruskin university cambridge / chelmsford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-anglia-ruskin-logo.svg" alt="앵글리아러스킨대학교 로고" data-en-alt="Anglia Ruskin University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Anglia Ruskin University">앵글리아러스킨대학교</h2>
+                    <p class="card-en" data-en="앵글리아러스킨대학교">Anglia Ruskin University</p>
                     <div class="card-meta">
                         <span>Cambridge / Chelmsford</span>
-                        <span>학비 <b>£16,700 ~ £17,500</b></span>
+                        <span data-en="Fees <b>£16,700 ~ £17,500</b>">학비 <b>£16,700 ~ £17,500</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-ljmu.html" data-qs="" data-fee="16000" data-name="리버풀존무어스대학교(LJMU)" data-search="리버풀존무어스대학교(ljmu) liverpool john moores university liverpool">
-                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-ljmu-logo.svg" alt="리버풀존무어스대학교(LJMU) 로고"><span class="qs-badge is-unranked">QS 200위권 밖</span></div>
-                    <h2>리버풀존무어스대학교(LJMU)</h2>
-                    <p class="card-en">Liverpool John Moores University</p>
+                <a class="uni-card" href="./uk-ljmu.html" data-qs="" data-fee="16000" data-name="리버풀존무어스대학교(LJMU)" data-name-en="Liverpool John Moores University" data-search="리버풀존무어스대학교(ljmu) liverpool john moores university liverpool">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/uk-ljmu-logo.svg" alt="리버풀존무어스대학교(LJMU) 로고" data-en-alt="Liverpool John Moores University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Liverpool John Moores University">리버풀존무어스대학교(LJMU)</h2>
+                    <p class="card-en" data-en="리버풀존무어스대학교(LJMU)">Liverpool John Moores University</p>
                     <div class="card-meta">
                         <span>Liverpool</span>
-                        <span>학비 <b>£16,000 ~ £18,250</b></span>
+                        <span data-en="Fees <b>£16,000 ~ £18,250</b>">학비 <b>£16,000 ~ £18,250</b></span>
                         <span>IELTS <b>6.0</b></span>
                     </div>
-                    <span class="card-go">자세히 보기 &rarr;</span>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
 
             </div>
-            <p class="empty is-hidden" id="empty" hidden>검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
+            <p class="empty is-hidden" id="empty" hidden data-en="No results. Try a different name.">검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
         </div>
     </main>
 
     <footer class="site-footer">
         <div class="container">
-            <p>출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: 2026-07)</p>
-            <p>학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
+            <p data-en="Sources: QS World University Rankings and official university publications (Verified: 2026-07)">출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: 2026-07)</p>
+            <p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
 
     <script>
+    var LANG = 'ko';
+    try { if (localStorage.getItem('sgh-lang') === 'en') LANG = 'en'; } catch (e) {}
+    var render;   // applyLang에서 재호출할 수 있게 밖으로 꺼내 둔다
+    function applyLang() {
+        document.documentElement.lang = LANG;
+        document.title = LANG === 'en' ? 'UK universities | Study Guide Hub' : '영국 대학교 안내 | Study Guide Hub';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
+            el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
+        });
+        [['data-en-title', 'title'], ['data-en-aria', 'aria-label'], ['data-en-ph', 'placeholder'], ['data-en-alt', 'alt']].forEach(function (pair) {
+            document.querySelectorAll('[' + pair[0] + ']').forEach(function (el) {
+                var koAttr = pair[0] + '-ko';
+                if (!el.hasAttribute(koAttr)) el.setAttribute(koAttr, el.getAttribute(pair[1]) || '');
+                el.setAttribute(pair[1], el.getAttribute(LANG === 'en' ? pair[0] : koAttr));
+            });
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+            b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
+        });
+        if (render) render();
+    }
+    function setLang(l) {
+        LANG = l;
+        try { localStorage.setItem('sgh-lang', l); } catch (e) {}
+        applyLang();
+    }
     (function () {
         var grid = document.getElementById('grid');
         var cards = [].slice.call(grid.children);
@@ -718,10 +756,13 @@
             var v = parseFloat(el.getAttribute(attr));
             return isNaN(v) ? Infinity : v;   // 값 없는 학교는 항상 뒤로
         }
-        function render() {
+        render = function () {
             var term = q.value.trim().toLowerCase();
             cards.sort(function (a, b) {
-                if (sortKey === 'name') return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'), 'ko');
+                if (sortKey === 'name') {
+                    var attr = LANG === 'en' ? 'data-name-en' : 'data-name';
+                    return a.getAttribute(attr).localeCompare(b.getAttribute(attr), LANG);
+                }
                 return num(a, 'data-' + sortKey) - num(b, 'data-' + sortKey);
             });
             var shown = 0;
@@ -731,9 +772,9 @@
                 if (hit) shown++;
                 grid.appendChild(c);
             });
-            count.textContent = shown + '개 학교';
+            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' university' : ' universities') : shown + '개 학교';
             empty.hidden = shown > 0;
-        }
+        };
         q.addEventListener('input', render);
         document.querySelectorAll('.sort-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
@@ -744,7 +785,7 @@
                 render();
             });
         });
-        render();
+        applyLang();
     })();
     </script>
 </body>
