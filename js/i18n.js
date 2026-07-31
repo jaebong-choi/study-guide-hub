@@ -41,6 +41,7 @@ const I18N = {
         bannerAuAlt: "호주 랜드마크 미니어처와 출국 장면",
         bannerCaTitle: "캐나다 컬리지 8곳",
         bannerCaSub: "토론토·밴쿠버 핵심 공립 컬리지의 PGWP 경로·요건을 정리했습니다.",
+        bannerCaAlt: "캐나다 랜드마크 미니어처와 입국 심사 장면",
 
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
@@ -125,6 +126,7 @@ const I18N = {
         bannerAuAlt: "Miniature Australian landmarks and a departure scene",
         bannerCaTitle: "8 Canadian colleges",
         bannerCaSub: "PGWP routes and requirements at the key public colleges in Toronto and Vancouver.",
+        bannerCaAlt: "Miniature Canadian landmarks and a border-arrival scene",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",
