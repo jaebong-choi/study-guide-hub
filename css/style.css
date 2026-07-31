@@ -482,51 +482,68 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 
 /* ---------- 학교별 안내 (영국 대학 DB) ---------- */
 .uni-guide { padding: 26px 0 4px; }
-.uni-guide-banner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+/* 국가별 대학 리스트 배너 — 텍스트 좌 + 사진 우 가로형 카드 2장.
+ * 아래 국가 진단 카드(사진 상단형 3열)와 레이아웃 계열을 다르게 가져간다. */
+.uni-banners { display: grid; gap: 14px; }
+.uni-banner {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: stretch;
     background: var(--card-bg);
     border: 1px solid var(--line);
     border-radius: 18px;
-    padding: 22px 26px;
+    overflow: hidden;
     transition: border-color 0.2s ease, transform 0.2s ease;
 }
-.uni-guide-banner:hover { border-color: var(--uk); transform: translateY(-2px); }
-.uni-guide-text strong {
-    display: block;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    margin-bottom: 4px;
-    word-break: keep-all;
-}
-.uni-guide-text span {
-    font-size: 14px;
-    color: var(--body-text);
-    word-break: keep-all;
-}
-.uni-guide-banner .card-go { color: var(--uk); white-space: nowrap; }
-.uni-chips {
+.uni-banner:hover { transform: translateY(-2px); }
+.uni-banner--uk:hover { border-color: var(--uk); }
+.uni-banner--au:hover { border-color: var(--au); }
+.uni-banner-text {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    padding: 24px 28px;
+    min-width: 0;
 }
-.uni-chips a {
+.uni-banner-text strong {
+    font-size: clamp(19px, 2.6vw, 23px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    word-break: keep-all;
+}
+.uni-banner-sub {
     font-size: 14px;
-    font-weight: 600;
+    line-height: 1.55;
     color: var(--body-text);
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 8px 16px;
-    transition: border-color 0.15s ease, color 0.15s ease;
+    word-break: keep-all;
 }
-.uni-chips a:hover { border-color: var(--uk); color: var(--uk); }
-.uni-chips .uni-chip-more { color: var(--uk); border-color: transparent; }
-@media (max-width: 640px) {
-    .uni-guide-banner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 20px; }
+.uni-banner-go { margin-top: auto; padding-top: 10px; font-size: 14px; font-weight: 700; }
+.uni-banner--uk .uni-banner-go { color: var(--uk); }
+.uni-banner--au .uni-banner-go { color: var(--au); }
+.uni-banner-photo { position: relative; min-height: 150px; }
+.uni-banner-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+.uni-banner:hover .uni-banner-photo img { transform: scale(1.04); }
+.uni-banner--au .uni-banner-photo img { object-position: center 30%; }
+@media (max-width: 760px) {
+    .uni-banner { grid-template-columns: 1fr; }
+    .uni-banner-photo { order: -1; min-height: 120px; }
+    .uni-banner-text { padding: 18px 20px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .uni-banner, .uni-banner-photo img { transition: none; }
+    .uni-banner:hover { transform: none; }
+    .uni-banner:hover .uni-banner-photo img { transform: none; }
 }
 
 /* ---------- 어학연수 배너 ---------- */
