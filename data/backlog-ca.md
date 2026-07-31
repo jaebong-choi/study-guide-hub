@@ -12,7 +12,15 @@
 - [x] ca-niagara 나이아가라 컬리지
 - [x] ca-vcc 밴쿠버 커뮤니티 컬리지
 
+## 입력 완료 — 4년제 대학 4곳 (2026-07-31 저녁)
+- [x] ca-uoft 토론토대(QS 32, 사립 국제학교 OSSD·IFP 경로)
+- [x] ca-ubc UBC(QS 45, BC Transfer 편입)
+- [x] ca-sfu SFU(QS 312, FIC/Navitas 편입)
+- [x] ca-manitoba 매니토바대(QS 560, ICM/Navitas 편입·MPNP)
+
 ## 남은 작업 (집에서 이어서)
+- [ ] 대학 추가 후보: McGill(QS 30)·앨버타(96)·워털루(113)·맥마스터(174)·요크(322)·빅토리아(370) 등 — QS 2027 순위는 조회해 둠
+- [ ] 대학 4곳 PG 학비(전부 null)
 - [ ] **학비 조사**: 8곳 전부 tuition null(페이지에 "문의" 표시).
       ca-study-guide/data/canada_colleges_data.json의 원칙대로 **각 컬리지 공식
       international fees 페이지 기준으로만** 채울 것 (애그리게이터 값 금지).

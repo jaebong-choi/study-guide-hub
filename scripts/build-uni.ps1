@@ -47,7 +47,7 @@ $DIAG_URL = @{
 $COUNTRY_INFO = @{
     'UK' = @{ ko = '영국';   enAdj = 'UK';         file = 'index.html'; noun = '대학교'; enNoun = 'universities' }
     'AU' = @{ ko = '호주';   enAdj = 'Australian'; file = 'au.html';    noun = '대학교'; enNoun = 'universities' }
-    'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html';    noun = '컬리지'; enNoun = 'colleges' }
+    'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html';    noun = '대학·컬리지'; enNoun = 'universities and colleges' }
     'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html';    noun = '대학교'; enNoun = 'universities' }
 }
 
