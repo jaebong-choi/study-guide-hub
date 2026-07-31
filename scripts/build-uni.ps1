@@ -208,7 +208,12 @@ $TEMPLATE = @'
         /* 로고는 모든 학교 동일한 160x88 박스(contain). 투명 PNG/SVG 전제.
            다크 모드에서는 흰색 단색으로 반전시켜 배경에 녹인다. */
         .uni-logo { flex-shrink: 0; width: 160px; height: 88px; object-fit: contain; }
-        :root[data-theme="dark"] .uni-logo { filter: brightness(0) invert(1); opacity: .92; }
+        /* 다크 모드: 예전에는 brightness(0) invert(1)로 흰 실루엣을 만들었는데,
+         * 문장(crest)형 로고가 디테일 없는 흰 덩어리가 되어 알아볼 수 없었다.
+         * 대신 밝은 플레이트를 깔고 원래 로고를 그대로 보여준다. */
+        :root[data-theme="dark"] .uni-logo {
+            background: #f2f2f4; border-radius: 10px; padding: 8px 12px;
+        }
         @media (max-width: 720px) { .uni-logo { width: 110px; height: 64px; } }
         .uni-hero h1 { font-size: clamp(28px, 5vw, 40px); letter-spacing: -0.02em; }
         .en-name { font-size: 17px; color: var(--mute); margin: 4px 0 18px; }
@@ -611,7 +616,10 @@ $LIST_TEMPLATE = @'
         .uni-card.is-hidden { display: none; }
         .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; min-height: 46px; }
         .card-logo { width: 74px; height: 44px; object-fit: contain; flex-shrink: 0; }
-        :root[data-theme="dark"] .card-logo { filter: brightness(0) invert(1); opacity: .9; }
+        /* 다크 모드는 흰 실루엣 반전 대신 밝은 플레이트 (상세 페이지와 동일 규칙) */
+        :root[data-theme="dark"] .card-logo {
+            background: #f2f2f4; border-radius: 8px; padding: 5px 7px; width: 84px; height: 46px;
+        }
         .qs-badge {
             font-size: 12px; font-weight: 700; white-space: nowrap;
             background: var(--accent); color: var(--accent-text);
