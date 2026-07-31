@@ -84,6 +84,8 @@ function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
     $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
     # 호주의 편입은 디플로마 경유라는 것을 라벨에서 드러낸다
     if ($country -eq 'AU' -and $pw.type -eq 'transfer') { $pwLabel = '편입 (호주 디플로마)' }
+    # 캐나다의 pathway는 현지 고교 학점(OSSD 등)을 쌓는 경로라 '패스웨이'로 뭉뚱그리지 않는다
+    if ($country -eq 'CA' -and $pw.type -eq 'pathway') { $pwLabel = '캐나다 국제 사립학교를 통한 진학' }
     # 경로 안내 모달 — 해당하는 경로는 진단으로 바로 가지 않고 프로그램 설명을 먼저 띄운다
     $guideKey = $null
     if ($country -eq 'AU' -and $pw.type -eq 'foundation') { $guideKey = 'au-foundation' }
@@ -91,7 +93,8 @@ function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
     elseif ($country -eq 'UK' -and $pw.type -eq 'foundation') { $guideKey = 'uk-foundation' }
     elseif ($country -eq 'UK' -and $pw.type -eq 'iyo') { $guideKey = 'uk-iyo' }
     elseif ($country -eq 'UK' -and $pw.type -eq 'pre-master') { $guideKey = 'pre-master' }   # 현재 프리마스터는 영국만 존재. 다른 국가에 생기면 가이드 링크도 함께 매핑할 것
-    elseif ($country -eq 'CA' -and $pw.type -eq 'pathway') { $guideKey = 'ca-pathway' }
+    elseif ($country -eq 'CA' -and $pw.type -eq 'pathway') { $guideKey = 'ca-ossd' }
+    elseif ($country -eq 'CA' -and $pw.type -eq 'foundation') { $guideKey = 'ca-foundation' }
     elseif ($country -eq 'CA' -and $pw.type -eq 'transfer' -and $pw.provider -match 'Navitas') { $guideKey = 'ca-pathway' }
     $provider = if ($pw.provider) {
         '<span class="pw-provider"' + (EnAttr $pw.provider (En $pw.provider)) + '>' + (Esc $pw.provider) + '</span>'
@@ -606,6 +609,34 @@ $TEMPLATE = @'
                     'Many programs <mark>guarantee progression</mark> on completion, and it doubles as a <mark>conversion route</mark> when you change field. Worth considering first if your GPA is <mark>below 3.0 out of 4.5</mark> or your degree is in another subject.']
             }
         },
+        'ca-foundation': {
+            ko: {
+                t: '대학 자체 파운데이션(IFP)이란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['IFP', '8개월~1년'], ['학사 1학년', '본교 진학']],
+                b: ['캐나다는 영국·호주 같은 <mark>전국 단위 파운데이션 제도가 없어</mark>, 대학이 자체적으로 운영하는 소수의 과정만 있습니다. 토론토대의 International Foundation Program이 대표적입니다.',
+                    '<mark>영어와 학점 과목을 병행</mark>해 이수하고, 수료 기준을 충족하면 <mark>본교 1학년</mark>으로 진학합니다. 자리가 제한적이라 경쟁이 있고, 학비도 학부 수준에 가깝습니다.']
+            },
+            en: {
+                t: 'What is a university foundation (IFP)?',
+                f: [['High school', 'graduate'], ['IFP', '8-12 months'], ['Bachelor Year 1', 'at the university']],
+                b: ['Canada has <mark>no nationwide foundation system</mark> like the UK or Australia, so only a handful of universities run their own. The University of Toronto International Foundation Program is the best known.',
+                    'You take <mark>English alongside credit courses</mark> and move into <mark>Year 1</mark> on meeting the completion grades. Places are limited and competitive, and fees sit close to undergraduate level.']
+            }
+        },
+        'ca-ossd': {
+            ko: {
+                t: '캐나다 국제 사립학교를 통한 진학이란?',
+                f: [['한국 고교', '2학년~졸업'], ['국제 사립학교', 'OSSD 학점 1~2년'], ['학사 1학년', 'UofT · UBC 등']],
+                b: ['토론토 등지의 인가 사립학교에서 <mark>온타리오 고교 졸업장(OSSD)</mark> 학점을 이수하고, <mark>캐나다 내신</mark>으로 대학에 지원하는 경로입니다. 대학이 캐나다 성적표를 그대로 읽기 때문에 한국 학생이 <mark>UofT·UBC</mark>에 닿는 대표 루트입니다.',
+                    'OSSD는 단일 시험이 아니라 <mark>학점 누적</mark> 방식이라 꾸준한 과제·출석이 성적을 만듭니다. <mark>12학년 학점</mark> 비중이 커서 <mark>11학년</mark>에 진입하면 여유가 생기고, 입학 시 IELTS 없이 ESL을 병행할 수 있습니다.']
+            },
+            en: {
+                t: 'Studying at a Canadian international private school',
+                f: [['Korean high school', 'Year 2 to graduate'], ['Private school', 'OSSD credits, 1-2 years'], ['Bachelor Year 1', 'UofT, UBC and more']],
+                b: ['You earn <mark>Ontario Secondary School Diploma (OSSD)</mark> credits at a licensed private school in Toronto and apply with <mark>Canadian grades</mark>. Universities read a Canadian transcript directly, which is why this is the usual route into <mark>UofT and UBC</mark>.',
+                    'OSSD is <mark>credit-based</mark> rather than exam-based, so steady coursework and attendance build the grade. <mark>Grade 12 credits</mark> carry the most weight, so entering by <mark>grade 11</mark> gives you room, and ESL runs alongside without an IELTS score at entry.']
+            }
+        },
         'ca-pathway': {
             ko: {
                 t: '패스웨이 컬리지 편입이란?',
@@ -622,7 +653,7 @@ $TEMPLATE = @'
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-pathway': '../guide/ca.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
