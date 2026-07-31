@@ -27,6 +27,6 @@
       온타리오 디플로마 대략 CA$16,000~20,000/년 수준이지만 공식 확인 후 입력
 - [ ] 나머지 컬리지 36곳: ca-study-guide 결과에 등장하는 44곳 중 미입력분.
       목록·전공·URL은 ca-study-guide/data/canada_colleges_data.json에 있음
-- [ ] 배너: images/uni/ca-banner.jpg (한 장이면 캐나다 전체 적용, 영국·호주와 동일 톤 권장)
+- [x] 배너: ca-banner.jpg 적용 완료(2026-07-31) · us-banner.jpg도 미국 DB용으로 준비됨
 - [ ] ca-study-guide 진단 결과 → uni 페이지 연결 (uk/au의 HUB_UNI 패턴)
 - [ ] youtube_id 전부 null (공식 채널 영상 ID 채우면 섹션 자동 생성)
