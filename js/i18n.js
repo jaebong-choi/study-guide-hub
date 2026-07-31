@@ -38,6 +38,7 @@ const I18N = {
         bannerAuSub: "Go8 명문부터 요리학교·TAFE까지, 학비·요건·편입 경로를 한눈에.",
         bannerGo: "학교 목록 보기 →",
         bannerUkAlt: "영국 대학 미니어처와 상담 장면",
+        bannerAuAlt: "호주 랜드마크 미니어처와 출국 장면",
 
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
@@ -119,6 +120,7 @@ const I18N = {
         bannerAuSub: "From the Go8 to culinary schools and TAFE: fees, requirements and transfer routes at a glance.",
         bannerGo: "Browse the list →",
         bannerUkAlt: "Miniature UK landmarks and a study consultation scene",
+        bannerAuAlt: "Miniature Australian landmarks and a departure scene",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",
