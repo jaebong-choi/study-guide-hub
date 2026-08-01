@@ -50,6 +50,12 @@ $COUNTRY_INFO = @{
     'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html';    noun = '대학·컬리지'; enNoun = 'universities and colleges' }
     'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html';    noun = '대학교'; enNoun = 'universities' }
 }
+# 학비 출처 문구 — 국가마다 근거가 달라 푸터에서 따로 밝힌다.
+# 미국은 대학별 international 요강이 아니라 교육부 공시(College Scorecard) 값이라 반드시 표기한다.
+$FEE_NOTE_DEFAULT = '<p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>'
+$FEE_NOTE = @{
+    'US' = '<p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>'
+}
 
 function Esc([string]$s) {
     if ($null -eq $s) { return '' }
@@ -520,6 +526,7 @@ $TEMPLATE = @'
     <footer class="site-footer">
         <div class="container">
             <p data-en="Sources: QS World University Rankings and official university publications">출처: QS World University Rankings · 각 대학 공식 공시 자료</p>
+            {{FEE_NOTE}}
             <p data-en="A free information page, independent of any agency or institution.">본 페이지는 특정 유학원·기관과 무관한 무료 정보 페이지입니다.</p>
             <p>© 2026 Study Guide Hub</p>
         </div>
@@ -934,7 +941,7 @@ $LIST_TEMPLATE = @'
     <footer class="site-footer">
         <div class="container">
             <p data-en="Sources: QS World University Rankings and official university publications (Verified: {{LAST_VERIFIED}})">출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: {{LAST_VERIFIED}})</p>
-            <p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>
+            {{FEE_NOTE}}
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
@@ -1241,6 +1248,7 @@ foreach ($nothing in @(1)) {
             '{{VIDEO_SECTION}}'       = $videoSection
             '{{EDITOR_NOTE_SECTION}}' = $editorSection
             '{{RELATED_SECTION}}'     = $relatedSection
+            '{{FEE_NOTE}}'            = if ($FEE_NOTE.ContainsKey($u.country)) { $FEE_NOTE[$u.country] } else { $FEE_NOTE_DEFAULT }
         }
         foreach ($key in $tokens.Keys) { $html = $html.Replace($key, [string]$tokens[$key]) }
 
@@ -1289,7 +1297,8 @@ foreach ($cc in $lists.Keys) {
     $l = $lists[$cc]
     $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
         Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
-        Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath)
+        Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath).
+        Replace('{{FEE_NOTE}}', $(if ($FEE_NOTE.ContainsKey($cc)) { $FEE_NOTE[$cc] } else { $FEE_NOTE_DEFAULT }))
     [IO.File]::WriteAllText((Join-Path $outDir $info.file), $listHtml, $utf8NoBom)
     $listLocs += ('uni/' + $listPath)
     Write-Host ("생성: uni\{0} ({1} 목록 {2}곳)" -f $info.file, $cc, $l.count) -ForegroundColor Green

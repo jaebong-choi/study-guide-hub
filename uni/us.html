@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미국 대학교 안내 | Study Guide Hub</title>
+    <meta name="description" content="미국 대학교 126곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <link rel="canonical" href="https://jaebong-choi.github.io/study-guide-hub/uni/us.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Study Guide Hub">
+    <meta property="og:title" content="미국 대학교 126곳 안내 | Study Guide Hub">
+    <meta property="og:description" content="미국 대학교 126곳의 학비·IELTS 기준·진학 경로를 한눈에 비교하세요. 공식 요강 기준 무료 정보 가이드.">
+    <meta property="og:url" content="https://jaebong-choi.github.io/study-guide-hub/uni/us.html">
+    <meta property="og:image" content="https://jaebong-choi.github.io/study-guide-hub/images/og-image.jpg?v=20260727">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script>
+        (function () {
+            var t = 'light';
+            try {
+                var saved = localStorage.getItem('sgh-theme');
+                if (saved === 'light' || saved === 'dark') t = saved;
+                else localStorage.setItem('sgh-theme', t);
+            } catch (e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <style>
+        :root {
+            --bg: #0b0b0f; --surface: #1d1d1f; --text: #f5f5f7; --body-text: #c7c7cc;
+            --mute: #86868b; --line: rgba(255,255,255,0.14); --card-bg: rgba(255,255,255,0.05);
+            --accent: #FFDE59; --accent-text: #1d1d1f; --link: #2997ff;
+            --header-bg: rgba(0,0,0,0.8);
+        }
+        :root[data-theme="light"] {
+            --bg: #ffffff; --surface: #f5f5f7; --text: #1d1d1f; --body-text: #4a4a4f;
+            --mute: #6e6e73; --line: rgba(0,0,0,0.12); --card-bg: #ffffff;
+            --accent: #A87E00; --accent-text: #ffffff; --link: #0066cc;
+            --header-bg: rgba(255,255,255,0.82);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 1024px; margin: 0 auto; padding: 0 20px; }
+        a { color: var(--link); text-decoration: none; }
+
+        .site-header {
+            position: sticky; top: 0; z-index: 10; backdrop-filter: blur(14px);
+            background: var(--header-bg); border-bottom: 1px solid var(--line);
+        }
+        .site-header .container { display: flex; align-items: center; justify-content: space-between; height: 52px; }
+        .brand { font-weight: 700; color: var(--text); font-size: 15px; }
+        .header-actions { display: flex; align-items: center; gap: 14px; }
+        .header-cta { font-size: 13px; font-weight: 600; }
+        .theme-btn {
+            width: 34px; height: 34px; border-radius: 50%; cursor: pointer;
+            border: 1px solid var(--line); background: none; font-size: 15px; line-height: 1;
+        }
+        .theme-btn::before { content: '\1F319'; }
+        :root[data-theme="dark"] .theme-btn::before { content: '\2600\FE0F'; }
+        .lang-switch { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; flex-shrink: 0; }
+        .lang-switch button {
+            border: 0; background: transparent; color: var(--mute); cursor: pointer;
+            font-family: inherit; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 6px 11px;
+        }
+        .lang-switch button:hover { color: var(--text); }
+        .lang-switch button.on { background: var(--text); color: var(--bg); }
+
+        .list-hero { padding: 44px 0 28px; }
+        .crumb { font-size: 13px; color: var(--mute); margin-bottom: 16px; }
+        .list-hero h1 { font-size: clamp(26px, 4.5vw, 36px); letter-spacing: -0.02em; margin-bottom: 8px; }
+        .list-hero p { font-size: 15px; color: var(--body-text); }
+
+        .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 22px 0 6px; }
+        .search-box {
+            flex: 1 1 240px; min-height: 44px; padding: 0 16px; font-size: 15px;
+            font-family: inherit; color: var(--text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 12px;
+        }
+        .search-box::placeholder { color: var(--mute); }
+        .sort-group { display: flex; gap: 6px; }
+        .sort-btn {
+            min-height: 44px; padding: 0 16px; font-size: 14px; font-weight: 600; cursor: pointer;
+            font-family: inherit; color: var(--body-text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
+        }
+        .sort-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
+
+        .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
+        @media (max-width: 860px) { .uni-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 560px) { .uni-grid { grid-template-columns: 1fr; } }
+        .uni-card {
+            display: flex; flex-direction: column; gap: 10px;
+            background: var(--card-bg); border: 1px solid var(--line);
+            border-radius: 16px; padding: 18px; color: var(--text);
+            transition: border-color .15s, transform .15s;
+        }
+        .uni-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .uni-card.is-hidden { display: none; }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; min-height: 46px; }
+        .card-logo { width: 74px; height: 44px; object-fit: contain; flex-shrink: 0; }
+        /* 다크 모드는 흰 실루엣 반전 대신 밝은 플레이트 (상세 페이지와 동일 규칙) */
+        :root[data-theme="dark"] .card-logo {
+            background: #f2f2f4; border-radius: 8px; padding: 5px 7px; width: 84px; height: 46px;
+        }
+        .qs-badge {
+            font-size: 12px; font-weight: 700; white-space: nowrap;
+            background: var(--accent); color: var(--accent-text);
+            border-radius: 8px; padding: 3px 9px;
+        }
+        .qs-badge.is-unranked { background: none; color: var(--mute); border: 1px solid var(--line); font-weight: 600; }
+        .uni-card h2 { font-size: 17px; letter-spacing: -0.01em; }
+        .card-en { font-size: 12px; color: var(--mute); margin-top: -6px; }
+        .card-meta { font-size: 13px; color: var(--body-text); display: flex; flex-wrap: wrap; gap: 4px 12px; }
+        .card-meta b { color: var(--text); }
+        .card-go { font-size: 14px; font-weight: 700; color: var(--link); margin-top: auto; }
+        .empty { padding: 40px 0 80px; color: var(--mute); font-size: 15px; }
+
+        .site-footer { background: var(--surface); padding: 28px 0 40px; }
+        .site-footer p { font-size: 12px; color: var(--mute); margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="brand">Study Guide Hub</a>
+            <div class="header-actions">
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="list-hero">
+            <div class="container">
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › US universities"><a href="../index.html">홈</a> › 미국 대학교</p>
+                <h1 data-en="126 US universities">미국 대학교 126곳</h1>
+                <p data-en="Tuition, IELTS requirements and entry routes, school by school. Select a university for details.">학비·IELTS 기준·진학 경로를 학교별로 정리했습니다. 학교를 눌러 상세 정보를 확인하세요.</p>
+
+                <div class="toolbar">
+                    <input type="search" class="search-box" id="q" placeholder="학교명 또는 도시 검색 (예: 맨체스터, London)" data-en-ph="Search by name or city (e.g. Manchester)" aria-label="학교 검색" data-en-aria="Search universities">
+                    <div class="sort-group" role="group" aria-label="정렬 기준" data-en-aria="Sort by">
+                        <button type="button" class="sort-btn" data-sort="qs" aria-pressed="true" data-en="QS rank">QS 순위</button>
+                        <button type="button" class="sort-btn" data-sort="fee" aria-pressed="false" data-en="Lowest fees">학비 낮은 순</button>
+                        <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
+                    </div>
+                </div>
+                <p class="result-count" id="count"></p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="uni-grid" id="grid">
+                <a class="uni-card" href="./us-mit.html" data-qs="1" data-fee="62396" data-name="매사추세츠공과대학교" data-name-en="Massachusetts Institute of Technology (MIT)" data-search="매사추세츠공과대학교 massachusetts institute of technology (mit) cambridge">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-mit-logo.svg" alt="매사추세츠공과대학교 로고" data-en-alt="Massachusetts Institute of Technology (MIT) logo"><span class="qs-badge" data-en="QS #1">QS 1위</span></div>
+                    <h2 data-en="Massachusetts Institute of Technology (MIT)">매사추세츠공과대학교</h2>
+                    <p class="card-en" data-en="매사추세츠공과대학교">Massachusetts Institute of Technology (MIT)</p>
+                    <div class="card-meta">
+                        <span>Cambridge</span>
+                        <span data-en="Fees <b>$62,396</b>">학비 <b>$62,396</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-stanford.html" data-qs="2" data-fee="65910" data-name="스탠퍼드대학교" data-name-en="Stanford University" data-search="스탠퍼드대학교 stanford university stanford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-stanford-logo.svg" alt="스탠퍼드대학교 로고" data-en-alt="Stanford University logo"><span class="qs-badge" data-en="QS #2">QS 2위</span></div>
+                    <h2 data-en="Stanford University">스탠퍼드대학교</h2>
+                    <p class="card-en" data-en="스탠퍼드대학교">Stanford University</p>
+                    <div class="card-meta">
+                        <span>Stanford</span>
+                        <span data-en="Fees <b>$65,910</b>">학비 <b>$65,910</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-harvard.html" data-qs="5" data-fee="61676" data-name="하버드대학교" data-name-en="Harvard University" data-search="하버드대학교 harvard university cambridge">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-harvard-logo.svg" alt="하버드대학교 로고" data-en-alt="Harvard University logo"><span class="qs-badge" data-en="QS #5">QS 5위</span></div>
+                    <h2 data-en="Harvard University">하버드대학교</h2>
+                    <p class="card-en" data-en="하버드대학교">Harvard University</p>
+                    <div class="card-meta">
+                        <span>Cambridge</span>
+                        <span data-en="Fees <b>$61,676</b>">학비 <b>$61,676</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-caltech.html" data-qs="7" data-fee="65898" data-name="캘리포니아공과대학교" data-name-en="California Institute of Technology (Caltech)" data-search="캘리포니아공과대학교 california institute of technology (caltech) pasadena">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-caltech-logo.svg" alt="캘리포니아공과대학교 로고" data-en-alt="California Institute of Technology (Caltech) logo"><span class="qs-badge" data-en="QS #7">QS 7위</span></div>
+                    <h2 data-en="California Institute of Technology (Caltech)">캘리포니아공과대학교</h2>
+                    <p class="card-en" data-en="캘리포니아공과대학교">California Institute of Technology (Caltech)</p>
+                    <div class="card-meta">
+                        <span>Pasadena</span>
+                        <span data-en="Fees <b>$65,898</b>">학비 <b>$65,898</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-upenn.html" data-qs="15" data-fee="68686" data-name="펜실베이니아대학교" data-name-en="University of Pennsylvania" data-search="펜실베이니아대학교 university of pennsylvania philadelphia">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #15">QS 15위</span></div>
+                    <h2 data-en="University of Pennsylvania">펜실베이니아대학교</h2>
+                    <p class="card-en" data-en="펜실베이니아대학교">University of Pennsylvania</p>
+                    <div class="card-meta">
+                        <span>Philadelphia</span>
+                        <span data-en="Fees <b>$68,686</b>">학비 <b>$68,686</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-yale.html" data-qs="16" data-fee="67250" data-name="예일대학교" data-name-en="Yale University" data-search="예일대학교 yale university new haven">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #16">QS 16위</span></div>
+                    <h2 data-en="Yale University">예일대학교</h2>
+                    <p class="card-en" data-en="예일대학교">Yale University</p>
+                    <div class="card-meta">
+                        <span>New Haven</span>
+                        <span data-en="Fees <b>$67,250</b>">학비 <b>$67,250</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-cornell.html" data-qs="16" data-fee="69314" data-name="코넬대학교" data-name-en="Cornell University" data-search="코넬대학교 cornell university ithaca">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #16">QS 16위</span></div>
+                    <h2 data-en="Cornell University">코넬대학교</h2>
+                    <p class="card-en" data-en="코넬대학교">Cornell University</p>
+                    <div class="card-meta">
+                        <span>Ithaca</span>
+                        <span data-en="Fees <b>$69,314</b>">학비 <b>$69,314</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-berkeley.html" data-qs="20" data-fee="50547" data-name="캘리포니아대학교 버클리" data-name-en="University of California, Berkeley (UCB)" data-search="캘리포니아대학교 버클리 university of california, berkeley (ucb) berkeley">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-berkeley-logo.svg" alt="캘리포니아대학교 버클리 로고" data-en-alt="University of California, Berkeley (UCB) logo"><span class="qs-badge" data-en="QS #20">QS 20위</span></div>
+                    <h2 data-en="University of California, Berkeley (UCB)">캘리포니아대학교 버클리</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 버클리">University of California, Berkeley (UCB)</p>
+                    <div class="card-meta">
+                        <span>Berkeley</span>
+                        <span data-en="Fees <b>$50,547</b>">학비 <b>$50,547</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-jhu.html" data-qs="20" data-fee="65230" data-name="존스홉킨스대학교" data-name-en="Johns Hopkins University" data-search="존스홉킨스대학교 johns hopkins university baltimore">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-jhu-logo.png" alt="존스홉킨스대학교 로고" data-en-alt="Johns Hopkins University logo"><span class="qs-badge" data-en="QS #20">QS 20위</span></div>
+                    <h2 data-en="Johns Hopkins University">존스홉킨스대학교</h2>
+                    <p class="card-en" data-en="존스홉킨스대학교">Johns Hopkins University</p>
+                    <div class="card-meta">
+                        <span>Baltimore</span>
+                        <span data-en="Fees <b>$65,230</b>">학비 <b>$65,230</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uchicago.html" data-qs="24" data-fee="70662" data-name="시카고대학교" data-name-en="University of Chicago" data-search="시카고대학교 university of chicago chicago">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uchicago-logo.svg" alt="시카고대학교 로고" data-en-alt="University of Chicago logo"><span class="qs-badge" data-en="QS #24">QS 24위</span></div>
+                    <h2 data-en="University of Chicago">시카고대학교</h2>
+                    <p class="card-en" data-en="시카고대학교">University of Chicago</p>
+                    <div class="card-meta">
+                        <span>Chicago</span>
+                        <span data-en="Fees <b>$70,662</b>">학비 <b>$70,662</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-princeton.html" data-qs="27" data-fee="62688" data-name="프린스턴대학교" data-name-en="Princeton University" data-search="프린스턴대학교 princeton university princeton">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-princeton-logo.svg" alt="프린스턴대학교 로고" data-en-alt="Princeton University logo"><span class="qs-badge" data-en="QS #27">QS 27위</span></div>
+                    <h2 data-en="Princeton University">프린스턴대학교</h2>
+                    <p class="card-en" data-en="프린스턴대학교">Princeton University</p>
+                    <div class="card-meta">
+                        <span>Princeton</span>
+                        <span data-en="Fees <b>$62,688</b>">학비 <b>$62,688</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-columbia.html" data-qs="43" data-fee="71845" data-name="컬럼비아대학교" data-name-en="Columbia University" data-search="컬럼비아대학교 columbia university new york city">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #43">QS 43위</span></div>
+                    <h2 data-en="Columbia University">컬럼비아대학교</h2>
+                    <p class="card-en" data-en="컬럼비아대학교">Columbia University</p>
+                    <div class="card-meta">
+                        <span>New York City</span>
+                        <span data-en="Fees <b>$71,845</b>">학비 <b>$71,845</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-northwestern.html" data-qs="45" data-fee="68322" data-name="노스웨스턴대학교" data-name-en="Northwestern University" data-search="노스웨스턴대학교 northwestern university evanston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-northwestern-logo.png" alt="노스웨스턴대학교 로고" data-en-alt="Northwestern University logo"><span class="qs-badge" data-en="QS #45">QS 45위</span></div>
+                    <h2 data-en="Northwestern University">노스웨스턴대학교</h2>
+                    <p class="card-en" data-en="노스웨스턴대학교">Northwestern University</p>
+                    <div class="card-meta">
+                        <span>Evanston</span>
+                        <span data-en="Fees <b>$68,322</b>">학비 <b>$68,322</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-ucla.html" data-qs="49" data-fee="49403" data-name="캘리포니아대학교 로스앤젤레스" data-name-en="University of California, Los Angeles (UCLA)" data-search="캘리포니아대학교 로스앤젤레스 university of california, los angeles (ucla) los angeles">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-ucla-logo.svg" alt="캘리포니아대학교 로스앤젤레스 로고" data-en-alt="University of California, Los Angeles (UCLA) logo"><span class="qs-badge" data-en="QS #49">QS 49위</span></div>
+                    <h2 data-en="University of California, Los Angeles (UCLA)">캘리포니아대학교 로스앤젤레스</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 로스앤젤레스">University of California, Los Angeles (UCLA)</p>
+                    <div class="card-meta">
+                        <span>Los Angeles</span>
+                        <span data-en="Fees <b>$49,403</b>">학비 <b>$49,403</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-michigan.html" data-qs="51" data-fee="60946" data-name="미시간대학교 앤아버" data-name-en="University of Michigan-Ann Arbor" data-search="미시간대학교 앤아버 university of michigan-ann arbor ann arbor">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-michigan-logo.svg" alt="미시간대학교 앤아버 로고" data-en-alt="University of Michigan-Ann Arbor logo"><span class="qs-badge" data-en="QS #51">QS 51위</span></div>
+                    <h2 data-en="University of Michigan-Ann Arbor">미시간대학교 앤아버</h2>
+                    <p class="card-en" data-en="미시간대학교 앤아버">University of Michigan-Ann Arbor</p>
+                    <div class="card-meta">
+                        <span>Ann Arbor</span>
+                        <span data-en="Fees <b>$60,946</b>">학비 <b>$60,946</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-cmu.html" data-qs="55" data-fee="66246" data-name="카네기멜런대학교" data-name-en="Carnegie Mellon University" data-search="카네기멜런대학교 carnegie mellon university pittsburgh">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-cmu-logo.svg" alt="카네기멜런대학교 로고" data-en-alt="Carnegie Mellon University logo"><span class="qs-badge" data-en="QS #55">QS 55위</span></div>
+                    <h2 data-en="Carnegie Mellon University">카네기멜런대학교</h2>
+                    <p class="card-en" data-en="카네기멜런대학교">Carnegie Mellon University</p>
+                    <div class="card-meta">
+                        <span>Pittsburgh</span>
+                        <span data-en="Fees <b>$66,246</b>">학비 <b>$66,246</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-nyu.html" data-qs="58" data-fee="62796" data-name="뉴욕대학교" data-name-en="New York University (NYU)" data-search="뉴욕대학교 new york university (nyu) new york city">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-nyu-logo.svg" alt="뉴욕대학교 로고" data-en-alt="New York University (NYU) logo"><span class="qs-badge" data-en="QS #58">QS 58위</span></div>
+                    <h2 data-en="New York University (NYU)">뉴욕대학교</h2>
+                    <p class="card-en" data-en="뉴욕대학교">New York University (NYU)</p>
+                    <div class="card-meta">
+                        <span>New York City</span>
+                        <span data-en="Fees <b>$62,796</b>">학비 <b>$62,796</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-brown.html" data-qs="66" data-fee="71412" data-name="브라운대학교" data-name-en="Brown University" data-search="브라운대학교 brown university providence">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-brown-logo.svg" alt="브라운대학교 로고" data-en-alt="Brown University logo"><span class="qs-badge" data-en="QS #66">QS 66위</span></div>
+                    <h2 data-en="Brown University">브라운대학교</h2>
+                    <p class="card-en" data-en="브라운대학교">Brown University</p>
+                    <div class="card-meta">
+                        <span>Providence</span>
+                        <span data-en="Fees <b>$71,412</b>">학비 <b>$71,412</b></span>
+                        <span>IELTS <b>8</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-duke.html" data-qs="70" data-fee="68758" data-name="듀크대학교" data-name-en="Duke University" data-search="듀크대학교 duke university durham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-duke-logo.svg" alt="듀크대학교 로고" data-en-alt="Duke University logo"><span class="qs-badge" data-en="QS #70">QS 70위</span></div>
+                    <h2 data-en="Duke University">듀크대학교</h2>
+                    <p class="card-en" data-en="듀크대학교">Duke University</p>
+                    <div class="card-meta">
+                        <span>Durham</span>
+                        <span data-en="Fees <b>$68,758</b>">학비 <b>$68,758</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-ut-austin.html" data-qs="72" data-fee="44908" data-name="텍사스대학교 오스틴" data-name-en="University of Texas at Austin" data-search="텍사스대학교 오스틴 university of texas at austin austin">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-ut-austin-logo.svg" alt="텍사스대학교 오스틴 로고" data-en-alt="University of Texas at Austin logo"><span class="qs-badge" data-en="QS #72">QS 72위</span></div>
+                    <h2 data-en="University of Texas at Austin">텍사스대학교 오스틴</h2>
+                    <p class="card-en" data-en="텍사스대학교 오스틴">University of Texas at Austin</p>
+                    <div class="card-meta">
+                        <span>Austin</span>
+                        <span data-en="Fees <b>$44,908</b>">학비 <b>$44,908</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uiuc.html" data-qs="74" data-fee="35124" data-name="일리노이대학교 어바나샴페인" data-name-en="University of Illinois Urbana-Champaign" data-search="일리노이대학교 어바나샴페인 university of illinois urbana-champaign champaign">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uiuc-logo.svg" alt="일리노이대학교 어바나샴페인 로고" data-en-alt="University of Illinois Urbana-Champaign logo"><span class="qs-badge" data-en="QS #74">QS 74위</span></div>
+                    <h2 data-en="University of Illinois Urbana-Champaign">일리노이대학교 어바나샴페인</h2>
+                    <p class="card-en" data-en="일리노이대학교 어바나샴페인">University of Illinois Urbana-Champaign</p>
+                    <div class="card-meta">
+                        <span>Champaign</span>
+                        <span data-en="Fees <b>$35,124</b>">학비 <b>$35,124</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-ucsd.html" data-qs="81" data-fee="50958" data-name="캘리포니아대학교 샌디에이고" data-name-en="University of California, San Diego (UCSD)" data-search="캘리포니아대학교 샌디에이고 university of california, san diego (ucsd) san diego">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-ucsd-logo.svg" alt="캘리포니아대학교 샌디에이고 로고" data-en-alt="University of California, San Diego (UCSD) logo"><span class="qs-badge" data-en="QS #81">QS 81위</span></div>
+                    <h2 data-en="University of California, San Diego (UCSD)">캘리포니아대학교 샌디에이고</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 샌디에이고">University of California, San Diego (UCSD)</p>
+                    <div class="card-meta">
+                        <span>San Diego</span>
+                        <span data-en="Fees <b>$50,958</b>">학비 <b>$50,958</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-penn-state.html" data-qs="92" data-fee="41790" data-name="펜실베이니아주립대학교" data-name-en="Pennsylvania State University" data-search="펜실베이니아주립대학교 pennsylvania state university university park">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-penn-state-logo.png" alt="펜실베이니아주립대학교 로고" data-en-alt="Pennsylvania State University logo"><span class="qs-badge" data-en="QS #92">QS 92위</span></div>
+                    <h2 data-en="Pennsylvania State University">펜실베이니아주립대학교</h2>
+                    <p class="card-en" data-en="펜실베이니아주립대학교">Pennsylvania State University</p>
+                    <div class="card-meta">
+                        <span>University Park</span>
+                        <span data-en="Fees <b>$41,790</b>">학비 <b>$41,790</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uw.html" data-qs="92" data-fee="43209" data-name="워싱턴대학교" data-name-en="University of Washington" data-search="워싱턴대학교 university of washington seattle">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uw-logo.svg" alt="워싱턴대학교 로고" data-en-alt="University of Washington logo"><span class="qs-badge" data-en="QS #92">QS 92위</span></div>
+                    <h2 data-en="University of Washington">워싱턴대학교</h2>
+                    <p class="card-en" data-en="워싱턴대학교">University of Washington</p>
+                    <div class="card-meta">
+                        <span>Seattle</span>
+                        <span data-en="Fees <b>$43,209</b>">학비 <b>$43,209</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-bu.html" data-qs="94" data-fee="68102" data-name="보스턴대학교" data-name-en="Boston University" data-search="보스턴대학교 boston university boston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-bu-logo.svg" alt="보스턴대학교 로고" data-en-alt="Boston University logo"><span class="qs-badge" data-en="QS #94">QS 94위</span></div>
+                    <h2 data-en="Boston University">보스턴대학교</h2>
+                    <p class="card-en" data-en="보스턴대학교">Boston University</p>
+                    <div class="card-meta">
+                        <span>Boston</span>
+                        <span data-en="Fees <b>$68,102</b>">학비 <b>$68,102</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-purdue.html" data-qs="100" data-fee="28794" data-name="퍼듀대학교" data-name-en="Purdue University" data-search="퍼듀대학교 purdue university west lafayette">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-purdue-logo.svg" alt="퍼듀대학교 로고" data-en-alt="Purdue University logo"><span class="qs-badge" data-en="QS #100">QS 100위</span></div>
+                    <h2 data-en="Purdue University">퍼듀대학교</h2>
+                    <p class="card-en" data-en="퍼듀대학교">Purdue University</p>
+                    <div class="card-meta">
+                        <span>West Lafayette</span>
+                        <span data-en="Fees <b>$28,794</b>">학비 <b>$28,794</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-rice.html" data-qs="122" data-fee="64144" data-name="라이스대학교" data-name-en="Rice University" data-search="라이스대학교 rice university houston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-rice-logo.png" alt="라이스대학교 로고" data-en-alt="Rice University logo"><span class="qs-badge" data-en="QS #122">QS 122위</span></div>
+                    <h2 data-en="Rice University">라이스대학교</h2>
+                    <p class="card-en" data-en="라이스대학교">Rice University</p>
+                    <div class="card-meta">
+                        <span>Houston</span>
+                        <span data-en="Fees <b>$64,144</b>">학비 <b>$64,144</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-wisconsin.html" data-qs="131" data-fee="42103" data-name="위스콘신대학교 매디슨" data-name-en="University of Wisconsin-Madison" data-search="위스콘신대학교 매디슨 university of wisconsin-madison madison">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #131">QS 131위</span></div>
+                    <h2 data-en="University of Wisconsin-Madison">위스콘신대학교 매디슨</h2>
+                    <p class="card-en" data-en="위스콘신대학교 매디슨">University of Wisconsin-Madison</p>
+                    <div class="card-meta">
+                        <span>Madison</span>
+                        <span data-en="Fees <b>$42,103</b>">학비 <b>$42,103</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uc-davis.html" data-qs="137" data-fee="50974" data-name="캘리포니아대학교 데이비스" data-name-en="University of California, Davis" data-search="캘리포니아대학교 데이비스 university of california, davis davis">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uc-davis-logo.svg" alt="캘리포니아대학교 데이비스 로고" data-en-alt="University of California, Davis logo"><span class="qs-badge" data-en="QS #137">QS 137위</span></div>
+                    <h2 data-en="University of California, Davis">캘리포니아대학교 데이비스</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 데이비스">University of California, Davis</p>
+                    <div class="card-meta">
+                        <span>Davis</span>
+                        <span data-en="Fees <b>$50,974</b>">학비 <b>$50,974</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-georgia-tech.html" data-qs="142" data-fee="34484" data-name="조지아공과대학교" data-name-en="Georgia Institute of Technology" data-search="조지아공과대학교 georgia institute of technology atlanta">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #142">QS 142위</span></div>
+                    <h2 data-en="Georgia Institute of Technology">조지아공과대학교</h2>
+                    <p class="card-en" data-en="조지아공과대학교">Georgia Institute of Technology</p>
+                    <div class="card-meta">
+                        <span>Atlanta</span>
+                        <span data-en="Fees <b>$34,484</b>">학비 <b>$34,484</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-usc.html" data-qs="153" data-fee="72097" data-name="서던캘리포니아대학교" data-name-en="University of Southern California" data-search="서던캘리포니아대학교 university of southern california los angeles">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-usc-logo.svg" alt="서던캘리포니아대학교 로고" data-en-alt="University of Southern California logo"><span class="qs-badge" data-en="QS #153">QS 153위</span></div>
+                    <h2 data-en="University of Southern California">서던캘리포니아대학교</h2>
+                    <p class="card-en" data-en="서던캘리포니아대학교">University of Southern California</p>
+                    <div class="card-meta">
+                        <span>Los Angeles</span>
+                        <span data-en="Fees <b>$72,097</b>">학비 <b>$72,097</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-unc.html" data-qs="158" data-fee="41203" data-name="노스캐롤라이나대학교 채플힐" data-name-en="University of North Carolina at Chapel Hill" data-search="노스캐롤라이나대학교 채플힐 university of north carolina at chapel hill chapel hill">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #158">QS 158위</span></div>
+                    <h2 data-en="University of North Carolina at Chapel Hill">노스캐롤라이나대학교 채플힐</h2>
+                    <p class="card-en" data-en="노스캐롤라이나대학교 채플힐">University of North Carolina at Chapel Hill</p>
+                    <div class="card-meta">
+                        <span>Chapel Hill</span>
+                        <span data-en="Fees <b>$41,203</b>">학비 <b>$41,203</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-washu.html" data-qs="162" data-fee="65790" data-name="워싱턴대학교 세인트루이스" data-name-en="Washington University in St. Louis" data-search="워싱턴대학교 세인트루이스 washington university in st. louis st. louis">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-washu-logo.png" alt="워싱턴대학교 세인트루이스 로고" data-en-alt="Washington University in St. Louis logo"><span class="qs-badge" data-en="QS #162">QS 162위</span></div>
+                    <h2 data-en="Washington University in St. Louis">워싱턴대학교 세인트루이스</h2>
+                    <p class="card-en" data-en="워싱턴대학교 세인트루이스">Washington University in St. Louis</p>
+                    <div class="card-meta">
+                        <span>St. Louis</span>
+                        <span data-en="Fees <b>$65,790</b>">학비 <b>$65,790</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-texas-am.html" data-qs="169" data-fee="40124" data-name="텍사스A&amp;M대학교" data-name-en="Texas A&amp;M University" data-search="텍사스a&amp;m대학교 texas a&amp;m university college station">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-texas-am-logo.svg" alt="텍사스A&amp;M대학교 로고" data-en-alt="Texas A&amp;M University logo"><span class="qs-badge" data-en="QS #169">QS 169위</span></div>
+                    <h2 data-en="Texas A&amp;M University">텍사스A&amp;M대학교</h2>
+                    <p class="card-en" data-en="텍사스A&amp;M대학교">Texas A&amp;M University</p>
+                    <div class="card-meta">
+                        <span>College Station</span>
+                        <span data-en="Fees <b>$40,124</b>">학비 <b>$40,124</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-asu.html" data-qs="172" data-fee="33139" data-name="애리조나주립대학교" data-name-en="Arizona State University" data-search="애리조나주립대학교 arizona state university tempe">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-asu-logo.svg" alt="애리조나주립대학교 로고" data-en-alt="Arizona State University logo"><span class="qs-badge" data-en="QS #172">QS 172위</span></div>
+                    <h2 data-en="Arizona State University">애리조나주립대학교</h2>
+                    <p class="card-en" data-en="애리조나주립대학교">Arizona State University</p>
+                    <div class="card-meta">
+                        <span>Tempe</span>
+                        <span data-en="Fees <b>$33,139</b>">학비 <b>$33,139</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-ucsb.html" data-qs="173" data-fee="50614" data-name="캘리포니아대학교 샌타바버라" data-name-en="University of California, Santa Barbara (UCSB)" data-search="캘리포니아대학교 샌타바버라 university of california, santa barbara (ucsb) santa barbara">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-ucsb-logo.svg" alt="캘리포니아대학교 샌타바버라 로고" data-en-alt="University of California, Santa Barbara (UCSB) logo"><span class="qs-badge" data-en="QS #173">QS 173위</span></div>
+                    <h2 data-en="University of California, Santa Barbara (UCSB)">캘리포니아대학교 샌타바버라</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 샌타바버라">University of California, Santa Barbara (UCSB)</p>
+                    <div class="card-meta">
+                        <span>Santa Barbara</span>
+                        <span data-en="Fees <b>$50,614</b>">학비 <b>$50,614</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-michigan-state.html" data-qs="182" data-fee="43842" data-name="미시간주립대학교" data-name-en="Michigan State University" data-search="미시간주립대학교 michigan state university east lansing">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-michigan-state-logo.svg" alt="미시간주립대학교 로고" data-en-alt="Michigan State University logo"><span class="qs-badge" data-en="QS #182">QS 182위</span></div>
+                    <h2 data-en="Michigan State University">미시간주립대학교</h2>
+                    <p class="card-en" data-en="미시간주립대학교">Michigan State University</p>
+                    <div class="card-meta">
+                        <span>East Lansing</span>
+                        <span data-en="Fees <b>$43,842</b>">학비 <b>$43,842</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-emory.html" data-qs="183" data-fee="64280" data-name="에모리대학교" data-name-en="Emory University" data-search="에모리대학교 emory university atlanta">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #183">QS 183위</span></div>
+                    <h2 data-en="Emory University">에모리대학교</h2>
+                    <p class="card-en" data-en="에모리대학교">Emory University</p>
+                    <div class="card-meta">
+                        <span>Atlanta</span>
+                        <span data-en="Fees <b>$64,280</b>">학비 <b>$64,280</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-florida.html" data-qs="228" data-fee="28659" data-name="플로리다대학교" data-name-en="University of Florida" data-search="플로리다대학교 university of florida gainesville">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-florida-logo.svg" alt="플로리다대학교 로고" data-en-alt="University of Florida logo"><span class="qs-badge" data-en="QS #228">QS 228위</span></div>
+                    <h2 data-en="University of Florida">플로리다대학교</h2>
+                    <p class="card-en" data-en="플로리다대학교">University of Florida</p>
+                    <div class="card-meta">
+                        <span>Gainesville</span>
+                        <span data-en="Fees <b>$28,659</b>">학비 <b>$28,659</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-rochester.html" data-qs="251" data-fee="67080" data-name="로체스터대학교" data-name-en="University of Rochester" data-search="로체스터대학교 university of rochester rochester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-rochester-logo.svg" alt="로체스터대학교 로고" data-en-alt="University of Rochester logo"><span class="qs-badge" data-en="QS #251">QS 251위</span></div>
+                    <h2 data-en="University of Rochester">로체스터대학교</h2>
+                    <p class="card-en" data-en="로체스터대학교">University of Rochester</p>
+                    <div class="card-meta">
+                        <span>Rochester</span>
+                        <span data-en="Fees <b>$67,080</b>">학비 <b>$67,080</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uc-irvine.html" data-qs="252" data-fee="49922" data-name="캘리포니아대학교 어바인" data-name-en="University of California, Irvine" data-search="캘리포니아대학교 어바인 university of california, irvine irvine">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uc-irvine-logo.svg" alt="캘리포니아대학교 어바인 로고" data-en-alt="University of California, Irvine logo"><span class="qs-badge" data-en="QS #252">QS 252위</span></div>
+                    <h2 data-en="University of California, Irvine">캘리포니아대학교 어바인</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 어바인">University of California, Irvine</p>
+                    <div class="card-meta">
+                        <span>Irvine</span>
+                        <span data-en="Fees <b>$49,922</b>">학비 <b>$49,922</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-maryland.html" data-qs="252" data-fee="41186" data-name="메릴랜드대학교 칼리지파크" data-name-en="University of Maryland, College Park" data-search="메릴랜드대학교 칼리지파크 university of maryland, college park college park">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-maryland-logo.svg" alt="메릴랜드대학교 칼리지파크 로고" data-en-alt="University of Maryland, College Park logo"><span class="qs-badge" data-en="QS #252">QS 252위</span></div>
+                    <h2 data-en="University of Maryland, College Park">메릴랜드대학교 칼리지파크</h2>
+                    <p class="card-en" data-en="메릴랜드대학교 칼리지파크">University of Maryland, College Park</p>
+                    <div class="card-meta">
+                        <span>College Park</span>
+                        <span data-en="Fees <b>$41,186</b>">학비 <b>$41,186</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-minnesota.html" data-qs="255" data-fee="38362" data-name="미네소타대학교 트윈시티" data-name-en="University of Minnesota Twin Cities" data-search="미네소타대학교 트윈시티 university of minnesota twin cities minneapolis">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-minnesota-logo.png" alt="미네소타대학교 트윈시티 로고" data-en-alt="University of Minnesota Twin Cities logo"><span class="qs-badge" data-en="QS #255">QS 255위</span></div>
+                    <h2 data-en="University of Minnesota Twin Cities">미네소타대학교 트윈시티</h2>
+                    <p class="card-en" data-en="미네소타대학교 트윈시티">University of Minnesota Twin Cities</p>
+                    <div class="card-meta">
+                        <span>Minneapolis</span>
+                        <span data-en="Fees <b>$38,362</b>">학비 <b>$38,362</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-umass-amherst.html" data-qs="260" data-fee="40449" data-name="매사추세츠대학교 애머스트" data-name-en="University of Massachusetts Amherst" data-search="매사추세츠대학교 애머스트 university of massachusetts amherst amherst">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-umass-amherst-logo.png" alt="매사추세츠대학교 애머스트 로고" data-en-alt="University of Massachusetts Amherst logo"><span class="qs-badge" data-en="QS #260">QS 260위</span></div>
+                    <h2 data-en="University of Massachusetts Amherst">매사추세츠대학교 애머스트</h2>
+                    <p class="card-en" data-en="매사추세츠대학교 애머스트">University of Massachusetts Amherst</p>
+                    <div class="card-meta">
+                        <span>Amherst</span>
+                        <span data-en="Fees <b>$40,449</b>">학비 <b>$40,449</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-vanderbilt.html" data-qs="265" data-fee="67498" data-name="밴더빌트대학교" data-name-en="Vanderbilt University" data-search="밴더빌트대학교 vanderbilt university nashville">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-vanderbilt-logo.svg" alt="밴더빌트대학교 로고" data-en-alt="Vanderbilt University logo"><span class="qs-badge" data-en="QS #265">QS 265위</span></div>
+                    <h2 data-en="Vanderbilt University">밴더빌트대학교</h2>
+                    <p class="card-en" data-en="밴더빌트대학교">Vanderbilt University</p>
+                    <div class="card-meta">
+                        <span>Nashville</span>
+                        <span data-en="Fees <b>$67,498</b>">학비 <b>$67,498</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uva.html" data-qs="268" data-fee="59512" data-name="버지니아대학교" data-name-en="University of Virginia" data-search="버지니아대학교 university of virginia charlottesville">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uva-logo.svg" alt="버지니아대학교 로고" data-en-alt="University of Virginia logo"><span class="qs-badge" data-en="QS #268">QS 268위</span></div>
+                    <h2 data-en="University of Virginia">버지니아대학교</h2>
+                    <p class="card-en" data-en="버지니아대학교">University of Virginia</p>
+                    <div class="card-meta">
+                        <span>Charlottesville</span>
+                        <span data-en="Fees <b>$59,512</b>">학비 <b>$59,512</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-dartmouth.html" data-qs="270" data-fee="68268" data-name="다트머스대학" data-name-en="Dartmouth College" data-search="다트머스대학 dartmouth college hanover">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-dartmouth-logo.svg" alt="다트머스대학 로고" data-en-alt="Dartmouth College logo"><span class="qs-badge" data-en="QS #270">QS 270위</span></div>
+                    <h2 data-en="Dartmouth College">다트머스대학</h2>
+                    <p class="card-en" data-en="다트머스대학">Dartmouth College</p>
+                    <div class="card-meta">
+                        <span>Hanover</span>
+                        <span data-en="Fees <b>$68,268</b>">학비 <b>$68,268</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-pittsburgh.html" data-qs="279" data-fee="41430" data-name="피츠버그대학교" data-name-en="University of Pittsburgh" data-search="피츠버그대학교 university of pittsburgh pittsburgh">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-pittsburgh-logo.svg" alt="피츠버그대학교 로고" data-en-alt="University of Pittsburgh logo"><span class="qs-badge" data-en="QS #279">QS 279위</span></div>
+                    <h2 data-en="University of Pittsburgh">피츠버그대학교</h2>
+                    <p class="card-en" data-en="피츠버그대학교">University of Pittsburgh</p>
+                    <div class="card-meta">
+                        <span>Pittsburgh</span>
+                        <span data-en="Fees <b>$41,430</b>">학비 <b>$41,430</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-georgetown.html" data-qs="289" data-fee="68017" data-name="조지타운대학교" data-name-en="Georgetown University" data-search="조지타운대학교 georgetown university washington d.c.">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-georgetown-logo.svg" alt="조지타운대학교 로고" data-en-alt="Georgetown University logo"><span class="qs-badge" data-en="QS #289">QS 289위</span></div>
+                    <h2 data-en="Georgetown University">조지타운대학교</h2>
+                    <p class="card-en" data-en="조지타운대학교">Georgetown University</p>
+                    <div class="card-meta">
+                        <span>Washington D.C.</span>
+                        <span data-en="Fees <b>$68,017</b>">학비 <b>$68,017</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-notre-dame.html" data-qs="300" data-fee="65025" data-name="노터데임대학교" data-name-en="University of Notre Dame" data-search="노터데임대학교 university of notre dame notre dame">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-notre-dame-logo.png" alt="노터데임대학교 로고" data-en-alt="University of Notre Dame logo"><span class="qs-badge" data-en="QS #300">QS 300위</span></div>
+                    <h2 data-en="University of Notre Dame">노터데임대학교</h2>
+                    <p class="card-en" data-en="노터데임대학교">University of Notre Dame</p>
+                    <div class="card-meta">
+                        <span>Notre Dame</span>
+                        <span data-en="Fees <b>$65,025</b>">학비 <b>$65,025</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-rutgers.html" data-qs="314" data-fee="37441" data-name="럿거스대학교 뉴브런즈윅" data-name-en="Rutgers University New Brunswick" data-search="럿거스대학교 뉴브런즈윅 rutgers university new brunswick new brunswick">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-rutgers-logo.svg" alt="럿거스대학교 뉴브런즈윅 로고" data-en-alt="Rutgers University New Brunswick logo"><span class="qs-badge" data-en="QS #314">QS 314위</span></div>
+                    <h2 data-en="Rutgers University New Brunswick">럿거스대학교 뉴브런즈윅</h2>
+                    <p class="card-en" data-en="럿거스대학교 뉴브런즈윅">Rutgers University New Brunswick</p>
+                    <div class="card-meta">
+                        <span>New Brunswick</span>
+                        <span data-en="Fees <b>$37,441</b>">학비 <b>$37,441</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-colorado-boulder.html" data-qs="320" data-fee="44918" data-name="콜로라도대학교 볼더" data-name-en="University of Colorado Boulder" data-search="콜로라도대학교 볼더 university of colorado boulder boulder">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-colorado-boulder-logo.svg" alt="콜로라도대학교 볼더 로고" data-en-alt="University of Colorado Boulder logo"><span class="qs-badge" data-en="QS #320">QS 320위</span></div>
+                    <h2 data-en="University of Colorado Boulder">콜로라도대학교 볼더</h2>
+                    <p class="card-en" data-en="콜로라도대학교 볼더">University of Colorado Boulder</p>
+                    <div class="card-meta">
+                        <span>Boulder</span>
+                        <span data-en="Fees <b>$44,918</b>">학비 <b>$44,918</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-nc-state.html" data-qs="320" data-fee="32847" data-name="노스캐롤라이나주립대학교" data-name-en="North Carolina State University" data-search="노스캐롤라이나주립대학교 north carolina state university raleigh">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-nc-state-logo.svg" alt="노스캐롤라이나주립대학교 로고" data-en-alt="North Carolina State University logo"><span class="qs-badge" data-en="QS #320">QS 320위</span></div>
+                    <h2 data-en="North Carolina State University">노스캐롤라이나주립대학교</h2>
+                    <p class="card-en" data-en="노스캐롤라이나주립대학교">North Carolina State University</p>
+                    <div class="card-meta">
+                        <span>Raleigh</span>
+                        <span data-en="Fees <b>$32,847</b>">학비 <b>$32,847</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-case-western.html" data-qs="326" data-fee="66608" data-name="케이스웨스턴리저브대학교" data-name-en="Case Western Reserve University" data-search="케이스웨스턴리저브대학교 case western reserve university cleveland">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-case-western-logo.svg" alt="케이스웨스턴리저브대학교 로고" data-en-alt="Case Western Reserve University logo"><span class="qs-badge" data-en="QS #326">QS 326위</span></div>
+                    <h2 data-en="Case Western Reserve University">케이스웨스턴리저브대학교</h2>
+                    <p class="card-en" data-en="케이스웨스턴리저브대학교">Case Western Reserve University</p>
+                    <div class="card-meta">
+                        <span>Cleveland</span>
+                        <span data-en="Fees <b>$66,608</b>">학비 <b>$66,608</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-tufts.html" data-qs="338" data-fee="70704" data-name="터프츠대학교" data-name-en="Tufts University" data-search="터프츠대학교 tufts university medford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-tufts-logo.svg" alt="터프츠대학교 로고" data-en-alt="Tufts University logo"><span class="qs-badge" data-en="QS #338">QS 338위</span></div>
+                    <h2 data-en="Tufts University">터프츠대학교</h2>
+                    <p class="card-en" data-en="터프츠대학교">Tufts University</p>
+                    <div class="card-meta">
+                        <span>Medford</span>
+                        <span data-en="Fees <b>$70,704</b>">학비 <b>$70,704</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-miami.html" data-qs="338" data-fee="62616" data-name="마이애미대학교" data-name-en="University of Miami" data-search="마이애미대학교 university of miami miami">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-miami-logo.svg" alt="마이애미대학교 로고" data-en-alt="University of Miami logo"><span class="qs-badge" data-en="QS #338">QS 338위</span></div>
+                    <h2 data-en="University of Miami">마이애미대학교</h2>
+                    <p class="card-en" data-en="마이애미대학교">University of Miami</p>
+                    <div class="card-meta">
+                        <span>Miami</span>
+                        <span data-en="Fees <b>$62,616</b>">학비 <b>$62,616</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-indiana.html" data-qs="360" data-fee="41891" data-name="인디애나대학교 블루밍턴" data-name-en="Indiana University Bloomington" data-search="인디애나대학교 블루밍턴 indiana university bloomington bloomington">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-indiana-logo.svg" alt="인디애나대학교 블루밍턴 로고" data-en-alt="Indiana University Bloomington logo"><span class="qs-badge" data-en="QS #360">QS 360위</span></div>
+                    <h2 data-en="Indiana University Bloomington">인디애나대학교 블루밍턴</h2>
+                    <p class="card-en" data-en="인디애나대학교 블루밍턴">Indiana University Bloomington</p>
+                    <div class="card-meta">
+                        <span>Bloomington</span>
+                        <span data-en="Fees <b>$41,891</b>">학비 <b>$41,891</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-virginia-tech.html" data-qs="366" data-fee="37764" data-name="버지니아공과대학교" data-name-en="Virginia Polytechnic Institute and State University" data-search="버지니아공과대학교 virginia polytechnic institute and state university blacksburg">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-virginia-tech-logo.svg" alt="버지니아공과대학교 로고" data-en-alt="Virginia Polytechnic Institute and State University logo"><span class="qs-badge" data-en="QS #366">QS 366위</span></div>
+                    <h2 data-en="Virginia Polytechnic Institute and State University">버지니아공과대학교</h2>
+                    <p class="card-en" data-en="버지니아공과대학교">Virginia Polytechnic Institute and State University</p>
+                    <div class="card-meta">
+                        <span>Blacksburg</span>
+                        <span data-en="Fees <b>$37,764</b>">학비 <b>$37,764</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uic.html" data-qs="370" data-fee="29884" data-name="일리노이대학교 시카고" data-name-en="University of Illinois Chicago (UIC)" data-search="일리노이대학교 시카고 university of illinois chicago (uic) chicago">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uic-logo.png" alt="일리노이대학교 시카고 로고" data-en-alt="University of Illinois Chicago (UIC) logo"><span class="qs-badge" data-en="QS #370">QS 370위</span></div>
+                    <h2 data-en="University of Illinois Chicago (UIC)">일리노이대학교 시카고</h2>
+                    <p class="card-en" data-en="일리노이대학교 시카고">University of Illinois Chicago (UIC)</p>
+                    <div class="card-meta">
+                        <span>Chicago</span>
+                        <span data-en="Fees <b>$29,884</b>">학비 <b>$29,884</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-gwu.html" data-qs="381" data-fee="67710" data-name="조지워싱턴대학교" data-name-en="George Washington University" data-search="조지워싱턴대학교 george washington university washington d.c.">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-gwu-logo.svg" alt="조지워싱턴대학교 로고" data-en-alt="George Washington University logo"><span class="qs-badge" data-en="QS #381">QS 381위</span></div>
+                    <h2 data-en="George Washington University">조지워싱턴대학교</h2>
+                    <p class="card-en" data-en="조지워싱턴대학교">George Washington University</p>
+                    <div class="card-meta">
+                        <span>Washington D.C.</span>
+                        <span data-en="Fees <b>$67,710</b>">학비 <b>$67,710</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-northeastern.html" data-qs="385" data-fee="67778" data-name="노스이스턴대학교" data-name-en="Northeastern University" data-search="노스이스턴대학교 northeastern university boston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-northeastern-logo.svg" alt="노스이스턴대학교 로고" data-en-alt="Northeastern University logo"><span class="qs-badge" data-en="QS #385">QS 385위</span></div>
+                    <h2 data-en="Northeastern University">노스이스턴대학교</h2>
+                    <p class="card-en" data-en="노스이스턴대학교">Northeastern University</p>
+                    <div class="card-meta">
+                        <span>Boston</span>
+                        <span data-en="Fees <b>$67,778</b>">학비 <b>$67,778</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uconn.html" data-qs="458" data-fee="43712" data-name="코네티컷대학교" data-name-en="University of Connecticut" data-search="코네티컷대학교 university of connecticut storrs">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uconn-logo.svg" alt="코네티컷대학교 로고" data-en-alt="University of Connecticut logo"><span class="qs-badge" data-en="QS #458">QS 458위</span></div>
+                    <h2 data-en="University of Connecticut">코네티컷대학교</h2>
+                    <p class="card-en" data-en="코네티컷대학교">University of Connecticut</p>
+                    <div class="card-meta">
+                        <span>Storrs</span>
+                        <span data-en="Fees <b>$43,712</b>">학비 <b>$43,712</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uc-santa-cruz.html" data-qs="458" data-fee="50205" data-name="캘리포니아대학교 샌타크루즈" data-name-en="University of California, Santa Cruz" data-search="캘리포니아대학교 샌타크루즈 university of california, santa cruz santa cruz">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uc-santa-cruz-logo.svg" alt="캘리포니아대학교 샌타크루즈 로고" data-en-alt="University of California, Santa Cruz logo"><span class="qs-badge" data-en="QS #458">QS 458위</span></div>
+                    <h2 data-en="University of California, Santa Cruz">캘리포니아대학교 샌타크루즈</h2>
+                    <p class="card-en" data-en="캘리포니아대학교 샌타크루즈">University of California, Santa Cruz</p>
+                    <div class="card-meta">
+                        <span>Santa Cruz</span>
+                        <span data-en="Fees <b>$50,205</b>">학비 <b>$50,205</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-stony-brook.html" data-qs="468" data-fee="32741" data-name="스토니브룩대학교" data-name-en="Stony Brook University, SUNY" data-search="스토니브룩대학교 stony brook university, suny stony brook">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-stony-brook-logo.svg" alt="스토니브룩대학교 로고" data-en-alt="Stony Brook University, SUNY logo"><span class="qs-badge" data-en="QS #468">QS 468위</span></div>
+                    <h2 data-en="Stony Brook University, SUNY">스토니브룩대학교</h2>
+                    <p class="card-en" data-en="스토니브룩대학교">Stony Brook University, SUNY</p>
+                    <div class="card-meta">
+                        <span>Stony Brook</span>
+                        <span data-en="Fees <b>$32,741</b>">학비 <b>$32,741</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-utah.html" data-qs="533" data-fee="30860" data-name="유타대학교" data-name-en="University of Utah" data-search="유타대학교 university of utah salt lake city">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-utah-logo.svg" alt="유타대학교 로고" data-en-alt="University of Utah logo"><span class="qs-badge" data-en="QS #533">QS 533위</span></div>
+                    <h2 data-en="University of Utah">유타대학교</h2>
+                    <p class="card-en" data-en="유타대학교">University of Utah</p>
+                    <div class="card-meta">
+                        <span>Salt Lake City</span>
+                        <span data-en="Fees <b>$30,860</b>">학비 <b>$30,860</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-georgia.html" data-qs="536" data-fee="31688" data-name="조지아대학교" data-name-en="The University of Georgia" data-search="조지아대학교 the university of georgia athens">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #536">QS 536위</span></div>
+                    <h2 data-en="The University of Georgia">조지아대학교</h2>
+                    <p class="card-en" data-en="조지아대학교">The University of Georgia</p>
+                    <div class="card-meta">
+                        <span>Athens</span>
+                        <span data-en="Fees <b>$31,688</b>">학비 <b>$31,688</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-florida-state.html" data-qs="546" data-fee="18786" data-name="플로리다주립대학교" data-name-en="Florida State University" data-search="플로리다주립대학교 florida state university tallahassee">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-florida-state-logo.svg" alt="플로리다주립대학교 로고" data-en-alt="Florida State University logo"><span class="qs-badge" data-en="QS #546">QS 546위</span></div>
+                    <h2 data-en="Florida State University">플로리다주립대학교</h2>
+                    <p class="card-en" data-en="플로리다주립대학교">Florida State University</p>
+                    <div class="card-meta">
+                        <span>Tallahassee</span>
+                        <span data-en="Fees <b>$18,786</b>">학비 <b>$18,786</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-boston-college.html" data-qs="549" data-fee="70702" data-name="보스턴칼리지" data-name-en="Boston College" data-search="보스턴칼리지 boston college chestnut hill">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-boston-college-logo.svg" alt="보스턴칼리지 로고" data-en-alt="Boston College logo"><span class="qs-badge" data-en="QS #549">QS 549위</span></div>
+                    <h2 data-en="Boston College">보스턴칼리지</h2>
+                    <p class="card-en" data-en="보스턴칼리지">Boston College</p>
+                    <div class="card-meta">
+                        <span>Chestnut Hill</span>
+                        <span data-en="Fees <b>$70,702</b>">학비 <b>$70,702</b></span>
+                        <span>IELTS <b>7.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-delaware.html" data-qs="575" data-fee="41400" data-name="델라웨어대학교" data-name-en="University of Delaware" data-search="델라웨어대학교 university of delaware newark">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-delaware-logo.svg" alt="델라웨어대학교 로고" data-en-alt="University of Delaware logo"><span class="qs-badge" data-en="QS #575">QS 575위</span></div>
+                    <h2 data-en="University of Delaware">델라웨어대학교</h2>
+                    <p class="card-en" data-en="델라웨어대학교">University of Delaware</p>
+                    <div class="card-meta">
+                        <span>Newark</span>
+                        <span data-en="Fees <b>$41,400</b>">학비 <b>$41,400</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-colorado-mines.html" data-qs="575" data-fee="45824" data-name="콜로라도광산대학교" data-name-en="Colorado School of Mines" data-search="콜로라도광산대학교 colorado school of mines golden">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-colorado-mines-logo.png" alt="콜로라도광산대학교 로고" data-en-alt="Colorado School of Mines logo"><span class="qs-badge" data-en="QS #575">QS 575위</span></div>
+                    <h2 data-en="Colorado School of Mines">콜로라도광산대학교</h2>
+                    <p class="card-en" data-en="콜로라도광산대학교">Colorado School of Mines</p>
+                    <div class="card-meta">
+                        <span>Golden</span>
+                        <span data-en="Fees <b>$45,824</b>">학비 <b>$45,824</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-rpi.html" data-qs="581" data-fee="64081" data-name="렌셀러폴리테크닉대학교" data-name-en="Rensselaer Polytechnic Institute" data-search="렌셀러폴리테크닉대학교 rensselaer polytechnic institute troy">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-rpi-logo.svg" alt="렌셀러폴리테크닉대학교 로고" data-en-alt="Rensselaer Polytechnic Institute logo"><span class="qs-badge" data-en="QS #581">QS 581위</span></div>
+                    <h2 data-en="Rensselaer Polytechnic Institute">렌셀러폴리테크닉대학교</h2>
+                    <p class="card-en" data-en="렌셀러폴리테크닉대학교">Rensselaer Polytechnic Institute</p>
+                    <div class="card-meta">
+                        <span>Troy</span>
+                        <span data-en="Fees <b>$64,081</b>">학비 <b>$64,081</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-tulane.html" data-qs="597" data-fee="68678" data-name="툴레인대학교" data-name-en="Tulane University" data-search="툴레인대학교 tulane university new orleans">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-tulane-logo.svg" alt="툴레인대학교 로고" data-en-alt="Tulane University logo"><span class="qs-badge" data-en="QS #597">QS 597위</span></div>
+                    <h2 data-en="Tulane University">툴레인대학교</h2>
+                    <p class="card-en" data-en="툴레인대학교">Tulane University</p>
+                    <div class="card-meta">
+                        <span>New Orleans</span>
+                        <span data-en="Fees <b>$68,678</b>">학비 <b>$68,678</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-iowa.html" data-qs="597" data-fee="33371" data-name="아이오와대학교" data-name-en="University of Iowa" data-search="아이오와대학교 university of iowa iowa city">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #597">QS 597위</span></div>
+                    <h2 data-en="University of Iowa">아이오와대학교</h2>
+                    <p class="card-en" data-en="아이오와대학교">University of Iowa</p>
+                    <div class="card-meta">
+                        <span>Iowa City</span>
+                        <span data-en="Fees <b>$33,371</b>">학비 <b>$33,371</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-american.html" data-qs="646" data-fee="58771" data-name="아메리칸대학교" data-name-en="American University" data-search="아메리칸대학교 american university washington d.c.">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-american-logo.svg" alt="아메리칸대학교 로고" data-en-alt="American University logo"><span class="qs-badge" data-en="QS #646">QS 646위</span></div>
+                    <h2 data-en="American University">아메리칸대학교</h2>
+                    <p class="card-en" data-en="아메리칸대학교">American University</p>
+                    <div class="card-meta">
+                        <span>Washington D.C.</span>
+                        <span data-en="Fees <b>$58,771</b>">학비 <b>$58,771</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-fiu.html" data-qs="659" data-fee="18964" data-name="플로리다국제대학교" data-name-en="Florida International University" data-search="플로리다국제대학교 florida international university miami">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-fiu-logo.svg" alt="플로리다국제대학교 로고" data-en-alt="Florida International University logo"><span class="qs-badge" data-en="QS #659">QS 659위</span></div>
+                    <h2 data-en="Florida International University">플로리다국제대학교</h2>
+                    <p class="card-en" data-en="플로리다국제대학교">Florida International University</p>
+                    <div class="card-meta">
+                        <span>Miami</span>
+                        <span data-en="Fees <b>$18,964</b>">학비 <b>$18,964</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-lehigh.html" data-qs="668" data-fee="64980" data-name="리하이대학교" data-name-en="Lehigh University" data-search="리하이대학교 lehigh university bethlehem">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-lehigh-logo.png" alt="리하이대학교 로고" data-en-alt="Lehigh University logo"><span class="qs-badge" data-en="QS #668">QS 668위</span></div>
+                    <h2 data-en="Lehigh University">리하이대학교</h2>
+                    <p class="card-en" data-en="리하이대학교">Lehigh University</p>
+                    <div class="card-meta">
+                        <span>Bethlehem</span>
+                        <span data-en="Fees <b>$64,980</b>">학비 <b>$64,980</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-stevens.html" data-qs="675" data-fee="63462" data-name="스티븐스공과대학교" data-name-en="Stevens Institute of Technology" data-search="스티븐스공과대학교 stevens institute of technology hoboken">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-stevens-logo.png" alt="스티븐스공과대학교 로고" data-en-alt="Stevens Institute of Technology logo"><span class="qs-badge" data-en="QS #675">QS 675위</span></div>
+                    <h2 data-en="Stevens Institute of Technology">스티븐스공과대학교</h2>
+                    <p class="card-en" data-en="스티븐스공과대학교">Stevens Institute of Technology</p>
+                    <div class="card-meta">
+                        <span>Hoboken</span>
+                        <span data-en="Fees <b>$63,462</b>">학비 <b>$63,462</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-oregon-state.html" data-qs="711" data-fee="38190" data-name="오리건주립대학교" data-name-en="Oregon State University" data-search="오리건주립대학교 oregon state university corvallis">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-oregon-state-logo.svg" alt="오리건주립대학교 로고" data-en-alt="Oregon State University logo"><span class="qs-badge" data-en="QS #711">QS 711위</span></div>
+                    <h2 data-en="Oregon State University">오리건주립대학교</h2>
+                    <p class="card-en" data-en="오리건주립대학교">Oregon State University</p>
+                    <div class="card-meta">
+                        <span>Corvallis</span>
+                        <span data-en="Fees <b>$38,190</b>">학비 <b>$38,190</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-oregon.html" data-qs="711" data-fee="44598" data-name="오리건대학교" data-name-en="University of Oregon" data-search="오리건대학교 university of oregon eugene">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-oregon-logo.svg" alt="오리건대학교 로고" data-en-alt="University of Oregon logo"><span class="qs-badge" data-en="QS #711">QS 711위</span></div>
+                    <h2 data-en="University of Oregon">오리건대학교</h2>
+                    <p class="card-en" data-en="오리건대학교">University of Oregon</p>
+                    <div class="card-meta">
+                        <span>Eugene</span>
+                        <span data-en="Fees <b>$44,598</b>">학비 <b>$44,598</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-south-carolina.html" data-qs="711" data-fee="35972" data-name="사우스캐롤라이나대학교" data-name-en="University of South Carolina" data-search="사우스캐롤라이나대학교 university of south carolina columbia">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-south-carolina-logo.svg" alt="사우스캐롤라이나대학교 로고" data-en-alt="University of South Carolina logo"><span class="qs-badge" data-en="QS #711">QS 711위</span></div>
+                    <h2 data-en="University of South Carolina">사우스캐롤라이나대학교</h2>
+                    <p class="card-en" data-en="사우스캐롤라이나대학교">University of South Carolina</p>
+                    <div class="card-meta">
+                        <span>Columbia</span>
+                        <span data-en="Fees <b>$35,972</b>">학비 <b>$35,972</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-missouri.html" data-qs="721" data-fee="36056" data-name="미주리대학교 컬럼비아" data-name-en="University of Missouri, Columbia" data-search="미주리대학교 컬럼비아 university of missouri, columbia columbia">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-missouri-logo.svg" alt="미주리대학교 컬럼비아 로고" data-en-alt="University of Missouri, Columbia logo"><span class="qs-badge" data-en="QS #721">QS 721위</span></div>
+                    <h2 data-en="University of Missouri, Columbia">미주리대학교 컬럼비아</h2>
+                    <p class="card-en" data-en="미주리대학교 컬럼비아">University of Missouri, Columbia</p>
+                    <div class="card-meta">
+                        <span>Columbia</span>
+                        <span data-en="Fees <b>$36,056</b>">학비 <b>$36,056</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-ucf.html" data-qs="731" data-fee="22467" data-name="센트럴플로리다대학교" data-name-en="University of Central Florida" data-search="센트럴플로리다대학교 university of central florida orlando">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #731">QS 731위</span></div>
+                    <h2 data-en="University of Central Florida">센트럴플로리다대학교</h2>
+                    <p class="card-en" data-en="센트럴플로리다대학교">University of Central Florida</p>
+                    <div class="card-meta">
+                        <span>Orlando</span>
+                        <span data-en="Fees <b>$22,467</b>">학비 <b>$22,467</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-syracuse.html" data-qs="731" data-fee="65528" data-name="시러큐스대학교" data-name-en="Syracuse University" data-search="시러큐스대학교 syracuse university syracuse">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-syracuse-logo.svg" alt="시러큐스대학교 로고" data-en-alt="Syracuse University logo"><span class="qs-badge" data-en="QS #731">QS 731위</span></div>
+                    <h2 data-en="Syracuse University">시러큐스대학교</h2>
+                    <p class="card-en" data-en="시러큐스대학교">Syracuse University</p>
+                    <div class="card-meta">
+                        <span>Syracuse</span>
+                        <span data-en="Fees <b>$65,528</b>">학비 <b>$65,528</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-brandeis.html" data-qs="751" data-fee="68080" data-name="브랜다이스대학교" data-name-en="Brandeis University" data-search="브랜다이스대학교 brandeis university waltham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-brandeis-logo.png" alt="브랜다이스대학교 로고" data-en-alt="Brandeis University logo"><span class="qs-badge" data-en="QS #751">QS 751위</span></div>
+                    <h2 data-en="Brandeis University">브랜다이스대학교</h2>
+                    <p class="card-en" data-en="브랜다이스대학교">Brandeis University</p>
+                    <div class="card-meta">
+                        <span>Waltham</span>
+                        <span data-en="Fees <b>$68,080</b>">학비 <b>$68,080</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-missouri-st.html" data-qs="751" data-fee="33248" data-name="미주리과학기술대학교" data-name-en="Missouri University of Science and Technology" data-search="미주리과학기술대학교 missouri university of science and technology rolla">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-missouri-st-logo.png" alt="미주리과학기술대학교 로고" data-en-alt="Missouri University of Science and Technology logo"><span class="qs-badge" data-en="QS #751">QS 751위</span></div>
+                    <h2 data-en="Missouri University of Science and Technology">미주리과학기술대학교</h2>
+                    <p class="card-en" data-en="미주리과학기술대학교">Missouri University of Science and Technology</p>
+                    <div class="card-meta">
+                        <span>Rolla</span>
+                        <span data-en="Fees <b>$33,248</b>">학비 <b>$33,248</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-drexel.html" data-qs="771" data-fee="62412" data-name="드렉셀대학교" data-name-en="Drexel University" data-search="드렉셀대학교 drexel university philadelphia">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-drexel-logo.png" alt="드렉셀대학교 로고" data-en-alt="Drexel University logo"><span class="qs-badge" data-en="QS #771">QS 771위</span></div>
+                    <h2 data-en="Drexel University">드렉셀대학교</h2>
+                    <p class="card-en" data-en="드렉셀대학교">Drexel University</p>
+                    <div class="card-meta">
+                        <span>Philadelphia</span>
+                        <span data-en="Fees <b>$62,412</b>">학비 <b>$62,412</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-wake-forest.html" data-qs="801" data-fee="67642" data-name="웨이크포레스트대학교" data-name-en="Wake Forest University" data-search="웨이크포레스트대학교 wake forest university winston-salem">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #801">QS 801위</span></div>
+                    <h2 data-en="Wake Forest University">웨이크포레스트대학교</h2>
+                    <p class="card-en" data-en="웨이크포레스트대학교">Wake Forest University</p>
+                    <div class="card-meta">
+                        <span>Winston-Salem</span>
+                        <span data-en="Fees <b>$67,642</b>">학비 <b>$67,642</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-nebraska.html" data-qs="801" data-fee="28584" data-name="네브래스카대학교 링컨" data-name-en="University of Nebraska - Lincoln" data-search="네브래스카대학교 링컨 university of nebraska - lincoln lincoln">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-nebraska-logo.svg" alt="네브래스카대학교 링컨 로고" data-en-alt="University of Nebraska - Lincoln logo"><span class="qs-badge" data-en="QS #801">QS 801위</span></div>
+                    <h2 data-en="University of Nebraska - Lincoln">네브래스카대학교 링컨</h2>
+                    <p class="card-en" data-en="네브래스카대학교 링컨">University of Nebraska - Lincoln</p>
+                    <div class="card-meta">
+                        <span>Lincoln</span>
+                        <span data-en="Fees <b>$28,584</b>">학비 <b>$28,584</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-auburn.html" data-qs="851" data-fee="34922" data-name="어번대학교" data-name-en="Auburn University" data-search="어번대학교 auburn university auburn">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-auburn-logo.svg" alt="어번대학교 로고" data-en-alt="Auburn University logo"><span class="qs-badge" data-en="QS #851">QS 851위</span></div>
+                    <h2 data-en="Auburn University">어번대학교</h2>
+                    <p class="card-en" data-en="어번대학교">Auburn University</p>
+                    <div class="card-meta">
+                        <span>Auburn</span>
+                        <span data-en="Fees <b>$34,922</b>">학비 <b>$34,922</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-lsu.html" data-qs="851" data-fee="28631" data-name="루이지애나주립대학교" data-name-en="Louisiana State University" data-search="루이지애나주립대학교 louisiana state university baton rouge">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-lsu-logo.svg" alt="루이지애나주립대학교 로고" data-en-alt="Louisiana State University logo"><span class="qs-badge" data-en="QS #851">QS 851위</span></div>
+                    <h2 data-en="Louisiana State University">루이지애나주립대학교</h2>
+                    <p class="card-en" data-en="루이지애나주립대학교">Louisiana State University</p>
+                    <div class="card-meta">
+                        <span>Baton Rouge</span>
+                        <span data-en="Fees <b>$28,631</b>">학비 <b>$28,631</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-wpi.html" data-qs="901" data-fee="60965" data-name="우스터폴리테크닉대학교" data-name-en="Worcester Polytechnic Institute" data-search="우스터폴리테크닉대학교 worcester polytechnic institute worcester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-wpi-logo.svg" alt="우스터폴리테크닉대학교 로고" data-en-alt="Worcester Polytechnic Institute logo"><span class="qs-badge" data-en="QS #901">QS 901위</span></div>
+                    <h2 data-en="Worcester Polytechnic Institute">우스터폴리테크닉대학교</h2>
+                    <p class="card-en" data-en="우스터폴리테크닉대학교">Worcester Polytechnic Institute</p>
+                    <div class="card-meta">
+                        <span>Worcester</span>
+                        <span data-en="Fees <b>$60,965</b>">학비 <b>$60,965</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-clemson.html" data-qs="951" data-fee="40866" data-name="클렘슨대학교" data-name-en="Clemson University" data-search="클렘슨대학교 clemson university clemson">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-clemson-logo.svg" alt="클렘슨대학교 로고" data-en-alt="Clemson University logo"><span class="qs-badge" data-en="QS #951">QS 951위</span></div>
+                    <h2 data-en="Clemson University">클렘슨대학교</h2>
+                    <p class="card-en" data-en="클렘슨대학교">Clemson University</p>
+                    <div class="card-meta">
+                        <span>Clemson</span>
+                        <span data-en="Fees <b>$40,866</b>">학비 <b>$40,866</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-clark.html" data-qs="951" data-fee="58867" data-name="클라크대학교" data-name-en="Clark University" data-search="클라크대학교 clark university worcester">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-clark-logo.svg" alt="클라크대학교 로고" data-en-alt="Clark University logo"><span class="qs-badge" data-en="QS #951">QS 951위</span></div>
+                    <h2 data-en="Clark University">클라크대학교</h2>
+                    <p class="card-en" data-en="클라크대학교">Clark University</p>
+                    <div class="card-meta">
+                        <span>Worcester</span>
+                        <span data-en="Fees <b>$58,867</b>">학비 <b>$58,867</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-uab.html" data-qs="951" data-fee="22562" data-name="앨라배마대학교 버밍엄" data-name-en="University of Alabama at Birmingham" data-search="앨라배마대학교 버밍엄 university of alabama at birmingham birmingham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-uab-logo.png" alt="앨라배마대학교 버밍엄 로고" data-en-alt="University of Alabama at Birmingham logo"><span class="qs-badge" data-en="QS #951">QS 951위</span></div>
+                    <h2 data-en="University of Alabama at Birmingham">앨라배마대학교 버밍엄</h2>
+                    <p class="card-en" data-en="앨라배마대학교 버밍엄">University of Alabama at Birmingham</p>
+                    <div class="card-meta">
+                        <span>Birmingham</span>
+                        <span data-en="Fees <b>$22,562</b>">학비 <b>$22,562</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-william-mary.html" data-qs="1001" data-fee="51038" data-name="윌리엄앤메리대학교" data-name-en="William &amp; Mary" data-search="윌리엄앤메리대학교 william &amp; mary williamsburg">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="William &amp; Mary">윌리엄앤메리대학교</h2>
+                    <p class="card-en" data-en="윌리엄앤메리대학교">William &amp; Mary</p>
+                    <div class="card-meta">
+                        <span>Williamsburg</span>
+                        <span data-en="Fees <b>$51,038</b>">학비 <b>$51,038</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-fordham.html" data-qs="1001" data-fee="64915" data-name="포덤대학교" data-name-en="Fordham University" data-search="포덤대학교 fordham university the bronx">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-fordham-logo.png" alt="포덤대학교 로고" data-en-alt="Fordham University logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="Fordham University">포덤대학교</h2>
+                    <p class="card-en" data-en="포덤대학교">Fordham University</p>
+                    <div class="card-meta">
+                        <span>The Bronx</span>
+                        <span data-en="Fees <b>$64,915</b>">학비 <b>$64,915</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-smu.html" data-qs="1001" data-fee="67040" data-name="서던메소디스트대학교" data-name-en="Southern Methodist University" data-search="서던메소디스트대학교 southern methodist university dallas">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-smu-logo.svg" alt="서던메소디스트대학교 로고" data-en-alt="Southern Methodist University logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="Southern Methodist University">서던메소디스트대학교</h2>
+                    <p class="card-en" data-en="서던메소디스트대학교">Southern Methodist University</p>
+                    <div class="card-meta">
+                        <span>Dallas</span>
+                        <span data-en="Fees <b>$67,040</b>">학비 <b>$67,040</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-vermont.html" data-qs="1001" data-fee="45502" data-name="버몬트대학교" data-name-en="University of Vermont" data-search="버몬트대학교 university of vermont burlington">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Vermont">버몬트대학교</h2>
+                    <p class="card-en" data-en="버몬트대학교">University of Vermont</p>
+                    <div class="card-meta">
+                        <span>Burlington</span>
+                        <span data-en="Fees <b>$45,502</b>">학비 <b>$45,502</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-binghamton.html" data-qs="1001" data-fee="30447" data-name="빙엄턴대학교" data-name-en="Binghamton University SUNY" data-search="빙엄턴대학교 binghamton university suny binghamton">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-binghamton-logo.svg" alt="빙엄턴대학교 로고" data-en-alt="Binghamton University SUNY logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="Binghamton University SUNY">빙엄턴대학교</h2>
+                    <p class="card-en" data-en="빙엄턴대학교">Binghamton University SUNY</p>
+                    <div class="card-meta">
+                        <span>Binghamton</span>
+                        <span data-en="Fees <b>$30,447</b>">학비 <b>$30,447</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-alabama.html" data-qs="1001" data-fee="34172" data-name="앨라배마대학교" data-name-en="The University of Alabama" data-search="앨라배마대학교 the university of alabama tuscaloosa">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-alabama-logo.svg" alt="앨라배마대학교 로고" data-en-alt="The University of Alabama logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="The University of Alabama">앨라배마대학교</h2>
+                    <p class="card-en" data-en="앨라배마대학교">The University of Alabama</p>
+                    <div class="card-meta">
+                        <span>Tuscaloosa</span>
+                        <span data-en="Fees <b>$34,172</b>">학비 <b>$34,172</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-denver.html" data-qs="1001" data-fee="61398" data-name="덴버대학교" data-name-en="University of Denver" data-search="덴버대학교 university of denver denver">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-denver-logo.svg" alt="덴버대학교 로고" data-en-alt="University of Denver logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Denver">덴버대학교</h2>
+                    <p class="card-en" data-en="덴버대학교">University of Denver</p>
+                    <div class="card-meta">
+                        <span>Denver</span>
+                        <span data-en="Fees <b>$61,398</b>">학비 <b>$61,398</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-tulsa.html" data-qs="1001" data-fee="50061" data-name="털사대학교" data-name-en="University of Tulsa" data-search="털사대학교 university of tulsa tulsa">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Tulsa">털사대학교</h2>
+                    <p class="card-en" data-en="털사대학교">University of Tulsa</p>
+                    <div class="card-meta">
+                        <span>Tulsa</span>
+                        <span data-en="Fees <b>$50,061</b>">학비 <b>$50,061</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-saint-louis.html" data-qs="1001" data-fee="55760" data-name="세인트루이스대학교" data-name-en="Saint Louis University" data-search="세인트루이스대학교 saint louis university st. louis">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="Saint Louis University">세인트루이스대학교</h2>
+                    <p class="card-en" data-en="세인트루이스대학교">Saint Louis University</p>
+                    <div class="card-meta">
+                        <span>St. Louis</span>
+                        <span data-en="Fees <b>$55,760</b>">학비 <b>$55,760</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-george-mason.html" data-qs="1001" data-fee="38688" data-name="조지메이슨대학교" data-name-en="George Mason University" data-search="조지메이슨대학교 george mason university fairfax">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-george-mason-logo.svg" alt="조지메이슨대학교 로고" data-en-alt="George Mason University logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="George Mason University">조지메이슨대학교</h2>
+                    <p class="card-en" data-en="조지메이슨대학교">George Mason University</p>
+                    <div class="card-meta">
+                        <span>Fairfax</span>
+                        <span data-en="Fees <b>$38,688</b>">학비 <b>$38,688</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-umass-boston.html" data-qs="1001" data-fee="38125" data-name="매사추세츠대학교 보스턴" data-name-en="University of Massachusetts Boston" data-search="매사추세츠대학교 보스턴 university of massachusetts boston boston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-umass-boston-logo.png" alt="매사추세츠대학교 보스턴 로고" data-en-alt="University of Massachusetts Boston logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Massachusetts Boston">매사추세츠대학교 보스턴</h2>
+                    <p class="card-en" data-en="매사추세츠대학교 보스턴">University of Massachusetts Boston</p>
+                    <div class="card-meta">
+                        <span>Boston</span>
+                        <span data-en="Fees <b>$38,125</b>">학비 <b>$38,125</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-unr.html" data-qs="1001" data-fee="27720" data-name="네바다대학교 리노" data-name-en="University of Nevada - Reno" data-search="네바다대학교 리노 university of nevada - reno reno">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-unr-logo.svg" alt="네바다대학교 리노 로고" data-en-alt="University of Nevada - Reno logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Nevada - Reno">네바다대학교 리노</h2>
+                    <p class="card-en" data-en="네바다대학교 리노">University of Nevada - Reno</p>
+                    <div class="card-meta">
+                        <span>Reno</span>
+                        <span data-en="Fees <b>$27,720</b>">학비 <b>$27,720</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-utsa.html" data-qs="1001" data-fee="22051" data-name="텍사스대학교 샌안토니오" data-name-en="The University of Texas at San Antonio" data-search="텍사스대학교 샌안토니오 the university of texas at san antonio san antonio">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-utsa-logo.svg" alt="텍사스대학교 샌안토니오 로고" data-en-alt="The University of Texas at San Antonio logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="The University of Texas at San Antonio">텍사스대학교 샌안토니오</h2>
+                    <p class="card-en" data-en="텍사스대학교 샌안토니오">The University of Texas at San Antonio</p>
+                    <div class="card-meta">
+                        <span>San Antonio</span>
+                        <span data-en="Fees <b>$22,051</b>">학비 <b>$22,051</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-wyoming.html" data-qs="1001" data-fee="24178" data-name="와이오밍대학교" data-name-en="University of Wyoming" data-search="와이오밍대학교 university of wyoming laramie">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-wyoming-logo.svg" alt="와이오밍대학교 로고" data-en-alt="University of Wyoming logo"><span class="qs-badge" data-en="QS #1001">QS 1001위</span></div>
+                    <h2 data-en="University of Wyoming">와이오밍대학교</h2>
+                    <p class="card-en" data-en="와이오밍대학교">University of Wyoming</p>
+                    <div class="card-meta">
+                        <span>Laramie</span>
+                        <span data-en="Fees <b>$24,178</b>">학비 <b>$24,178</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-byu.html" data-qs="1201" data-fee="6688" data-name="브리검영대학교" data-name-en="Brigham Young University" data-search="브리검영대학교 brigham young university provo">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-byu-logo.svg" alt="브리검영대학교 로고" data-en-alt="Brigham Young University logo"><span class="qs-badge" data-en="QS #1201">QS 1201위</span></div>
+                    <h2 data-en="Brigham Young University">브리검영대학교</h2>
+                    <p class="card-en" data-en="브리검영대학교">Brigham Young University</p>
+                    <div class="card-meta">
+                        <span>Provo</span>
+                        <span data-en="Fees <b>$6,688</b>">학비 <b>$6,688</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-baylor.html" data-qs="1201" data-fee="58100" data-name="베일러대학교" data-name-en="Baylor University" data-search="베일러대학교 baylor university waco">
+                    <div class="card-top"><span></span><span class="qs-badge" data-en="QS #1201">QS 1201위</span></div>
+                    <h2 data-en="Baylor University">베일러대학교</h2>
+                    <p class="card-en" data-en="베일러대학교">Baylor University</p>
+                    <div class="card-meta">
+                        <span>Waco</span>
+                        <span data-en="Fees <b>$58,100</b>">학비 <b>$58,100</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-miami-ohio.html" data-qs="1201" data-fee="41221" data-name="마이애미대학교 옥스퍼드" data-name-en="Miami University" data-search="마이애미대학교 옥스퍼드 miami university oxford">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-miami-ohio-logo.svg" alt="마이애미대학교 옥스퍼드 로고" data-en-alt="Miami University logo"><span class="qs-badge" data-en="QS #1201">QS 1201위</span></div>
+                    <h2 data-en="Miami University">마이애미대학교 옥스퍼드</h2>
+                    <p class="card-en" data-en="마이애미대학교 옥스퍼드">Miami University</p>
+                    <div class="card-meta">
+                        <span>Oxford</span>
+                        <span data-en="Fees <b>$41,221</b>">학비 <b>$41,221</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-new-hampshire.html" data-qs="1201" data-fee="39852" data-name="뉴햄프셔대학교" data-name-en="University of New Hampshire" data-search="뉴햄프셔대학교 university of new hampshire durham">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-new-hampshire-logo.svg" alt="뉴햄프셔대학교 로고" data-en-alt="University of New Hampshire logo"><span class="qs-badge" data-en="QS #1201">QS 1201위</span></div>
+                    <h2 data-en="University of New Hampshire">뉴햄프셔대학교</h2>
+                    <p class="card-en" data-en="뉴햄프셔대학교">University of New Hampshire</p>
+                    <div class="card-meta">
+                        <span>Durham</span>
+                        <span data-en="Fees <b>$39,852</b>">학비 <b>$39,852</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-seattle-u.html" data-qs="1201" data-fee="56721" data-name="시애틀대학교" data-name-en="Seattle University" data-search="시애틀대학교 seattle university seattle">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-seattle-u-logo.svg" alt="시애틀대학교 로고" data-en-alt="Seattle University logo"><span class="qs-badge" data-en="QS #1201">QS 1201위</span></div>
+                    <h2 data-en="Seattle University">시애틀대학교</h2>
+                    <p class="card-en" data-en="시애틀대학교">Seattle University</p>
+                    <div class="card-meta">
+                        <span>Seattle</span>
+                        <span data-en="Fees <b>$56,721</b>">학비 <b>$56,721</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-pepperdine.html" data-qs="" data-fee="69918" data-name="페퍼다인대학교" data-name-en="Pepperdine University" data-search="페퍼다인대학교 pepperdine university malibu">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-pepperdine-logo.svg" alt="페퍼다인대학교 로고" data-en-alt="Pepperdine University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Pepperdine University">페퍼다인대학교</h2>
+                    <p class="card-en" data-en="페퍼다인대학교">Pepperdine University</p>
+                    <div class="card-meta">
+                        <span>Malibu</span>
+                        <span data-en="Fees <b>$69,918</b>">학비 <b>$69,918</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-marquette.html" data-qs="" data-fee="51170" data-name="마켓대학교" data-name-en="Marquette University" data-search="마켓대학교 marquette university milwaukee">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Marquette University">마켓대학교</h2>
+                    <p class="card-en" data-en="마켓대학교">Marquette University</p>
+                    <div class="card-meta">
+                        <span>Milwaukee</span>
+                        <span data-en="Fees <b>$51,170</b>">학비 <b>$51,170</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-tcu.html" data-qs="" data-fee="61740" data-name="텍사스크리스천대학교" data-name-en="Texas Christian University" data-search="텍사스크리스천대학교 texas christian university fort worth">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-tcu-logo.svg" alt="텍사스크리스천대학교 로고" data-en-alt="Texas Christian University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Texas Christian University">텍사스크리스천대학교</h2>
+                    <p class="card-en" data-en="텍사스크리스천대학교">Texas Christian University</p>
+                    <div class="card-meta">
+                        <span>Fort Worth</span>
+                        <span data-en="Fees <b>$61,740</b>">학비 <b>$61,740</b></span>
+                        <span>IELTS <b>7</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-san-diego.html" data-qs="" data-fee="59486" data-name="샌디에이고대학교" data-name-en="University of San Diego" data-search="샌디에이고대학교 university of san diego san diego">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="University of San Diego">샌디에이고대학교</h2>
+                    <p class="card-en" data-en="샌디에이고대학교">University of San Diego</p>
+                    <div class="card-meta">
+                        <span>San Diego</span>
+                        <span data-en="Fees <b>$59,486</b>">학비 <b>$59,486</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-james-madison.html" data-qs="" data-fee="31604" data-name="제임스매디슨대학교" data-name-en="James Madison University" data-search="제임스매디슨대학교 james madison university harrisonburg">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-james-madison-logo.svg" alt="제임스매디슨대학교 로고" data-en-alt="James Madison University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="James Madison University">제임스매디슨대학교</h2>
+                    <p class="card-en" data-en="제임스매디슨대학교">James Madison University</p>
+                    <div class="card-meta">
+                        <span>Harrisonburg</span>
+                        <span data-en="Fees <b>$31,604</b>">학비 <b>$31,604</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-gonzaga.html" data-qs="" data-fee="55480" data-name="곤자가대학교" data-name-en="Gonzaga University" data-search="곤자가대학교 gonzaga university spokane">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Gonzaga University">곤자가대학교</h2>
+                    <p class="card-en" data-en="곤자가대학교">Gonzaga University</p>
+                    <div class="card-meta">
+                        <span>Spokane</span>
+                        <span data-en="Fees <b>$55,480</b>">학비 <b>$55,480</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-dayton.html" data-qs="" data-fee="49140" data-name="데이턴대학교" data-name-en="University of Dayton" data-search="데이턴대학교 university of dayton dayton">
+                    <div class="card-top"><span></span><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="University of Dayton">데이턴대학교</h2>
+                    <p class="card-en" data-en="데이턴대학교">University of Dayton</p>
+                    <div class="card-meta">
+                        <span>Dayton</span>
+                        <span data-en="Fees <b>$49,140</b>">학비 <b>$49,140</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-cleveland-state.html" data-qs="" data-fee="18510" data-name="클리블랜드주립대학교" data-name-en="Cleveland State University" data-search="클리블랜드주립대학교 cleveland state university cleveland">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-cleveland-state-logo.png" alt="클리블랜드주립대학교 로고" data-en-alt="Cleveland State University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Cleveland State University">클리블랜드주립대학교</h2>
+                    <p class="card-en" data-en="클리블랜드주립대학교">Cleveland State University</p>
+                    <div class="card-meta">
+                        <span>Cleveland</span>
+                        <span data-en="Fees <b>$18,510</b>">학비 <b>$18,510</b></span>
+                        <span>IELTS <b>6</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-hofstra.html" data-qs="" data-fee="57660" data-name="호프스트라대학교" data-name-en="Hofstra University" data-search="호프스트라대학교 hofstra university new york city">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-hofstra-logo.svg" alt="호프스트라대학교 로고" data-en-alt="Hofstra University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Hofstra University">호프스트라대학교</h2>
+                    <p class="card-en" data-en="호프스트라대학교">Hofstra University</p>
+                    <div class="card-meta">
+                        <span>New York City</span>
+                        <span data-en="Fees <b>$57,660</b>">학비 <b>$57,660</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-suffolk.html" data-qs="" data-fee="47550" data-name="서퍽대학교" data-name-en="Suffolk University" data-search="서퍽대학교 suffolk university boston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-suffolk-logo.svg" alt="서퍽대학교 로고" data-en-alt="Suffolk University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Suffolk University">서퍽대학교</h2>
+                    <p class="card-en" data-en="서퍽대학교">Suffolk University</p>
+                    <div class="card-meta">
+                        <span>Boston</span>
+                        <span data-en="Fees <b>$47,550</b>">학비 <b>$47,550</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-drew.html" data-qs="" data-fee="47100" data-name="드루대학교" data-name-en="Drew University" data-search="드루대학교 drew university madison">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-drew-logo.svg" alt="드루대학교 로고" data-en-alt="Drew University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Drew University">드루대학교</h2>
+                    <p class="card-en" data-en="드루대학교">Drew University</p>
+                    <div class="card-meta">
+                        <span>Madison</span>
+                        <span data-en="Fees <b>$47,100</b>">학비 <b>$47,100</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-simmons.html" data-qs="" data-fee="46874" data-name="시먼스대학교" data-name-en="Simmons University" data-search="시먼스대학교 simmons university boston">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-simmons-logo.png" alt="시먼스대학교 로고" data-en-alt="Simmons University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Simmons University">시먼스대학교</h2>
+                    <p class="card-en" data-en="시먼스대학교">Simmons University</p>
+                    <div class="card-meta">
+                        <span>Boston</span>
+                        <span data-en="Fees <b>$46,874</b>">학비 <b>$46,874</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+                <a class="uni-card" href="./us-pace.html" data-qs="" data-fee="53290" data-name="페이스대학교" data-name-en="Pace University" data-search="페이스대학교 pace university new york city">
+                    <div class="card-top"><img class="card-logo" src="../images/uni/us-pace-logo.svg" alt="페이스대학교 로고" data-en-alt="Pace University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
+                    <h2 data-en="Pace University">페이스대학교</h2>
+                    <p class="card-en" data-en="페이스대학교">Pace University</p>
+                    <div class="card-meta">
+                        <span>New York City</span>
+                        <span data-en="Fees <b>$53,290</b>">학비 <b>$53,290</b></span>
+                        <span>IELTS <b>6.5</b></span>
+                    </div>
+                    <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
+                </a>
+
+            </div>
+            <p class="empty is-hidden" id="empty" hidden data-en="No results. Try a different name.">검색 결과가 없습니다. 다른 이름으로 찾아보세요.</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p data-en="Sources: QS World University Rankings and official university publications (Verified: 2026-07)">출처: QS World University Rankings · 각 대학 공식 공시 자료 (정보 확인: 2026-07)</p>
+            <p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>
+            <p>© 2026 Study Guide Hub</p>
+        </div>
+    </footer>
+
+    <script>
+    var LANG = 'ko';
+    try { if (localStorage.getItem('sgh-lang') === 'en') LANG = 'en'; } catch (e) {}
+    var render;   // applyLang에서 재호출할 수 있게 밖으로 꺼내 둔다
+    function applyLang() {
+        document.documentElement.lang = LANG;
+        document.title = LANG === 'en' ? 'US universities | Study Guide Hub' : '미국 대학교 안내 | Study Guide Hub';
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+            if (!el.dataset.ko) el.dataset.ko = el.innerHTML;
+            el.innerHTML = LANG === 'en' ? el.dataset.en : el.dataset.ko;
+        });
+        [['data-en-title', 'title'], ['data-en-aria', 'aria-label'], ['data-en-ph', 'placeholder'], ['data-en-alt', 'alt']].forEach(function (pair) {
+            document.querySelectorAll('[' + pair[0] + ']').forEach(function (el) {
+                var koAttr = pair[0] + '-ko';
+                if (!el.hasAttribute(koAttr)) el.setAttribute(koAttr, el.getAttribute(pair[1]) || '');
+                el.setAttribute(pair[1], el.getAttribute(LANG === 'en' ? pair[0] : koAttr));
+            });
+        });
+        document.querySelectorAll('.lang-switch button').forEach(function (b) {
+            b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
+        });
+        if (render) render();
+    }
+    function setLang(l) {
+        LANG = l;
+        try { localStorage.setItem('sgh-lang', l); } catch (e) {}
+        applyLang();
+    }
+    (function () {
+        var grid = document.getElementById('grid');
+        var cards = [].slice.call(grid.children);
+        var q = document.getElementById('q');
+        var count = document.getElementById('count');
+        var empty = document.getElementById('empty');
+        var sortKey = 'qs';
+
+        function num(el, attr) {
+            var v = parseFloat(el.getAttribute(attr));
+            return isNaN(v) ? Infinity : v;   // 값 없는 학교는 항상 뒤로
+        }
+        render = function () {
+            var term = q.value.trim().toLowerCase();
+            cards.sort(function (a, b) {
+                if (sortKey === 'name') {
+                    var attr = LANG === 'en' ? 'data-name-en' : 'data-name';
+                    return a.getAttribute(attr).localeCompare(b.getAttribute(attr), LANG);
+                }
+                return num(a, 'data-' + sortKey) - num(b, 'data-' + sortKey);
+            });
+            var shown = 0;
+            cards.forEach(function (c) {
+                var hit = !term || c.getAttribute('data-search').indexOf(term) > -1;
+                c.classList.toggle('is-hidden', !hit);
+                if (hit) shown++;
+                grid.appendChild(c);
+            });
+            count.textContent = LANG === 'en' ? shown + (shown === 1 ? ' school' : ' schools') : shown + '개 학교';
+            empty.hidden = shown > 0;
+        };
+        q.addEventListener('input', render);
+        document.querySelectorAll('.sort-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                sortKey = btn.getAttribute('data-sort');
+                document.querySelectorAll('.sort-btn').forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b === btn));
+                });
+                render();
+            });
+        });
+        applyLang();
+    })();
+    </script>
+</body>
+</html>

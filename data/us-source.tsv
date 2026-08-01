@@ -1,0 +1,127 @@
+id	name_en	name_ko	city	qs	ielts	majors	provider	usnews
+us-mit	Massachusetts Institute of Technology (MIT)	매사추세츠공과대학교	Cambridge	1	7.0	컴퓨터과학|전기전자공학|기계공학|경제학
+us-stanford	Stanford University	스탠퍼드대학교	Stanford	2	6.5	컴퓨터과학|경영|기계공학|생명과학
+us-harvard	Harvard University	하버드대학교	Cambridge	5	7.5	경제학|정치학|생명과학|법학
+us-caltech	California Institute of Technology (Caltech)	캘리포니아공과대학교	Pasadena	7	7.0	물리학|화학공학|컴퓨터과학|항공우주공학
+us-upenn	University of Pennsylvania	펜실베이니아대학교	Philadelphia	15	7.0	경영|경제학|간호학|컴퓨터과학
+us-yale	Yale University	예일대학교	New Haven	16	7.0	정치학|경제학|역사학|법학
+us-cornell	Cornell University	코넬대학교	Ithaca	16	7.5	호텔경영|공학|농업|건축
+us-berkeley	University of California, Berkeley (UCB)	캘리포니아대학교 버클리	Berkeley	20	6.5	컴퓨터과학|전기전자공학|경제학|환경과학
+us-jhu	Johns Hopkins University	존스홉킨스대학교	Baltimore	20	7.0	생명과학|의예|국제관계|공중보건
+us-uchicago	University of Chicago	시카고대학교	Chicago	24	7.0	경제학|수학|정치학|사회학
+us-princeton	Princeton University	프린스턴대학교	Princeton	27	7.0	경제학|컴퓨터과학|물리학|국제관계
+us-columbia	Columbia University	컬럼비아대학교	New York City	43	7.5	경제학|정치학|저널리즘|컴퓨터과학
+us-northwestern	Northwestern University	노스웨스턴대학교	Evanston	45	6.5	저널리즘|경영|공학|커뮤니케이션
+us-ucla	University of California, Los Angeles (UCLA)	캘리포니아대학교 로스앤젤레스	Los Angeles	49	7.0	영화|심리학|경영|생명과학
+us-michigan	University of Michigan-Ann Arbor	미시간대학교 앤아버	Ann Arbor	51	7.0	경영|공학|심리학|건축
+us-cmu	Carnegie Mellon University	카네기멜런대학교	Pittsburgh	55	7.5	컴퓨터과학|로보틱스|디자인|드라마
+us-nyu	New York University (NYU)	뉴욕대학교	New York City	58	7.5	경영|영화|예술|국제관계
+us-brown	Brown University	브라운대학교	Providence	66	8.0	국제관계|컴퓨터과학|생명과학|문예창작
+us-duke	Duke University	듀크대학교	Durham	70	7.0	경영|생명과학|공학|정치학
+us-ut-austin	University of Texas at Austin	텍사스대학교 오스틴	Austin	72	6.0	공학|컴퓨터과학|경영|석유공학
+us-uiuc	University of Illinois Urbana-Champaign	일리노이대학교 어바나샴페인	Champaign	74	7.5	컴퓨터과학|전기전자공학|회계|농업
+us-ucsd	University of California, San Diego (UCSD)	캘리포니아대학교 샌디에이고	San Diego	81	7.0	생명과학|컴퓨터과학|해양학|경제학
+us-penn-state	Pennsylvania State University	펜실베이니아주립대학교	University Park	92	6.5	공학|경영|지구과학|커뮤니케이션
+us-uw	University of Washington	워싱턴대학교	Seattle	92	6.0	컴퓨터과학|생명과학|간호학|경영
+us-bu	Boston University	보스턴대학교	Boston	94	7.0	경영|커뮤니케이션|생명과학|국제관계
+us-purdue	Purdue University	퍼듀대학교	West Lafayette	100	6.5	항공우주공학|컴퓨터과학|산업공학|농업
+us-rice	Rice University	라이스대학교	Houston	122	7.0	공학|경제학|음악|건축
+us-wisconsin	University of Wisconsin-Madison	위스콘신대학교 매디슨	Madison	131	6.5	경영|공학|생명과학|농업
+us-uc-davis	University of California, Davis	캘리포니아대학교 데이비스	Davis	137	6.5	농업|수의학|환경과학|생명과학
+us-georgia-tech	Georgia Institute of Technology	조지아공과대학교	Atlanta	142	6.0	기계공학|컴퓨터과학|산업공학|항공우주공학
+us-usc	University of Southern California	서던캘리포니아대학교	Los Angeles	153	7.0	영화|경영|컴퓨터과학|커뮤니케이션
+us-unc	University of North Carolina at Chapel Hill	노스캐롤라이나대학교 채플힐	Chapel Hill	158	7.5	경영|저널리즘|공중보건|생명과학
+us-washu	Washington University in St. Louis	워싱턴대학교 세인트루이스	St. Louis	162	6.5	생명과학|경영|건축|의예
+us-texas-am	Texas A&M University	텍사스A&M대학교	College Station	169	6.0	공학|농업|수의학|경영
+us-asu	Arizona State University	애리조나주립대학교	Tempe	172	6.0	경영|공학|저널리즘|환경과학	kaplan
+us-ucsb	University of California, Santa Barbara (UCSB)	캘리포니아대학교 샌타바버라	Santa Barbara	173	6.5	물리학|해양학|경제학|영화
+us-michigan-state	Michigan State University	미시간주립대학교	East Lansing	182	6.5	경영|교육학|농업|커뮤니케이션
+us-emory	Emory University	에모리대학교	Atlanta	183	7.5	생명과학|경영|간호학|공중보건
+us-florida	University of Florida	플로리다대학교	Gainesville	228	6.0	공학|경영|농업|저널리즘
+us-rochester	University of Rochester	로체스터대학교	Rochester	251	7.0	음악|광공학|생명과학|경제학
+us-uc-irvine	University of California, Irvine	캘리포니아대학교 어바인	Irvine	252	6.5	컴퓨터과학|생명과학|경영|간호학
+us-maryland	University of Maryland, College Park	메릴랜드대학교 칼리지파크	College Park	252	7.0	컴퓨터과학|공학|경영|저널리즘
+us-minnesota	University of Minnesota Twin Cities	미네소타대학교 트윈시티	Minneapolis	255	6.5	경영|공학|생명과학|심리학
+us-umass-amherst	University of Massachusetts Amherst	매사추세츠대학교 애머스트	Amherst	260	6.5	컴퓨터과학|경영|호텔경영|공학
+us-vanderbilt	Vanderbilt University	밴더빌트대학교	Nashville	265	7.0	교육학|생명과학|경영|음악
+us-uva	University of Virginia	버지니아대학교	Charlottesville	268	7.0	경영|법학|정치학|공학
+us-dartmouth	Dartmouth College	다트머스대학	Hanover	270	7.0	경제학|정치학|컴퓨터과학|공학
+us-pittsburgh	University of Pittsburgh	피츠버그대학교	Pittsburgh	279	7.0	간호학|생명과학|공학|약학
+us-georgetown	Georgetown University	조지타운대학교	Washington D.C.	289	6.0	국제관계|정치학|경영|법학
+us-notre-dame	University of Notre Dame	노터데임대학교	Notre Dame	300	7.5	경영|건축|정치학|공학
+us-rutgers	Rutgers University New Brunswick	럿거스대학교 뉴브런즈윅	New Brunswick	314	6.5	경영|컴퓨터과학|약학|심리학
+us-colorado-boulder	University of Colorado Boulder	콜로라도대학교 볼더	Boulder	320	6.5	항공우주공학|환경과학|경영|물리학
+us-nc-state	North Carolina State University	노스캐롤라이나주립대학교	Raleigh	320	6.5	공학|농업|디자인|컴퓨터과학
+us-case-western	Case Western Reserve University	케이스웨스턴리저브대학교	Cleveland	326	7.0	생명과학|공학|간호학|경영
+us-tufts	Tufts University	터프츠대학교	Medford	338	7.0	국제관계|생명과학|치의예|공학
+us-miami	University of Miami	마이애미대학교	Miami	338	6.5	경영|해양학|음악|커뮤니케이션
+us-indiana	Indiana University Bloomington	인디애나대학교 블루밍턴	Bloomington	360	6.5	경영|음악|교육학|정보학
+us-virginia-tech	Virginia Polytechnic Institute and State University	버지니아공과대학교	Blacksburg	366	6.0	공학|건축|농업|경영
+us-uic	University of Illinois Chicago (UIC)	일리노이대학교 시카고	Chicago	370	6.5	간호학|공학|경영|공중보건	shorelight	84
+us-gwu	George Washington University	조지워싱턴대학교	Washington D.C.	381	6.5	국제관계|정치학|경영|공중보건
+us-northeastern	Northeastern University	노스이스턴대학교	Boston	385	6.5	경영|컴퓨터과학|공학|보건
+us-uconn	University of Connecticut	코네티컷대학교	Storrs	458	6.5	경영|공학|교육학|약학	kaplan
+us-uc-santa-cruz	University of California, Santa Cruz	캘리포니아대학교 샌타크루즈	Santa Cruz	458	6.5	컴퓨터과학|천문학|생명과학|예술
+us-stony-brook	Stony Brook University, SUNY	스토니브룩대학교	Stony Brook	468	6.5	컴퓨터과학|수학|생명과학|경영	shorelight	59
+us-utah	University of Utah	유타대학교	Salt Lake City	533	6.5	컴퓨터과학|게임개발|생명과학|경영	shorelight	151
+us-georgia	The University of Georgia	조지아대학교	Athens	536	6.5	경영|저널리즘|농업|수의학
+us-florida-state	Florida State University	플로리다주립대학교	Tallahassee	546	6.5	경영|영화|공학|심리학
+us-boston-college	Boston College	보스턴칼리지	Chestnut Hill	549	7.5	경영|교육학|간호학|정치학
+us-delaware	University of Delaware	델라웨어대학교	Newark	575	6.5	공학|경영|화학|해양학
+us-colorado-mines	Colorado School of Mines	콜로라도광산대학교	Golden	575	6.5	광물자원공학|지구과학|기계공학|재료공학
+us-rpi	Rensselaer Polytechnic Institute	렌셀러폴리테크닉대학교	Troy	581	7.0	공학|컴퓨터과학|건축|경영
+us-tulane	Tulane University	툴레인대학교	New Orleans	597	6.5	공중보건|경영|건축|생명과학
+us-iowa	University of Iowa	아이오와대학교	Iowa City	597	6.0	문예창작|경영|간호학|약학
+us-american	American University	아메리칸대학교	Washington D.C.	646	6.5	국제관계|정치학|경영|커뮤니케이션	shorelight	88
+us-fiu	Florida International University	플로리다국제대학교	Miami	659	6.5	호텔경영|경영|공학|국제관계	shorelight
+us-lehigh	Lehigh University	리하이대학교	Bethlehem	668	7.0	공학|경영|컴퓨터과학|재료공학
+us-stevens	Stevens Institute of Technology	스티븐스공과대학교	Hoboken	675	6.0	공학|컴퓨터과학|경영|금융공학
+us-oregon-state	Oregon State University	오리건주립대학교	Corvallis	711	6.5	공학|해양학|농업|산림학	into
+us-oregon	University of Oregon	오리건대학교	Eugene	711	6.5	경영|저널리즘|건축|스포츠경영	kaplan
+us-south-carolina	University of South Carolina	사우스캐롤라이나대학교	Columbia	711	6.0	국제경영|호텔경영|공학|간호학	shorelight
+us-missouri	University of Missouri, Columbia	미주리대학교 컬럼비아	Columbia	721	6.5	저널리즘|경영|농업|수의학
+us-ucf	University of Central Florida	센트럴플로리다대학교	Orlando	731	6.5	호텔경영|광공학|컴퓨터과학|항공우주공학	shorelight	117
+us-syracuse	Syracuse University	시러큐스대학교	Syracuse	731	6.5	저널리즘|경영|정보학|건축
+us-brandeis	Brandeis University	브랜다이스대학교	Waltham	751	7.0	생명과학|경제학|국제관계|심리학
+us-missouri-st	Missouri University of Science and Technology	미주리과학기술대학교	Rolla	751	6.5	공학|컴퓨터과학|광물자원공학|재료공학	shorelight
+us-drexel	Drexel University	드렉셀대학교	Philadelphia	771	6.0	공학|경영|디자인|간호학
+us-wake-forest	Wake Forest University	웨이크포레스트대학교	Winston-Salem	801	6.5	경영|생명과학|정치학|회계
+us-nebraska	University of Nebraska - Lincoln	네브래스카대학교 링컨	Lincoln	801	6.5	농업|공학|경영|저널리즘
+us-auburn	Auburn University	어번대학교	Auburn	851	6.5	공학|경영|농업|건축	shorelight	102
+us-lsu	Louisiana State University	루이지애나주립대학교	Baton Rouge	851	6.5	공학|경영|농업|커뮤니케이션	shorelight
+us-wpi	Worcester Polytechnic Institute	우스터폴리테크닉대학교	Worcester	901	6.5	공학|컴퓨터과학|로보틱스|생명공학
+us-clemson	Clemson University	클렘슨대학교	Clemson	951	6.5	공학|경영|농업|컴퓨터과학
+us-clark	Clark University	클라크대학교	Worcester	951	6.5	심리학|국제개발|지리학|경영
+us-uab	University of Alabama at Birmingham	앨라배마대학교 버밍엄	Birmingham	951	6.0	간호학|생명과학|공중보건|경영	into
+us-william-mary	William & Mary	윌리엄앤메리대학교	Williamsburg	1001	7.0	경영|정치학|국제관계|해양학
+us-fordham	Fordham University	포덤대학교	The Bronx	1001	7.0	경영|법학|커뮤니케이션|사회복지
+us-smu	Southern Methodist University	서던메소디스트대학교	Dallas	1001	6.5	경영|공학|예술|저널리즘
+us-vermont	University of Vermont	버몬트대학교	Burlington	1001	6.5	환경과학|간호학|생명과학|경영
+us-binghamton	Binghamton University SUNY	빙엄턴대학교	Binghamton	1001	6.5	경영|공학|약학|심리학
+us-alabama	The University of Alabama	앨라배마대학교	Tuscaloosa	1001	6.0	경영|공학|커뮤니케이션|간호학
+us-denver	University of Denver	덴버대학교	Denver	1001	6.5	경영|국제관계|호텔경영|심리학
+us-tulsa	University of Tulsa	털사대학교	Tulsa	1001	6.0	석유공학|컴퓨터과학|경영|법학
+us-saint-louis	Saint Louis University	세인트루이스대학교	St. Louis	1001	6.5	보건|경영|항공|간호학
+us-george-mason	George Mason University	조지메이슨대학교	Fairfax	1001	6.5	컴퓨터과학|경영|국제관계|공학	into
+us-umass-boston	University of Massachusetts Boston	매사추세츠대학교 보스턴	Boston	1001	6.0	경영|간호학|컴퓨터과학|교육학	shorelight
+us-unr	University of Nevada - Reno	네바다대학교 리노	Reno	1001	6.0	공학|경영|저널리즘|간호학	shorelight
+us-utsa	The University of Texas at San Antonio	텍사스대학교 샌안토니오	San Antonio	1001	6.5	경영|공학|사이버보안|건축	shorelight
+us-wyoming	University of Wyoming	와이오밍대학교	Laramie	1001	6.0	공학|농업|지구과학|경영	shorelight
+us-byu	Brigham Young University	브리검영대학교	Provo	1201	6.5	경영|회계|공학|교육학
+us-baylor	Baylor University	베일러대학교	Waco	1201	6.5	경영|간호학|생명과학|교육학
+us-miami-ohio	Miami University	마이애미대학교 옥스퍼드	Oxford	1201	6.5	경영|교육학|건축|경제학
+us-new-hampshire	University of New Hampshire	뉴햄프셔대학교	Durham	1201	6.5	경영|공학|해양학|간호학
+us-seattle-u	Seattle University	시애틀대학교	Seattle	1201	6.5	경영|간호학|컴퓨터과학|법학	shorelight
+us-pepperdine	Pepperdine University	페퍼다인대학교	Malibu		6.5	경영|커뮤니케이션|심리학|국제관계
+us-marquette	Marquette University	마켓대학교	Milwaukee		6.5	경영|공학|간호학|커뮤니케이션
+us-tcu	Texas Christian University	텍사스크리스천대학교	Fort Worth		7.0	경영|간호학|커뮤니케이션|교육학
+us-san-diego	University of San Diego	샌디에이고대학교	San Diego		6.5	경영|국제관계|간호학|공학
+us-james-madison	James Madison University	제임스매디슨대학교	Harrisonburg		6.5	경영|교육학|보건|커뮤니케이션
+us-gonzaga	Gonzaga University	곤자가대학교	Spokane		6.5	경영|공학|간호학|교육학	shorelight
+us-dayton	University of Dayton	데이턴대학교	Dayton		6.0	공학|경영|교육학|법학	shorelight
+us-cleveland-state	Cleveland State University	클리블랜드주립대학교	Cleveland		6.0	공학|경영|보건|도시계획	shorelight
+us-hofstra	Hofstra University	호프스트라대학교	New York City		6.5	경영|커뮤니케이션|법학|공학	into
+us-suffolk	Suffolk University	서퍽대학교	Boston		6.5	경영|법학|회계|커뮤니케이션	into
+us-drew	Drew University	드루대학교	Madison		6.5	생명과학|경영|정치학|심리학	into
+us-simmons	Simmons University	시먼스대학교	Boston		6.5	간호학|보건|경영|사회복지	kaplan
+us-pace	Pace University	페이스대학교	New York City		6.5	경영|컴퓨터과학|회계|공연예술	kaplan
