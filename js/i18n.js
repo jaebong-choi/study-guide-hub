@@ -48,6 +48,7 @@ const I18N = {
         guideLinkUk: "영국 진학 가이드: 경로 · 학비 · 비자 →",
         guideLinkAu: "호주 진학 가이드: 경로 · 학비 · 비자 →",
         guideLinkCa: "캐나다 진학 가이드: 경로 · 학비 · 비자 →",
+        guideLinkUs: "미국 진학 가이드: 경로 · 학비 · 비자 →",
 
         sectionCountries: "국가별 진단 시작하기",
         auName: "호주",
@@ -139,6 +140,7 @@ const I18N = {
         guideLinkUk: "UK guide: routes, costs and visas →",
         guideLinkAu: "Australia guide: routes, costs and visas →",
         guideLinkCa: "Canada guide: routes, costs and visas →",
+        guideLinkUs: "US guide: routes, costs and visas →",
 
         sectionCountries: "Choose a destination",
         auName: "Australia",

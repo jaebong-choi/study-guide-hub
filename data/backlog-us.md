@@ -74,8 +74,16 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
       제휴사 공식 목록에서 확인되지 않아 direct만 넣었다. 확인되면 us-source.tsv의 provider 열에 추가.
 - [ ] 커뮤니티칼리지 2+2 편입(transfer) 경로 미입력. UC TAG 6개 캠퍼스와 Santa Monica·De Anza·
       Bellevue 등은 us-study-guide/docs/RESEARCH.md에 정리돼 있다.
-- [ ] `guide/us.html` 없음 — 영국·호주·캐나다는 있다. 만들면 build-uni.ps1의 `$locs`(1299행)에
-      'guide/us.html'을 추가하고 `PW_GUIDE_PAGE`에 미국 경로 키를 매핑할 것.
+- [x] **`guide/us.html` 작성 완료(2026-08-01)**. 경로 4종(다이렉트·패스웨이·CC 2+2 편입·조건부 입학),
+      학비표, F-1 6단계, FAQ 5문항, 공식 출처 6곳. edmuhak 페이지는 다룰 주제만 참고하고
+      **본문은 국무부·국토안보부·교육부·UC 공식 자료로 새로 작성**(uk/au/ca와 같은 원칙).
+      학비표는 일반 추정치가 아니라 **우리 DB 126곳의 실제 공시 학비 25~75% 구간**을 쓴다.
+      연결: `$locs`에 guide/us.html 추가 · `PW_GUIDE_PAGE`에 `us-pathway` 매핑 ·
+      `New-PathwayCard`가 US pathway에 guideKey 부여 · `PW_GUIDES`에 us-pathway 모달 ·
+      허브 index `guide-links`에 4번째 링크.
+- [ ] 미국 direct 경로는 모달 없이 진단으로 직행한다(다른 국가의 direct와 동일). CC 편입·조건부
+      입학은 학교 데이터에 pathway 타입으로 안 들어가 있어 모달이 없다. transfer 경로를 넣게 되면
+      `us-transfer` 키를 만들어 매핑할 것.
 
 ### 콘텐츠
 - [ ] editor_note가 7곳만 있다(나머지 null이면 섹션 자체가 안 나온다). 상담 수요 높은 학교부터 채울 것.

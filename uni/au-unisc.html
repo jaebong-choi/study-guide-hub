@@ -526,10 +526,24 @@
                 b: ['Pathway colleges such as FIC (SFU) and ICM (Manitoba) sit <mark>on the university campus</mark> and teach first-year courses (UTP) in smaller classes; meet the grade threshold and you <mark>transfer into Year 2</mark>.',
                     'Entry starts with lower grades and English (around <mark>IELTS 5.5</mark>) than direct admission, and classes run on the same campus as the university.']
             }
+        },
+        'us-pathway': {
+            ko: {
+                t: '미국 패스웨이(조건부입학)란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['패스웨이 1년', '영어+전공기초 20~24학점'], ['학사 2학년', '본교 진학'], ['학사 학위', '총 4년']],
+                b: ['대학 캠퍼스 안에서 영어와 <mark>학점이 인정되는 1학년 과목</mark>을 함께 듣고, 조건을 충족하면 <mark>그 대학 2학년</mark>으로 올라갑니다. 1학년을 대체하는 방식이라 <mark>학위 기간은 4년 그대로</mark>입니다.',
+                    '<mark>SAT 없이</mark> 지원할 수 있고 영어도 <mark>IELTS 5.5</mark> 내외부터 시작합니다. Shorelight·INTO·Kaplan이 운영하며, 어학만 듣는 <mark>조건부 입학과는 다릅니다</mark>(그쪽은 학점이 없어 기간이 늘어납니다).']
+            },
+            en: {
+                t: 'What is a US pathway?',
+                f: [['High school', 'graduate'], ['Pathway year', 'English + 20-24 credits'], ['Bachelor Year 2', 'same university'], ['Bachelor degree', 'four years total']],
+                b: ['You study on the university campus, taking English alongside <mark>credit-bearing first-year courses</mark>, and move into <mark>Year 2 of that university</mark> once you meet the condition. It replaces first year, so the degree still takes <mark>four years in total</mark>.',
+                    'You can apply <mark>without an SAT</mark> and start from around <mark>IELTS 5.5</mark>. Shorelight, INTO and Kaplan run these. It is <mark>not the same as conditional admission</mark>, where the English course carries no credit and adds time to the degree.']
+            }
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html', 'us-pathway': '../guide/us.html' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
