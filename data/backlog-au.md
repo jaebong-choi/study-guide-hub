@@ -55,8 +55,11 @@
 - ⚠ **PowerShell 함정**: `foreach ($id in $V.Keys) { $V[$id] }`가 5.1에서 둘째 키부터
   null을 돌려줘 **22곳 전부에 첫 학교 값이 들어가는 사고**가 났다(git checkout으로 복구).
   해시테이블 순회는 반드시 `GetEnumerator()`로 할 것.
-- [ ] 로고 2곳: au-ecu, au-lcb (공식 사이트에서 못 긁음 — 파일 구해서
-      images/uni/{id}-logo.svg|png 투명배경으로 넣고 build-uni.ps1 재실행)
+- [x] ~~로고 2곳: au-ecu, au-lcb~~ **이 항목은 낡았다** — 두 파일 모두 images/uni/에 있고
+      페이지에 나가고 있다(2026-08-02 확인). 마지막 남았던 **au-bmihms도 같은 날 채워서
+      호주 로고 35/35 완료.** BMIHMS 사이트(bluemountains.edu.au)의 미디어 CDN은 SVG 요청에
+      HTML을 돌려주는데, **같은 미디어 경로를 torrens.edu.au 도메인으로 바꾸면** 진짜 SVG가
+      나온다(토렌스 계열 공통 Sitecore 미디어라이브러리).
 - [ ] 배너: images/uni/au-banner.jpg (영국처럼 공용 1장이면 35곳 전부 적용)
 - [x] youtube_id 35/35 완료(2026-08-02). 유튜브 검색을 긁어 공식 채널 영상만 골랐고 oEmbed로 채널·제목을 전수 검증했다. 1차 수집이 헤이그 호텔스쿨·UOW 두바이·웰링턴 빅토리아대를 물어와서, 채널명 필수/금지어 필터로 재수집해 잡았다. 이름이 흔한 학교는 반드시 채널명으로 검증할 것.
 - [ ] qs_subject_ranks 전부 빈 배열 (검증된 것만 넣는 원칙)
