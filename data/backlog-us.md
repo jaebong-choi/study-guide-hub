@@ -87,6 +87,10 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
 
 ### 콘텐츠
 - [ ] editor_note가 7곳만 있다(나머지 null이면 섹션 자체가 안 나온다). 상담 수요 높은 학교부터 채울 것.
+- [ ] **에디터 노트 humanizer 일괄 적용(사용자 요청 2026-08-02)**: 상담사가 직접 말하는 톤으로 전부 재작성.
+      샘플은 gen-us.ps1 $OVERRIDE의 us-stony-brook note(주석 표시됨) — 짧은 문장 변주, "~라 자주 씁니다"처럼
+      경험에서 말하는 어미, 순위·수치는 유지. 재작성 시 /anthropic-skills:humanizer 스킬을 로드해 검수하고,
+      바꾼 문구마다 data/i18n-uni.json에 영어 번역을 같이 추가할 것(빌드가 누락을 알려줌).
 - [x] **로고 105/126** (2026-08-01). 출처는 **위키데이터 P154(로고) → Wikimedia Commons 파일**.
       Commons 호스팅만 받았으므로 자유 라이선스다(en.wikipedia의 비자유 fair-use 파일은 받지 않음).
       수집: 위키데이터 SPARQL로 미국 대학 1,103건의 로고+공식 URL을 받아 `us-urls.tsv` 도메인으로 매칭.

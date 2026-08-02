@@ -26,7 +26,11 @@ body {
     font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
     background: var(--bg); color: var(--text); line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    word-break: keep-all;           /* 한국어: 단어 중간에서 줄이 꺾이지 않게 */
 }
+/* 마지막 단어 하나만 다음 줄로 떨어지는 widow 방지 */
+p, li, dd, summary, td { text-wrap: pretty; }
+h1, h2, h3, h4 { text-wrap: balance; }
 .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
 a { color: var(--link); text-decoration: none; }
 
