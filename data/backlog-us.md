@@ -172,7 +172,12 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
       산하기관(Emory Law·Medical School)·동명 타교(Emory & Henry)뿐이다. 교체분 10곳도 사정이 같다.
       **각 대학 공식 브랜드 페이지에서 받아야 하고, 그러면 기존 120개의 커먼즈 자유 라이선스 근거가
       이 16개에는 적용되지 않는다.** 진행 전 사용자 확인 필요.
-- [ ] youtube_id 전부 null.
+- [x] **youtube_id 134/134 완료(2026-08-02)**. 소스는 `data/us-youtube.tsv`(id → videoId),
+      gen-us.ps1의 `YtMap`이 읽는다. JSON은 생성물이라 직접 넣지 말 것.
+      공식 채널(본채널·입학처·국제처) 영상만 골라 oEmbed로 채널·제목을 전수 검증했다.
+      1차 수집 오답이 많았다 — UT오스틴 자리에 교회 채널, 미주리 자리에 컬럼비아대,
+      벨뷰 칼리지 자리에 네브래스카 벨뷰대, 운동부 채널 여럿(Gamecocks·Stevens Ducks 등).
+      **토큰 매칭만 믿지 말고 채널명 필수/금지어 필터 + oEmbed 검증까지 돌릴 것.**
 - [ ] `popular_majors`는 어휘를 고정해서 넣었다(i18n 사전 폭증 방지). 새 전공어를 쓰면
       빌드가 `data/i18n-uni-missing.txt`로 알려주니 i18n-uni.json에 추가할 것.
 - [x] us-study-guide 진단 결과 → uni 페이지 연결. **2026-08-02 전수 검증: 진단 대학 28곳 중

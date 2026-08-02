@@ -80,6 +80,21 @@ function NoteMap {
 $NOTES = NoteMap
 Write-Host ("에디터 노트: {0}곳" -f $NOTES.Count)
 
+# 공식 채널 캠퍼스 영상 — data\us-youtube.tsv (id <TAB> videoId). 없으면 섹션 생략.
+function YtMap {
+    $m = @{}
+    $p = Join-Path $repoRoot 'data\us-youtube.tsv'
+    if (-not (Test-Path $p)) { return $m }
+    foreach ($line in Get-Content $p -Encoding UTF8) {
+        if (-not $line.Trim() -or $line.StartsWith('#')) { continue }
+        $c = $line -split "`t"
+        if ($c.Count -ge 2 -and $c[1].Trim() -match '^[A-Za-z0-9_-]{11}$') { $m[$c[0].Trim()] = $c[1].Trim() }
+    }
+    return $m
+}
+$YT = YtMap
+Write-Host ("유튜브 영상: {0}곳" -f $YT.Count)
+
 function UrlMap {
     $m = @{}
     foreach ($line in Get-Content (Join-Path $repoRoot 'data\us-urls.tsv') -Encoding UTF8) {
@@ -164,7 +179,7 @@ foreach ($line in $rows[1..($rows.Count-1)]) {
         pathways         = $pathways.ToArray()
         intakes          = $intakes
         official_url     = $url
-        youtube_id       = $null
+        youtube_id       = $(if ($YT.ContainsKey($id)) { $YT[$id] } else { $null })
         editor_note      = if ($NOTES.ContainsKey($id)) { $NOTES[$id] } elseif ($ov -and $ov.note) { $ov.note } else { $null }
         related_ids      = @()
         last_verified    = '2026-07'
@@ -217,7 +232,7 @@ foreach ($line in $ccRows[1..($ccRows.Count-1)]) {
         })
         intakes          = @($c[8].Trim() -split '\|')
         official_url     = $url
-        youtube_id       = $null
+        youtube_id       = $(if ($YT.ContainsKey($id)) { $YT[$id] } else { $null })
         editor_note      = $(if ($NOTES.ContainsKey($id)) { $NOTES[$id] } else { $null })
         related_ids      = $related
         last_verified    = '2026-08'
