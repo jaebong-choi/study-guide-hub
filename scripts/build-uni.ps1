@@ -84,7 +84,7 @@ $LIST_FILTERS = @{
         @('transfer',        '대학 편입 연계',     'University transfer route')
     )
 }
-function New-FilterChips([string]$cc) {
+function New-FilterChips([string]$cc, [hashtable]$cats) {
     if (-not $LIST_FILTERS.ContainsKey($cc)) { return '' }
     $btns = ($LIST_FILTERS[$cc] | ForEach-Object {
         '                        <button type="button" class="sort-btn filter-btn" data-f="' + $_[0] +
@@ -92,7 +92,41 @@ function New-FilterChips([string]$cc) {
     }) -join "`n"
     return '<div class="filter-row" role="group" aria-label="진학 경로 필터" data-en-aria="Entry route filter">' + "`n" +
            '                        <span class="filter-cap" data-en="Entry routes">진학 경로</span>' + "`n" +
-           $btns + "`n" + '                    </div>'
+           $btns + "`n" +
+           '                        ' + (New-MajorSelect $cats) + "`n" +
+           '                    </div>'
+}
+
+# 전공 계열 드롭다운 — popular_majors 어휘가 국가별 45~103종이라 원문 그대로는 못 쓰고
+# 키워드 규칙으로 계열을 묶는다. 앞 규칙이 이긴다(컴퓨터공학은 공학이 아니라 IT·컴퓨터).
+$MAJOR_CATS = @(
+    @('컴퓨터|IT|정보|소프트웨어|사이버|게임|데이터|로보틱스',                        'IT·컴퓨터',        'IT & Computing'),
+    @('호텔|호스피탈리티|관광|조리|요리|제과|제빵|이벤트|리조트|레스토랑|와인|퀴진|푸드', '호텔·조리·관광',   'Hospitality, Culinary & Tourism'),
+    @('간호|보건|의학|의예|약학|치의|물리치료|검안|공중보건|수의|스포츠과학',            '보건·의약',        'Health & Medicine'),
+    @('법학|정치|국제관계|국제개발|개발학|PPE',                                        '법·정치·국제',     'Law, Politics & IR'),
+    @('미디어|커뮤니케이션|저널리즘|영화|방송|드라마',                                  '미디어·커뮤니케이션', 'Media & Communication'),
+    @('디자인|예술|음악|파인아트|패션|공연|애니메이션|건축|미술|음향|아트|도시계획',                   '예술·디자인·건축', 'Art, Design & Architecture'),
+    @('경영|비즈니스|회계|금융|경제|MBA|물류|부동산|매니지먼트',                        '경영·경제',        'Business & Economics'),
+    @('공학|엔지니어링|항공|에너지',                                                          '공학',             'Engineering'),
+    @('수학|물리|화학|천문|지구과학|해양|환경|기상|자연과학|생명|식품|농업|산림|수자원|야생|우주', '자연과학·환경', 'Sciences & Environment'),
+    @('교육|심리|사회|인류|언어|철학|역사|신학|박물관|고고|지리|영문|영어|문예|범죄|보육|통번역|정책|지역학', '교육·인문·사회', 'Education, Humanities & Social Sciences'),
+    @('기술직|트레이드|자동차',                                                        '기술직(트레이드)', 'Skilled trades')
+)
+function MajorCat([string]$m) {
+    foreach ($r in $MAJOR_CATS) { if ($m -match $r[0]) { return $r[1] } }
+    return $null
+}
+function New-MajorSelect([hashtable]$cats) {
+    if ($cats.Count -eq 0) { return '' }
+    $opts = '<option value="" data-en="All subject areas">전공 계열 전체</option>' + "`n"
+    foreach ($r in $MAJOR_CATS) {
+        $ko = $r[1]
+        if (-not $cats.ContainsKey($ko)) { continue }
+        $n = $cats[$ko]
+        $opts += '                            <option value="' + (Esc $ko) + '" data-en="' + (Esc $r[2]) + ' (' + $n + ')">' + (Esc $ko) + ' (' + $n + '곳)</option>' + "`n"
+    }
+    return '<select class="major-select" id="mf" aria-label="전공 계열 필터" data-en-aria="Subject area filter">' + "`n" +
+           '                            ' + $opts.Trim() + "`n" + '                        </select>'
 }
 
 # 미국 커뮤니티칼리지는 Scorecard가 아니라 각 칼리지 international 공시값이라 문구를 따로 쓴다.
@@ -954,6 +988,12 @@ $LIST_TEMPLATE = @'
         .filter-cap { font-size: 13px; font-weight: 600; color: var(--mute); margin-right: 2px; }
         .filter-btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
         .filter-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+        .major-select {
+            min-height: 38px; padding: 0 12px; font-size: 13px; font-weight: 600; cursor: pointer;
+            font-family: inherit; color: var(--body-text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
+        }
+        .major-select.is-active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
         .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
 
         .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
@@ -1078,6 +1118,7 @@ $LIST_TEMPLATE = @'
         var empty = document.getElementById('empty');
         var sortKey = 'qs';
         var pwFilter = '';
+        var mcatFilter = '';
 
         function num(el, attr) {
             var v = parseFloat(el.getAttribute(attr));
@@ -1095,7 +1136,8 @@ $LIST_TEMPLATE = @'
             var shown = 0;
             cards.forEach(function (c) {
                 var hit = (!term || c.getAttribute('data-search').indexOf(term) > -1) &&
-                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1);
+                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1) &&
+                    (!mcatFilter || ('|' + (c.getAttribute('data-mcat') || '') + '|').indexOf('|' + mcatFilter + '|') > -1);
                 c.classList.toggle('is-hidden', !hit);
                 if (hit) shown++;
                 grid.appendChild(c);
@@ -1113,6 +1155,15 @@ $LIST_TEMPLATE = @'
                 render();
             });
         });
+        // 전공 계열 드롭다운
+        var mf = document.getElementById('mf');
+        if (mf) {
+            mf.addEventListener('change', function () {
+                mcatFilter = mf.value;
+                mf.classList.toggle('is-active', !!mcatFilter);
+                render();
+            });
+        }
         // 경로 필터 — 하나만 선택, 다시 누르면 해제
         document.querySelectorAll('.filter-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
@@ -1380,11 +1431,15 @@ foreach ($nothing in @(1)) {
         $pwTok = @($u.pathways | ForEach-Object { $_.type }) + @('type-' + $u.type)
         if ($u.country -eq 'UK' -and $pwTok -notcontains 'foundation' -and $pwTok -notcontains 'iyo') { $pwTok += 'direct-only' }
         $pwAttr = (@($pwTok) | Sort-Object -Unique) -join ' '
+        # 전공 계열 토큰 + 국가별 계열 집계
+        $mcats = @($u.popular_majors | ForEach-Object { MajorCat $_ } | Where-Object { $_ } | Sort-Object -Unique)
+        $mcatAttr = $mcats -join '|'
         $searchKey = ($u.name_ko + ' ' + $u.name_en + ' ' + $u.city).ToLower()
         $feeEnVal = if ($tuitionUgEn) { 'Enquire' } else { $tuitionUg }
-        if (-not $lists.ContainsKey($u.country)) { $lists[$u.country] = @{ cards = ''; count = 0; latest = '' } }
+        if (-not $lists.ContainsKey($u.country)) { $lists[$u.country] = @{ cards = ''; count = 0; latest = ''; cats = @{} } }
+        foreach ($mc in $mcats) { if (-not $lists[$u.country].cats.ContainsKey($mc)) { $lists[$u.country].cats[$mc] = 0 }; $lists[$u.country].cats[$mc]++ }
         $lists[$u.country].cards += @"
-                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)" data-pw="$pwAttr">
+                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)" data-pw="$pwAttr" data-mcat="$(Esc $mcatAttr)">
                     <div class="card-top">$cardLogo$($qsBadge)</div>
                     <h2 data-en="$(Esc $u.name_en)">$(Esc $u.name_ko)</h2>
                     <p class="card-en" data-en="$(Esc $u.name_ko)">$(Esc $u.name_en)</p>
@@ -1410,7 +1465,7 @@ foreach ($cc in $lists.Keys) {
     if (-not $info) { $info = @{ ko = $cc; enAdj = $cc; file = ($cc.ToLower() + '.html') } }
     $listPath = if ($info.file -eq 'index.html') { '' } else { $info.file }   # canonical: index.html은 uni/
     $l = $lists[$cc]
-    $listHtml = $LIST_TEMPLATE.Replace('{{FILTERS}}', (New-FilterChips $cc)).
+    $listHtml = $LIST_TEMPLATE.Replace('{{FILTERS}}', (New-FilterChips $cc $l.cats)).
         Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
         Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
         Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath).

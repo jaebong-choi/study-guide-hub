@@ -97,6 +97,12 @@
         .filter-cap { font-size: 13px; font-weight: 600; color: var(--mute); margin-right: 2px; }
         .filter-btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
         .filter-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+        .major-select {
+            min-height: 38px; padding: 0 12px; font-size: 13px; font-weight: 600; cursor: pointer;
+            font-family: inherit; color: var(--body-text);
+            background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
+        }
+        .major-select.is-active { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
         .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
 
         .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
@@ -170,6 +176,19 @@
                         <button type="button" class="sort-btn filter-btn" data-f="iyo" aria-pressed="false" data-en="International Year One">IYO 운영</button>
                         <button type="button" class="sort-btn filter-btn" data-f="pre-master" aria-pressed="false" data-en="Pre-Master's">프리마스터 운영</button>
                         <button type="button" class="sort-btn filter-btn" data-f="direct-only" aria-pressed="false" data-en="Direct entry only">Direct만 입학 가능</button>
+                        <select class="major-select" id="mf" aria-label="전공 계열 필터" data-en-aria="Subject area filter">
+                            <option value="" data-en="All subject areas">전공 계열 전체</option>
+                            <option value="IT·컴퓨터" data-en="IT &amp; Computing (26)">IT·컴퓨터 (26곳)</option>
+                            <option value="호텔·조리·관광" data-en="Hospitality, Culinary &amp; Tourism (2)">호텔·조리·관광 (2곳)</option>
+                            <option value="보건·의약" data-en="Health &amp; Medicine (21)">보건·의약 (21곳)</option>
+                            <option value="법·정치·국제" data-en="Law, Politics &amp; IR (20)">법·정치·국제 (20곳)</option>
+                            <option value="미디어·커뮤니케이션" data-en="Media &amp; Communication (11)">미디어·커뮤니케이션 (11곳)</option>
+                            <option value="예술·디자인·건축" data-en="Art, Design &amp; Architecture (18)">예술·디자인·건축 (18곳)</option>
+                            <option value="경영·경제" data-en="Business &amp; Economics (42)">경영·경제 (42곳)</option>
+                            <option value="공학" data-en="Engineering (20)">공학 (20곳)</option>
+                            <option value="자연과학·환경" data-en="Sciences &amp; Environment (10)">자연과학·환경 (10곳)</option>
+                            <option value="교육·인문·사회" data-en="Education, Humanities &amp; Social Sciences (23)">교육·인문·사회 (23곳)</option>
+                        </select>
                     </div>
                 <p class="result-count" id="count"></p>
             </div>
@@ -177,7 +196,7 @@
 
         <div class="container">
             <div class="uni-grid" id="grid">
-                <a class="uni-card" href="./uk-loughborough.html" data-qs="225" data-fee="24700" data-name="러프버러대학교" data-name-en="Loughborough University" data-search="러프버러대학교 loughborough university loughborough" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-loughborough.html" data-qs="225" data-fee="24700" data-name="러프버러대학교" data-name-en="Loughborough University" data-search="러프버러대학교 loughborough university loughborough" data-pw="direct foundation type-university" data-mcat="경영·경제|공학|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-loughborough-logo.png" alt="러프버러대학교 로고" data-en-alt="Loughborough University logo"><span class="qs-badge" data-en="QS #225">QS 225위</span></div>
                     <h2 data-en="Loughborough University">러프버러대학교</h2>
                     <p class="card-en" data-en="러프버러대학교">Loughborough University</p>
@@ -188,7 +207,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-ucl.html" data-qs="9" data-fee="32000" data-name="유니버시티칼리지런던(UCL)" data-name-en="University College London (UCL)" data-search="유니버시티칼리지런던(ucl) university college london (ucl) london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-ucl.html" data-qs="9" data-fee="32000" data-name="유니버시티칼리지런던(UCL)" data-name-en="University College London (UCL)" data-search="유니버시티칼리지런던(ucl) university college london (ucl) london" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|법·정치·국제|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-ucl-logo.svg" alt="유니버시티칼리지런던(UCL) 로고" data-en-alt="University College London (UCL) logo"><span class="qs-badge" data-en="QS #9">QS 9위</span></div>
                     <h2 data-en="University College London (UCL)">유니버시티칼리지런던(UCL)</h2>
                     <p class="card-en" data-en="유니버시티칼리지런던(UCL)">University College London (UCL)</p>
@@ -199,7 +218,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-edinburgh.html" data-qs="34" data-fee="26500" data-name="에든버러대학교" data-name-en="The University of Edinburgh" data-search="에든버러대학교 the university of edinburgh edinburgh" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-edinburgh.html" data-qs="34" data-fee="26500" data-name="에든버러대학교" data-name-en="The University of Edinburgh" data-search="에든버러대학교 the university of edinburgh edinburgh" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-edinburgh-logo.svg" alt="에든버러대학교 로고" data-en-alt="The University of Edinburgh logo"><span class="qs-badge" data-en="QS #34">QS 34위</span></div>
                     <h2 data-en="The University of Edinburgh">에든버러대학교</h2>
                     <p class="card-en" data-en="에든버러대학교">The University of Edinburgh</p>
@@ -210,7 +229,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-manchester.html" data-qs="35" data-fee="26500" data-name="맨체스터대학교" data-name-en="The University of Manchester" data-search="맨체스터대학교 the university of manchester manchester" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-manchester.html" data-qs="35" data-fee="26500" data-name="맨체스터대학교" data-name-en="The University of Manchester" data-search="맨체스터대학교 the university of manchester manchester" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|공학|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-manchester-logo.svg" alt="맨체스터대학교 로고" data-en-alt="The University of Manchester logo"><span class="qs-badge" data-en="QS #35">QS 35위</span></div>
                     <h2 data-en="The University of Manchester">맨체스터대학교</h2>
                     <p class="card-en" data-en="맨체스터대학교">The University of Manchester</p>
@@ -221,7 +240,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-kcl.html" data-qs="31" data-fee="27100" data-name="킹스칼리지런던(KCL)" data-name-en="King's College London" data-search="킹스칼리지런던(kcl) king's college london london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-kcl.html" data-qs="31" data-fee="27100" data-name="킹스칼리지런던(KCL)" data-name-en="King's College London" data-search="킹스칼리지런던(kcl) king's college london london" data-pw="direct foundation type-university" data-mcat="교육·인문·사회|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-kcl-logo.svg" alt="킹스칼리지런던(KCL) 로고" data-en-alt="King's College London logo"><span class="qs-badge" data-en="QS #31">QS 31위</span></div>
                     <h2 data-en="King's College London">킹스칼리지런던(KCL)</h2>
                     <p class="card-en" data-en="킹스칼리지런던(KCL)">King's College London</p>
@@ -232,7 +251,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-warwick.html" data-qs="74" data-fee="27870" data-name="워릭대학교" data-name-en="The University of Warwick" data-search="워릭대학교 the university of warwick coventry" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-warwick.html" data-qs="74" data-fee="27870" data-name="워릭대학교" data-name-en="The University of Warwick" data-search="워릭대학교 the university of warwick coventry" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|공학|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-warwick-logo.svg" alt="워릭대학교 로고" data-en-alt="The University of Warwick logo"><span class="qs-badge" data-en="QS #74">QS 74위</span></div>
                     <h2 data-en="The University of Warwick">워릭대학교</h2>
                     <p class="card-en" data-en="워릭대학교">The University of Warwick</p>
@@ -243,7 +262,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-bristol.html" data-qs="51" data-fee="25500" data-name="브리스톨대학교" data-name-en="University of Bristol" data-search="브리스톨대학교 university of bristol bristol" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-bristol.html" data-qs="51" data-fee="25500" data-name="브리스톨대학교" data-name-en="University of Bristol" data-search="브리스톨대학교 university of bristol bristol" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|공학|교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-bristol-logo.svg" alt="브리스톨대학교 로고" data-en-alt="University of Bristol logo"><span class="qs-badge" data-en="QS #51">QS 51위</span></div>
                     <h2 data-en="University of Bristol">브리스톨대학교</h2>
                     <p class="card-en" data-en="브리스톨대학교">University of Bristol</p>
@@ -254,7 +273,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-leeds.html" data-qs="86" data-fee="24500" data-name="리즈대학교" data-name-en="University of Leeds" data-search="리즈대학교 university of leeds leeds" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-leeds.html" data-qs="86" data-fee="24500" data-name="리즈대학교" data-name-en="University of Leeds" data-search="리즈대학교 university of leeds leeds" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|공학|미디어·커뮤니케이션|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-leeds-logo.svg" alt="리즈대학교 로고" data-en-alt="University of Leeds logo"><span class="qs-badge" data-en="QS #86">QS 86위</span></div>
                     <h2 data-en="University of Leeds">리즈대학교</h2>
                     <p class="card-en" data-en="리즈대학교">University of Leeds</p>
@@ -265,7 +284,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-birmingham.html" data-qs="76" data-fee="24480" data-name="버밍엄대학교" data-name-en="University of Birmingham" data-search="버밍엄대학교 university of birmingham birmingham" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-birmingham.html" data-qs="76" data-fee="24480" data-name="버밍엄대학교" data-name-en="University of Birmingham" data-search="버밍엄대학교 university of birmingham birmingham" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-birmingham-logo.svg" alt="버밍엄대학교 로고" data-en-alt="University of Birmingham logo"><span class="qs-badge" data-en="QS #76">QS 76위</span></div>
                     <h2 data-en="University of Birmingham">버밍엄대학교</h2>
                     <p class="card-en" data-en="버밍엄대학교">University of Birmingham</p>
@@ -276,7 +295,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-nottingham.html" data-qs="97" data-fee="24700" data-name="노팅엄대학교" data-name-en="University of Nottingham" data-search="노팅엄대학교 university of nottingham nottingham" data-pw="direct foundation iyo type-university">
+                <a class="uni-card" href="./uk-nottingham.html" data-qs="97" data-fee="24700" data-name="노팅엄대학교" data-name-en="University of Nottingham" data-search="노팅엄대학교 university of nottingham nottingham" data-pw="direct foundation iyo type-university" data-mcat="IT·컴퓨터|경영·경제|공학|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-nottingham-logo.svg" alt="노팅엄대학교 로고" data-en-alt="University of Nottingham logo"><span class="qs-badge" data-en="QS #97">QS 97위</span></div>
                     <h2 data-en="University of Nottingham">노팅엄대학교</h2>
                     <p class="card-en" data-en="노팅엄대학교">University of Nottingham</p>
@@ -287,7 +306,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-exeter.html" data-qs="155" data-fee="24900" data-name="엑시터대학교" data-name-en="University of Exeter" data-search="엑시터대학교 university of exeter exeter" data-pw="direct foundation iyo type-university">
+                <a class="uni-card" href="./uk-exeter.html" data-qs="155" data-fee="24900" data-name="엑시터대학교" data-name-en="University of Exeter" data-search="엑시터대학교 university of exeter exeter" data-pw="direct foundation iyo type-university" data-mcat="경영·경제|공학|교육·인문·사회|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-exeter-logo.svg" alt="엑시터대학교 로고" data-en-alt="University of Exeter logo"><span class="qs-badge" data-en="QS #155">QS 155위</span></div>
                     <h2 data-en="University of Exeter">엑시터대학교</h2>
                     <p class="card-en" data-en="엑시터대학교">University of Exeter</p>
@@ -298,7 +317,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lse.html" data-qs="56" data-fee="28900" data-name="런던정치경제대학교(LSE)" data-name-en="The London School of Economics and Political Science" data-search="런던정치경제대학교(lse) the london school of economics and political science london" data-pw="direct direct-only type-university">
+                <a class="uni-card" href="./uk-lse.html" data-qs="56" data-fee="28900" data-name="런던정치경제대학교(LSE)" data-name-en="The London School of Economics and Political Science" data-search="런던정치경제대학교(lse) the london school of economics and political science london" data-pw="direct direct-only type-university" data-mcat="경영·경제|교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-lse-logo.svg" alt="런던정치경제대학교(LSE) 로고" data-en-alt="The London School of Economics and Political Science logo"><span class="qs-badge" data-en="QS #56">QS 56위</span></div>
                     <h2 data-en="The London School of Economics and Political Science">런던정치경제대학교(LSE)</h2>
                     <p class="card-en" data-en="런던정치경제대학교(LSE)">The London School of Economics and Political Science</p>
@@ -309,7 +328,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-imperial.html" data-qs="2" data-fee="42700" data-name="임페리얼칼리지런던" data-name-en="Imperial College London" data-search="임페리얼칼리지런던 imperial college london london" data-pw="direct direct-only type-university">
+                <a class="uni-card" href="./uk-imperial.html" data-qs="2" data-fee="42700" data-name="임페리얼칼리지런던" data-name-en="Imperial College London" data-search="임페리얼칼리지런던 imperial college london london" data-pw="direct direct-only type-university" data-mcat="IT·컴퓨터|공학|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-imperial-logo.svg" alt="임페리얼칼리지런던 로고" data-en-alt="Imperial College London logo"><span class="qs-badge" data-en="QS #2">QS 2위</span></div>
                     <h2 data-en="Imperial College London">임페리얼칼리지런던</h2>
                     <p class="card-en" data-en="임페리얼칼리지런던">Imperial College London</p>
@@ -320,7 +339,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-bath.html" data-qs="113" data-fee="25400" data-name="바스대학교" data-name-en="University of Bath" data-search="바스대학교 university of bath bath" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-bath.html" data-qs="113" data-fee="25400" data-name="바스대학교" data-name-en="University of Bath" data-search="바스대학교 university of bath bath" data-pw="direct foundation type-university" data-mcat="경영·경제|공학|교육·인문·사회|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-bath-logo.svg" alt="바스대학교 로고" data-en-alt="University of Bath logo"><span class="qs-badge" data-en="QS #113">QS 113위</span></div>
                     <h2 data-en="University of Bath">바스대학교</h2>
                     <p class="card-en" data-en="바스대학교">University of Bath</p>
@@ -331,7 +350,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-sheffield.html" data-qs="92" data-fee="23810" data-name="셰필드대학교" data-name-en="The University of Sheffield" data-search="셰필드대학교 the university of sheffield sheffield" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-sheffield.html" data-qs="92" data-fee="23810" data-name="셰필드대학교" data-name-en="The University of Sheffield" data-search="셰필드대학교 the university of sheffield sheffield" data-pw="direct foundation type-university" data-mcat="경영·경제|공학|미디어·커뮤니케이션|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-sheffield-logo.svg" alt="셰필드대학교 로고" data-en-alt="The University of Sheffield logo"><span class="qs-badge" data-en="QS #92">QS 92위</span></div>
                     <h2 data-en="The University of Sheffield">셰필드대학교</h2>
                     <p class="card-en" data-en="셰필드대학교">The University of Sheffield</p>
@@ -342,7 +361,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-glasgow.html" data-qs="79" data-fee="27720" data-name="글래스고대학교" data-name-en="University of Glasgow" data-search="글래스고대학교 university of glasgow glasgow" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-glasgow.html" data-qs="79" data-fee="27720" data-name="글래스고대학교" data-name-en="University of Glasgow" data-search="글래스고대학교 university of glasgow glasgow" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|공학|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-glasgow-logo.png" alt="글래스고대학교 로고" data-en-alt="University of Glasgow logo"><span class="qs-badge" data-en="QS #79">QS 79위</span></div>
                     <h2 data-en="University of Glasgow">글래스고대학교</h2>
                     <p class="card-en" data-en="글래스고대학교">University of Glasgow</p>
@@ -353,7 +372,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-durham.html" data-qs="94" data-fee="28500" data-name="더럼대학교" data-name-en="Durham University" data-search="더럼대학교 durham university durham" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-durham.html" data-qs="94" data-fee="28500" data-name="더럼대학교" data-name-en="Durham University" data-search="더럼대학교 durham university durham" data-pw="direct foundation iyo pre-master type-university" data-mcat="경영·경제|교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-durham-logo.svg" alt="더럼대학교 로고" data-en-alt="Durham University logo"><span class="qs-badge" data-en="QS #94">QS 94위</span></div>
                     <h2 data-en="Durham University">더럼대학교</h2>
                     <p class="card-en" data-en="더럼대학교">Durham University</p>
@@ -364,7 +383,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-southampton.html" data-qs="87" data-fee="24000" data-name="사우스햄튼대학교" data-name-en="University of Southampton" data-search="사우스햄튼대학교 university of southampton southampton" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-southampton.html" data-qs="87" data-fee="24000" data-name="사우스햄튼대학교" data-name-en="University of Southampton" data-search="사우스햄튼대학교 university of southampton southampton" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|공학|보건·의약|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-southampton-logo.svg" alt="사우스햄튼대학교 로고" data-en-alt="University of Southampton logo"><span class="qs-badge" data-en="QS #87">QS 87위</span></div>
                     <h2 data-en="University of Southampton">사우스햄튼대학교</h2>
                     <p class="card-en" data-en="사우스햄튼대학교">University of Southampton</p>
@@ -375,7 +394,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-newcastle.html" data-qs="137" data-fee="24400" data-name="뉴캐슬대학교" data-name-en="Newcastle University" data-search="뉴캐슬대학교 newcastle university newcastle upon tyne" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-newcastle.html" data-qs="137" data-fee="24400" data-name="뉴캐슬대학교" data-name-en="Newcastle University" data-search="뉴캐슬대학교 newcastle university newcastle upon tyne" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|미디어·커뮤니케이션|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-newcastle-logo.svg" alt="뉴캐슬대학교 로고" data-en-alt="Newcastle University logo"><span class="qs-badge" data-en="QS #137">QS 137위</span></div>
                     <h2 data-en="Newcastle University">뉴캐슬대학교</h2>
                     <p class="card-en" data-en="뉴캐슬대학교">Newcastle University</p>
@@ -386,7 +405,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lancaster.html" data-qs="157" data-fee="24500" data-name="랭커스터대학교" data-name-en="Lancaster University" data-search="랭커스터대학교 lancaster university lancaster" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-lancaster.html" data-qs="157" data-fee="24500" data-name="랭커스터대학교" data-name-en="Lancaster University" data-search="랭커스터대학교 lancaster university lancaster" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-lancaster-logo.svg" alt="랭커스터대학교 로고" data-en-alt="Lancaster University logo"><span class="qs-badge" data-en="QS #157">QS 157위</span></div>
                     <h2 data-en="Lancaster University">랭커스터대학교</h2>
                     <p class="card-en" data-en="랭커스터대학교">Lancaster University</p>
@@ -397,7 +416,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-york.html" data-qs="169" data-fee="26900" data-name="요크대학교" data-name-en="University of York" data-search="요크대학교 university of york york" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-york.html" data-qs="169" data-fee="26900" data-name="요크대학교" data-name-en="University of York" data-search="요크대학교 university of york york" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-york-logo.svg" alt="요크대학교 로고" data-en-alt="University of York logo"><span class="qs-badge" data-en="QS #169">QS 169위</span></div>
                     <h2 data-en="University of York">요크대학교</h2>
                     <p class="card-en" data-en="요크대학교">University of York</p>
@@ -408,7 +427,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cardiff.html" data-qs="181" data-fee="22450" data-name="카디프대학교" data-name-en="Cardiff University" data-search="카디프대학교 cardiff university cardiff" data-pw="direct foundation iyo type-university">
+                <a class="uni-card" href="./uk-cardiff.html" data-qs="181" data-fee="22450" data-name="카디프대학교" data-name-en="Cardiff University" data-search="카디프대학교 cardiff university cardiff" data-pw="direct foundation iyo type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|미디어·커뮤니케이션|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-cardiff-logo.svg" alt="카디프대학교 로고" data-en-alt="Cardiff University logo"><span class="qs-badge" data-en="QS #181">QS 181위</span></div>
                     <h2 data-en="Cardiff University">카디프대학교</h2>
                     <p class="card-en" data-en="카디프대학교">Cardiff University</p>
@@ -419,7 +438,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-liverpool.html" data-qs="147" data-fee="27000" data-name="리버풀대학교" data-name-en="University of Liverpool" data-search="리버풀대학교 university of liverpool liverpool" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-liverpool.html" data-qs="147" data-fee="27000" data-name="리버풀대학교" data-name-en="University of Liverpool" data-search="리버풀대학교 university of liverpool liverpool" data-pw="direct foundation pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|보건·의약|예술·디자인·건축|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-liverpool-logo.svg" alt="리버풀대학교 로고" data-en-alt="University of Liverpool logo"><span class="qs-badge" data-en="QS #147">QS 147위</span></div>
                     <h2 data-en="University of Liverpool">리버풀대학교</h2>
                     <p class="card-en" data-en="리버풀대학교">University of Liverpool</p>
@@ -430,7 +449,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-surrey.html" data-qs="262" data-fee="22900" data-name="서리대학교" data-name-en="University of Surrey" data-search="서리대학교 university of surrey guildford" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-surrey.html" data-qs="262" data-fee="22900" data-name="서리대학교" data-name-en="University of Surrey" data-search="서리대학교 university of surrey guildford" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|공학|보건·의약|예술·디자인·건축|호텔·조리·관광">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-surrey-logo.png" alt="서리대학교 로고" data-en-alt="University of Surrey logo"><span class="qs-badge" data-en="QS #262">QS 262위</span></div>
                     <h2 data-en="University of Surrey">서리대학교</h2>
                     <p class="card-en" data-en="서리대학교">University of Surrey</p>
@@ -441,7 +460,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-sussex.html" data-qs="278" data-fee="23500" data-name="서식스대학교" data-name-en="University of Sussex" data-search="서식스대학교 university of sussex brighton" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-sussex.html" data-qs="278" data-fee="23500" data-name="서식스대학교" data-name-en="University of Sussex" data-search="서식스대학교 university of sussex brighton" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|교육·인문·사회|미디어·커뮤니케이션|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-sussex-logo.svg" alt="서식스대학교 로고" data-en-alt="University of Sussex logo"><span class="qs-badge" data-en="QS #278">QS 278위</span></div>
                     <h2 data-en="University of Sussex">서식스대학교</h2>
                     <p class="card-en" data-en="서식스대학교">University of Sussex</p>
@@ -452,7 +471,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-leicester.html" data-qs="326" data-fee="22200" data-name="레스터대학교" data-name-en="University of Leicester" data-search="레스터대학교 university of leicester leicester" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-leicester.html" data-qs="326" data-fee="22200" data-name="레스터대학교" data-name-en="University of Leicester" data-search="레스터대학교 university of leicester leicester" data-pw="direct foundation type-university" data-mcat="경영·경제|교육·인문·사회|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-leicester-logo.svg" alt="레스터대학교 로고" data-en-alt="University of Leicester logo"><span class="qs-badge" data-en="QS #326">QS 326위</span></div>
                     <h2 data-en="University of Leicester">레스터대학교</h2>
                     <p class="card-en" data-en="레스터대학교">University of Leicester</p>
@@ -463,7 +482,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-qmul.html" data-qs="110" data-fee="25000" data-name="퀸메리런던대학교(QMUL)" data-name-en="Queen Mary University of London" data-search="퀸메리런던대학교(qmul) queen mary university of london london" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-qmul.html" data-qs="110" data-fee="25000" data-name="퀸메리런던대학교(QMUL)" data-name-en="Queen Mary University of London" data-search="퀸메리런던대학교(qmul) queen mary university of london london" data-pw="direct foundation pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-qmul-logo.png" alt="퀸메리런던대학교(QMUL) 로고" data-en-alt="Queen Mary University of London logo"><span class="qs-badge" data-en="QS #110">QS 110위</span></div>
                     <h2 data-en="Queen Mary University of London">퀸메리런던대학교(QMUL)</h2>
                     <p class="card-en" data-en="퀸메리런던대학교(QMUL)">Queen Mary University of London</p>
@@ -474,7 +493,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-reading.html" data-qs="194" data-fee="25850" data-name="리딩대학교" data-name-en="University of Reading" data-search="리딩대학교 university of reading reading" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-reading.html" data-qs="194" data-fee="25850" data-name="리딩대학교" data-name-en="University of Reading" data-search="리딩대학교 university of reading reading" data-pw="direct foundation type-university" data-mcat="경영·경제|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-reading-logo.png" alt="리딩대학교 로고" data-en-alt="University of Reading logo"><span class="qs-badge" data-en="QS #194">QS 194위</span></div>
                     <h2 data-en="University of Reading">리딩대학교</h2>
                     <p class="card-en" data-en="리딩대학교">University of Reading</p>
@@ -485,7 +504,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-royal-holloway.html" data-qs="461" data-fee="25900" data-name="로열홀로웨이런던대학교" data-name-en="Royal Holloway, University of London" data-search="로열홀로웨이런던대학교 royal holloway, university of london egham" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-royal-holloway.html" data-qs="461" data-fee="25900" data-name="로열홀로웨이런던대학교" data-name-en="Royal Holloway, University of London" data-search="로열홀로웨이런던대학교 royal holloway, university of london egham" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|미디어·커뮤니케이션|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-royal-holloway-logo.png" alt="로열홀로웨이런던대학교 로고" data-en-alt="Royal Holloway, University of London logo"><span class="qs-badge" data-en="QS #461">QS 461위</span></div>
                     <h2 data-en="Royal Holloway, University of London">로열홀로웨이런던대학교</h2>
                     <p class="card-en" data-en="로열홀로웨이런던대학교">Royal Holloway, University of London</p>
@@ -496,7 +515,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-city.html" data-qs="310" data-fee="19500" data-name="시티세인트조지스런던대학교" data-name-en="City St George's, University of London" data-search="시티세인트조지스런던대학교 city st george's, university of london london" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-city.html" data-qs="310" data-fee="19500" data-name="시티세인트조지스런던대학교" data-name-en="City St George's, University of London" data-search="시티세인트조지스런던대학교 city st george's, university of london london" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|미디어·커뮤니케이션|법·정치·국제|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-city-logo.svg" alt="시티세인트조지스런던대학교 로고" data-en-alt="City St George's, University of London logo"><span class="qs-badge" data-en="QS #310">QS 310위</span></div>
                     <h2 data-en="City St George's, University of London">시티세인트조지스런던대학교</h2>
                     <p class="card-en" data-en="시티세인트조지스런던대학교">City St George's, University of London</p>
@@ -507,7 +526,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-brunel.html" data-qs="385" data-fee="19320" data-name="브루넬런던대학교" data-name-en="Brunel University of London" data-search="브루넬런던대학교 brunel university of london london" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-brunel.html" data-qs="385" data-fee="19320" data-name="브루넬런던대학교" data-name-en="Brunel University of London" data-search="브루넬런던대학교 brunel university of london london" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|공학|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-brunel-logo.png" alt="브루넬런던대학교 로고" data-en-alt="Brunel University of London logo"><span class="qs-badge" data-en="QS #385">QS 385위</span></div>
                     <h2 data-en="Brunel University of London">브루넬런던대학교</h2>
                     <p class="card-en" data-en="브루넬런던대학교">Brunel University of London</p>
@@ -518,7 +537,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-oxford.html" data-qs="4" data-fee="37380" data-name="옥스퍼드대학교" data-name-en="University of Oxford" data-search="옥스퍼드대학교 university of oxford oxford" data-pw="direct direct-only type-university">
+                <a class="uni-card" href="./uk-oxford.html" data-qs="4" data-fee="37380" data-name="옥스퍼드대학교" data-name-en="University of Oxford" data-search="옥스퍼드대학교 university of oxford oxford" data-pw="direct direct-only type-university" data-mcat="IT·컴퓨터|교육·인문·사회|법·정치·국제|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-logo.svg" alt="옥스퍼드대학교 로고" data-en-alt="University of Oxford logo"><span class="qs-badge" data-en="QS #4">QS 4위</span></div>
                     <h2 data-en="University of Oxford">옥스퍼드대학교</h2>
                     <p class="card-en" data-en="옥스퍼드대학교">University of Oxford</p>
@@ -529,7 +548,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cambridge.html" data-qs="6" data-fee="29052" data-name="케임브리지대학교" data-name-en="University of Cambridge" data-search="케임브리지대학교 university of cambridge cambridge" data-pw="direct direct-only type-university">
+                <a class="uni-card" href="./uk-cambridge.html" data-qs="6" data-fee="29052" data-name="케임브리지대학교" data-name-en="University of Cambridge" data-search="케임브리지대학교 university of cambridge cambridge" data-pw="direct direct-only type-university" data-mcat="IT·컴퓨터|경영·경제|공학|법·정치·국제|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-cambridge-logo.svg" alt="케임브리지대학교 로고" data-en-alt="University of Cambridge logo"><span class="qs-badge" data-en="QS #6">QS 6위</span></div>
                     <h2 data-en="University of Cambridge">케임브리지대학교</h2>
                     <p class="card-en" data-en="케임브리지대학교">University of Cambridge</p>
@@ -540,7 +559,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-st-andrews.html" data-qs="113" data-fee="33250" data-name="세인트앤드루스대학교" data-name-en="University of St Andrews" data-search="세인트앤드루스대학교 university of st andrews st andrews" data-pw="direct direct-only type-university">
+                <a class="uni-card" href="./uk-st-andrews.html" data-qs="113" data-fee="33250" data-name="세인트앤드루스대학교" data-name-en="University of St Andrews" data-search="세인트앤드루스대학교 university of st andrews st andrews" data-pw="direct direct-only type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-st-andrews-logo.svg" alt="세인트앤드루스대학교 로고" data-en-alt="University of St Andrews logo"><span class="qs-badge" data-en="QS #113">QS 113위</span></div>
                     <h2 data-en="University of St Andrews">세인트앤드루스대학교</h2>
                     <p class="card-en" data-en="세인트앤드루스대학교">University of St Andrews</p>
@@ -551,7 +570,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-soas.html" data-qs="" data-fee="21990" data-name="소아스런던대학교(SOAS)" data-name-en="SOAS University of London" data-search="소아스런던대학교(soas) soas university of london london" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-soas.html" data-qs="" data-fee="21990" data-name="소아스런던대학교(SOAS)" data-name-en="SOAS University of London" data-search="소아스런던대학교(soas) soas university of london london" data-pw="direct foundation pre-master type-university" data-mcat="교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-soas-logo.png" alt="소아스런던대학교(SOAS) 로고" data-en-alt="SOAS University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="SOAS University of London">소아스런던대학교(SOAS)</h2>
                     <p class="card-en" data-en="소아스런던대학교(SOAS)">SOAS University of London</p>
@@ -562,7 +581,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-goldsmiths.html" data-qs="" data-fee="19640" data-name="골드스미스런던대학교" data-name-en="Goldsmiths, University of London" data-search="골드스미스런던대학교 goldsmiths, university of london london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-goldsmiths.html" data-qs="" data-fee="19640" data-name="골드스미스런던대학교" data-name-en="Goldsmiths, University of London" data-search="골드스미스런던대학교 goldsmiths, university of london london" data-pw="direct foundation type-university" data-mcat="교육·인문·사회|미디어·커뮤니케이션|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-goldsmiths-logo.svg" alt="골드스미스런던대학교 로고" data-en-alt="Goldsmiths, University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Goldsmiths, University of London">골드스미스런던대학교</h2>
                     <p class="card-en" data-en="골드스미스런던대학교">Goldsmiths, University of London</p>
@@ -573,7 +592,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-birkbeck.html" data-qs="388" data-fee="18500" data-name="버크벡런던대학교" data-name-en="Birkbeck, University of London" data-search="버크벡런던대학교 birkbeck, university of london london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-birkbeck.html" data-qs="388" data-fee="18500" data-name="버크벡런던대학교" data-name-en="Birkbeck, University of London" data-search="버크벡런던대학교 birkbeck, university of london london" data-pw="direct foundation type-university" data-mcat="경영·경제|교육·인문·사회|법·정치·국제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-birkbeck-logo.png" alt="버크벡런던대학교 로고" data-en-alt="Birkbeck, University of London logo"><span class="qs-badge" data-en="QS #388">QS 388위</span></div>
                     <h2 data-en="Birkbeck, University of London">버크벡런던대학교</h2>
                     <p class="card-en" data-en="버크벡런던대학교">Birkbeck, University of London</p>
@@ -584,7 +603,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-cranfield.html" data-qs="" data-fee="18720" data-name="크랜필드대학교" data-name-en="Cranfield University" data-search="크랜필드대학교 cranfield university cranfield" data-pw="direct direct-only pre-master type-university">
+                <a class="uni-card" href="./uk-cranfield.html" data-qs="" data-fee="18720" data-name="크랜필드대학교" data-name-en="Cranfield University" data-search="크랜필드대학교 cranfield university cranfield" data-pw="direct direct-only pre-master type-university" data-mcat="경영·경제|공학|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-cranfield-logo.svg" alt="크랜필드대학교 로고" data-en-alt="Cranfield University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Cranfield University">크랜필드대학교</h2>
                     <p class="card-en" data-en="크랜필드대학교">Cranfield University</p>
@@ -595,7 +614,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-lbs.html" data-qs="" data-fee="52950" data-name="런던비즈니스스쿨(LBS)" data-name-en="London Business School" data-search="런던비즈니스스쿨(lbs) london business school london" data-pw="direct direct-only type-specialty">
+                <a class="uni-card" href="./uk-lbs.html" data-qs="" data-fee="52950" data-name="런던비즈니스스쿨(LBS)" data-name-en="London Business School" data-search="런던비즈니스스쿨(lbs) london business school london" data-pw="direct direct-only type-specialty" data-mcat="경영·경제">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-lbs-logo.svg" alt="런던비즈니스스쿨(LBS) 로고" data-en-alt="London Business School logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="London Business School">런던비즈니스스쿨(LBS)</h2>
                     <p class="card-en" data-en="런던비즈니스스쿨(LBS)">London Business School</p>
@@ -606,7 +625,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-rvc.html" data-qs="" data-fee="18870" data-name="로열수의과대학(RVC)" data-name-en="Royal Veterinary College, University of London" data-search="로열수의과대학(rvc) royal veterinary college, university of london london" data-pw="direct direct-only type-specialty">
+                <a class="uni-card" href="./uk-rvc.html" data-qs="" data-fee="18870" data-name="로열수의과대학(RVC)" data-name-en="Royal Veterinary College, University of London" data-search="로열수의과대학(rvc) royal veterinary college, university of london london" data-pw="direct direct-only type-specialty" data-mcat="보건·의약|자연과학·환경">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-rvc-logo.png" alt="로열수의과대학(RVC) 로고" data-en-alt="Royal Veterinary College, University of London logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Royal Veterinary College, University of London">로열수의과대학(RVC)</h2>
                     <p class="card-en" data-en="로열수의과대학(RVC)">Royal Veterinary College, University of London</p>
@@ -617,7 +636,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-aston.html" data-qs="395" data-fee="20850" data-name="아스턴대학교" data-name-en="Aston University" data-search="아스턴대학교 aston university birmingham" data-pw="direct foundation iyo type-university">
+                <a class="uni-card" href="./uk-aston.html" data-qs="395" data-fee="20850" data-name="아스턴대학교" data-name-en="Aston University" data-search="아스턴대학교 aston university birmingham" data-pw="direct foundation iyo type-university" data-mcat="경영·경제|공학|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-aston-logo.svg" alt="아스턴대학교 로고" data-en-alt="Aston University logo"><span class="qs-badge" data-en="QS #395">QS 395위</span></div>
                     <h2 data-en="Aston University">아스턴대학교</h2>
                     <p class="card-en" data-en="아스턴대학교">Aston University</p>
@@ -628,7 +647,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-oxford-brookes.html" data-qs="374" data-fee="18250" data-name="옥스퍼드브룩스대학교" data-name-en="Oxford Brookes University" data-search="옥스퍼드브룩스대학교 oxford brookes university oxford" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-oxford-brookes.html" data-qs="374" data-fee="18250" data-name="옥스퍼드브룩스대학교" data-name-en="Oxford Brookes University" data-search="옥스퍼드브룩스대학교 oxford brookes university oxford" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|공학|예술·디자인·건축|호텔·조리·관광">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-oxford-brookes-logo.svg" alt="옥스퍼드브룩스대학교 로고" data-en-alt="Oxford Brookes University logo"><span class="qs-badge" data-en="QS #374">QS 374위</span></div>
                     <h2 data-en="Oxford Brookes University">옥스퍼드브룩스대학교</h2>
                     <p class="card-en" data-en="옥스퍼드브룩스대학교">Oxford Brookes University</p>
@@ -639,7 +658,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-westminster.html" data-qs="" data-fee="17600" data-name="웨스트민스터대학교" data-name-en="University of Westminster" data-search="웨스트민스터대학교 university of westminster london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-westminster.html" data-qs="" data-fee="17600" data-name="웨스트민스터대학교" data-name-en="University of Westminster" data-search="웨스트민스터대학교 university of westminster london" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|미디어·커뮤니케이션|법·정치·국제|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-westminster-logo.svg" alt="웨스트민스터대학교 로고" data-en-alt="University of Westminster logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="University of Westminster">웨스트민스터대학교</h2>
                     <p class="card-en" data-en="웨스트민스터대학교">University of Westminster</p>
@@ -650,7 +669,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-northumbria.html" data-qs="" data-fee="19850" data-name="노섬브리아대학교" data-name-en="Northumbria University" data-search="노섬브리아대학교 northumbria university newcastle upon tyne" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-northumbria.html" data-qs="" data-fee="19850" data-name="노섬브리아대학교" data-name-en="Northumbria University" data-search="노섬브리아대학교 northumbria university newcastle upon tyne" data-pw="direct foundation pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-northumbria-logo.svg" alt="노섬브리아대학교 로고" data-en-alt="Northumbria University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Northumbria University">노섬브리아대학교</h2>
                     <p class="card-en" data-en="노섬브리아대학교">Northumbria University</p>
@@ -661,7 +680,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-middlesex.html" data-qs="" data-fee="17200" data-name="미들섹스대학교" data-name-en="Middlesex University" data-search="미들섹스대학교 middlesex university london" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-middlesex.html" data-qs="" data-fee="17200" data-name="미들섹스대학교" data-name-en="Middlesex University" data-search="미들섹스대학교 middlesex university london" data-pw="direct foundation type-university" data-mcat="IT·컴퓨터|경영·경제|법·정치·국제|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-middlesex-logo.png" alt="미들섹스대학교 로고" data-en-alt="Middlesex University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Middlesex University">미들섹스대학교</h2>
                     <p class="card-en" data-en="미들섹스대학교">Middlesex University</p>
@@ -672,7 +691,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-uclan.html" data-qs="" data-fee="17750" data-name="센트럴랭커셔대학교(UCLan)" data-name-en="University of Central Lancashire (UCLan)" data-search="센트럴랭커셔대학교(uclan) university of central lancashire (uclan) preston" data-pw="direct foundation type-university">
+                <a class="uni-card" href="./uk-uclan.html" data-qs="" data-fee="17750" data-name="센트럴랭커셔대학교(UCLan)" data-name-en="University of Central Lancashire (UCLan)" data-search="센트럴랭커셔대학교(uclan) university of central lancashire (uclan) preston" data-pw="direct foundation type-university" data-mcat="경영·경제|공학|미디어·커뮤니케이션|보건·의약">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-uclan-logo.svg" alt="센트럴랭커셔대학교(UCLan) 로고" data-en-alt="University of Central Lancashire (UCLan) logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="University of Central Lancashire (UCLan)">센트럴랭커셔대학교(UCLan)</h2>
                     <p class="card-en" data-en="센트럴랭커셔대학교(UCLan)">University of Central Lancashire (UCLan)</p>
@@ -683,7 +702,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-dmu.html" data-qs="" data-fee="16800" data-name="드몽포트대학교(DMU)" data-name-en="De Montfort University" data-search="드몽포트대학교(dmu) de montfort university leicester" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-dmu.html" data-qs="" data-fee="16800" data-name="드몽포트대학교(DMU)" data-name-en="De Montfort University" data-search="드몽포트대학교(dmu) de montfort university leicester" data-pw="direct foundation pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-dmu-logo.svg" alt="드몽포트대학교(DMU) 로고" data-en-alt="De Montfort University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="De Montfort University">드몽포트대학교(DMU)</h2>
                     <p class="card-en" data-en="드몽포트대학교(DMU)">De Montfort University</p>
@@ -694,7 +713,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-anglia-ruskin.html" data-qs="" data-fee="16700" data-name="앵글리아러스킨대학교" data-name-en="Anglia Ruskin University" data-search="앵글리아러스킨대학교 anglia ruskin university cambridge / chelmsford" data-pw="direct foundation iyo pre-master type-university">
+                <a class="uni-card" href="./uk-anglia-ruskin.html" data-qs="" data-fee="16700" data-name="앵글리아러스킨대학교" data-name-en="Anglia Ruskin University" data-search="앵글리아러스킨대학교 anglia ruskin university cambridge / chelmsford" data-pw="direct foundation iyo pre-master type-university" data-mcat="IT·컴퓨터|경영·경제|교육·인문·사회|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-anglia-ruskin-logo.svg" alt="앵글리아러스킨대학교 로고" data-en-alt="Anglia Ruskin University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Anglia Ruskin University">앵글리아러스킨대학교</h2>
                     <p class="card-en" data-en="앵글리아러스킨대학교">Anglia Ruskin University</p>
@@ -705,7 +724,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./uk-ljmu.html" data-qs="" data-fee="16000" data-name="리버풀존무어스대학교(LJMU)" data-name-en="Liverpool John Moores University" data-search="리버풀존무어스대학교(ljmu) liverpool john moores university liverpool" data-pw="direct foundation pre-master type-university">
+                <a class="uni-card" href="./uk-ljmu.html" data-qs="" data-fee="16000" data-name="리버풀존무어스대학교(LJMU)" data-name-en="Liverpool John Moores University" data-search="리버풀존무어스대학교(ljmu) liverpool john moores university liverpool" data-pw="direct foundation pre-master type-university" data-mcat="경영·경제|공학|미디어·커뮤니케이션|보건·의약|예술·디자인·건축">
                     <div class="card-top"><img class="card-logo" src="../images/uni/uk-ljmu-logo.svg" alt="리버풀존무어스대학교(LJMU) 로고" data-en-alt="Liverpool John Moores University logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Liverpool John Moores University">리버풀존무어스대학교(LJMU)</h2>
                     <p class="card-en" data-en="리버풀존무어스대학교(LJMU)">Liverpool John Moores University</p>
@@ -766,6 +785,7 @@
         var empty = document.getElementById('empty');
         var sortKey = 'qs';
         var pwFilter = '';
+        var mcatFilter = '';
 
         function num(el, attr) {
             var v = parseFloat(el.getAttribute(attr));
@@ -783,7 +803,8 @@
             var shown = 0;
             cards.forEach(function (c) {
                 var hit = (!term || c.getAttribute('data-search').indexOf(term) > -1) &&
-                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1);
+                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1) &&
+                    (!mcatFilter || ('|' + (c.getAttribute('data-mcat') || '') + '|').indexOf('|' + mcatFilter + '|') > -1);
                 c.classList.toggle('is-hidden', !hit);
                 if (hit) shown++;
                 grid.appendChild(c);
@@ -801,6 +822,15 @@
                 render();
             });
         });
+        // 전공 계열 드롭다운
+        var mf = document.getElementById('mf');
+        if (mf) {
+            mf.addEventListener('change', function () {
+                mcatFilter = mf.value;
+                mf.classList.toggle('is-active', !!mcatFilter);
+                render();
+            });
+        }
         // 경로 필터 — 하나만 선택, 다시 누르면 해제
         document.querySelectorAll('.filter-btn').forEach(function (btn) {
             btn.addEventListener('click', function () {
