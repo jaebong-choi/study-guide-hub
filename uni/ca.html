@@ -93,6 +93,10 @@
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
         }
         .sort-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+        .filter-cap { font-size: 13px; font-weight: 600; color: var(--mute); margin-right: 2px; }
+        .filter-btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
+        .filter-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
         .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
 
         .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
@@ -160,13 +164,19 @@
                         <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
                     </div>
                 </div>
+                <div class="filter-row" role="group" aria-label="진학 경로 필터" data-en-aria="Entry route filter">
+                        <span class="filter-cap" data-en="Entry routes">진학 경로</span>
+                        <button type="button" class="sort-btn filter-btn" data-f="type-college" aria-pressed="false" data-en="Colleges">컬리지</button>
+                        <button type="button" class="sort-btn filter-btn" data-f="type-university" aria-pressed="false" data-en="Universities">4년제 대학</button>
+                        <button type="button" class="sort-btn filter-btn" data-f="transfer" aria-pressed="false" data-en="University transfer route">대학 편입 연계</button>
+                    </div>
                 <p class="result-count" id="count"></p>
             </div>
         </section>
 
         <div class="container">
             <div class="uni-grid" id="grid">
-                <a class="uni-card" href="./ca-seneca.html" data-qs="" data-fee="16400" data-name="세네카 폴리테크닉" data-name-en="Seneca Polytechnic" data-search="세네카 폴리테크닉 seneca polytechnic toronto">
+                <a class="uni-card" href="./ca-seneca.html" data-qs="" data-fee="16400" data-name="세네카 폴리테크닉" data-name-en="Seneca Polytechnic" data-search="세네카 폴리테크닉 seneca polytechnic toronto" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-seneca-logo.svg" alt="세네카 폴리테크닉 로고" data-en-alt="Seneca Polytechnic logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Seneca Polytechnic">세네카 폴리테크닉</h2>
                     <p class="card-en" data-en="세네카 폴리테크닉">Seneca Polytechnic</p>
@@ -177,7 +187,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-humber.html" data-qs="" data-fee="" data-name="험버 폴리테크닉" data-name-en="Humber Polytechnic" data-search="험버 폴리테크닉 humber polytechnic toronto">
+                <a class="uni-card" href="./ca-humber.html" data-qs="" data-fee="" data-name="험버 폴리테크닉" data-name-en="Humber Polytechnic" data-search="험버 폴리테크닉 humber polytechnic toronto" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-humber-logo.svg" alt="험버 폴리테크닉 로고" data-en-alt="Humber Polytechnic logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Humber Polytechnic">험버 폴리테크닉</h2>
                     <p class="card-en" data-en="험버 폴리테크닉">Humber Polytechnic</p>
@@ -188,7 +198,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-george-brown.html" data-qs="" data-fee="19300" data-name="조지브라운 폴리테크닉" data-name-en="George Brown Polytechnic" data-search="조지브라운 폴리테크닉 george brown polytechnic toronto">
+                <a class="uni-card" href="./ca-george-brown.html" data-qs="" data-fee="19300" data-name="조지브라운 폴리테크닉" data-name-en="George Brown Polytechnic" data-search="조지브라운 폴리테크닉 george brown polytechnic toronto" data-pw="college type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-george-brown-logo.svg" alt="조지브라운 폴리테크닉 로고" data-en-alt="George Brown Polytechnic logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="George Brown Polytechnic">조지브라운 폴리테크닉</h2>
                     <p class="card-en" data-en="조지브라운 폴리테크닉">George Brown Polytechnic</p>
@@ -199,7 +209,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-centennial.html" data-qs="" data-fee="17100" data-name="센테니얼 컬리지" data-name-en="Centennial College" data-search="센테니얼 컬리지 centennial college toronto (scarborough)">
+                <a class="uni-card" href="./ca-centennial.html" data-qs="" data-fee="17100" data-name="센테니얼 컬리지" data-name-en="Centennial College" data-search="센테니얼 컬리지 centennial college toronto (scarborough)" data-pw="college type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-centennial-logo.svg" alt="센테니얼 컬리지 로고" data-en-alt="Centennial College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Centennial College">센테니얼 컬리지</h2>
                     <p class="card-en" data-en="센테니얼 컬리지">Centennial College</p>
@@ -210,7 +220,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-sheridan.html" data-qs="" data-fee="17500" data-name="셰리든 컬리지" data-name-en="Sheridan College" data-search="셰리든 컬리지 sheridan college oakville">
+                <a class="uni-card" href="./ca-sheridan.html" data-qs="" data-fee="17500" data-name="셰리든 컬리지" data-name-en="Sheridan College" data-search="셰리든 컬리지 sheridan college oakville" data-pw="college type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-sheridan-logo.svg" alt="셰리든 컬리지 로고" data-en-alt="Sheridan College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Sheridan College">셰리든 컬리지</h2>
                     <p class="card-en" data-en="셰리든 컬리지">Sheridan College</p>
@@ -221,7 +231,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-fanshawe.html" data-qs="" data-fee="17700" data-name="팬쇼 컬리지" data-name-en="Fanshawe College" data-search="팬쇼 컬리지 fanshawe college london (ontario)">
+                <a class="uni-card" href="./ca-fanshawe.html" data-qs="" data-fee="17700" data-name="팬쇼 컬리지" data-name-en="Fanshawe College" data-search="팬쇼 컬리지 fanshawe college london (ontario)" data-pw="college type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-fanshawe-logo.png" alt="팬쇼 컬리지 로고" data-en-alt="Fanshawe College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Fanshawe College">팬쇼 컬리지</h2>
                     <p class="card-en" data-en="팬쇼 컬리지">Fanshawe College</p>
@@ -232,7 +242,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-niagara.html" data-qs="" data-fee="" data-name="나이아가라 컬리지" data-name-en="Niagara College" data-search="나이아가라 컬리지 niagara college welland">
+                <a class="uni-card" href="./ca-niagara.html" data-qs="" data-fee="" data-name="나이아가라 컬리지" data-name-en="Niagara College" data-search="나이아가라 컬리지 niagara college welland" data-pw="college type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-niagara-logo.png" alt="나이아가라 컬리지 로고" data-en-alt="Niagara College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Niagara College">나이아가라 컬리지</h2>
                     <p class="card-en" data-en="나이아가라 컬리지">Niagara College</p>
@@ -243,7 +253,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-vcc.html" data-qs="" data-fee="" data-name="밴쿠버 커뮤니티 컬리지(VCC)" data-name-en="Vancouver Community College" data-search="밴쿠버 커뮤니티 컬리지(vcc) vancouver community college vancouver">
+                <a class="uni-card" href="./ca-vcc.html" data-qs="" data-fee="" data-name="밴쿠버 커뮤니티 컬리지(VCC)" data-name-en="Vancouver Community College" data-search="밴쿠버 커뮤니티 컬리지(vcc) vancouver community college vancouver" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-vcc-logo.svg" alt="밴쿠버 커뮤니티 컬리지(VCC) 로고" data-en-alt="Vancouver Community College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Vancouver Community College">밴쿠버 커뮤니티 컬리지(VCC)</h2>
                     <p class="card-en" data-en="밴쿠버 커뮤니티 컬리지(VCC)">Vancouver Community College</p>
@@ -254,7 +264,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-uoft.html" data-qs="32" data-fee="70060" data-name="토론토대학교(UofT)" data-name-en="University of Toronto" data-search="토론토대학교(uoft) university of toronto toronto">
+                <a class="uni-card" href="./ca-uoft.html" data-qs="32" data-fee="70060" data-name="토론토대학교(UofT)" data-name-en="University of Toronto" data-search="토론토대학교(uoft) university of toronto toronto" data-pw="direct foundation pathway type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-uoft-logo.svg" alt="토론토대학교(UofT) 로고" data-en-alt="University of Toronto logo"><span class="qs-badge" data-en="QS #32">QS 32위</span></div>
                     <h2 data-en="University of Toronto">토론토대학교(UofT)</h2>
                     <p class="card-en" data-en="토론토대학교(UofT)">University of Toronto</p>
@@ -265,7 +275,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-ubc.html" data-qs="45" data-fee="44557" data-name="브리티시컬럼비아대학교(UBC)" data-name-en="University of British Columbia" data-search="브리티시컬럼비아대학교(ubc) university of british columbia vancouver">
+                <a class="uni-card" href="./ca-ubc.html" data-qs="45" data-fee="44557" data-name="브리티시컬럼비아대학교(UBC)" data-name-en="University of British Columbia" data-search="브리티시컬럼비아대학교(ubc) university of british columbia vancouver" data-pw="direct pathway transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-ubc-logo.svg" alt="브리티시컬럼비아대학교(UBC) 로고" data-en-alt="University of British Columbia logo"><span class="qs-badge" data-en="QS #45">QS 45위</span></div>
                     <h2 data-en="University of British Columbia">브리티시컬럼비아대학교(UBC)</h2>
                     <p class="card-en" data-en="브리티시컬럼비아대학교(UBC)">University of British Columbia</p>
@@ -276,7 +286,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-sfu.html" data-qs="312" data-fee="37442" data-name="사이먼프레이저대학교(SFU)" data-name-en="Simon Fraser University" data-search="사이먼프레이저대학교(sfu) simon fraser university vancouver (burnaby)">
+                <a class="uni-card" href="./ca-sfu.html" data-qs="312" data-fee="37442" data-name="사이먼프레이저대학교(SFU)" data-name-en="Simon Fraser University" data-search="사이먼프레이저대학교(sfu) simon fraser university vancouver (burnaby)" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-sfu-logo.svg" alt="사이먼프레이저대학교(SFU) 로고" data-en-alt="Simon Fraser University logo"><span class="qs-badge" data-en="QS #312">QS 312위</span></div>
                     <h2 data-en="Simon Fraser University">사이먼프레이저대학교(SFU)</h2>
                     <p class="card-en" data-en="사이먼프레이저대학교(SFU)">Simon Fraser University</p>
@@ -287,7 +297,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-manitoba.html" data-qs="560" data-fee="24100" data-name="매니토바대학교" data-name-en="University of Manitoba" data-search="매니토바대학교 university of manitoba winnipeg">
+                <a class="uni-card" href="./ca-manitoba.html" data-qs="560" data-fee="24100" data-name="매니토바대학교" data-name-en="University of Manitoba" data-search="매니토바대학교 university of manitoba winnipeg" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-manitoba-logo.svg" alt="매니토바대학교 로고" data-en-alt="University of Manitoba logo"><span class="qs-badge" data-en="QS #560">QS 560위</span></div>
                     <h2 data-en="University of Manitoba">매니토바대학교</h2>
                     <p class="card-en" data-en="매니토바대학교">University of Manitoba</p>
@@ -298,7 +308,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-mcgill.html" data-qs="30" data-fee="31000" data-name="맥길대학교" data-name-en="McGill University" data-search="맥길대학교 mcgill university montreal">
+                <a class="uni-card" href="./ca-mcgill.html" data-qs="30" data-fee="31000" data-name="맥길대학교" data-name-en="McGill University" data-search="맥길대학교 mcgill university montreal" data-pw="direct type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-mcgill-logo.svg" alt="맥길대학교 로고" data-en-alt="McGill University logo"><span class="qs-badge" data-en="QS #30">QS 30위</span></div>
                     <h2 data-en="McGill University">맥길대학교</h2>
                     <p class="card-en" data-en="맥길대학교">McGill University</p>
@@ -309,7 +319,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-alberta.html" data-qs="96" data-fee="" data-name="앨버타대학교" data-name-en="University of Alberta" data-search="앨버타대학교 university of alberta edmonton">
+                <a class="uni-card" href="./ca-alberta.html" data-qs="96" data-fee="" data-name="앨버타대학교" data-name-en="University of Alberta" data-search="앨버타대학교 university of alberta edmonton" data-pw="direct pathway type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-alberta-logo.svg" alt="앨버타대학교 로고" data-en-alt="University of Alberta logo"><span class="qs-badge" data-en="QS #96">QS 96위</span></div>
                     <h2 data-en="University of Alberta">앨버타대학교</h2>
                     <p class="card-en" data-en="앨버타대학교">University of Alberta</p>
@@ -320,7 +330,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-waterloo.html" data-qs="113" data-fee="48616" data-name="워털루대학교" data-name-en="University of Waterloo" data-search="워털루대학교 university of waterloo waterloo">
+                <a class="uni-card" href="./ca-waterloo.html" data-qs="113" data-fee="48616" data-name="워털루대학교" data-name-en="University of Waterloo" data-search="워털루대학교 university of waterloo waterloo" data-pw="direct pathway type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-waterloo-logo.svg" alt="워털루대학교 로고" data-en-alt="University of Waterloo logo"><span class="qs-badge" data-en="QS #113">QS 113위</span></div>
                     <h2 data-en="University of Waterloo">워털루대학교</h2>
                     <p class="card-en" data-en="워털루대학교">University of Waterloo</p>
@@ -331,7 +341,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-mcmaster.html" data-qs="174" data-fee="45158" data-name="맥마스터대학교" data-name-en="McMaster University" data-search="맥마스터대학교 mcmaster university hamilton">
+                <a class="uni-card" href="./ca-mcmaster.html" data-qs="174" data-fee="45158" data-name="맥마스터대학교" data-name-en="McMaster University" data-search="맥마스터대학교 mcmaster university hamilton" data-pw="direct pathway type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-mcmaster-logo.svg" alt="맥마스터대학교 로고" data-en-alt="McMaster University logo"><span class="qs-badge" data-en="QS #174">QS 174위</span></div>
                     <h2 data-en="McMaster University">맥마스터대학교</h2>
                     <p class="card-en" data-en="맥마스터대학교">McMaster University</p>
@@ -342,7 +352,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-york.html" data-qs="322" data-fee="36110" data-name="요크대학교" data-name-en="York University" data-search="요크대학교 york university toronto">
+                <a class="uni-card" href="./ca-york.html" data-qs="322" data-fee="36110" data-name="요크대학교" data-name-en="York University" data-search="요크대학교 york university toronto" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-york-logo.svg" alt="요크대학교 로고" data-en-alt="York University logo"><span class="qs-badge" data-en="QS #322">QS 322위</span></div>
                     <h2 data-en="York University">요크대학교</h2>
                     <p class="card-en" data-en="요크대학교">York University</p>
@@ -353,7 +363,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-conestoga.html" data-qs="" data-fee="15500" data-name="코네스토가 컬리지" data-name-en="Conestoga College" data-search="코네스토가 컬리지 conestoga college kitchener">
+                <a class="uni-card" href="./ca-conestoga.html" data-qs="" data-fee="15500" data-name="코네스토가 컬리지" data-name-en="Conestoga College" data-search="코네스토가 컬리지 conestoga college kitchener" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-conestoga-logo.svg" alt="코네스토가 컬리지 로고" data-en-alt="Conestoga College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Conestoga College">코네스토가 컬리지</h2>
                     <p class="card-en" data-en="코네스토가 컬리지">Conestoga College</p>
@@ -364,7 +374,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-algonquin.html" data-qs="" data-fee="17200" data-name="알곤퀸 컬리지" data-name-en="Algonquin College" data-search="알곤퀸 컬리지 algonquin college ottawa">
+                <a class="uni-card" href="./ca-algonquin.html" data-qs="" data-fee="17200" data-name="알곤퀸 컬리지" data-name-en="Algonquin College" data-search="알곤퀸 컬리지 algonquin college ottawa" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-algonquin-logo.png" alt="알곤퀸 컬리지 로고" data-en-alt="Algonquin College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Algonquin College">알곤퀸 컬리지</h2>
                     <p class="card-en" data-en="알곤퀸 컬리지">Algonquin College</p>
@@ -375,7 +385,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-mohawk.html" data-qs="" data-fee="15300" data-name="모호크 컬리지" data-name-en="Mohawk College" data-search="모호크 컬리지 mohawk college hamilton">
+                <a class="uni-card" href="./ca-mohawk.html" data-qs="" data-fee="15300" data-name="모호크 컬리지" data-name-en="Mohawk College" data-search="모호크 컬리지 mohawk college hamilton" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-mohawk-logo.png" alt="모호크 컬리지 로고" data-en-alt="Mohawk College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Mohawk College">모호크 컬리지</h2>
                     <p class="card-en" data-en="모호크 컬리지">Mohawk College</p>
@@ -386,7 +396,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-durham.html" data-qs="" data-fee="15500" data-name="더럼 컬리지" data-name-en="Durham College" data-search="더럼 컬리지 durham college oshawa">
+                <a class="uni-card" href="./ca-durham.html" data-qs="" data-fee="15500" data-name="더럼 컬리지" data-name-en="Durham College" data-search="더럼 컬리지 durham college oshawa" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-durham-logo.svg" alt="더럼 컬리지 로고" data-en-alt="Durham College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Durham College">더럼 컬리지</h2>
                     <p class="card-en" data-en="더럼 컬리지">Durham College</p>
@@ -397,7 +407,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-georgian.html" data-qs="" data-fee="14800" data-name="조지언 컬리지" data-name-en="Georgian College" data-search="조지언 컬리지 georgian college barrie">
+                <a class="uni-card" href="./ca-georgian.html" data-qs="" data-fee="14800" data-name="조지언 컬리지" data-name-en="Georgian College" data-search="조지언 컬리지 georgian college barrie" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-georgian-logo.svg" alt="조지언 컬리지 로고" data-en-alt="Georgian College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Georgian College">조지언 컬리지</h2>
                     <p class="card-en" data-en="조지언 컬리지">Georgian College</p>
@@ -408,7 +418,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-langara.html" data-qs="" data-fee="19900" data-name="랭가라 컬리지" data-name-en="Langara College" data-search="랭가라 컬리지 langara college vancouver">
+                <a class="uni-card" href="./ca-langara.html" data-qs="" data-fee="19900" data-name="랭가라 컬리지" data-name-en="Langara College" data-search="랭가라 컬리지 langara college vancouver" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-langara-logo.svg" alt="랭가라 컬리지 로고" data-en-alt="Langara College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Langara College">랭가라 컬리지</h2>
                     <p class="card-en" data-en="랭가라 컬리지">Langara College</p>
@@ -419,7 +429,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-douglas.html" data-qs="" data-fee="19900" data-name="더글라스 컬리지" data-name-en="Douglas College" data-search="더글라스 컬리지 douglas college new westminster">
+                <a class="uni-card" href="./ca-douglas.html" data-qs="" data-fee="19900" data-name="더글라스 컬리지" data-name-en="Douglas College" data-search="더글라스 컬리지 douglas college new westminster" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-douglas-logo.svg" alt="더글라스 컬리지 로고" data-en-alt="Douglas College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Douglas College">더글라스 컬리지</h2>
                     <p class="card-en" data-en="더글라스 컬리지">Douglas College</p>
@@ -430,7 +440,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-camosun.html" data-qs="" data-fee="17600" data-name="카모순 컬리지" data-name-en="Camosun College" data-search="카모순 컬리지 camosun college victoria">
+                <a class="uni-card" href="./ca-camosun.html" data-qs="" data-fee="17600" data-name="카모순 컬리지" data-name-en="Camosun College" data-search="카모순 컬리지 camosun college victoria" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-camosun-logo.svg" alt="카모순 컬리지 로고" data-en-alt="Camosun College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Camosun College">카모순 컬리지</h2>
                     <p class="card-en" data-en="카모순 컬리지">Camosun College</p>
@@ -441,7 +451,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-okanagan.html" data-qs="" data-fee="17000" data-name="오카나간 컬리지" data-name-en="Okanagan College" data-search="오카나간 컬리지 okanagan college kelowna">
+                <a class="uni-card" href="./ca-okanagan.html" data-qs="" data-fee="17000" data-name="오카나간 컬리지" data-name-en="Okanagan College" data-search="오카나간 컬리지 okanagan college kelowna" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-okanagan-logo.svg" alt="오카나간 컬리지 로고" data-en-alt="Okanagan College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Okanagan College">오카나간 컬리지</h2>
                     <p class="card-en" data-en="오카나간 컬리지">Okanagan College</p>
@@ -452,7 +462,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-sait.html" data-qs="" data-fee="17400" data-name="SAIT (서던앨버타공과대학)" data-name-en="Southern Alberta Institute of Technology (SAIT)" data-search="sait (서던앨버타공과대학) southern alberta institute of technology (sait) calgary">
+                <a class="uni-card" href="./ca-sait.html" data-qs="" data-fee="17400" data-name="SAIT (서던앨버타공과대학)" data-name-en="Southern Alberta Institute of Technology (SAIT)" data-search="sait (서던앨버타공과대학) southern alberta institute of technology (sait) calgary" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-sait-logo.png" alt="SAIT (서던앨버타공과대학) 로고" data-en-alt="Southern Alberta Institute of Technology (SAIT) logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Southern Alberta Institute of Technology (SAIT)">SAIT (서던앨버타공과대학)</h2>
                     <p class="card-en" data-en="SAIT (서던앨버타공과대학)">Southern Alberta Institute of Technology (SAIT)</p>
@@ -463,7 +473,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-nait.html" data-qs="" data-fee="22100" data-name="NAIT (노던앨버타공과대학)" data-name-en="Northern Alberta Institute of Technology (NAIT)" data-search="nait (노던앨버타공과대학) northern alberta institute of technology (nait) edmonton">
+                <a class="uni-card" href="./ca-nait.html" data-qs="" data-fee="22100" data-name="NAIT (노던앨버타공과대학)" data-name-en="Northern Alberta Institute of Technology (NAIT)" data-search="nait (노던앨버타공과대학) northern alberta institute of technology (nait) edmonton" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-nait-logo.svg" alt="NAIT (노던앨버타공과대학) 로고" data-en-alt="Northern Alberta Institute of Technology (NAIT) logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Northern Alberta Institute of Technology (NAIT)">NAIT (노던앨버타공과대학)</h2>
                     <p class="card-en" data-en="NAIT (노던앨버타공과대학)">Northern Alberta Institute of Technology (NAIT)</p>
@@ -474,7 +484,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-bow-valley.html" data-qs="" data-fee="17000" data-name="보우밸리 컬리지" data-name-en="Bow Valley College" data-search="보우밸리 컬리지 bow valley college calgary">
+                <a class="uni-card" href="./ca-bow-valley.html" data-qs="" data-fee="17000" data-name="보우밸리 컬리지" data-name-en="Bow Valley College" data-search="보우밸리 컬리지 bow valley college calgary" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-bow-valley-logo.svg" alt="보우밸리 컬리지 로고" data-en-alt="Bow Valley College logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Bow Valley College">보우밸리 컬리지</h2>
                     <p class="card-en" data-en="보우밸리 컬리지">Bow Valley College</p>
@@ -485,7 +495,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-rrc.html" data-qs="" data-fee="17700" data-name="레드리버 폴리테크닉" data-name-en="Red River College Polytechnic" data-search="레드리버 폴리테크닉 red river college polytechnic winnipeg">
+                <a class="uni-card" href="./ca-rrc.html" data-qs="" data-fee="17700" data-name="레드리버 폴리테크닉" data-name-en="Red River College Polytechnic" data-search="레드리버 폴리테크닉 red river college polytechnic winnipeg" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-rrc-logo.png" alt="레드리버 폴리테크닉 로고" data-en-alt="Red River College Polytechnic logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Red River College Polytechnic">레드리버 폴리테크닉</h2>
                     <p class="card-en" data-en="레드리버 폴리테크닉">Red River College Polytechnic</p>
@@ -496,7 +506,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-sask-polytech.html" data-qs="" data-fee="18100" data-name="서스캐처원 폴리테크닉" data-name-en="Saskatchewan Polytechnic" data-search="서스캐처원 폴리테크닉 saskatchewan polytechnic saskatoon · regina · moose jaw · prince albert">
+                <a class="uni-card" href="./ca-sask-polytech.html" data-qs="" data-fee="18100" data-name="서스캐처원 폴리테크닉" data-name-en="Saskatchewan Polytechnic" data-search="서스캐처원 폴리테크닉 saskatchewan polytechnic saskatoon · regina · moose jaw · prince albert" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-sask-polytech-logo.png" alt="서스캐처원 폴리테크닉 로고" data-en-alt="Saskatchewan Polytechnic logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Saskatchewan Polytechnic">서스캐처원 폴리테크닉</h2>
                     <p class="card-en" data-en="서스캐처원 폴리테크닉">Saskatchewan Polytechnic</p>
@@ -507,7 +517,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./ca-nscc.html" data-qs="" data-fee="13505" data-name="노바스코샤 커뮤니티 컬리지(NSCC)" data-name-en="Nova Scotia Community College (NSCC)" data-search="노바스코샤 커뮤니티 컬리지(nscc) nova scotia community college (nscc) halifax · ns 전역">
+                <a class="uni-card" href="./ca-nscc.html" data-qs="" data-fee="13505" data-name="노바스코샤 커뮤니티 컬리지(NSCC)" data-name-en="Nova Scotia Community College (NSCC)" data-search="노바스코샤 커뮤니티 컬리지(nscc) nova scotia community college (nscc) halifax · ns 전역" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/ca-nscc-logo.png" alt="노바스코샤 커뮤니티 컬리지(NSCC) 로고" data-en-alt="Nova Scotia Community College (NSCC) logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Nova Scotia Community College (NSCC)">노바스코샤 커뮤니티 컬리지(NSCC)</h2>
                     <p class="card-en" data-en="노바스코샤 커뮤니티 컬리지(NSCC)">Nova Scotia Community College (NSCC)</p>
@@ -567,6 +577,7 @@
         var count = document.getElementById('count');
         var empty = document.getElementById('empty');
         var sortKey = 'qs';
+        var pwFilter = '';
 
         function num(el, attr) {
             var v = parseFloat(el.getAttribute(attr));
@@ -583,7 +594,8 @@
             });
             var shown = 0;
             cards.forEach(function (c) {
-                var hit = !term || c.getAttribute('data-search').indexOf(term) > -1;
+                var hit = (!term || c.getAttribute('data-search').indexOf(term) > -1) &&
+                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1);
                 c.classList.toggle('is-hidden', !hit);
                 if (hit) shown++;
                 grid.appendChild(c);
@@ -592,11 +604,22 @@
             empty.hidden = shown > 0;
         };
         q.addEventListener('input', render);
-        document.querySelectorAll('.sort-btn').forEach(function (btn) {
+        document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 sortKey = btn.getAttribute('data-sort');
-                document.querySelectorAll('.sort-btn').forEach(function (b) {
+                document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (b) {
                     b.setAttribute('aria-pressed', String(b === btn));
+                });
+                render();
+            });
+        });
+        // 경로 필터 — 하나만 선택, 다시 누르면 해제
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var f = btn.getAttribute('data-f');
+                pwFilter = (pwFilter === f) ? '' : f;
+                document.querySelectorAll('.filter-btn').forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === pwFilter));
                 });
                 render();
             });

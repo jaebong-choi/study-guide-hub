@@ -93,6 +93,10 @@
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
         }
         .sort-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+        .filter-cap { font-size: 13px; font-weight: 600; color: var(--mute); margin-right: 2px; }
+        .filter-btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
+        .filter-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
         .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
 
         .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
@@ -160,13 +164,19 @@
                         <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
                     </div>
                 </div>
+                <div class="filter-row" role="group" aria-label="진학 경로 필터" data-en-aria="Entry route filter">
+                        <span class="filter-cap" data-en="Entry routes">진학 경로</span>
+                        <button type="button" class="sort-btn filter-btn" data-f="foundation" aria-pressed="false" data-en="Foundation">파운데이션 운영</button>
+                        <button type="button" class="sort-btn filter-btn" data-f="transfer" aria-pressed="false" data-en="Diploma pathway">디플로마 편입</button>
+                        <button type="button" class="sort-btn filter-btn" data-f="type-college" aria-pressed="false" data-en="TAFE &amp; colleges">TAFE·컬리지</button>
+                    </div>
                 <p class="result-count" id="count"></p>
             </div>
         </section>
 
         <div class="container">
             <div class="uni-grid" id="grid">
-                <a class="uni-card" href="./au-unsw.html" data-qs="19" data-fee="61000" data-name="뉴사우스웨일스대학교(UNSW)" data-name-en="UNSW Sydney" data-search="뉴사우스웨일스대학교(unsw) unsw sydney sydney">
+                <a class="uni-card" href="./au-unsw.html" data-qs="19" data-fee="61000" data-name="뉴사우스웨일스대학교(UNSW)" data-name-en="UNSW Sydney" data-search="뉴사우스웨일스대학교(unsw) unsw sydney sydney" data-pw="direct foundation transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-unsw-logo.png" alt="뉴사우스웨일스대학교(UNSW) 로고" data-en-alt="UNSW Sydney logo"><span class="qs-badge" data-en="QS #19">QS 19위</span></div>
                     <h2 data-en="UNSW Sydney">뉴사우스웨일스대학교(UNSW)</h2>
                     <p class="card-en" data-en="뉴사우스웨일스대학교(UNSW)">UNSW Sydney</p>
@@ -177,7 +187,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-melbourne.html" data-qs="22" data-fee="44000" data-name="멜버른대학교" data-name-en="The University of Melbourne" data-search="멜버른대학교 the university of melbourne melbourne">
+                <a class="uni-card" href="./au-melbourne.html" data-qs="22" data-fee="44000" data-name="멜버른대학교" data-name-en="The University of Melbourne" data-search="멜버른대학교 the university of melbourne melbourne" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-melbourne-logo.svg" alt="멜버른대학교 로고" data-en-alt="The University of Melbourne logo"><span class="qs-badge" data-en="QS #22">QS 22위</span></div>
                     <h2 data-en="The University of Melbourne">멜버른대학교</h2>
                     <p class="card-en" data-en="멜버른대학교">The University of Melbourne</p>
@@ -188,7 +198,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-sydney.html" data-qs="28" data-fee="60600" data-name="시드니대학교" data-name-en="The University of Sydney" data-search="시드니대학교 the university of sydney sydney">
+                <a class="uni-card" href="./au-sydney.html" data-qs="28" data-fee="60600" data-name="시드니대학교" data-name-en="The University of Sydney" data-search="시드니대학교 the university of sydney sydney" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-sydney-logo.svg" alt="시드니대학교 로고" data-en-alt="The University of Sydney logo"><span class="qs-badge" data-en="QS #28">QS 28위</span></div>
                     <h2 data-en="The University of Sydney">시드니대학교</h2>
                     <p class="card-en" data-en="시드니대학교">The University of Sydney</p>
@@ -199,7 +209,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-monash.html" data-qs="31" data-fee="54400" data-name="모나시대학교" data-name-en="Monash University" data-search="모나시대학교 monash university melbourne">
+                <a class="uni-card" href="./au-monash.html" data-qs="31" data-fee="54400" data-name="모나시대학교" data-name-en="Monash University" data-search="모나시대학교 monash university melbourne" data-pw="direct foundation transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-monash-logo.svg" alt="모나시대학교 로고" data-en-alt="Monash University logo"><span class="qs-badge" data-en="QS #31">QS 31위</span></div>
                     <h2 data-en="Monash University">모나시대학교</h2>
                     <p class="card-en" data-en="모나시대학교">Monash University</p>
@@ -210,7 +220,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-uq.html" data-qs="40" data-fee="53760" data-name="퀸즐랜드대학교" data-name-en="The University of Queensland" data-search="퀸즐랜드대학교 the university of queensland brisbane">
+                <a class="uni-card" href="./au-uq.html" data-qs="40" data-fee="53760" data-name="퀸즐랜드대학교" data-name-en="The University of Queensland" data-search="퀸즐랜드대학교 the university of queensland brisbane" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-uq-logo.svg" alt="퀸즐랜드대학교 로고" data-en-alt="The University of Queensland logo"><span class="qs-badge" data-en="QS #40">QS 40위</span></div>
                     <h2 data-en="The University of Queensland">퀸즐랜드대학교</h2>
                     <p class="card-en" data-en="퀸즐랜드대학교">The University of Queensland</p>
@@ -221,7 +231,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-uts.html" data-qs="87" data-fee="48816" data-name="시드니공과대학교(UTS)" data-name-en="University of Technology Sydney (UTS)" data-search="시드니공과대학교(uts) university of technology sydney (uts) sydney">
+                <a class="uni-card" href="./au-uts.html" data-qs="87" data-fee="48816" data-name="시드니공과대학교(UTS)" data-name-en="University of Technology Sydney (UTS)" data-search="시드니공과대학교(uts) university of technology sydney (uts) sydney" data-pw="direct foundation transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-uts-logo.svg" alt="시드니공과대학교(UTS) 로고" data-en-alt="University of Technology Sydney (UTS) logo"><span class="qs-badge" data-en="QS #87">QS 87위</span></div>
                     <h2 data-en="University of Technology Sydney (UTS)">시드니공과대학교(UTS)</h2>
                     <p class="card-en" data-en="시드니공과대학교(UTS)">University of Technology Sydney (UTS)</p>
@@ -232,7 +242,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-griffith.html" data-qs="230" data-fee="38000" data-name="그리피스대학교" data-name-en="Griffith University" data-search="그리피스대학교 griffith university gold coast · brisbane">
+                <a class="uni-card" href="./au-griffith.html" data-qs="230" data-fee="38000" data-name="그리피스대학교" data-name-en="Griffith University" data-search="그리피스대학교 griffith university gold coast · brisbane" data-pw="direct foundation transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-griffith-logo.png" alt="그리피스대학교 로고" data-en-alt="Griffith University logo"><span class="qs-badge" data-en="QS #230">QS 230위</span></div>
                     <h2 data-en="Griffith University">그리피스대학교</h2>
                     <p class="card-en" data-en="그리피스대학교">Griffith University</p>
@@ -243,7 +253,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-qut.html" data-qs="240" data-fee="43500" data-name="퀸즐랜드공과대학교(QUT)" data-name-en="Queensland University of Technology (QUT)" data-search="퀸즐랜드공과대학교(qut) queensland university of technology (qut) brisbane">
+                <a class="uni-card" href="./au-qut.html" data-qs="240" data-fee="43500" data-name="퀸즐랜드공과대학교(QUT)" data-name-en="Queensland University of Technology (QUT)" data-search="퀸즐랜드공과대학교(qut) queensland university of technology (qut) brisbane" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-qut-logo.svg" alt="퀸즐랜드공과대학교(QUT) 로고" data-en-alt="Queensland University of Technology (QUT) logo"><span class="qs-badge" data-en="QS #240">QS 240위</span></div>
                     <h2 data-en="Queensland University of Technology (QUT)">퀸즐랜드공과대학교(QUT)</h2>
                     <p class="card-en" data-en="퀸즐랜드공과대학교(QUT)">Queensland University of Technology (QUT)</p>
@@ -254,7 +264,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-wsu.html" data-qs="370" data-fee="34800" data-name="웨스턴시드니대학교(WSU)" data-name-en="Western Sydney University" data-search="웨스턴시드니대학교(wsu) western sydney university sydney">
+                <a class="uni-card" href="./au-wsu.html" data-qs="370" data-fee="34800" data-name="웨스턴시드니대학교(WSU)" data-name-en="Western Sydney University" data-search="웨스턴시드니대학교(wsu) western sydney university sydney" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-wsu-logo.png" alt="웨스턴시드니대학교(WSU) 로고" data-en-alt="Western Sydney University logo"><span class="qs-badge" data-en="QS #370">QS 370위</span></div>
                     <h2 data-en="Western Sydney University">웨스턴시드니대학교(WSU)</h2>
                     <p class="card-en" data-en="웨스턴시드니대학교(WSU)">Western Sydney University</p>
@@ -265,7 +275,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-hotel-school.html" data-qs="" data-fee="34500" data-name="더 호텔 스쿨(THS)" data-name-en="The Hotel School" data-search="더 호텔 스쿨(ths) the hotel school sydney · melbourne · brisbane">
+                <a class="uni-card" href="./au-hotel-school.html" data-qs="" data-fee="34500" data-name="더 호텔 스쿨(THS)" data-name-en="The Hotel School" data-search="더 호텔 스쿨(ths) the hotel school sydney · melbourne · brisbane" data-pw="direct type-specialty">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-hotel-school-logo.png" alt="더 호텔 스쿨(THS) 로고" data-en-alt="The Hotel School logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="The Hotel School">더 호텔 스쿨(THS)</h2>
                     <p class="card-en" data-en="더 호텔 스쿨(THS)">The Hotel School</p>
@@ -276,7 +286,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-bmihms.html" data-qs="" data-fee="31600" data-name="블루마운틴 국제호텔경영학교(BMIHMS)" data-name-en="Blue Mountains International Hotel Management School" data-search="블루마운틴 국제호텔경영학교(bmihms) blue mountains international hotel management school leura · sydney">
+                <a class="uni-card" href="./au-bmihms.html" data-qs="" data-fee="31600" data-name="블루마운틴 국제호텔경영학교(BMIHMS)" data-name-en="Blue Mountains International Hotel Management School" data-search="블루마운틴 국제호텔경영학교(bmihms) blue mountains international hotel management school leura · sydney" data-pw="direct type-specialty">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-bmihms-logo.svg" alt="블루마운틴 국제호텔경영학교(BMIHMS) 로고" data-en-alt="Blue Mountains International Hotel Management School logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Blue Mountains International Hotel Management School">블루마운틴 국제호텔경영학교(BMIHMS)</h2>
                     <p class="card-en" data-en="블루마운틴 국제호텔경영학교(BMIHMS)">Blue Mountains International Hotel Management School</p>
@@ -287,7 +297,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-lcb.html" data-qs="" data-fee="23300" data-name="르꼬르동블루 호주" data-name-en="Le Cordon Bleu Australia" data-search="르꼬르동블루 호주 le cordon bleu australia sydney · melbourne · adelaide · brisbane">
+                <a class="uni-card" href="./au-lcb.html" data-qs="" data-fee="23300" data-name="르꼬르동블루 호주" data-name-en="Le Cordon Bleu Australia" data-search="르꼬르동블루 호주 le cordon bleu australia sydney · melbourne · adelaide · brisbane" data-pw="college direct type-specialty">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-lcb-logo.png" alt="르꼬르동블루 호주 로고" data-en-alt="Le Cordon Bleu Australia logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="Le Cordon Bleu Australia">르꼬르동블루 호주</h2>
                     <p class="card-en" data-en="르꼬르동블루 호주">Le Cordon Bleu Australia</p>
@@ -298,7 +308,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-angliss.html" data-qs="" data-fee="17000" data-name="윌리엄 앵글리스" data-name-en="William Angliss Institute" data-search="윌리엄 앵글리스 william angliss institute melbourne · sydney">
+                <a class="uni-card" href="./au-angliss.html" data-qs="" data-fee="17000" data-name="윌리엄 앵글리스" data-name-en="William Angliss Institute" data-search="윌리엄 앵글리스 william angliss institute melbourne · sydney" data-pw="college direct type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-angliss-logo.png" alt="윌리엄 앵글리스 로고" data-en-alt="William Angliss Institute logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="William Angliss Institute">윌리엄 앵글리스</h2>
                     <p class="card-en" data-en="윌리엄 앵글리스">William Angliss Institute</p>
@@ -309,7 +319,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-tafe-nsw.html" data-qs="" data-fee="15900" data-name="TAFE NSW" data-name-en="TAFE NSW" data-search="tafe nsw tafe nsw nsw 전역 (sydney 등)">
+                <a class="uni-card" href="./au-tafe-nsw.html" data-qs="" data-fee="15900" data-name="TAFE NSW" data-name-en="TAFE NSW" data-search="tafe nsw tafe nsw nsw 전역 (sydney 등)" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-tafe-nsw-logo.svg" alt="TAFE NSW 로고" data-en-alt="TAFE NSW logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="TAFE NSW">TAFE NSW</h2>
                     <p class="card-en" data-en="TAFE NSW">TAFE NSW</p>
@@ -320,7 +330,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-tafe-qld.html" data-qs="" data-fee="15800" data-name="TAFE Queensland" data-name-en="TAFE Queensland" data-search="tafe queensland tafe queensland qld 전역 (brisbane 등)">
+                <a class="uni-card" href="./au-tafe-qld.html" data-qs="" data-fee="15800" data-name="TAFE Queensland" data-name-en="TAFE Queensland" data-search="tafe queensland tafe queensland qld 전역 (brisbane 등)" data-pw="college transfer type-college">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-tafe-qld-logo.svg" alt="TAFE Queensland 로고" data-en-alt="TAFE Queensland logo"><span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span></div>
                     <h2 data-en="TAFE Queensland">TAFE Queensland</h2>
                     <p class="card-en" data-en="TAFE Queensland">TAFE Queensland</p>
@@ -331,7 +341,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-anu.html" data-qs="29" data-fee="39090" data-name="호주국립대학교(ANU)" data-name-en="Australian National University (ANU)" data-search="호주국립대학교(anu) australian national university (anu) canberra">
+                <a class="uni-card" href="./au-anu.html" data-qs="29" data-fee="39090" data-name="호주국립대학교(ANU)" data-name-en="Australian National University (ANU)" data-search="호주국립대학교(anu) australian national university (anu) canberra" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-anu-logo.svg" alt="호주국립대학교(ANU) 로고" data-en-alt="Australian National University (ANU) logo"><span class="qs-badge" data-en="QS #29">QS 29위</span></div>
                     <h2 data-en="Australian National University (ANU)">호주국립대학교(ANU)</h2>
                     <p class="card-en" data-en="호주국립대학교(ANU)">Australian National University (ANU)</p>
@@ -342,7 +352,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-uwa.html" data-qs="77" data-fee="43600" data-name="서호주대학교(UWA)" data-name-en="The University of Western Australia" data-search="서호주대학교(uwa) the university of western australia perth">
+                <a class="uni-card" href="./au-uwa.html" data-qs="77" data-fee="43600" data-name="서호주대학교(UWA)" data-name-en="The University of Western Australia" data-search="서호주대학교(uwa) the university of western australia perth" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-uwa-logo.svg" alt="서호주대학교(UWA) 로고" data-en-alt="The University of Western Australia logo"><span class="qs-badge" data-en="QS #77">QS 77위</span></div>
                     <h2 data-en="The University of Western Australia">서호주대학교(UWA)</h2>
                     <p class="card-en" data-en="서호주대학교(UWA)">The University of Western Australia</p>
@@ -353,7 +363,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-adelaide.html" data-qs="79" data-fee="46200" data-name="애들레이드대학교" data-name-en="Adelaide University" data-search="애들레이드대학교 adelaide university adelaide">
+                <a class="uni-card" href="./au-adelaide.html" data-qs="79" data-fee="46200" data-name="애들레이드대학교" data-name-en="Adelaide University" data-search="애들레이드대학교 adelaide university adelaide" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-adelaide-logo.svg" alt="애들레이드대학교 로고" data-en-alt="Adelaide University logo"><span class="qs-badge" data-en="QS #79">QS 79위</span></div>
                     <h2 data-en="Adelaide University">애들레이드대학교</h2>
                     <p class="card-en" data-en="애들레이드대학교">Adelaide University</p>
@@ -364,7 +374,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-rmit.html" data-qs="119" data-fee="45100" data-name="RMIT대학교" data-name-en="RMIT University" data-search="rmit대학교 rmit university melbourne">
+                <a class="uni-card" href="./au-rmit.html" data-qs="119" data-fee="45100" data-name="RMIT대학교" data-name-en="RMIT University" data-search="rmit대학교 rmit university melbourne" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-rmit-logo.svg" alt="RMIT대학교 로고" data-en-alt="RMIT University logo"><span class="qs-badge" data-en="QS #119">QS 119위</span></div>
                     <h2 data-en="RMIT University">RMIT대학교</h2>
                     <p class="card-en" data-en="RMIT대학교">RMIT University</p>
@@ -375,7 +385,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-macquarie.html" data-qs="126" data-fee="42800" data-name="맥쿼리대학교" data-name-en="Macquarie University" data-search="맥쿼리대학교 macquarie university sydney">
+                <a class="uni-card" href="./au-macquarie.html" data-qs="126" data-fee="42800" data-name="맥쿼리대학교" data-name-en="Macquarie University" data-search="맥쿼리대학교 macquarie university sydney" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-macquarie-logo.svg" alt="맥쿼리대학교 로고" data-en-alt="Macquarie University logo"><span class="qs-badge" data-en="QS #126">QS 126위</span></div>
                     <h2 data-en="Macquarie University">맥쿼리대학교</h2>
                     <p class="card-en" data-en="맥쿼리대학교">Macquarie University</p>
@@ -386,7 +396,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-curtin.html" data-qs="189" data-fee="42200" data-name="커틴대학교" data-name-en="Curtin University" data-search="커틴대학교 curtin university perth">
+                <a class="uni-card" href="./au-curtin.html" data-qs="189" data-fee="42200" data-name="커틴대학교" data-name-en="Curtin University" data-search="커틴대학교 curtin university perth" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-curtin-logo.svg" alt="커틴대학교 로고" data-en-alt="Curtin University logo"><span class="qs-badge" data-en="QS #189">QS 189위</span></div>
                     <h2 data-en="Curtin University">커틴대학교</h2>
                     <p class="card-en" data-en="커틴대학교">Curtin University</p>
@@ -397,7 +407,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-wollongong.html" data-qs="195" data-fee="36672" data-name="울런공대학교(UOW)" data-name-en="University of Wollongong" data-search="울런공대학교(uow) university of wollongong wollongong">
+                <a class="uni-card" href="./au-wollongong.html" data-qs="195" data-fee="36672" data-name="울런공대학교(UOW)" data-name-en="University of Wollongong" data-search="울런공대학교(uow) university of wollongong wollongong" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-wollongong-logo.svg" alt="울런공대학교(UOW) 로고" data-en-alt="University of Wollongong logo"><span class="qs-badge" data-en="QS #195">QS 195위</span></div>
                     <h2 data-en="University of Wollongong">울런공대학교(UOW)</h2>
                     <p class="card-en" data-en="울런공대학교(UOW)">University of Wollongong</p>
@@ -408,7 +418,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-deakin.html" data-qs="227" data-fee="41600" data-name="디킨대학교" data-name-en="Deakin University" data-search="디킨대학교 deakin university melbourne · geelong">
+                <a class="uni-card" href="./au-deakin.html" data-qs="227" data-fee="41600" data-name="디킨대학교" data-name-en="Deakin University" data-search="디킨대학교 deakin university melbourne · geelong" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-deakin-logo.png" alt="디킨대학교 로고" data-en-alt="Deakin University logo"><span class="qs-badge" data-en="QS #227">QS 227위</span></div>
                     <h2 data-en="Deakin University">디킨대학교</h2>
                     <p class="card-en" data-en="디킨대학교">Deakin University</p>
@@ -419,7 +429,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-latrobe.html" data-qs="241" data-fee="41800" data-name="라트로브대학교" data-name-en="La Trobe University" data-search="라트로브대학교 la trobe university melbourne">
+                <a class="uni-card" href="./au-latrobe.html" data-qs="241" data-fee="41800" data-name="라트로브대학교" data-name-en="La Trobe University" data-search="라트로브대학교 la trobe university melbourne" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-latrobe-logo.svg" alt="라트로브대학교 로고" data-en-alt="La Trobe University logo"><span class="qs-badge" data-en="QS #241">QS 241위</span></div>
                     <h2 data-en="La Trobe University">라트로브대학교</h2>
                     <p class="card-en" data-en="라트로브대학교">La Trobe University</p>
@@ -430,7 +440,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-newcastle.html" data-qs="244" data-fee="43200" data-name="뉴캐슬대학교(UON)" data-name-en="The University of Newcastle" data-search="뉴캐슬대학교(uon) the university of newcastle newcastle">
+                <a class="uni-card" href="./au-newcastle.html" data-qs="244" data-fee="43200" data-name="뉴캐슬대학교(UON)" data-name-en="The University of Newcastle" data-search="뉴캐슬대학교(uon) the university of newcastle newcastle" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-newcastle-logo.svg" alt="뉴캐슬대학교(UON) 로고" data-en-alt="The University of Newcastle logo"><span class="qs-badge" data-en="QS #244">QS 244위</span></div>
                     <h2 data-en="The University of Newcastle">뉴캐슬대학교(UON)</h2>
                     <p class="card-en" data-en="뉴캐슬대학교(UON)">The University of Newcastle</p>
@@ -441,7 +451,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-swinburne.html" data-qs="291" data-fee="37300" data-name="스윈번공과대학교" data-name-en="Swinburne University of Technology" data-search="스윈번공과대학교 swinburne university of technology melbourne">
+                <a class="uni-card" href="./au-swinburne.html" data-qs="291" data-fee="37300" data-name="스윈번공과대학교" data-name-en="Swinburne University of Technology" data-search="스윈번공과대학교 swinburne university of technology melbourne" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-swinburne-logo.svg" alt="스윈번공과대학교 로고" data-en-alt="Swinburne University of Technology logo"><span class="qs-badge" data-en="QS #291">QS 291위</span></div>
                     <h2 data-en="Swinburne University of Technology">스윈번공과대학교</h2>
                     <p class="card-en" data-en="스윈번공과대학교">Swinburne University of Technology</p>
@@ -452,7 +462,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-utas.html" data-qs="311" data-fee="38200" data-name="태즈메이니아대학교(UTAS)" data-name-en="University of Tasmania" data-search="태즈메이니아대학교(utas) university of tasmania hobart · launceston">
+                <a class="uni-card" href="./au-utas.html" data-qs="311" data-fee="38200" data-name="태즈메이니아대학교(UTAS)" data-name-en="University of Tasmania" data-search="태즈메이니아대학교(utas) university of tasmania hobart · launceston" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-utas-logo.svg" alt="태즈메이니아대학교(UTAS) 로고" data-en-alt="University of Tasmania logo"><span class="qs-badge" data-en="QS #311">QS 311위</span></div>
                     <h2 data-en="University of Tasmania">태즈메이니아대학교(UTAS)</h2>
                     <p class="card-en" data-en="태즈메이니아대학교(UTAS)">University of Tasmania</p>
@@ -463,7 +473,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-flinders.html" data-qs="374" data-fee="36300" data-name="플린더스대학교" data-name-en="Flinders University" data-search="플린더스대학교 flinders university adelaide">
+                <a class="uni-card" href="./au-flinders.html" data-qs="374" data-fee="36300" data-name="플린더스대학교" data-name-en="Flinders University" data-search="플린더스대학교 flinders university adelaide" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-flinders-logo.png" alt="플린더스대학교 로고" data-en-alt="Flinders University logo"><span class="qs-badge" data-en="QS #374">QS 374위</span></div>
                     <h2 data-en="Flinders University">플린더스대학교</h2>
                     <p class="card-en" data-en="플린더스대학교">Flinders University</p>
@@ -474,7 +484,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-unisq.html" data-qs="411" data-fee="28500" data-name="서던퀸즐랜드대학교(UniSQ)" data-name-en="University of Southern Queensland (UniSQ)" data-search="서던퀸즐랜드대학교(unisq) university of southern queensland (unisq) toowoomba">
+                <a class="uni-card" href="./au-unisq.html" data-qs="411" data-fee="28500" data-name="서던퀸즐랜드대학교(UniSQ)" data-name-en="University of Southern Queensland (UniSQ)" data-search="서던퀸즐랜드대학교(unisq) university of southern queensland (unisq) toowoomba" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-unisq-logo.svg" alt="서던퀸즐랜드대학교(UniSQ) 로고" data-en-alt="University of Southern Queensland (UniSQ) logo"><span class="qs-badge" data-en="QS #411">QS 411위</span></div>
                     <h2 data-en="University of Southern Queensland (UniSQ)">서던퀸즐랜드대학교(UniSQ)</h2>
                     <p class="card-en" data-en="서던퀸즐랜드대학교(UniSQ)">University of Southern Queensland (UniSQ)</p>
@@ -485,7 +495,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-murdoch.html" data-qs="422" data-fee="34200" data-name="머독대학교" data-name-en="Murdoch University" data-search="머독대학교 murdoch university perth">
+                <a class="uni-card" href="./au-murdoch.html" data-qs="422" data-fee="34200" data-name="머독대학교" data-name-en="Murdoch University" data-search="머독대학교 murdoch university perth" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-murdoch-logo.svg" alt="머독대학교 로고" data-en-alt="Murdoch University logo"><span class="qs-badge" data-en="QS #422">QS 422위</span></div>
                     <h2 data-en="Murdoch University">머독대학교</h2>
                     <p class="card-en" data-en="머독대학교">Murdoch University</p>
@@ -496,7 +506,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-canberra.html" data-qs="477" data-fee="34500" data-name="캔버라대학교(UC)" data-name-en="University of Canberra" data-search="캔버라대학교(uc) university of canberra canberra">
+                <a class="uni-card" href="./au-canberra.html" data-qs="477" data-fee="34500" data-name="캔버라대학교(UC)" data-name-en="University of Canberra" data-search="캔버라대학교(uc) university of canberra canberra" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-canberra-logo.png" alt="캔버라대학교(UC) 로고" data-en-alt="University of Canberra logo"><span class="qs-badge" data-en="QS #477">QS 477위</span></div>
                     <h2 data-en="University of Canberra">캔버라대학교(UC)</h2>
                     <p class="card-en" data-en="캔버라대학교(UC)">University of Canberra</p>
@@ -507,7 +517,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-ecu.html" data-qs="545" data-fee="38600" data-name="에디스코완대학교(ECU)" data-name-en="Edith Cowan University (ECU)" data-search="에디스코완대학교(ecu) edith cowan university (ecu) perth">
+                <a class="uni-card" href="./au-ecu.html" data-qs="545" data-fee="38600" data-name="에디스코완대학교(ECU)" data-name-en="Edith Cowan University (ECU)" data-search="에디스코완대학교(ecu) edith cowan university (ecu) perth" data-pw="direct transfer type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-ecu-logo.svg" alt="에디스코완대학교(ECU) 로고" data-en-alt="Edith Cowan University (ECU) logo"><span class="qs-badge" data-en="QS #545">QS 545위</span></div>
                     <h2 data-en="Edith Cowan University (ECU)">에디스코완대학교(ECU)</h2>
                     <p class="card-en" data-en="에디스코완대학교(ECU)">Edith Cowan University (ECU)</p>
@@ -518,7 +528,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-vu.html" data-qs="696" data-fee="32700" data-name="빅토리아대학교(VU)" data-name-en="Victoria University" data-search="빅토리아대학교(vu) victoria university melbourne">
+                <a class="uni-card" href="./au-vu.html" data-qs="696" data-fee="32700" data-name="빅토리아대학교(VU)" data-name-en="Victoria University" data-search="빅토리아대학교(vu) victoria university melbourne" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-vu-logo.svg" alt="빅토리아대학교(VU) 로고" data-en-alt="Victoria University logo"><span class="qs-badge" data-en="QS #696">QS 696위</span></div>
                     <h2 data-en="Victoria University">빅토리아대학교(VU)</h2>
                     <p class="card-en" data-en="빅토리아대학교(VU)">Victoria University</p>
@@ -529,7 +539,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-acu.html" data-qs="851" data-fee="35000" data-name="호주가톨릭대학교(ACU)" data-name-en="Australian Catholic University (ACU)" data-search="호주가톨릭대학교(acu) australian catholic university (acu) sydney · melbourne 등">
+                <a class="uni-card" href="./au-acu.html" data-qs="851" data-fee="35000" data-name="호주가톨릭대학교(ACU)" data-name-en="Australian Catholic University (ACU)" data-search="호주가톨릭대학교(acu) australian catholic university (acu) sydney · melbourne 등" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-acu-logo.svg" alt="호주가톨릭대학교(ACU) 로고" data-en-alt="Australian Catholic University (ACU) logo"><span class="qs-badge" data-en="QS #851">QS 851위</span></div>
                     <h2 data-en="Australian Catholic University (ACU)">호주가톨릭대학교(ACU)</h2>
                     <p class="card-en" data-en="호주가톨릭대학교(ACU)">Australian Catholic University (ACU)</p>
@@ -540,7 +550,7 @@
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
-                <a class="uni-card" href="./au-unisc.html" data-qs="851" data-fee="28500" data-name="선샤인코스트대학교(UniSC)" data-name-en="University of the Sunshine Coast (UniSC)" data-search="선샤인코스트대학교(unisc) university of the sunshine coast (unisc) sunshine coast">
+                <a class="uni-card" href="./au-unisc.html" data-qs="851" data-fee="28500" data-name="선샤인코스트대학교(UniSC)" data-name-en="University of the Sunshine Coast (UniSC)" data-search="선샤인코스트대학교(unisc) university of the sunshine coast (unisc) sunshine coast" data-pw="direct foundation type-university">
                     <div class="card-top"><img class="card-logo" src="../images/uni/au-unisc-logo.svg" alt="선샤인코스트대학교(UniSC) 로고" data-en-alt="University of the Sunshine Coast (UniSC) logo"><span class="qs-badge" data-en="QS #851">QS 851위</span></div>
                     <h2 data-en="University of the Sunshine Coast (UniSC)">선샤인코스트대학교(UniSC)</h2>
                     <p class="card-en" data-en="선샤인코스트대학교(UniSC)">University of the Sunshine Coast (UniSC)</p>
@@ -600,6 +610,7 @@
         var count = document.getElementById('count');
         var empty = document.getElementById('empty');
         var sortKey = 'qs';
+        var pwFilter = '';
 
         function num(el, attr) {
             var v = parseFloat(el.getAttribute(attr));
@@ -616,7 +627,8 @@
             });
             var shown = 0;
             cards.forEach(function (c) {
-                var hit = !term || c.getAttribute('data-search').indexOf(term) > -1;
+                var hit = (!term || c.getAttribute('data-search').indexOf(term) > -1) &&
+                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1);
                 c.classList.toggle('is-hidden', !hit);
                 if (hit) shown++;
                 grid.appendChild(c);
@@ -625,11 +637,22 @@
             empty.hidden = shown > 0;
         };
         q.addEventListener('input', render);
-        document.querySelectorAll('.sort-btn').forEach(function (btn) {
+        document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 sortKey = btn.getAttribute('data-sort');
-                document.querySelectorAll('.sort-btn').forEach(function (b) {
+                document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (b) {
                     b.setAttribute('aria-pressed', String(b === btn));
+                });
+                render();
+            });
+        });
+        // 경로 필터 — 하나만 선택, 다시 누르면 해제
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var f = btn.getAttribute('data-f');
+                pwFilter = (pwFilter === f) ? '' : f;
+                document.querySelectorAll('.filter-btn').forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === pwFilter));
                 });
                 render();
             });

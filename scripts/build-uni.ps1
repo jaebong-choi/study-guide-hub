@@ -59,6 +59,42 @@ $FEE_NOTE = @{
     'US' ='<p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>'
 }
 
+# 목록 페이지 진학 경로 필터 — 칩을 누르면 해당 경로가 있는 학교만 남는다.
+# 토큰은 pathways[].type 그대로이고, type-college/type-university와 uk 전용 direct-only만 계산값이다.
+$LIST_FILTERS = @{
+    'UK' = @(
+        @('foundation',      '파운데이션 입학',    'Foundation entry'),
+        @('iyo',             'IYO 운영',           'International Year One'),
+        @('pre-master',      '프리마스터 운영',    "Pre-Master's"),
+        @('direct-only',     'Direct만 입학 가능', 'Direct entry only')
+    )
+    'AU' = @(
+        @('foundation',      '파운데이션 운영',    'Foundation'),
+        @('transfer',        '디플로마 편입',      'Diploma pathway'),
+        @('type-college',    'TAFE·컬리지',        'TAFE & colleges')
+    )
+    'US' = @(
+        @('pathway',         '패스웨이(조건부) 가능', 'Pathway (conditional) entry'),
+        @('transfer',        '2+2 편입 연계',      '2+2 transfer route'),
+        @('type-college',    '커뮤니티칼리지',     'Community colleges')
+    )
+    'CA' = @(
+        @('type-college',    '컬리지',             'Colleges'),
+        @('type-university', '4년제 대학',         'Universities'),
+        @('transfer',        '대학 편입 연계',     'University transfer route')
+    )
+}
+function New-FilterChips([string]$cc) {
+    if (-not $LIST_FILTERS.ContainsKey($cc)) { return '' }
+    $btns = ($LIST_FILTERS[$cc] | ForEach-Object {
+        '                        <button type="button" class="sort-btn filter-btn" data-f="' + $_[0] +
+        '" aria-pressed="false" data-en="' + (Esc $_[2]) + '">' + (Esc $_[1]) + '</button>'
+    }) -join "`n"
+    return '<div class="filter-row" role="group" aria-label="진학 경로 필터" data-en-aria="Entry route filter">' + "`n" +
+           '                        <span class="filter-cap" data-en="Entry routes">진학 경로</span>' + "`n" +
+           $btns + "`n" + '                    </div>'
+}
+
 # 미국 커뮤니티칼리지는 Scorecard가 아니라 각 칼리지 international 공시값이라 문구를 따로 쓴다.
 $FEE_NOTE_US_CC = '<p data-en="Tuition for community colleges comes from each college&#39;s own international student page (checked August 2026) and covers tuition and mandatory college fees only, without insurance, books or living costs.">커뮤니티칼리지 학비는 각 칼리지 international 공시 페이지 기준입니다(2026년 8월 확인). 수업료와 필수 학교비만 담았고 보험·교재·생활비는 빠져 있습니다.</p>'
 # 미국 목록 페이지는 4년제와 컬리지가 섞여 있어 두 출처를 함께 밝힌다.
@@ -914,6 +950,10 @@ $LIST_TEMPLATE = @'
             background: var(--card-bg); border: 1px solid var(--line); border-radius: 999px;
         }
         .sort-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+        .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
+        .filter-cap { font-size: 13px; font-weight: 600; color: var(--mute); margin-right: 2px; }
+        .filter-btn { min-height: 38px; padding: 0 14px; font-size: 13px; }
+        .filter-btn[aria-pressed="true"] { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
         .result-count { font-size: 13px; color: var(--mute); margin-bottom: 18px; }
 
         .uni-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-bottom: 60px; }
@@ -981,6 +1021,7 @@ $LIST_TEMPLATE = @'
                         <button type="button" class="sort-btn" data-sort="name" aria-pressed="false" data-en="Name">가나다순</button>
                     </div>
                 </div>
+                {{FILTERS}}
                 <p class="result-count" id="count"></p>
             </div>
         </section>
@@ -1036,6 +1077,7 @@ $LIST_TEMPLATE = @'
         var count = document.getElementById('count');
         var empty = document.getElementById('empty');
         var sortKey = 'qs';
+        var pwFilter = '';
 
         function num(el, attr) {
             var v = parseFloat(el.getAttribute(attr));
@@ -1052,7 +1094,8 @@ $LIST_TEMPLATE = @'
             });
             var shown = 0;
             cards.forEach(function (c) {
-                var hit = !term || c.getAttribute('data-search').indexOf(term) > -1;
+                var hit = (!term || c.getAttribute('data-search').indexOf(term) > -1) &&
+                    (!pwFilter || (' ' + (c.getAttribute('data-pw') || '') + ' ').indexOf(' ' + pwFilter + ' ') > -1);
                 c.classList.toggle('is-hidden', !hit);
                 if (hit) shown++;
                 grid.appendChild(c);
@@ -1061,11 +1104,22 @@ $LIST_TEMPLATE = @'
             empty.hidden = shown > 0;
         };
         q.addEventListener('input', render);
-        document.querySelectorAll('.sort-btn').forEach(function (btn) {
+        document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (btn) {
             btn.addEventListener('click', function () {
                 sortKey = btn.getAttribute('data-sort');
-                document.querySelectorAll('.sort-btn').forEach(function (b) {
+                document.querySelectorAll('.sort-btn:not(.filter-btn)').forEach(function (b) {
                     b.setAttribute('aria-pressed', String(b === btn));
+                });
+                render();
+            });
+        });
+        // 경로 필터 — 하나만 선택, 다시 누르면 해제
+        document.querySelectorAll('.filter-btn').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var f = btn.getAttribute('data-f');
+                pwFilter = (pwFilter === f) ? '' : f;
+                document.querySelectorAll('.filter-btn').forEach(function (b) {
+                    b.setAttribute('aria-pressed', String(b.getAttribute('data-f') === pwFilter));
                 });
                 render();
             });
@@ -1322,11 +1376,15 @@ foreach ($nothing in @(1)) {
             '<span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span>'
         }
         $sortFee = if ($null -ne $u.tuition_ug_min) { $u.tuition_ug_min } elseif ($null -ne $u.tuition_pg_min) { $u.tuition_pg_min } else { '' }
+        # 경로 필터 토큰 — pathways[].type + 학교 type. 영국은 파운데이션·IYO 둘 다 없으면 Direct 전용.
+        $pwTok = @($u.pathways | ForEach-Object { $_.type }) + @('type-' + $u.type)
+        if ($u.country -eq 'UK' -and $pwTok -notcontains 'foundation' -and $pwTok -notcontains 'iyo') { $pwTok += 'direct-only' }
+        $pwAttr = (@($pwTok) | Sort-Object -Unique) -join ' '
         $searchKey = ($u.name_ko + ' ' + $u.name_en + ' ' + $u.city).ToLower()
         $feeEnVal = if ($tuitionUgEn) { 'Enquire' } else { $tuitionUg }
         if (-not $lists.ContainsKey($u.country)) { $lists[$u.country] = @{ cards = ''; count = 0; latest = '' } }
         $lists[$u.country].cards += @"
-                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)">
+                <a class="uni-card" href="./$($u.id).html" data-qs="$($u.qs_rank)" data-fee="$sortFee" data-name="$(Esc $u.name_ko)" data-name-en="$(Esc $u.name_en)" data-search="$(Esc $searchKey)" data-pw="$pwAttr">
                     <div class="card-top">$cardLogo$($qsBadge)</div>
                     <h2 data-en="$(Esc $u.name_en)">$(Esc $u.name_ko)</h2>
                     <p class="card-en" data-en="$(Esc $u.name_ko)">$(Esc $u.name_en)</p>
@@ -1352,7 +1410,8 @@ foreach ($cc in $lists.Keys) {
     if (-not $info) { $info = @{ ko = $cc; enAdj = $cc; file = ($cc.ToLower() + '.html') } }
     $listPath = if ($info.file -eq 'index.html') { '' } else { $info.file }   # canonical: index.html은 uni/
     $l = $lists[$cc]
-    $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
+    $listHtml = $LIST_TEMPLATE.Replace('{{FILTERS}}', (New-FilterChips $cc)).
+        Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
         Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
         Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath).
         Replace('{{FEE_NOTE}}', $(if ($cc -eq 'US') { $FEE_NOTE['US'] + $FEE_NOTE_US_LIST }
