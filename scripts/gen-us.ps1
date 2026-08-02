@@ -47,6 +47,21 @@ $OVERRIDE = @{
     'us-auburn'  = @{ note = 'US News 전국 102위(Shorelight 공시). 공학·건축이 강한 남부의 대형 주립대입니다.' }
 }
 
+# CC 2+2 편입 도착지 — 공식 근거가 있는 학교에만 편입 경로 카드를 붙인다.
+# UC TAG 참여 캠퍼스는 UC 입학처 공식 목록(Davis·Irvine·Merced·Riverside·Santa Barbara·Santa Cruz) 기준이고,
+# 머시드·리버사이드는 아직 DB에 없어서 빠져 있다. UCLA·버클리·샌디에이고는 TAG 미참여라 일반 편입으로 적는다.
+# 편입 IELTS는 학교·전공마다 달라 카드에 점수를 넣지 않는다(null).
+$TRANSFER = @{
+    'us-uc-davis'      = 'UC TAG 참여 캠퍼스입니다. 캘리포니아 CC에서 조건을 채우면 편입 보장을 신청할 수 있습니다'
+    'us-uc-irvine'     = 'UC TAG 참여 캠퍼스입니다. 어바인밸리 등 인근 CC에서 넘어오는 경로가 자리를 잡았습니다'
+    'us-ucsb'          = 'UC TAG 참여 캠퍼스입니다. 캘리포니아 CC 2년 이수 후 3학년으로 들어갑니다'
+    'us-uc-santa-cruz' = 'UC TAG 참여 캠퍼스입니다. TAG 신청 정원이 상대적으로 여유 있는 편입니다'
+    'us-ucla'          = 'TAG는 없지만 편입 합격자의 93%가 캘리포니아 CC 출신입니다. 신입 지원보다 편입 쪽 문이 넓습니다'
+    'us-berkeley'      = 'TAG 미참여라 일반 편입으로 지원합니다. 캘리포니아 CC 출신을 대규모로 선발하지만 GPA 관리가 관건입니다'
+    'us-ucsd'          = 'TAG 미참여이지만 CC 편입 규모가 커서 2+2 목적지로 많이 꼽힙니다'
+    'us-uw'            = '워싱턴주 CC에서 넘어오는 경로입니다. 벨뷰 칼리지가 UW 시애틀 편입 배출 1위입니다'
+}
+
 function UrlMap {
     $m = @{}
     foreach ($line in Get-Content (Join-Path $repoRoot 'data\us-urls.tsv') -Encoding UTF8) {
@@ -105,6 +120,12 @@ foreach ($line in $rows[1..($rows.Count-1)]) {
             duration = '1년'; cost_note = $null; note = $PW_NOTE[$prov]
         })
     }
+    if ($TRANSFER.ContainsKey($id)) {
+        $pathways.Add([ordered]@{
+            type = 'transfer'; level = 'ug'; provider = $null; ielts_min = $null
+            duration = '2+2년'; cost_note = $null; note = $TRANSFER[$id]
+        })
+    }
 
     $list.Add([ordered]@{
         id               = $id
@@ -131,6 +152,61 @@ foreach ($line in $rows[1..($rows.Count-1)]) {
         last_verified    = '2026-07'
     })
 }
+
+# ---------- 커뮤니티칼리지 (2+2 편입 출발점) ----------
+# 4년제와 학비 출처가 달라 data\us-cc.tsv로 분리돼 있다. 열 설명은 그 파일 머리말 참고.
+$ccRows = Get-Content (Join-Path $repoRoot 'data\us-cc.tsv') -Encoding UTF8 |
+          Where-Object { $_.Trim() -and -not $_.StartsWith('#') }
+$ccCount = 0
+foreach ($line in $ccRows[1..($ccRows.Count-1)]) {
+    $c = $line -split "`t"
+    $id = $c[0].Trim()
+
+    $url = $urls[$id]
+    if (-not $url) { $missingUrl += $id; continue }
+
+    $ielts   = [double]$c[4].Trim()
+    $tuition = $null
+    if ($c[5].Trim() -match '^\d+$') { $tuition = [int]$c[5].Trim() }
+    $related = @()
+    if ($c.Count -gt 11 -and $c[11].Trim()) {
+        $related = @($c[11].Trim() -split ',' | ForEach-Object { $_.Trim() })
+    }
+
+    $list.Add([ordered]@{
+        id               = $id
+        type             = 'college'
+        name_ko          = $c[2].Trim()
+        name_en          = $c[1].Trim()
+        country          = 'US'
+        city             = $c[3].Trim()
+        qs_rank          = $null                      # CC는 QS 랭킹 대상이 아니다
+        qs_subject_ranks = @()
+        tuition_ug_min   = $tuition
+        tuition_ug_max   = $tuition
+        tuition_pg_min   = $null
+        tuition_pg_max   = $null
+        currency         = 'USD'
+        english          = [ordered]@{
+            ielts_min = $ielts
+            accepted  = @($c[7].Trim() -split '\|')
+            note      = $c[9].Trim()
+        }
+        popular_majors   = @($c[6].Trim() -split '\|')
+        pathways         = @([ordered]@{
+            type = 'transfer'; level = 'ug'; provider = $null; ielts_min = $ielts
+            duration = '2+2년'; cost_note = $null; note = $c[10].Trim()
+        })
+        intakes          = @($c[8].Trim() -split '\|')
+        official_url     = $url
+        youtube_id       = $null
+        editor_note      = $null
+        related_ids      = $related
+        last_verified    = '2026-08'
+    })
+    $ccCount++
+}
+Write-Host ("커뮤니티칼리지: {0}곳" -f $ccCount)
 
 if ($missingUrl.Count -gt 0) {
     Write-Host ("URL 누락 {0}건: {1}" -f $missingUrl.Count, ($missingUrl -join ', ')) -ForegroundColor Red

@@ -48,7 +48,7 @@ $COUNTRY_INFO = @{
     'UK' = @{ ko = '영국';   enAdj = 'UK';         file = 'index.html'; noun = '대학교'; enNoun = 'universities' }
     'AU' = @{ ko = '호주';   enAdj = 'Australian'; file = 'au.html';    noun = '대학교'; enNoun = 'universities' }
     'CA' = @{ ko = '캐나다'; enAdj = 'Canadian';   file = 'ca.html';    noun = '대학·컬리지'; enNoun = 'universities and colleges' }
-    'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html';    noun = '대학교'; enNoun = 'universities' }
+    'US' = @{ ko = '미국';   enAdj = 'US';         file = 'us.html';    noun = '대학·컬리지'; enNoun = 'universities and colleges' }
 }
 # 학비 출처 문구 — 국가마다 근거가 달라 푸터에서 따로 밝힌다.
 # 미국은 대학별 international 요강이 아니라 교육부 공시(College Scorecard) 값이라 반드시 표기한다.
@@ -56,6 +56,11 @@ $FEE_NOTE_DEFAULT = '<p data-en="Fees follow official university publications an
 $FEE_NOTE = @{
     'US' = '<p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>'
 }
+
+# 미국 커뮤니티칼리지는 Scorecard가 아니라 각 칼리지 international 공시값이라 문구를 따로 쓴다.
+$FEE_NOTE_US_CC = '<p data-en="Tuition for community colleges comes from each college&#39;s own international student page (checked August 2026) and covers tuition and mandatory college fees only, without insurance, books or living costs.">커뮤니티칼리지 학비는 각 칼리지 international 공시 페이지 기준입니다(2026년 8월 확인). 수업료와 필수 학교비만 담았고 보험·교재·생활비는 빠져 있습니다.</p>'
+# 미국 목록 페이지는 4년제와 컬리지가 섞여 있어 두 출처를 함께 밝힌다.
+$FEE_NOTE_US_LIST = $FEE_NOTE_US_CC
 
 function Esc([string]$s) {
     if ($null -eq $s) { return '' }
@@ -103,6 +108,7 @@ function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
     elseif ($country -eq 'CA' -and $pw.type -eq 'foundation') { $guideKey = 'ca-foundation' }
     elseif ($country -eq 'CA' -and $pw.type -eq 'transfer' -and $pw.provider -match 'Navitas') { $guideKey = 'ca-pathway' }
     elseif ($country -eq 'US' -and $pw.type -eq 'pathway') { $guideKey = 'us-pathway' }
+    elseif ($country -eq 'US' -and $pw.type -eq 'transfer') { $guideKey = 'us-transfer' }   # CC 2+2 편입 — 컬리지 페이지와 편입 도착지 대학 양쪽에 붙는다
     $provider = if ($pw.provider) {
         '<span class="pw-provider"' + (EnAttr $pw.provider (En $pw.provider)) + '>' + (Esc $pw.provider) + '</span>'
     } else { '' }
@@ -672,10 +678,24 @@ $TEMPLATE = @'
                 b: ['You study on the university campus, taking English alongside <mark>credit-bearing first-year courses</mark>, and move into <mark>Year 2 of that university</mark> once you meet the condition. It replaces first year, so the degree still takes <mark>four years in total</mark>.',
                     'You can apply <mark>without an SAT</mark> and start from around <mark>IELTS 5.5</mark>. Shorelight, INTO and Kaplan run these. It is <mark>not the same as conditional admission</mark>, where the English course carries no credit and adds time to the degree.']
             }
+        },
+        'us-transfer': {
+            ko: {
+                t: '커뮤니티칼리지 2+2 편입이란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['커뮤니티칼리지', '2년 · 60학점'], ['4년제 3학년', '편입'], ['학사 학위', '총 4년']],
+                b: ['2년제 <mark>커뮤니티칼리지</mark>에서 교양과 전공기초 60학점을 채우고 <mark>4년제 3학년으로 편입</mark>합니다. 학위는 편입한 4년제 이름으로 나오고 <mark>총 기간도 4년 그대로</mark>입니다.',
+                    '네 경로 중 <mark>입학 문턱이 가장 낮습니다</mark>. SAT가 필요 없고 영어는 <mark>IELTS 4.5~6.0</mark> 선이며, 점수가 없으면 부설 어학과정부터 시작할 수 있습니다. 학비도 4년제의 절반 이하라 <mark>첫 2년 비용이 크게 줄고</mark>, 캘리포니아에서는 <mark>UC TAG</mark>로 데이비스·어바인 등 6개 캠퍼스 편입 보장을 신청할 수 있습니다.']
+            },
+            en: {
+                t: 'What is a community college transfer?',
+                f: [['High school', 'graduate'], ['Community college', '2 years, 60 credits'], ['Bachelor Year 3', 'transfer in'], ['Bachelor degree', 'four years total']],
+                b: ['You take 60 credits of general education and prerequisites at a two-year <mark>community college</mark>, then <mark>transfer into Year 3</mark> of a four-year university. The degree carries the four-year university name and still takes <mark>four years in total</mark>.',
+                    'This is the <mark>lowest entry bar</mark> of the four routes. No SAT is needed, English sits around <mark>IELTS 4.5-6.0</mark>, and with no score at all you can start in the college intensive English program. Tuition is under half a four-year university, so the <mark>first two years cost far less</mark>. In California, <mark>UC TAG</mark> guarantees transfer to six campuses including Davis and Irvine.']
+            }
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html', 'us-pathway': '../guide/us.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html', 'us-pathway': '../guide/us.html', 'us-transfer': '../guide/us.html#cc' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;
@@ -1263,7 +1283,9 @@ foreach ($nothing in @(1)) {
             '{{VIDEO_SECTION}}'       = $videoSection
             '{{EDITOR_NOTE_SECTION}}' = $editorSection
             '{{RELATED_SECTION}}'     = $relatedSection
-            '{{FEE_NOTE}}'            = if ($FEE_NOTE.ContainsKey($u.country)) { $FEE_NOTE[$u.country] } else { $FEE_NOTE_DEFAULT }
+            '{{FEE_NOTE}}'            = if ($u.country -eq 'US' -and $u.type -eq 'college') { $FEE_NOTE_US_CC }
+                                        elseif ($FEE_NOTE.ContainsKey($u.country)) { $FEE_NOTE[$u.country] }
+                                        else { $FEE_NOTE_DEFAULT }
         }
         foreach ($key in $tokens.Keys) { $html = $html.Replace($key, [string]$tokens[$key]) }
 
@@ -1313,7 +1335,9 @@ foreach ($cc in $lists.Keys) {
     $listHtml = $LIST_TEMPLATE.Replace('{{CARDS}}', $l.cards).Replace('{{COUNT}}', [string]$l.count).Replace('{{CN_NOUN}}', $info.noun).Replace('{{CN_ENNOUN}}', $info.enNoun).
         Replace('{{LAST_VERIFIED}}', $l.latest).Replace('{{SITE}}', $SITE).
         Replace('{{CN_KO}}', $info.ko).Replace('{{CN_EN}}', $info.enAdj).Replace('{{LIST_PATH}}', $listPath).
-        Replace('{{FEE_NOTE}}', $(if ($FEE_NOTE.ContainsKey($cc)) { $FEE_NOTE[$cc] } else { $FEE_NOTE_DEFAULT }))
+        Replace('{{FEE_NOTE}}', $(if ($cc -eq 'US') { $FEE_NOTE['US'] + $FEE_NOTE_US_LIST }
+                                  elseif ($FEE_NOTE.ContainsKey($cc)) { $FEE_NOTE[$cc] }
+                                  else { $FEE_NOTE_DEFAULT }))
     [IO.File]::WriteAllText((Join-Path $outDir $info.file), $listHtml, $utf8NoBom)
     $listLocs += ('uni/' + $listPath)
     Write-Host ("생성: uni\{0} ({1} 목록 {2}곳)" -f $info.file, $cc, $l.count) -ForegroundColor Green

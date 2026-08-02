@@ -1,0 +1,16 @@
+# 커뮤니티칼리지(2+2 편입 출발점) — 4년제 126곳과 소스가 다르므로 파일을 분리한다.
+# 학비: College Scorecard가 아니라 각 칼리지 international 페이지 공시값이다(2026-08-02 확인).
+#       수업료 + 필수 학교비만 담는다. 보험·생활비·교재비는 뺐다 — 4년제 쪽 Scorecard 값과 성격을 맞추기 위함.
+# 영어: 각 칼리지 영어요건 페이지 공시값. 전부 '미달 시 부설·제휴 어학과정 경유' 경로가 따로 있다.
+# tuition 빈칸 = 공식 확인 실패(추정치를 넣지 말 것). 사유는 data\backlog-us.md에 기록.
+# accepted: schema.md의 enum만 쓴다(iTEP·EIKEN 등 enum에 없는 시험은 eng_note 문장으로만 적는다).
+# intakes: 캘리포니아 3곳은 학기제(8월·1월), 워싱턴 4곳과 디앤자는 쿼터제(9월·1월·4월).
+id	name_en	name_ko	city	ielts	tuition	majors	accepted	intakes	eng_note	pw_note	related
+us-smc	Santa Monica College	샌타모니카 칼리지	Santa Monica	5.0	11664	경영|컴퓨터과학|심리학|커뮤니케이션	ielts|toefl|duolingo|pte|cambridge	8월|1월	IELTS 5.0 · TOEFL iBT 61 · 듀오링고 75 · PTE 39 · 점수가 없으면 부설 집중영어(IEP)로 먼저 들어갑니다	UCLA 편입 전미 최다 배출로 알려진 대표 CC입니다. UC TAG로 데이비스·어바인 등 6개 캠퍼스 편입 보장을 신청할 수 있습니다	us-ucla,us-berkeley,us-uc-irvine
+us-deanza	De Anza College	디앤자 칼리지	Cupertino	6.0	10224	컴퓨터과학|경영|경제학|생명과학	ielts|toefl|pte|cambridge	9월|1월|4월	IELTS 6.0 · TOEFL iBT 61(2026년 1월 이전 척도) 또는 3.5(신척도) · 미달 시 ELS·Kaplan 등 제휴 어학원 수료로 정식 입학	실리콘밸리 쿠퍼티노에 있습니다. UC 편입 실적이 최상위권이라 컴퓨터과학으로 가려는 학생이 특히 많이 찾습니다	us-berkeley,us-ucla,us-uc-davis
+us-dvc	Diablo Valley College	디아블로밸리 칼리지	Pleasant Hill	5.5	10728	경영|컴퓨터과학|경제학|심리학	ielts|toefl|duolingo	8월|1월	IELTS 5.5 · TOEFL iBT 57 · 듀오링고 90 · iTEP 3.5 · 미달 시 부설 IEC 집중영어 과정을 거칩니다	UC 버클리와 가까운 베이에리어입니다. 버클리 편입 배출이 많고 국제학생용 1+1+2 편입 트랙을 따로 운영합니다	us-berkeley,us-uc-davis
+us-ivc	Irvine Valley College	어바인밸리 칼리지	Irvine	4.5	12340	경영|컴퓨터과학|생명과학|심리학	ielts|toefl|duolingo|pte|cambridge	8월|1월	IELTS 4.5 · TOEFL iBT 52(구척도) 또는 3.5(신척도) · 듀오링고 80 · PTE 41 · 제휴 어학원 지정 레벨을 수료하면 시험이 면제됩니다	UC 어바인 바로 옆입니다. 이 목록에서 영어 요건이 가장 낮아 점수가 부족한 학생에게 먼저 권하는 편입니다	us-uc-irvine,us-ucla
+us-bellevue	Bellevue College	벨뷰 칼리지	Bellevue	6.0		경영|컴퓨터과학|간호학|디자인	ielts|toefl|duolingo	9월|1월|4월	IELTS 6.0(모든 영역 5.5 이상) · TOEFL iBT 61 · 미달 시 부설 집중영어(ELI) 과정부터 시작합니다	시애틀 동부입니다. UW 시애틀 편입 배출 1위 CC이고, 2026년 서부워싱턴대와 GPA 2.5 이상 편입 보장 협약을 맺었습니다	us-uw
+us-edmonds	Edmonds College	에드먼즈 칼리지	Lynnwood	5.0	12397	경영|컴퓨터과학|회계|디자인	ielts|toefl|cambridge	9월|1월|4월	IELTS 5.0(모든 영역) · TOEFL iBT 54 · 케임브리지 FCE A~C · 점수가 없으면 무료 온라인 배치고사로 대신할 수 있습니다	시애틀 북부입니다. 캠퍼스 안에 기숙사가 있어 첫 2년 정착 부담이 덜한 편입니다	us-uw
+us-seattle-central	Seattle Central College	시애틀센트럴 칼리지	Seattle	6.0	11700	경영|컴퓨터과학|디자인|간호학	ielts|toefl	9월|1월|4월	IELTS 6.0(라이팅 5.0) · TOEFL iBT 64(라이팅 17) · 미달 시 College Bridge 과정에 배치되고, 최상위 레벨을 마치면 점수 없이 진입합니다	시애틀 도심 캠퍼스입니다. 편입 준비 과정이 레벨별로 짜여 있어 영어부터 시작하는 학생도 경로가 분명합니다	us-uw
+us-green-river	Green River College	그린리버 칼리지	Auburn	5.5	12330	경영|컴퓨터과학|회계|생명과학	ielts|toefl	9월|1월|4월	IELTS 5.5(밴드 5.0 미만 없음) · TOEFL iBT 61 · 미달 시 집중영어(IEP)부터 단계를 밟습니다	시애틀 남쪽 오번에 있습니다. 유학생 지원이 두텁고 편입 트랙을 오래 운영해 온 CC입니다	us-uw

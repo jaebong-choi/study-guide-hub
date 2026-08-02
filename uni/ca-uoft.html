@@ -557,10 +557,24 @@
                 b: ['You study on the university campus, taking English alongside <mark>credit-bearing first-year courses</mark>, and move into <mark>Year 2 of that university</mark> once you meet the condition. It replaces first year, so the degree still takes <mark>four years in total</mark>.',
                     'You can apply <mark>without an SAT</mark> and start from around <mark>IELTS 5.5</mark>. Shorelight, INTO and Kaplan run these. It is <mark>not the same as conditional admission</mark>, where the English course carries no credit and adds time to the degree.']
             }
+        },
+        'us-transfer': {
+            ko: {
+                t: '커뮤니티칼리지 2+2 편입이란?',
+                f: [['고교 졸업', '또는 동등 학력'], ['커뮤니티칼리지', '2년 · 60학점'], ['4년제 3학년', '편입'], ['학사 학위', '총 4년']],
+                b: ['2년제 <mark>커뮤니티칼리지</mark>에서 교양과 전공기초 60학점을 채우고 <mark>4년제 3학년으로 편입</mark>합니다. 학위는 편입한 4년제 이름으로 나오고 <mark>총 기간도 4년 그대로</mark>입니다.',
+                    '네 경로 중 <mark>입학 문턱이 가장 낮습니다</mark>. SAT가 필요 없고 영어는 <mark>IELTS 4.5~6.0</mark> 선이며, 점수가 없으면 부설 어학과정부터 시작할 수 있습니다. 학비도 4년제의 절반 이하라 <mark>첫 2년 비용이 크게 줄고</mark>, 캘리포니아에서는 <mark>UC TAG</mark>로 데이비스·어바인 등 6개 캠퍼스 편입 보장을 신청할 수 있습니다.']
+            },
+            en: {
+                t: 'What is a community college transfer?',
+                f: [['High school', 'graduate'], ['Community college', '2 years, 60 credits'], ['Bachelor Year 3', 'transfer in'], ['Bachelor degree', 'four years total']],
+                b: ['You take 60 credits of general education and prerequisites at a two-year <mark>community college</mark>, then <mark>transfer into Year 3</mark> of a four-year university. The degree carries the four-year university name and still takes <mark>four years in total</mark>.',
+                    'This is the <mark>lowest entry bar</mark> of the four routes. No SAT is needed, English sits around <mark>IELTS 4.5-6.0</mark>, and with no score at all you can start in the college intensive English program. Tuition is under half a four-year university, so the <mark>first two years cost far less</mark>. In California, <mark>UC TAG</mark> guarantees transfer to six campuses including Davis and Irvine.']
+            }
         }
     };
     // 경로 키 → 국가별 전체 가이드 페이지
-    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html', 'us-pathway': '../guide/us.html' };
+    var PW_GUIDE_PAGE = { 'au-foundation': '../guide/au.html', 'au-diploma': '../guide/au.html', 'uk-foundation': '../guide/uk.html', 'uk-iyo': '../guide/uk.html', 'pre-master': '../guide/uk.html', 'ca-ossd': '../guide/ca.html', 'ca-foundation': '../guide/ca.html', 'ca-pathway': '../guide/ca.html', 'us-pathway': '../guide/us.html', 'us-transfer': '../guide/us.html#cc' };
     function openPwGuide(key) {
         var g = PW_GUIDES[key]; if (!g) return;
         var c = g[LANG] || g.ko;

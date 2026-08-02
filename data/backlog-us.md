@@ -4,10 +4,16 @@
 미국은 126곳이라 손편집이 아니라 **생성 방식**이다. 다른 국가는 `universities-{cc}.json`을 직접 고치지만
 미국은 아래 두 소스를 고친 뒤 스크립트를 돌린다.
 
-    data\us-source.tsv   학교별 한국어명·도시·QS·IELTS·전공·제휴사·US News
-    data\us-urls.tsv     학교별 공식 홈페이지 (id → URL)
+    data\us-source.tsv   4년제 126곳 — 한국어명·도시·QS·IELTS·전공·제휴사·US News
+    data\us-cc.tsv       커뮤니티칼리지 8곳 — 학비·영어요건·편입 설명·편입 도착지까지 한 파일에
+    data\us-urls.tsv     학교별 공식 홈페이지 (id → URL) · 134곳 전부
         ↓  powershell -ExecutionPolicy Bypass -File scripts\gen-us.ps1
     data\universities-us.json   (직접 고치지 말 것 — 다음 생성 때 덮어써진다)
+
+**CC를 왜 따로 뒀나**: 4년제 학비는 교육부 College Scorecard 일괄 공시지만 CC는 각 칼리지
+international 페이지 공시라 출처 성격이 다르다. 한 파일에 섞으면 어느 값이 어느 출처인지
+구분이 안 된다. 페이지 푸터 학비 문구도 `type=college`면 CC 전용 문구로 갈린다
+(build-uni.ps1의 `$FEE_NOTE_US_CC`).
 
 공식 페이지로 직접 확인한 학교의 상세 문구(영어요건 note·에디터 노트)는 `gen-us.ps1`의 `$OVERRIDE` 해시에 있다.
 
@@ -72,8 +78,18 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
       RESEARCH.md 기록분이라 각 제휴사 사이트로 다시 대조할 것.
 - [ ] **coei가 패스웨이로 언급한 위스콘신 매디슨·델라웨어·제임스매디슨은 패스웨이로 넣지 않았다.**
       제휴사 공식 목록에서 확인되지 않아 direct만 넣었다. 확인되면 us-source.tsv의 provider 열에 추가.
-- [ ] 커뮤니티칼리지 2+2 편입(transfer) 경로 미입력. UC TAG 6개 캠퍼스와 Santa Monica·De Anza·
-      Bellevue 등은 us-study-guide/docs/RESEARCH.md에 정리돼 있다.
+- [x] **커뮤니티칼리지 8곳 입력 완료(2026-08-02)**. 소스는 `data/us-cc.tsv`로 분리했다 —
+      4년제는 Scorecard 공시지만 CC는 각 칼리지 international 페이지 공시라 출처 성격이 다르기 때문이다.
+      샌타모니카·디앤자·디아블로밸리·어바인밸리·벨뷰·에드먼즈·시애틀센트럴·그린리버.
+      `type: college` · `pathways: [transfer]` · `related_ids`로 편입 도착지 대학 연결.
+- [x] **편입 도착지 대학 8곳에 transfer 경로 카드 추가**. gen-us.ps1의 `$TRANSFER` 해시.
+      UC TAG 참여교(데이비스·어바인·샌타바버라·샌타크루즈) + TAG 미참여 CC 편입 대형교
+      (UCLA·버클리·샌디에이고) + UW. **UC 머시드·리버사이드는 TAG 참여교지만 DB에 없어 빠졌다** —
+      두 학교를 추가하면 `$TRANSFER`에도 같이 넣을 것.
+- [ ] **벨뷰 칼리지 학비 미확인**. bellevuecollege.edu 전체가 Cloudflare 뒤라 WebFetch·브라우저 모두
+      막힌다(브라우저는 차단 페이지 렌더링 중 앱이 죽었다). 검색 결과의 연 $29,665는 생활비 포함
+      추정치라 쓰지 않았다 — 다른 7곳은 수업료+필수학교비만 담았으므로 성격이 어긋난다.
+      us-cc.tsv의 tuition 칸이 비어 있고, 페이지에서는 학비 행이 그냥 안 나온다.
 - [x] **`guide/us.html` 작성 완료(2026-08-01)**. 경로 4종(다이렉트·패스웨이·CC 2+2 편입·조건부 입학),
       학비표, F-1 6단계, FAQ 5문항, 공식 출처 6곳. edmuhak 페이지는 다룰 주제만 참고하고
       **본문은 국무부·국토안보부·교육부·UC 공식 자료로 새로 작성**(uk/au/ca와 같은 원칙).
@@ -81,9 +97,12 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
       연결: `$locs`에 guide/us.html 추가 · `PW_GUIDE_PAGE`에 `us-pathway` 매핑 ·
       `New-PathwayCard`가 US pathway에 guideKey 부여 · `PW_GUIDES`에 us-pathway 모달 ·
       허브 index `guide-links`에 4번째 링크.
-- [ ] 미국 direct 경로는 모달 없이 진단으로 직행한다(다른 국가의 direct와 동일). CC 편입·조건부
-      입학은 학교 데이터에 pathway 타입으로 안 들어가 있어 모달이 없다. transfer 경로를 넣게 되면
-      `us-transfer` 키를 만들어 매핑할 것.
+- [x] **`us-transfer` 모달 완료(2026-08-02)**. `New-PathwayCard`에 US+transfer 분기,
+      `PW_GUIDES`에 2+2 편입 설명(플로우 4단계 + 본문 2문단, ko/en), `PW_GUIDE_PAGE`는
+      `../guide/us.html#cc`로 CC 카드에 바로 앵커한다. CC 8곳 페이지와 편입 도착지 대학 8곳
+      양쪽에서 같은 모달이 뜬다.
+- [ ] 미국 direct 경로는 모달 없이 진단으로 직행한다(다른 국가의 direct와 동일).
+      **조건부 입학**은 아직 학교 데이터에 pathway 타입으로 안 들어가 있어 모달이 없다.
 
 ### 콘텐츠
 - [ ] editor_note가 7곳만 있다(나머지 null이면 섹션 자체가 안 나온다). 상담 수요 높은 학교부터 채울 것.
@@ -109,6 +128,14 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
 - [ ] `popular_majors`는 어휘를 고정해서 넣었다(i18n 사전 폭증 방지). 새 전공어를 쓰면
       빌드가 `data/i18n-uni-missing.txt`로 알려주니 i18n-uni.json에 추가할 것.
 - [ ] us-study-guide 진단 결과 → uni 페이지 연결 (uk/au의 HUB_UNI 패턴)
+
+### us-study-guide(진단 사이트)와 맞춘 것 — 2026-08-02
+CC 영어요건을 공식 페이지로 대조하면서 진단 사이트 `ccColleges`의 값 3건이 틀린 것을 확인해 양쪽을 고쳤다.
+- 벨뷰: IELTS 5.5 → **6.0**(모든 영역 5.5 이상)
+- 시애틀센트럴: IELTS 5.5 → **6.0**(라이팅 5.0). 5.5는 단기 certificate 기준이었다
+- 그린리버: '점수 없이 입학 가능' → **Academic Transfer는 IELTS 5.5**(밴드 5.0 미만 없음).
+  점수가 없으면 IEP부터 시작하는 구조라 '점수 없이 입학'은 과장이었다
+진단 사이트 CC 카드에 허브 상세 페이지 링크(`hub` 필드)도 추가했다. **한쪽만 고치면 두 사이트가 어긋난다.**
 
 ### 참고 링크
 - edmuhak 대학 검색은 **영국만** 있다. 사용자가 준 `country=1`은 미국이 아니라 영국이고,
