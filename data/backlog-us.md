@@ -129,9 +129,20 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
 - [x] **로고 105/126** (2026-08-01). 출처는 **위키데이터 P154(로고) → Wikimedia Commons 파일**.
       Commons 호스팅만 받았으므로 자유 라이선스다(en.wikipedia의 비자유 fair-use 파일은 받지 않음).
       수집: 위키데이터 SPARQL로 미국 대학 1,103건의 로고+공식 URL을 받아 `us-urls.tsv` 도메인으로 매칭.
-- [ ] **로고 없는 21곳**: us-emory, us-georgia, us-ucf, us-marquette, us-dayton, us-cornell,
-      us-upenn, us-yale, us-columbia, us-wisconsin, us-georgia-tech, us-baylor, us-unc, us-iowa,
-      us-wake-forest, us-william-mary, us-vermont, us-tulsa, us-san-diego, us-gonzaga, us-saint-louis
+- ⚠ **위 "21곳" 목록은 낡았다.** 이후 대부분 채워졌다. 파일 기준으로 세는 게 정확하다
+      (`images/uni/{id}-logo.(png|svg)` 존재 여부 = 빌드가 보는 것과 같다).
+- [x] **미국 129/134 (2026-08-02)**. 커먼즈로 못 채운 곳을 각 학교 공식 사이트에서 받았다.
+      **UCF 포함** — `/brand/brand-assets/logo-identity-system/`의 페가수스+UCF 마크다.
+      **운동부 로고 교체분 3곳도 정식 로고로 바꿨다**: 코넬(공식 씰, cornell.css의 `logo-red.png`) ·
+      곤자가(GONZAGA UNIVERSITY 워드마크) · 제임스매디슨(검정 JMU 학사 로고, 보라·금 Dukes 아님).
+      수집 절차는 `backlog-ca.md`의 "로고 수집 방법"에 적어 뒀다.
+- [ ] **데이턴·UNC는 흰색 판만 공개한다.** 데이턴 `footer-logo.svg`는 전체가 `fill:#fff`,
+      UNC `University_Signature_White_Navy_rgb_h.svg`는 NC 마크가 `#fff`+글자만 `#13294b`라
+      라이트 모드에서 마크가 사라진다. 색을 바꿔 쓰는 건 브랜드 자산 변형이라 하지 않았다.
+      **두 곳은 아직 운동부 마크가 걸려 있다**(코넬·곤자가·제임스매디슨만 교체 완료).
+- [ ] **커뮤니티칼리지 5곳 로고 미확보**: 디앤자·벨뷰(둘 다 Cloudflare 403) · DVC·시애틀센트럴
+      (헤더 로고가 JS 렌더라 HTML에 자산 경로가 없음) · 그린리버(흰색 판만 공개).
+      SMC·어바인밸리·에드먼즈는 받았다.
 - ⚠ **자동 수집에서 걸러낸 것들** — 같은 방식으로 보충할 때 반드시 확인할 것:
   - **씰·문장 6개 제외**(upenn·yale·columbia·wisconsin·georgia-tech·baylor). 다크 모드에서 로고를
     밝은 판 위에 얹는 구조라 다색 씰은 뭉개지고, 컬럼비아 문장은 SVG 하나가 1.3MB였다.
