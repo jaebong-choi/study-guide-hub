@@ -396,10 +396,14 @@ $TEMPLATE = @'
         .fact-table .krw { display: block; font-size: 12px; color: var(--mute); font-weight: 500; margin-top: 2px; }
         .disclaimer { font-size: 12px; color: var(--mute); margin-top: 12px; line-height: 1.8; }
 
+        /* 핵심 수치 바로 아래에 오는 자리라 본문보다 조금 크게 잡고,
+           왼쪽 악센트 선으로 위쪽 데이터 카드와 성격을 구분한다. */
         .editor-note {
-            background: var(--card-bg); border: 1px solid var(--line); border-radius: 14px; padding: 18px;
-            font-size: 14px; color: var(--body-text);
+            background: var(--surface); border: 1px solid var(--line);
+            border-left: 3px solid var(--accent); border-radius: 14px; padding: 20px 22px;
+            font-size: 15.5px; line-height: 1.75; color: var(--text);
         }
+        @media (max-width: 720px) { .editor-note { font-size: 15px; padding: 17px 18px; } }
         .related-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
         .related-card {
             display: flex; align-items: center; gap: 14px;
@@ -462,9 +466,6 @@ $TEMPLATE = @'
                     <a class="btn btn-primary" href="{{DIAG_URL}}" data-en="Start the 3-minute quiz">3분 진단 시작</a>
                     <a class="btn btn-secondary" href="{{OFFICIAL_URL}}" target="_blank" rel="noopener" data-en="Official website">공식 홈페이지</a>
                 </div>
-                <div class="map-wrap">
-                    <iframe src="https://www.google.com/maps?q={{MAP_QUERY}}&amp;output=embed&amp;hl=ko" title="{{NAME_KO}} 위치 지도" data-en-title="{{NAME_EN}} location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-                </div>
             </div>
         </section>
 
@@ -494,7 +495,7 @@ $TEMPLATE = @'
                 <p class="fx-date"></p>
             </div>
         </section>
-
+{{EDITOR_NOTE_SECTION}}
         <!-- ③ 진학 경로 -->
         <section>
             <div class="container">
@@ -522,8 +523,19 @@ $TEMPLATE = @'
                 <p class="disclaimer" data-en="Figures follow official university publications and vary by course and year.&lt;br&gt;KRW amounts are indicative, converted at the exchange rate at the time of viewing.&lt;br&gt;Check the official website for the latest information. (Verified: {{LAST_VERIFIED}})">공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.<br>원화 금액은 조회 시점의 환율로 자동 계산된 참고 값입니다.<br>최신 정보는 공식 홈페이지에서 확인하세요. (정보 확인: {{LAST_VERIFIED}})</p>
             </div>
         </section>
-{{VIDEO_SECTION}}{{EDITOR_NOTE_SECTION}}{{RELATED_SECTION}}
-        <!-- ⑥ 하단 CTA -->
+
+        <!-- ⑥ 위치 — 히어로에 있던 지도를 여기로 내렸다.
+             임베드가 세로로 커서 히어로에 두면 에디터 노트와 핵심 수치가 첫 화면 밖으로 밀린다. -->
+        <section>
+            <div class="container">
+                <h2 data-en="Location">위치</h2>
+                <div class="map-wrap">
+                    <iframe src="https://www.google.com/maps?q={{MAP_QUERY}}&amp;output=embed&amp;hl=ko" title="{{NAME_KO}} 위치 지도" data-en-title="{{NAME_EN}} location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+{{VIDEO_SECTION}}{{RELATED_SECTION}}
+        <!-- ⑦ 하단 CTA -->
         <section class="cta-section">
             <div class="container">
                 <h2 data-en="Which route fits your profile?">내 조건이면 어떤 경로가 맞을까?</h2>
