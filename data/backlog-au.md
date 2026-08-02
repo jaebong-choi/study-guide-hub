@@ -36,9 +36,25 @@
   **원문을 못 봤다.** 검증 안 된 값은 넣지 않는다는 원칙대로 비워 뒀다.
 - **latrobe.edu.au는 WebSearch가 거부한다**(크롤러 차단 도메인). 다른 경로로 접근해야 한다.
 
-- [ ] **남은 22곳**: uwa · adelaide · rmit · macquarie · curtin · deakin · latrobe · newcastle ·
-      swinburne · utas · unisq · murdoch · canberra · ecu · vu · acu · unisc · wsu ·
-      bmihms · angliss · tafe-nsw · tafe-qld. 검증 안 된 값 넣지 말 것
+- [x] **남은 22곳은 CRICOS 등록부로 채웠다(2026-08-02). 35/35 완료.**
+      사용자 결정: 대학이 학비를 과정별로만 공시해 요금표가 없는 곳은 **호주 정부 CRICOS
+      등록부** 기준으로 넣고 사이트에 밝힌다. build-uni.ps1의 `$FEE_NOTE['AU']`가 그 문구다.
+
+### CRICOS 갱신 방법 — 다음에 그대로 쓸 것
+1. data.gov.au의 CRICOS 데이터셋에서 `cricos-courses.csv`를 받는다(약 7MB, 26,000행).
+   과정별 **Tuition Fee(과정 총액)·Duration(주)·Course Level·Expired**가 다 들어 있다.
+   웹(cricos.education.gov.au)은 ASP.NET 포스트백이라 긁지 말 것 — CSV가 정답이다.
+2. Expired=No만 쓴다. 연간 학비 = Tuition Fee ÷ (Duration주/52). 26주 미만 과정은 제외.
+3. 학교 단위 값은 **25~75% 구간**(캐나다 컬리지와 같은 원칙), 100단위 반올림.
+   UG = Bachelor (Honours 포함) · PG = Masters (Coursework) · 컬리지 = Diploma+Advanced Diploma.
+4. **CSV의 기관명은 사이트 표기와 다르다**: RMIT는 `Royal Melbourne Institute of Technology`,
+   TAFE NSW는 `Technical and Further Education Commission`(00591E), UWA·맥쿼리 등은
+   `(UWA)` 같은 괄호가 붙는다. BMIHMS는 `Torrens University Australia Limited` 소속이라
+   과정명 Hotel|Hospitality|Culinary 필터로 걸렀다(n=4).
+5. 공식 요금표 PDF가 있는 학교(UOW·플린더스)는 PDF 값을 유지한다 — CRICOS보다 학교 공시가 우선.
+- ⚠ **PowerShell 함정**: `foreach ($id in $V.Keys) { $V[$id] }`가 5.1에서 둘째 키부터
+  null을 돌려줘 **22곳 전부에 첫 학교 값이 들어가는 사고**가 났다(git checkout으로 복구).
+  해시테이블 순회는 반드시 `GetEnumerator()`로 할 것.
 - [ ] 로고 2곳: au-ecu, au-lcb (공식 사이트에서 못 긁음 — 파일 구해서
       images/uni/{id}-logo.svg|png 투명배경으로 넣고 build-uni.ps1 재실행)
 - [ ] 배너: images/uni/au-banner.jpg (영국처럼 공용 1장이면 35곳 전부 적용)
