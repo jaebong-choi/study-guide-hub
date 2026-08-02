@@ -124,6 +124,26 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
   - **엉뚱한 대학 1개 제외**: `us-saint-louis`에 벨기에 **UCLouvain Saint-Louis Bruxelles** 로고가
     받아졌다. 이름 검색(wbsearchentities)은 동명 대학을 물어오니 파일명을 반드시 눈으로 확인할 것.
   - jpg/jpeg는 투명 배경이 아니라 제외(cornell·jhu). jhu는 이후 png로 재확보.
+- [ ] **운동부 로고 교체 (2026-08-02 전수 육안 감사)**. 사용자 지시: 전 국가 모두 운동부 마크가 아니라
+      정식 대학 로고를 쓸 것. 220개를 국가별 contact sheet로 렌더해 눈으로 확인했다.
+      **영국 49 · 호주 34 · 캐나다 17은 전부 정식 로고였고, 미국 120곳에서만 문제가 나왔다.**
+  - **교체 확정 5곳**: us-cornell(붉은 CORNELL 블록) · us-dayton(붉은 이탤릭=Flyers) ·
+    us-gonzaga(아치형 운동부 서체) · us-james-madison(보라·금 JMU 블록=Dukes) · us-unc(NC 인터로킹=Tar Heels)
+- ⚠ **1차 감사에서 5곳을 잘못 지목했다 — 되돌렸다.** us-iowa · us-lsu · us-tcu · us-purdue · us-missouri는
+      운동부 마크처럼 보이지만 **각 대학 공식 홈페이지 헤더가 바로 그 마크를 쓰고 있다**(iowa.edu의 검정 IOWA
+      블록, purdue.edu의 Motion P, tcu.edu의 TCU, lsu.edu의 LSU, missouri.edu의 금색 MU).
+      미국 대학은 학사 로고와 운동부 서체가 같은 계열인 경우가 흔하므로 **"블록체=운동부"로 단정하지 말 것.**
+      판별 기준은 서체가 아니라 **그 학교 공식 사이트 헤더에 무엇이 걸려 있는가**다.
+- [ ] **판단 보류 4곳** — 같은 이유로 그대로 두었다(공식 사이트에서도 쓰는 마크):
+      us-asu(피치포크) · us-texas-am(ATM 블록) · us-wyoming(버킹호스) · us-oregon-state(주황 OSU).
+- ⚠ **감사 방법**: 헤드리스 Edge로 로고 contact sheet를 PNG로 렌더해서 봤다. SVG는 XML만 봐서는
+      판별이 안 되고(내부에 운동부 단서 텍스트가 없다), 인앱 브라우저는 응답이 없거나 앱을 죽인다.
+      `msedge.exe --headless=new --screenshot=... --window-size=1280,980` 방식이 유일하게 동작했다.
+- ⚠ **커먼즈로는 못 채운다**: 로고 없는 6곳(emory·ucf·wake-forest·william-mary·san-diego·marquette)은
+      위키데이터 **P154(공식 로고) 속성이 전부 비어 있고**, 커먼즈 검색 결과도 운동부 로고이거나
+      산하기관(Emory Law·Medical School)·동명 타교(Emory & Henry)뿐이다. 교체분 10곳도 사정이 같다.
+      **각 대학 공식 브랜드 페이지에서 받아야 하고, 그러면 기존 120개의 커먼즈 자유 라이선스 근거가
+      이 16개에는 적용되지 않는다.** 진행 전 사용자 확인 필요.
 - [ ] youtube_id 전부 null.
 - [ ] `popular_majors`는 어휘를 고정해서 넣었다(i18n 사전 폭증 방지). 새 전공어를 쓰면
       빌드가 `data/i18n-uni-missing.txt`로 알려주니 i18n-uni.json에 추가할 것.

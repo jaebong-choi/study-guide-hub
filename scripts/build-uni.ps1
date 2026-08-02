@@ -91,6 +91,12 @@ function EnAttr([string]$ko, [string]$en) {
     return ' data-en="' + (Esc $en) + '"'
 }
 
+# IELTS 밴드는 항상 소수점 한 자리로 적는다(7 -> 7.0).
+function Fmt-Ielts($v) {
+    if ($null -eq $v) { return '' }
+    return ([double]$v).ToString('0.0', [cultureinfo]::InvariantCulture)
+}
+
 function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
     $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
     # 호주의 편입은 디플로마 경유라는 것을 라벨에서 드러낸다
@@ -113,7 +119,7 @@ function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
         '<span class="pw-provider"' + (EnAttr $pw.provider (En $pw.provider)) + '>' + (Esc $pw.provider) + '</span>'
     } else { '' }
     $facts = ''
-    if ($null -ne $pw.ielts_min) { $facts += '<span>IELTS <b>' + $pw.ielts_min + '</b></span>' }
+    if ($null -ne $pw.ielts_min) { $facts += '<span>IELTS <b>' + (Fmt-Ielts $pw.ielts_min) + '</b></span>' }
     if ($pw.duration) {
         $d = En $pw.duration
         $facts += '<span' + (EnAttr "기간 <b>$($pw.duration)</b>" "Duration <b>$d</b>") + '>기간 <b>' + (Esc $pw.duration) + '</b></span>'
@@ -1194,7 +1200,7 @@ foreach ($nothing in @(1)) {
         $pgText = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
         if ($ugText) { $rows += '<tr><th data-en="UG annual tuition">학부 연간 학비</th><td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
         if ($pgText) { $rows += '<tr><th data-en="PG annual tuition">석사 연간 학비</th><td>' + $pgText + ' <small class="krw" data-min="' + $u.tuition_pg_min + '" data-max="' + $u.tuition_pg_max + '"></small></td></tr>' }
-        $ieltsKo = 'IELTS ' + $u.english.ielts_min
+        $ieltsKo = 'IELTS ' + (Fmt-Ielts $u.english.ielts_min)
         $ieltsEn = $ieltsKo
         if ($u.english.note) {
             $ieltsEn = $ieltsKo + ' (' + (Esc (En $u.english.note)) + ')'
@@ -1263,7 +1269,7 @@ foreach ($nothing in @(1)) {
             '{{TUITION_LABEL}}'       = $tuitionLabel
             '{{TUITION_UG}}'          = $tuitionUg
             '{{TUITION_UG_EN}}'       = $tuitionUgEn
-            '{{IELTS_MIN}}'           = [string]$u.english.ielts_min
+            '{{IELTS_MIN}}'           = Fmt-Ielts $u.english.ielts_min
             '{{ACCEPTED_SUB}}'        = $acceptedSub
             '{{ACCEPTED_SUB_EN}}'     = $acceptedSubEn
             '{{INTAKES}}'             = $intakesKo
@@ -1313,7 +1319,7 @@ foreach ($nothing in @(1)) {
                     <div class="card-meta">
                         <span$(EnAttr $u.city (En $u.city))>$(Esc $u.city)</span>
                         <span data-en="Fees <b>$feeEnVal</b>">학비 <b>$tuitionUg</b></span>
-                        <span>IELTS <b>$($u.english.ielts_min)</b></span>
+                        <span>IELTS <b>$(Fmt-Ielts $u.english.ielts_min)</b></span>
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
