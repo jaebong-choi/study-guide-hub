@@ -1,468 +1,2183 @@
 [
-  {
-    "id": "ca-seneca",
-    "type": "college",
-    "name_ko": "세네카 폴리테크닉",
-    "name_en": "Seneca Polytechnic",
-    "country": "CA",
-    "city": "Toronto",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 16400,
-    "tuition_ug_max": 19700,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5" },
-    "popular_majors": ["IT·컴퓨터", "비즈니스", "항공", "보건"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로" },
-      { "type": "transfer", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2+2년", "cost_note": null, "note": "요크대 등 파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.senecapolytechnic.ca",
-    "youtube_id": null,
-    "editor_note": "토론토에서 규모가 가장 큰 공립 폴리테크닉입니다. 전공 폭이 넓어서 PGWP가 나오는 과정 중에 고를 것이 많습니다. 요크대 편입 연계도 여기가 제일 잘 돼 있습니다.",
-    "related_ids": ["ca-humber", "ca-george-brown"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-humber",
-    "type": "college",
-    "name_ko": "험버 폴리테크닉",
-    "name_en": "Humber Polytechnic",
-    "country": "CA",
-    "city": "Toronto",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": null,
-    "tuition_ug_max": null,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5" },
-    "popular_majors": ["미디어", "비즈니스", "보건", "호스피탈리티"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate · 미디어·비즈니스 계열 다수" },
-      { "type": "transfer", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2+2년", "cost_note": null, "note": "자체 학사 과정 보유 + 대학 편입 협정" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://humber.ca",
-    "youtube_id": null,
-    "editor_note": "토론토 서쪽에 있는 대형 폴리테크닉입니다. 미디어와 비즈니스, 보건 쪽 과정이 두텁고 학사 학위 과정도 함께 운영합니다.",
-    "related_ids": ["ca-seneca"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-george-brown",
-    "type": "college",
-    "name_ko": "조지브라운 폴리테크닉",
-    "name_en": "George Brown Polytechnic",
-    "country": "CA",
-    "city": "Toronto",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 19300,
-    "tuition_ug_max": 19300,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5" },
-    "popular_majors": ["조리·제빵", "디자인", "비즈니스", "보건"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate · 조리·디자인 계열 강세" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.georgebrown.ca",
-    "youtube_id": null,
-    "editor_note": "토론토 도심 한복판에 있습니다. 조리 학교와 디자인으로 알려져 있고, 도심이라 실습과 아르바이트 자리를 구하기가 수월합니다.",
-    "related_ids": ["ca-seneca"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-centennial",
-    "type": "college",
-    "name_ko": "센테니얼 컬리지",
-    "name_en": "Centennial College",
-    "country": "CA",
-    "city": "Toronto (Scarborough)",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 17100,
-    "tuition_ug_max": 18300,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5" },
-    "popular_majors": ["자동차·운송", "항공정비", "IT", "보건"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "온타리오 최초의 공립 컬리지 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate 다수 운영" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.centennialcollege.ca",
-    "youtube_id": null,
-    "editor_note": "온타리오에서 처음 문을 연 공립 컬리지입니다. 자동차와 항공정비처럼 손으로 하는 기술 과정이 강합니다.",
-    "related_ids": ["ca-seneca"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-sheridan",
-    "type": "college",
-    "name_ko": "셰리든 컬리지",
-    "name_en": "Sheridan College",
-    "country": "CA",
-    "city": "Oakville",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": null,
-    "tuition_ug_max": null,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · 학사 6.5 (TOEFL 88 · 듀오링고 115)" },
-    "popular_majors": ["애니메이션", "디자인", "IT"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate · 애니메이션·VFX 계열 인기" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.sheridancollege.ca",
-    "youtube_id": null,
-    "editor_note": "애니메이션으로 이름이 알려진 학교입니다. 픽사와 디즈니에 졸업생이 여럿 나갔습니다. 지원하려면 포트폴리오 준비를 일찍 시작해야 합니다.",
-    "related_ids": ["ca-george-brown"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-fanshawe",
-    "type": "college",
-    "name_ko": "팬쇼 컬리지",
-    "name_en": "Fanshawe College",
-    "country": "CA",
-    "city": "London (Ontario)",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 17700,
-    "tuition_ug_max": 18100,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마·PG 모두 6.0 이상 (과정별 상이)" },
-    "popular_majors": ["보건", "미디어", "기술직(트레이드)"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "토론토 대비 생활비가 합리적인 런던(온타리오) 소재 · PGWP 적격 전공 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.0, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate 다수 운영" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.fanshawec.ca",
-    "youtube_id": null,
-    "editor_note": "런던(온타리오)에 있어 토론토보다 생활비가 덜 듭니다. 보건과 기술직 과정이 두텁습니다.",
-    "related_ids": ["ca-niagara"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-niagara",
-    "type": "college",
-    "name_ko": "나이아가라 컬리지",
-    "name_en": "Niagara College",
-    "country": "CA",
-    "city": "Welland",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": null,
-    "tuition_ug_max": null,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte", "duolingo"], "note": "디플로마 6.0 (각 5.5) · PG 서티피킷 6.5" },
-    "popular_majors": ["조리·제빵", "와인·양조", "호텔·관광"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2~3년", "cost_note": null, "note": "교내 티칭 와이너리·브루어리 운영 · PGWP 적격 전공 확인 필수" },
-      { "type": "college", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "Post-Graduate Certificate · 호스피탈리티 계열 인기" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.niagaracollege.ca",
-    "youtube_id": null,
-    "editor_note": "조리와 와인, 호텔에 특화된 컬리지입니다. 나이아가라의 와이너리와 관광 인프라가 그대로 실습장이 됩니다.",
-    "related_ids": ["ca-fanshawe"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-vcc",
-    "type": "college",
-    "name_ko": "밴쿠버 커뮤니티 컬리지(VCC)",
-    "name_en": "Vancouver Community College",
-    "country": "CA",
-    "city": "Vancouver",
-    "qs_rank": null,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": null,
-    "tuition_ug_max": null,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "duolingo"], "note": "과정별 6.0~6.5 상이" },
-    "popular_majors": ["조리·제빵", "보건", "자동차", "음악"],
-    "pathways": [
-      { "type": "college", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "1~2년", "cost_note": null, "note": "밴쿠버 도심 공립 컬리지 · PGWP 적격 전공 확인 필수" },
-      { "type": "transfer", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "2+2년", "cost_note": null, "note": "BC주 편입 시스템(BC Transfer)으로 UBC·SFU 등 4년제 연계" }
-    ],
-    "intakes": ["1월", "9월"],
-    "official_url": "https://www.vcc.ca",
-    "youtube_id": null,
-    "editor_note": "밴쿠버 도심의 공립 컬리지입니다. 조리와 보건이 강하고, BC Transfer로 UBC나 SFU 편입까지 열려 있습니다.",
-    "related_ids": ["ca-ubc"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-uoft",
-    "type": "university",
-    "name_ko": "토론토대학교(UofT)",
-    "name_en": "University of Toronto",
-    "country": "CA",
-    "city": "Toronto",
-    "qs_rank": 32,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 70060,
-    "tuition_ug_max": 70060,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0) · 전공별 상이" },
-    "popular_majors": ["컴퓨터과학", "경영(로트먼)", "공학", "생명과학"],
-    "pathways": [
-      { "type": "pathway", "level": "ug", "provider": "온타리오 사립 국제학교(OSSD)", "ielts_min": null, "duration": "1~2년", "cost_note": null, "note": "TAIE·UMC·BICC 등에서 온타리오 고교 학점(OSSD)을 이수해 캐나다 내신으로 지원하는 경로" },
-      { "type": "foundation", "level": "ug", "provider": "자체 운영 (IFP)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "International Foundation Program · 영어와 학점 과목을 병행해 수료 시 본교 1학년 진학" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "공학 기준 C$70,060 (전공별 상이)", "note": "수능·내신·검정고시 등으로 직접 지원 · 경쟁 매우 치열" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 7.0, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
-    ],
-    "intakes": ["9월"],
-    "official_url": "https://www.utoronto.ca",
-    "youtube_id": null,
-    "editor_note": "캐나다에서 순위가 가장 높은 대학입니다. QS 세계 32위. 다만 한국 고교 성적만으로 바로 넣기에는 부담이 커서, 토론토의 사립 국제학교에서 OSSD 학점을 만들어 캐나다 내신으로 지원하는 학생이 많습니다. 학비는 연 7만 달러대로 이 목록에서 가장 비쌉니다.",
-    "related_ids": ["ca-ubc"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-ubc",
-    "type": "university",
-    "name_ko": "브리티시컬럼비아대학교(UBC)",
-    "name_en": "University of British Columbia",
-    "country": "CA",
-    "city": "Vancouver",
-    "qs_rank": 45,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 44557,
-    "tuition_ug_max": 49549,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0) · 전공별 상이" },
-    "popular_majors": ["컴퓨터과학", "경영(소더)", "공학", "산림·환경"],
-    "pathways": [
-      { "type": "transfer", "level": "ug", "provider": "BC Transfer (컬리지 편입)", "ielts_min": 6.0, "duration": "2+2년", "cost_note": null, "note": "VCC·랭가라 등 BC주 컬리지에서 2년 이수 후 편입 · 컬리지 GPA가 관건" },
-      { "type": "pathway", "level": "ug", "provider": "국제 사립학교(BC·온타리오 고교)", "ielts_min": null, "duration": "1~2년", "cost_note": null, "note": "캐나다 고교 내신(OSSD·BC Dogwood)으로 지원하는 경로" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "C$44,557~49,549", "note": "수능·내신으로 직접 지원 · 밴쿠버·오카나간 두 캠퍼스" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
-    ],
-    "intakes": ["9월", "1월"],
-    "official_url": "https://www.ubc.ca",
-    "youtube_id": null,
-    "editor_note": "BC주는 컬리지에서 딴 학점을 대학이 받아주는 제도가 주 단위로 정리돼 있습니다(BC Transfer). 그래서 UBC는 컬리지에서 2년 하고 넘어오는 길이 실제로 굴러갑니다. 신입으로 바로 붙기 어려운 성적이면 이쪽부터 봅니다.",
-    "related_ids": ["ca-uoft", "ca-vcc"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-sfu",
-    "type": "university",
-    "name_ko": "사이먼프레이저대학교(SFU)",
-    "name_en": "Simon Fraser University",
-    "country": "CA",
-    "city": "Vancouver (Burnaby)",
-    "qs_rank": 312,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 37442,
-    "tuition_ug_max": 37442,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0)" },
-    "popular_majors": ["컴퓨터과학", "비즈니스", "인터랙티브 아트"],
-    "pathways": [
-      { "type": "transfer", "level": "ug", "provider": "FIC (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "Fraser International College에서 1학년 과정(UTP Stage II) 이수 후 SFU 2학년 편입" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "연 C$37,442 (30학점 기준)", "note": "수능·내신 직접 지원 · 1·5·9월 3학기제" }
-    ],
-    "intakes": ["1월", "5월", "9월"],
-    "official_url": "https://www.sfu.ca",
-    "youtube_id": null,
-    "editor_note": "캠퍼스 안에 FIC라는 패스웨이 컬리지가 있습니다. 여기서 1학년 과정을 마치고 2학년으로 올라가는 것이 한국 학생에게 가장 익숙한 SFU 진입 방식입니다.",
-    "related_ids": ["ca-manitoba", "ca-ubc"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-manitoba",
-    "type": "university",
-    "name_ko": "매니토바대학교",
-    "name_en": "University of Manitoba",
-    "country": "CA",
-    "city": "Winnipeg",
-    "qs_rank": 560,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 24100,
-    "tuition_ug_max": 27300,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0)" },
-    "popular_majors": ["간호학", "농업", "공학", "비즈니스(애스퍼)"],
-    "pathways": [
-      { "type": "transfer", "level": "ug", "provider": "ICM (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "International College of Manitoba에서 1학년 과정(UTP Stage 2) 이수 후 본교 2학년 편입" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "C$24,100~27,300", "note": "캐나다 주요 대학 중 학비가 합리적 · 위니펙 소재" }
-    ],
-    "intakes": ["9월", "1월"],
-    "official_url": "https://umanitoba.ca",
-    "youtube_id": null,
-    "editor_note": "학비가 연 2만 4천 달러대로 이 목록에서 가장 쌉니다. 매니토바주는 주정부 이민 프로그램(MPNP)이 있어서 졸업 후 정착까지 보는 학생이 찾습니다. ICM을 거쳐 편입하는 경로도 자리를 잡았습니다.",
-    "related_ids": ["ca-sfu"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-mcgill",
-    "type": "university",
-    "name_ko": "맥길대학교",
-    "name_en": "McGill University",
-    "country": "CA",
-    "city": "Montreal",
-    "qs_rank": 30,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 31000,
-    "tuition_ug_max": 46350,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0) · 전공별 상이" },
-    "popular_majors": ["의학", "법학", "경영(데소텔)", "컴퓨터과학"],
-    "pathways": [
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": "인문·이학 C$31,000~46,350", "note": "수능·내신으로 직접 지원 · 파운데이션 없이 성적 위주 선발" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
-    ],
-    "intakes": ["9월", "1월"],
-    "official_url": "https://www.mcgill.ca",
-    "youtube_id": null,
-    "editor_note": "QS로는 캐나다 1위입니다. 몬트리올이 불어권이라 망설이는 학생이 많은데 수업은 영어로 합니다. 퀘벡주라 학비도 연 3만 1천 달러 선이어서 토론토나 밴쿠버 명문보다 확실히 쌉니다.",
-    "related_ids": ["ca-uoft"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-alberta",
-    "type": "university",
-    "name_ko": "앨버타대학교",
-    "name_en": "University of Alberta",
-    "country": "CA",
-    "city": "Edmonton",
-    "qs_rank": 96,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": null,
-    "tuition_ug_max": null,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0)" },
-    "popular_majors": ["공학", "의학", "비즈니스", "에너지·자원"],
-    "pathways": [
-      { "type": "pathway", "level": "ug", "provider": "자체 운영 (Bridging Program)", "ielts_min": null, "duration": "1~2학기", "cost_note": null, "note": "영어 조건부 입학 · 브릿징 수료 시 본과 진입" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": null, "note": "수능·내신 직접 지원 · 에너지·공학 계열 캐나다 최상위권" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
-    ],
-    "intakes": ["9월", "1월"],
-    "official_url": "https://www.ualberta.ca",
-    "youtube_id": null,
-    "editor_note": "QS 96위. 에너지와 자원 쪽 연구가 강해서 공학으로 가려는 학생이 많이 찾습니다. 성적이 조금 모자라면 학교가 직접 운영하는 브리징 과정을 거쳐 들어가는 방법이 있습니다.",
-    "related_ids": ["ca-mcgill"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-waterloo",
-    "type": "university",
-    "name_ko": "워털루대학교",
-    "name_en": "University of Waterloo",
-    "country": "CA",
-    "city": "Waterloo",
-    "qs_rank": 113,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 48616,
-    "tuition_ug_max": 55654,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (쓰기·말하기 6.5) · 전공별 상이" },
-    "popular_majors": ["컴퓨터과학", "소프트웨어공학", "수학", "공학"],
-    "pathways": [
-      { "type": "pathway", "level": "ug", "provider": "자체 운영 (BASE)", "ielts_min": null, "duration": "2학기", "cost_note": null, "note": "영어 조건부 입학(BASE) · 수료 시 본과 진입" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4~5년 (코업 포함)", "cost_note": "C$48,616~55,654", "note": "세계 최대 규모 코업(유급 인턴십) · CS·공학 경쟁 매우 치열" }
-    ],
-    "intakes": ["9월"],
-    "official_url": "https://uwaterloo.ca",
-    "youtube_id": null,
-    "editor_note": "컴퓨터과학과 수학에서 캐나다를 대표하는 학교입니다. 핵심은 코업입니다. 학기와 인턴을 번갈아 하면서 졸업 전에 실무 경력을 쌓고, 실리콘밸리로 인턴을 나가는 학생이 나오는 것도 이 제도 때문입니다.",
-    "related_ids": ["ca-uoft"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-mcmaster",
-    "type": "university",
-    "name_ko": "맥마스터대학교",
-    "name_en": "McMaster University",
-    "country": "CA",
-    "city": "Hamilton",
-    "qs_rank": 174,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 45158,
-    "tuition_ug_max": 46023,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 (각 6.0)" },
-    "popular_majors": ["보건과학", "의학", "공학", "비즈니스(드그루트)"],
-    "pathways": [
-      { "type": "pathway", "level": "ug", "provider": "자체 운영 (MELD)", "ielts_min": null, "duration": "2~3학기", "cost_note": null, "note": "영어 조건부 입학(MELD) · 수료 시 본과 진입" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "C$45,158~46,023", "note": "보건·의학 계열 캐나다 최상위권 · 토론토 근교 해밀턴 소재" }
-    ],
-    "intakes": ["9월"],
-    "official_url": "https://www.mcmaster.ca",
-    "youtube_id": null,
-    "editor_note": "보건과학과 의학 쪽 평판이 좋습니다. 해밀턴은 토론토에서 한 시간 거리라 생활비가 덜 듭니다. 영어나 성적이 살짝 모자라면 MELD 과정을 거쳐 학부로 넘어갑니다.",
-    "related_ids": ["ca-uoft"],
-    "last_verified": "2026-07"
-  },
-  {
-    "id": "ca-york",
-    "type": "university",
-    "name_ko": "요크대학교",
-    "name_en": "York University",
-    "country": "CA",
-    "city": "Toronto",
-    "qs_rank": 322,
-    "qs_subject_ranks": [],
-    "tuition_ug_min": 36110,
-    "tuition_ug_max": 36110,
-    "tuition_pg_min": null,
-    "tuition_pg_max": null,
-    "currency": "CAD",
-    "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "duolingo"], "note": "표준 6.5 · 전공별 상이" },
-    "popular_majors": ["경영(슐릭)", "법학(오스굿)", "심리학", "영화"],
-    "pathways": [
-      { "type": "transfer", "level": "ug", "provider": "세네카 등 컬리지 편입", "ielts_min": 6.0, "duration": "2+2년", "cost_note": null, "note": "토론토 컬리지(세네카 등) 학점 인정 편입 협정 · 컬리지에서 시작해 요크 학위로" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "4년", "cost_note": "학점당 C$1,203.68 (30학점 기준 약 C$36,110)", "note": "토론토 북부 대형 캠퍼스 · 경영·법학·인문 강세" }
-    ],
-    "intakes": ["9월", "1월"],
-    "official_url": "https://www.yorku.ca",
-    "youtube_id": null,
-    "editor_note": "세네카와 학점 연계가 촘촘해서 컬리지에서 시작해 요크로 넘어오는 학생이 많습니다. 슐릭 경영과 오스굿 법학이 이 학교 얼굴입니다.",
-    "related_ids": ["ca-seneca", "ca-uoft"],
-    "last_verified": "2026-07"
-  }
+    {
+        "id":  "ca-seneca",
+        "type":  "college",
+        "name_ko":  "세네카 폴리테크닉",
+        "name_en":  "Seneca Polytechnic",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  16400,
+        "tuition_ug_max":  19700,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5"
+                    },
+        "popular_majors":  [
+                               "IT·컴퓨터",
+                               "비즈니스",
+                               "항공",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "요크대 등 파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.senecapolytechnic.ca",
+        "youtube_id":  null,
+        "editor_note":  "토론토에서 규모가 가장 큰 공립 폴리테크닉입니다. 전공 폭이 넓어서 PGWP가 나오는 과정 중에 고를 것이 많습니다. 요크대 편입 연계도 여기가 제일 잘 돼 있습니다.",
+        "related_ids":  [
+                            "ca-humber",
+                            "ca-george-brown"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-humber",
+        "type":  "college",
+        "name_ko":  "험버 폴리테크닉",
+        "name_en":  "Humber Polytechnic",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  null,
+        "tuition_ug_max":  null,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5"
+                    },
+        "popular_majors":  [
+                               "미디어",
+                               "비즈니스",
+                               "보건",
+                               "호스피탈리티"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 미디어·비즈니스 계열 다수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "자체 학사 과정 보유 + 대학 편입 협정"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://humber.ca",
+        "youtube_id":  null,
+        "editor_note":  "토론토 서쪽에 있는 대형 폴리테크닉입니다. 미디어와 비즈니스, 보건 쪽 과정이 두텁고 학사 학위 과정도 함께 운영합니다.",
+        "related_ids":  [
+                            "ca-seneca"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-george-brown",
+        "type":  "college",
+        "name_ko":  "조지브라운 폴리테크닉",
+        "name_en":  "George Brown Polytechnic",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  19300,
+        "tuition_ug_max":  19300,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5"
+                    },
+        "popular_majors":  [
+                               "조리·제빵",
+                               "디자인",
+                               "비즈니스",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 조리·디자인 계열 강세"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.georgebrown.ca",
+        "youtube_id":  null,
+        "editor_note":  "토론토 도심 한복판에 있습니다. 조리 학교와 디자인으로 알려져 있고, 도심이라 실습과 아르바이트 자리를 구하기가 수월합니다.",
+        "related_ids":  [
+                            "ca-seneca"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-centennial",
+        "type":  "college",
+        "name_ko":  "센테니얼 컬리지",
+        "name_en":  "Centennial College",
+        "country":  "CA",
+        "city":  "Toronto (Scarborough)",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17100,
+        "tuition_ug_max":  18300,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · 학사·PG 서티피킷 6.5"
+                    },
+        "popular_majors":  [
+                               "자동차·운송",
+                               "항공정비",
+                               "IT",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "온타리오 최초의 공립 컬리지 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate 다수 운영"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.centennialcollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "온타리오에서 처음 문을 연 공립 컬리지입니다. 자동차와 항공정비처럼 손으로 하는 기술 과정이 강합니다.",
+        "related_ids":  [
+                            "ca-seneca"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-sheridan",
+        "type":  "college",
+        "name_ko":  "셰리든 컬리지",
+        "name_en":  "Sheridan College",
+        "country":  "CA",
+        "city":  "Oakville",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17500,
+        "tuition_ug_max":  17500,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · 학사 6.5 (TOEFL 88 · 듀오링고 115)"
+                    },
+        "popular_majors":  [
+                               "애니메이션",
+                               "디자인",
+                               "IT"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 애니메이션·VFX 계열 인기"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.sheridancollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "애니메이션으로 이름이 알려진 학교입니다. 픽사와 디즈니에 졸업생이 여럿 나갔습니다. 지원하려면 포트폴리오 준비를 일찍 시작해야 합니다.",
+        "related_ids":  [
+                            "ca-george-brown"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-fanshawe",
+        "type":  "college",
+        "name_ko":  "팬쇼 컬리지",
+        "name_en":  "Fanshawe College",
+        "country":  "CA",
+        "city":  "London (Ontario)",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17700,
+        "tuition_ug_max":  18100,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마·PG 모두 6.0 이상 (과정별 상이)"
+                    },
+        "popular_majors":  [
+                               "보건",
+                               "미디어",
+                               "기술직(트레이드)"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "토론토 대비 생활비가 합리적인 런던(온타리오) 소재 · PGWP 적격 전공 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate 다수 운영"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.fanshawec.ca",
+        "youtube_id":  null,
+        "editor_note":  "런던(온타리오)에 있어 토론토보다 생활비가 덜 듭니다. 보건과 기술직 과정이 두텁습니다.",
+        "related_ids":  [
+                            "ca-niagara"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-niagara",
+        "type":  "college",
+        "name_ko":  "나이아가라 컬리지",
+        "name_en":  "Niagara College",
+        "country":  "CA",
+        "city":  "Welland",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  null,
+        "tuition_ug_max":  null,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 6.0 (각 5.5) · PG 서티피킷 6.5"
+                    },
+        "popular_majors":  [
+                               "조리·제빵",
+                               "와인·양조",
+                               "호텔·관광"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "교내 티칭 와이너리·브루어리 운영 · PGWP 적격 전공 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 호스피탈리티 계열 인기"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.niagaracollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "조리와 와인, 호텔에 특화된 컬리지입니다. 나이아가라의 와이너리와 관광 인프라가 그대로 실습장이 됩니다.",
+        "related_ids":  [
+                            "ca-fanshawe"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-vcc",
+        "type":  "college",
+        "name_ko":  "밴쿠버 커뮤니티 컬리지(VCC)",
+        "name_en":  "Vancouver Community College",
+        "country":  "CA",
+        "city":  "Vancouver",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  null,
+        "tuition_ug_max":  null,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "과정별 6.0~6.5 상이"
+                    },
+        "popular_majors":  [
+                               "조리·제빵",
+                               "보건",
+                               "자동차",
+                               "음악"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "밴쿠버 도심 공립 컬리지 · PGWP 적격 전공 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "BC주 편입 시스템(BC Transfer)으로 UBC·SFU 등 4년제 연계"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.vcc.ca",
+        "youtube_id":  null,
+        "editor_note":  "밴쿠버 도심의 공립 컬리지입니다. 조리와 보건이 강하고, BC Transfer로 UBC나 SFU 편입까지 열려 있습니다.",
+        "related_ids":  [
+                            "ca-ubc"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-uoft",
+        "type":  "university",
+        "name_ko":  "토론토대학교(UofT)",
+        "name_en":  "University of Toronto",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  32,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  70060,
+        "tuition_ug_max":  70060,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0) · 전공별 상이"
+                    },
+        "popular_majors":  [
+                               "컴퓨터과학",
+                               "경영(로트먼)",
+                               "공학",
+                               "생명과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "온타리오 사립 국제학교(OSSD)",
+                             "ielts_min":  null,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "TAIE·UMC·BICC 등에서 온타리오 고교 학점(OSSD)을 이수해 캐나다 내신으로 지원하는 경로"
+                         },
+                         {
+                             "type":  "foundation",
+                             "level":  "ug",
+                             "provider":  "자체 운영 (IFP)",
+                             "ielts_min":  5.5,
+                             "duration":  "8개월~1년",
+                             "cost_note":  null,
+                             "note":  "International Foundation Program · 영어와 학점 과목을 병행해 수료 시 본교 1학년 진학"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "공학 기준 C$70,060 (전공별 상이)",
+                             "note":  "수능·내신·검정고시 등으로 직접 지원 · 경쟁 매우 치열"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  7.0,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "석사 직접 지원 · 전공별 요건 상이"
+                         }
+                     ],
+        "intakes":  [
+                        "9월"
+                    ],
+        "official_url":  "https://www.utoronto.ca",
+        "youtube_id":  null,
+        "editor_note":  "캐나다에서 순위가 가장 높은 대학입니다. QS 세계 32위. 다만 한국 고교 성적만으로 바로 넣기에는 부담이 커서, 토론토의 사립 국제학교에서 OSSD 학점을 만들어 캐나다 내신으로 지원하는 학생이 많습니다. 학비는 연 7만 달러대로 이 목록에서 가장 비쌉니다.",
+        "related_ids":  [
+                            "ca-ubc"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-ubc",
+        "type":  "university",
+        "name_ko":  "브리티시컬럼비아대학교(UBC)",
+        "name_en":  "University of British Columbia",
+        "country":  "CA",
+        "city":  "Vancouver",
+        "qs_rank":  45,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  44557,
+        "tuition_ug_max":  49549,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0) · 전공별 상이"
+                    },
+        "popular_majors":  [
+                               "컴퓨터과학",
+                               "경영(소더)",
+                               "공학",
+                               "산림·환경"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "BC Transfer (컬리지 편입)",
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "VCC·랭가라 등 BC주 컬리지에서 2년 이수 후 편입 · 컬리지 GPA가 관건"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "국제 사립학교(BC·온타리오 고교)",
+                             "ielts_min":  null,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "캐나다 고교 내신(OSSD·BC Dogwood)으로 지원하는 경로"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "C$44,557~49,549",
+                             "note":  "수능·내신으로 직접 지원 · 밴쿠버·오카나간 두 캠퍼스"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "석사 직접 지원 · 전공별 요건 상이"
+                         }
+                     ],
+        "intakes":  [
+                        "9월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.ubc.ca",
+        "youtube_id":  null,
+        "editor_note":  "BC주는 컬리지에서 딴 학점을 대학이 받아주는 제도가 주 단위로 정리돼 있습니다(BC Transfer). 그래서 UBC는 컬리지에서 2년 하고 넘어오는 길이 실제로 굴러갑니다. 신입으로 바로 붙기 어려운 성적이면 이쪽부터 봅니다.",
+        "related_ids":  [
+                            "ca-uoft",
+                            "ca-vcc"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-sfu",
+        "type":  "university",
+        "name_ko":  "사이먼프레이저대학교(SFU)",
+        "name_en":  "Simon Fraser University",
+        "country":  "CA",
+        "city":  "Vancouver (Burnaby)",
+        "qs_rank":  312,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  37442,
+        "tuition_ug_max":  37442,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0)"
+                    },
+        "popular_majors":  [
+                               "컴퓨터과학",
+                               "비즈니스",
+                               "인터랙티브 아트"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "FIC (Navitas)",
+                             "ielts_min":  5.5,
+                             "duration":  "8개월~1년",
+                             "cost_note":  null,
+                             "note":  "Fraser International College에서 1학년 과정(UTP Stage II) 이수 후 SFU 2학년 편입"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "연 C$37,442 (30학점 기준)",
+                             "note":  "수능·내신 직접 지원 · 1·5·9월 3학기제"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.sfu.ca",
+        "youtube_id":  null,
+        "editor_note":  "캠퍼스 안에 FIC라는 패스웨이 컬리지가 있습니다. 여기서 1학년 과정을 마치고 2학년으로 올라가는 것이 한국 학생에게 가장 익숙한 SFU 진입 방식입니다.",
+        "related_ids":  [
+                            "ca-manitoba",
+                            "ca-ubc"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-manitoba",
+        "type":  "university",
+        "name_ko":  "매니토바대학교",
+        "name_en":  "University of Manitoba",
+        "country":  "CA",
+        "city":  "Winnipeg",
+        "qs_rank":  560,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  24100,
+        "tuition_ug_max":  27300,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0)"
+                    },
+        "popular_majors":  [
+                               "간호학",
+                               "농업",
+                               "공학",
+                               "비즈니스(애스퍼)"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "ICM (Navitas)",
+                             "ielts_min":  5.5,
+                             "duration":  "8개월~1년",
+                             "cost_note":  null,
+                             "note":  "International College of Manitoba에서 1학년 과정(UTP Stage 2) 이수 후 본교 2학년 편입"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "C$24,100~27,300",
+                             "note":  "캐나다 주요 대학 중 학비가 합리적 · 위니펙 소재"
+                         }
+                     ],
+        "intakes":  [
+                        "9월",
+                        "1월"
+                    ],
+        "official_url":  "https://umanitoba.ca",
+        "youtube_id":  null,
+        "editor_note":  "학비가 연 2만 4천 달러대로 이 목록에서 가장 쌉니다. 매니토바주는 주정부 이민 프로그램(MPNP)이 있어서 졸업 후 정착까지 보는 학생이 찾습니다. ICM을 거쳐 편입하는 경로도 자리를 잡았습니다.",
+        "related_ids":  [
+                            "ca-sfu"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-mcgill",
+        "type":  "university",
+        "name_ko":  "맥길대학교",
+        "name_en":  "McGill University",
+        "country":  "CA",
+        "city":  "Montreal",
+        "qs_rank":  30,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  31000,
+        "tuition_ug_max":  46350,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0) · 전공별 상이"
+                    },
+        "popular_majors":  [
+                               "의학",
+                               "법학",
+                               "경영(데소텔)",
+                               "컴퓨터과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "3~4년",
+                             "cost_note":  "인문·이학 C$31,000~46,350",
+                             "note":  "수능·내신으로 직접 지원 · 파운데이션 없이 성적 위주 선발"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "석사 직접 지원 · 전공별 요건 상이"
+                         }
+                     ],
+        "intakes":  [
+                        "9월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.mcgill.ca",
+        "youtube_id":  null,
+        "editor_note":  "QS로는 캐나다 1위입니다. 몬트리올이 불어권이라 망설이는 학생이 많은데 수업은 영어로 합니다. 퀘벡주라 학비도 연 3만 1천 달러 선이어서 토론토나 밴쿠버 명문보다 확실히 쌉니다.",
+        "related_ids":  [
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-alberta",
+        "type":  "university",
+        "name_ko":  "앨버타대학교",
+        "name_en":  "University of Alberta",
+        "country":  "CA",
+        "city":  "Edmonton",
+        "qs_rank":  96,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  null,
+        "tuition_ug_max":  null,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0)"
+                    },
+        "popular_majors":  [
+                               "공학",
+                               "의학",
+                               "비즈니스",
+                               "에너지·자원"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "자체 운영 (Bridging Program)",
+                             "ielts_min":  null,
+                             "duration":  "1~2학기",
+                             "cost_note":  null,
+                             "note":  "영어 조건부 입학 · 브릿징 수료 시 본과 진입"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  null,
+                             "note":  "수능·내신 직접 지원 · 에너지·공학 계열 캐나다 최상위권"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "석사 직접 지원 · 전공별 요건 상이"
+                         }
+                     ],
+        "intakes":  [
+                        "9월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.ualberta.ca",
+        "youtube_id":  null,
+        "editor_note":  "QS 96위. 에너지와 자원 쪽 연구가 강해서 공학으로 가려는 학생이 많이 찾습니다. 성적이 조금 모자라면 학교가 직접 운영하는 브리징 과정을 거쳐 들어가는 방법이 있습니다.",
+        "related_ids":  [
+                            "ca-mcgill"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-waterloo",
+        "type":  "university",
+        "name_ko":  "워털루대학교",
+        "name_en":  "University of Waterloo",
+        "country":  "CA",
+        "city":  "Waterloo",
+        "qs_rank":  113,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  48616,
+        "tuition_ug_max":  55654,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (쓰기·말하기 6.5) · 전공별 상이"
+                    },
+        "popular_majors":  [
+                               "컴퓨터과학",
+                               "소프트웨어공학",
+                               "수학",
+                               "공학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "자체 운영 (BASE)",
+                             "ielts_min":  null,
+                             "duration":  "2학기",
+                             "cost_note":  null,
+                             "note":  "영어 조건부 입학(BASE) · 수료 시 본과 진입"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4~5년 (코업 포함)",
+                             "cost_note":  "C$48,616~55,654",
+                             "note":  "세계 최대 규모 코업(유급 인턴십) · CS·공학 경쟁 매우 치열"
+                         }
+                     ],
+        "intakes":  [
+                        "9월"
+                    ],
+        "official_url":  "https://uwaterloo.ca",
+        "youtube_id":  null,
+        "editor_note":  "컴퓨터과학과 수학에서 캐나다를 대표하는 학교입니다. 핵심은 코업입니다. 학기와 인턴을 번갈아 하면서 졸업 전에 실무 경력을 쌓고, 실리콘밸리로 인턴을 나가는 학생이 나오는 것도 이 제도 때문입니다.",
+        "related_ids":  [
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-mcmaster",
+        "type":  "university",
+        "name_ko":  "맥마스터대학교",
+        "name_en":  "McMaster University",
+        "country":  "CA",
+        "city":  "Hamilton",
+        "qs_rank":  174,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  45158,
+        "tuition_ug_max":  46023,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 (각 6.0)"
+                    },
+        "popular_majors":  [
+                               "보건과학",
+                               "의학",
+                               "공학",
+                               "비즈니스(드그루트)"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "자체 운영 (MELD)",
+                             "ielts_min":  null,
+                             "duration":  "2~3학기",
+                             "cost_note":  null,
+                             "note":  "영어 조건부 입학(MELD) · 수료 시 본과 진입"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "C$45,158~46,023",
+                             "note":  "보건·의학 계열 캐나다 최상위권 · 토론토 근교 해밀턴 소재"
+                         }
+                     ],
+        "intakes":  [
+                        "9월"
+                    ],
+        "official_url":  "https://www.mcmaster.ca",
+        "youtube_id":  null,
+        "editor_note":  "보건과학과 의학 쪽 평판이 좋습니다. 해밀턴은 토론토에서 한 시간 거리라 생활비가 덜 듭니다. 영어나 성적이 살짝 모자라면 MELD 과정을 거쳐 학부로 넘어갑니다.",
+        "related_ids":  [
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-york",
+        "type":  "university",
+        "name_ko":  "요크대학교",
+        "name_en":  "York University",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  322,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  36110,
+        "tuition_ug_max":  36110,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "표준 6.5 · 전공별 상이"
+                    },
+        "popular_majors":  [
+                               "경영(슐릭)",
+                               "법학(오스굿)",
+                               "심리학",
+                               "영화"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "세네카 등 컬리지 편입",
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "토론토 컬리지(세네카 등) 학점 인정 편입 협정 · 컬리지에서 시작해 요크 학위로"
+                         },
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  "학점당 C$1,203.68 (30학점 기준 약 C$36,110)",
+                             "note":  "토론토 북부 대형 캠퍼스 · 경영·법학·인문 강세"
+                         }
+                     ],
+        "intakes":  [
+                        "9월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.yorku.ca",
+        "youtube_id":  null,
+        "editor_note":  "세네카와 학점 연계가 촘촘해서 컬리지에서 시작해 요크로 넘어오는 학생이 많습니다. 슐릭 경영과 오스굿 법학이 이 학교 얼굴입니다.",
+        "related_ids":  [
+                            "ca-seneca",
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "ca-conestoga",
+        "type":  "college",
+        "name_ko":  "코네스토가 컬리지",
+        "name_en":  "Conestoga College",
+        "country":  "CA",
+        "city":  "Kitchener",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  15500,
+        "tuition_ug_max":  16900,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "엔지니어링 테크",
+                               "기술직(트레이드)",
+                               "IT·컴퓨터",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.conestogac.on.ca",
+        "youtube_id":  null,
+        "editor_note":  "키치너·워털루 지역의 대형 폴리테크닉입니다. 한때 온타리오에서 유학생을 가장 많이 받던 곳이라 한국 학생에게도 이름이 익숙합니다. 학비는 연 1만 5천 달러대로 토론토권보다 낮습니다.",
+        "related_ids":  [
+                            "ca-seneca",
+                            "ca-fanshawe"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-algonquin",
+        "type":  "college",
+        "name_ko":  "알곤퀸 컬리지",
+        "name_en":  "Algonquin College",
+        "country":  "CA",
+        "city":  "Ottawa",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17200,
+        "tuition_ug_max":  22000,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "IT·컴퓨터",
+                               "보건",
+                               "미디어",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.algonquincollege.com",
+        "youtube_id":  null,
+        "editor_note":  "수도 오타와에 있습니다. 연방 정부 기관이 몰려 있는 도시라 IT와 행정 쪽 실습 자리가 가깝습니다. 표기 금액은 수업료에 필수비가 합쳐진 값입니다.",
+        "related_ids":  [
+                            "ca-seneca",
+                            "ca-durham"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-mohawk",
+        "type":  "college",
+        "name_ko":  "모호크 컬리지",
+        "name_en":  "Mohawk College",
+        "country":  "CA",
+        "city":  "Hamilton",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  15300,
+        "tuition_ug_max":  19300,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "엔지니어링 테크",
+                               "보건",
+                               "기술직(트레이드)",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.mohawkcollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "해밀턴에 있고 맥마스터대학교와 같은 도시입니다. 엔지니어링 테크와 보건이 중심이고, 토론토에서 한 시간 거리라 생활비가 덜 듭니다.",
+        "related_ids":  [
+                            "ca-mcmaster",
+                            "ca-sheridan"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-durham",
+        "type":  "college",
+        "name_ko":  "더럼 컬리지",
+        "name_en":  "Durham College",
+        "country":  "CA",
+        "city":  "Oshawa",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  15500,
+        "tuition_ug_max":  15500,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "IT·컴퓨터",
+                               "보건",
+                               "기술직(트레이드)",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://durhamcollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "토론토 동쪽 오샤와에 있습니다. 온타리오공대(Ontario Tech)와 캠퍼스를 나눠 쓰기 때문에 학위 편입 연계가 가깝습니다.",
+        "related_ids":  [
+                            "ca-seneca",
+                            "ca-centennial"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-georgian",
+        "type":  "college",
+        "name_ko":  "조지언 컬리지",
+        "name_en":  "Georgian College",
+        "country":  "CA",
+        "city":  "Barrie",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  14800,
+        "tuition_ug_max":  17900,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "자동차",
+                               "비즈니스",
+                               "관광",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.georgiancollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "배리를 중심으로 캠퍼스가 여러 곳입니다. 자동차 비즈니스 과정이 특색이고, 학비가 연 1만 4천 달러대로 온타리오에서 낮은 편입니다.",
+        "related_ids":  [
+                            "ca-durham",
+                            "ca-fanshawe"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-langara",
+        "type":  "college",
+        "name_ko":  "랭가라 컬리지",
+        "name_en":  "Langara College",
+        "country":  "CA",
+        "city":  "Vancouver",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  19900,
+        "tuition_ug_max":  19900,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "대학 편입",
+                               "비즈니스",
+                               "IT·컴퓨터"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://langara.ca",
+        "youtube_id":  null,
+        "editor_note":  "밴쿠버 시내에 있고 UBC·SFU 편입 실적으로 이름이 알려진 컬리지입니다. BC Transfer 제도를 쓰는 학생이 가장 먼저 보는 곳 중 하나입니다.",
+        "related_ids":  [
+                            "ca-ubc",
+                            "ca-sfu"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-douglas",
+        "type":  "college",
+        "name_ko":  "더글라스 컬리지",
+        "name_en":  "Douglas College",
+        "country":  "CA",
+        "city":  "New Westminster",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  19900,
+        "tuition_ug_max":  19900,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "대학 편입",
+                               "간호·보건",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.douglascollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "밴쿠버 근교 뉴웨스트민스터에 있습니다. 학점당 요율이 낮은 편이라 BC 컬리지 중 학비 부담이 적고, 간호·보건 과정이 두텁습니다.",
+        "related_ids":  [
+                            "ca-sfu",
+                            "ca-ubc"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-camosun",
+        "type":  "college",
+        "name_ko":  "카모순 컬리지",
+        "name_en":  "Camosun College",
+        "country":  "CA",
+        "city":  "Victoria",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17600,
+        "tuition_ug_max":  17600,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "대학 편입",
+                               "엔지니어링 테크",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://camosun.ca",
+        "youtube_id":  null,
+        "editor_note":  "밴쿠버섬 빅토리아에 있습니다. 빅토리아대학교 편입 연계가 자리를 잡았고, 섬이라 밴쿠버 도심보다 생활비가 낮습니다.",
+        "related_ids":  [
+                            "ca-ubc",
+                            "ca-sfu"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-okanagan",
+        "type":  "college",
+        "name_ko":  "오카나간 컬리지",
+        "name_en":  "Okanagan College",
+        "country":  "CA",
+        "city":  "Kelowna",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17000,
+        "tuition_ug_max":  17000,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "비즈니스",
+                               "기술직(트레이드)",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.okanagan.bc.ca",
+        "youtube_id":  null,
+        "editor_note":  "BC 내륙 켈로나에 있습니다. UBC 오카나간 캠퍼스와 같은 도시라 편입 경로가 가깝고, 대도시보다 생활비가 낮습니다.",
+        "related_ids":  [
+                            "ca-ubc"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-sait",
+        "type":  "college",
+        "name_ko":  "SAIT (서던앨버타공과대학)",
+        "name_en":  "Southern Alberta Institute of Technology (SAIT)",
+        "country":  "CA",
+        "city":  "Calgary",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17400,
+        "tuition_ug_max":  30100,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "기술직(트레이드)",
+                               "에너지",
+                               "IT·컴퓨터",
+                               "항공"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.sait.ca",
+        "youtube_id":  null,
+        "editor_note":  "캘거리의 공과 중심 폴리테크닉입니다. 앨버타 에너지 산업과 붙어 있어 관련 전공 취업 연계가 강합니다. 학점당 요율이라 전공에 따라 학비 차이가 큽니다.",
+        "related_ids":  [
+                            "ca-nait",
+                            "ca-alberta"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-nait",
+        "type":  "college",
+        "name_ko":  "NAIT (노던앨버타공과대학)",
+        "name_en":  "Northern Alberta Institute of Technology (NAIT)",
+        "country":  "CA",
+        "city":  "Edmonton",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  22100,
+        "tuition_ug_max":  28100,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "기술직(트레이드)",
+                               "엔지니어링 테크",
+                               "IT·컴퓨터",
+                               "보건"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.nait.ca",
+        "youtube_id":  null,
+        "editor_note":  "에드먼턴의 공과 폴리테크닉입니다. 이 목록의 컬리지 중 학비가 가장 높은 축인데, 보건 계열은 학점당 요율이 더 올라갑니다.",
+        "related_ids":  [
+                            "ca-sait",
+                            "ca-alberta"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-bow-valley",
+        "type":  "college",
+        "name_ko":  "보우밸리 컬리지",
+        "name_en":  "Bow Valley College",
+        "country":  "CA",
+        "city":  "Calgary",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17000,
+        "tuition_ug_max":  17000,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "보건",
+                               "비즈니스",
+                               "IT·컴퓨터"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://bowvalleycollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "캘거리 도심에 있는 공립 컬리지입니다. 보건과 비즈니스가 중심이고 과정 기간이 짧은 편이라 빠르게 취업으로 넘어가려는 학생이 찾습니다. 표기 금액은 필수비가 포함된 값입니다.",
+        "related_ids":  [
+                            "ca-sait",
+                            "ca-nait"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-rrc",
+        "type":  "college",
+        "name_ko":  "레드리버 폴리테크닉",
+        "name_en":  "Red River College Polytechnic",
+        "country":  "CA",
+        "city":  "Winnipeg",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  17700,
+        "tuition_ug_max":  17700,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "보건",
+                               "IT·컴퓨터",
+                               "기술직(트레이드)",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "pg",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "1~2년",
+                             "cost_note":  null,
+                             "note":  "Post-Graduate Certificate · 학사 소지자의 커리어 전환 경로"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.rrc.ca",
+        "youtube_id":  null,
+        "editor_note":  "위니펙에 있는 매니토바 대표 폴리테크닉입니다. 매니토바주는 주정부 이민 프로그램(MPNP)이 있어 졸업 후 정착까지 보는 학생이 찾습니다. 표기 금액은 필수비가 포함된 값입니다.",
+        "related_ids":  [
+                            "ca-manitoba"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-sask-polytech",
+        "type":  "college",
+        "name_ko":  "서스캐처원 폴리테크닉",
+        "name_en":  "Saskatchewan Polytechnic",
+        "country":  "CA",
+        "city":  "Saskatoon · Regina · Moose Jaw · Prince Albert",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  18100,
+        "tuition_ug_max":  22000,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "보건",
+                               "엔지니어링 테크",
+                               "기술직(트레이드)",
+                               "비즈니스"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://saskpolytech.ca",
+        "youtube_id":  null,
+        "editor_note":  "서스캐처원주 네 개 도시에 캠퍼스가 있습니다. 보건 계열 비중이 크고, 주 인구가 적어 졸업 후 지역 취업 경쟁이 대도시보다 덜합니다.",
+        "related_ids":  [
+                            "ca-manitoba"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-nscc",
+        "type":  "college",
+        "name_ko":  "노바스코샤 커뮤니티 컬리지(NSCC)",
+        "name_en":  "Nova Scotia Community College (NSCC)",
+        "country":  "CA",
+        "city":  "Halifax · NS 전역",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  13505,
+        "tuition_ug_max":  13505,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "디플로마 기준 6.0 (각 5.5) · 보건·간호 계열과 PG 서티피킷은 더 높습니다 · 과정별 확인 필요"
+                    },
+        "popular_majors":  [
+                               "보건",
+                               "IT·컴퓨터",
+                               "해양",
+                               "기술직(트레이드)"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2~3년",
+                             "cost_note":  null,
+                             "note":  "디플로마·어드밴스드 디플로마 · 비학위 과정은 PGWP 적격 전공(CIP 코드) 확인 필수"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "파트너 대학 편입 협정 · 컬리지 성적(GPA)이 관건"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.nscc.ca",
+        "youtube_id":  null,
+        "editor_note":  "학비가 연 1만 3천 달러대로 이 목록의 캐나다 컬리지 중 가장 낮습니다. 노바스코샤 전역에 캠퍼스가 있고 해양 관련 과정이 특색입니다.",
+        "related_ids":  [
+
+                        ],
+        "last_verified":  "2026-08"
+    }
 ]
