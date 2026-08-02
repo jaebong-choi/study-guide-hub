@@ -62,6 +62,24 @@ $TRANSFER = @{
     'us-uw'            = '워싱턴주 CC에서 넘어오는 경로입니다. 벨뷰 칼리지가 UW 시애틀 편입 배출 1위입니다'
 }
 
+# 에디터 노트 — data\us-notes.tsv (id <TAB> 노트) 에서 읽는다.
+# 126곳 분량이라 $OVERRIDE 해시에 넣으면 스크립트가 읽히지 않으므로 파일을 분리했다.
+# 톤 기준은 us-stony-brook 노트다(상담사가 직접 말하는 어투, 짧은 문장 변주, 수치는 유지).
+# 노트를 고치거나 추가하면 data\i18n-uni.json에 영어 번역도 같이 넣을 것 — 빌드가 누락을 알려준다.
+function NoteMap {
+    $m = @{}
+    $p = Join-Path $repoRoot 'data\us-notes.tsv'
+    if (-not (Test-Path $p)) { return $m }
+    foreach ($line in Get-Content $p -Encoding UTF8) {
+        if (-not $line.Trim() -or $line.StartsWith('#')) { continue }
+        $c = $line -split "`t", 2
+        if ($c.Count -eq 2 -and $c[1].Trim()) { $m[$c[0].Trim()] = $c[1].Trim() }
+    }
+    return $m
+}
+$NOTES = NoteMap
+Write-Host ("에디터 노트: {0}곳" -f $NOTES.Count)
+
 function UrlMap {
     $m = @{}
     foreach ($line in Get-Content (Join-Path $repoRoot 'data\us-urls.tsv') -Encoding UTF8) {
@@ -147,7 +165,7 @@ foreach ($line in $rows[1..($rows.Count-1)]) {
         intakes          = $intakes
         official_url     = $url
         youtube_id       = $null
-        editor_note      = if ($ov -and $ov.note) { $ov.note } else { $null }
+        editor_note      = if ($NOTES.ContainsKey($id)) { $NOTES[$id] } elseif ($ov -and $ov.note) { $ov.note } else { $null }
         related_ids      = @()
         last_verified    = '2026-07'
     })
@@ -200,7 +218,7 @@ foreach ($line in $ccRows[1..($ccRows.Count-1)]) {
         intakes          = @($c[8].Trim() -split '\|')
         official_url     = $url
         youtube_id       = $null
-        editor_note      = $null
+        editor_note      = $(if ($NOTES.ContainsKey($id)) { $NOTES[$id] } else { $null })
         related_ids      = $related
         last_verified    = '2026-08'
     })
