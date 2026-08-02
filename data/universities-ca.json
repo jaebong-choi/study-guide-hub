@@ -23,7 +23,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.senecapolytechnic.ca",
     "youtube_id": null,
-    "editor_note": "토론토 최대 규모의 공립 폴리테크닉. 프로그램 폭이 넓어 PGWP 적격 전공 선택지가 많습니다.",
+    "editor_note": "토론토에서 규모가 가장 큰 공립 폴리테크닉입니다. 전공 폭이 넓어서 PGWP가 나오는 과정 중에 고를 것이 많습니다. 요크대 편입 연계도 여기가 제일 잘 돼 있습니다.",
     "related_ids": ["ca-humber", "ca-george-brown"],
     "last_verified": "2026-07"
   },
@@ -51,7 +51,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://humber.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "토론토 서쪽에 있는 대형 폴리테크닉입니다. 미디어와 비즈니스, 보건 쪽 과정이 두텁고 학사 학위 과정도 함께 운영합니다.",
     "related_ids": ["ca-seneca"],
     "last_verified": "2026-07"
   },
@@ -78,7 +78,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.georgebrown.ca",
     "youtube_id": null,
-    "editor_note": "토론토 도심 한복판 캠퍼스. 조리(Chef School)와 디자인 분야에서 캐나다 최상위 평판입니다.",
+    "editor_note": "토론토 도심 한복판에 있습니다. 조리 학교와 디자인으로 알려져 있고, 도심이라 실습과 아르바이트 자리를 구하기가 수월합니다.",
     "related_ids": ["ca-seneca"],
     "last_verified": "2026-07"
   },
@@ -105,7 +105,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.centennialcollege.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "온타리오에서 처음 문을 연 공립 컬리지입니다. 자동차와 항공정비처럼 손으로 하는 기술 과정이 강합니다.",
     "related_ids": ["ca-seneca"],
     "last_verified": "2026-07"
   },
@@ -132,7 +132,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.sheridancollege.ca",
     "youtube_id": null,
-    "editor_note": "애니메이션 분야 세계 최상위 평가. 픽사·디즈니 등에 졸업생을 다수 배출했습니다.",
+    "editor_note": "애니메이션으로 이름이 알려진 학교입니다. 픽사와 디즈니에 졸업생이 여럿 나갔습니다. 지원하려면 포트폴리오 준비를 일찍 시작해야 합니다.",
     "related_ids": ["ca-george-brown"],
     "last_verified": "2026-07"
   },
@@ -159,7 +159,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.fanshawec.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "런던(온타리오)에 있어 토론토보다 생활비가 덜 듭니다. 보건과 기술직 과정이 두텁습니다.",
     "related_ids": ["ca-niagara"],
     "last_verified": "2026-07"
   },
@@ -186,7 +186,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.niagaracollege.ca",
     "youtube_id": null,
-    "editor_note": "조리·와인·호텔 특성화 컬리지. 나이아가라 관광 지역 인프라와 실습이 직결됩니다.",
+    "editor_note": "조리와 와인, 호텔에 특화된 컬리지입니다. 나이아가라의 와이너리와 관광 인프라가 그대로 실습장이 됩니다.",
     "related_ids": ["ca-fanshawe"],
     "last_verified": "2026-07"
   },
@@ -213,7 +213,7 @@
     "intakes": ["1월", "9월"],
     "official_url": "https://www.vcc.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "밴쿠버 도심의 공립 컬리지입니다. 조리와 보건이 강하고, BC Transfer로 UBC나 SFU 편입까지 열려 있습니다.",
     "related_ids": ["ca-ubc"],
     "last_verified": "2026-07"
   },
@@ -242,7 +242,7 @@
     "intakes": ["9월"],
     "official_url": "https://www.utoronto.ca",
     "youtube_id": null,
-    "editor_note": "캐나다 1위권 대학. 한국 학생은 토론토의 사립 국제학교(OSSD)에서 캐나다 내신을 만들어 지원하는 경로가 활발합니다.",
+    "editor_note": "캐나다에서 순위가 가장 높은 대학입니다. QS 세계 32위. 다만 한국 고교 성적만으로 바로 넣기에는 부담이 커서, 토론토의 사립 국제학교에서 OSSD 학점을 만들어 캐나다 내신으로 지원하는 학생이 많습니다. 학비는 연 7만 달러대로 이 목록에서 가장 비쌉니다.",
     "related_ids": ["ca-ubc"],
     "last_verified": "2026-07"
   },
@@ -271,7 +271,7 @@
     "intakes": ["9월", "1월"],
     "official_url": "https://www.ubc.ca",
     "youtube_id": null,
-    "editor_note": "BC주 컬리지 → UBC 편입(BC Transfer)이 제도화되어 있어, 컬리지에서 시작해 UBC 학위로 마치는 경로가 현실적입니다.",
+    "editor_note": "BC주는 컬리지에서 딴 학점을 대학이 받아주는 제도가 주 단위로 정리돼 있습니다(BC Transfer). 그래서 UBC는 컬리지에서 2년 하고 넘어오는 길이 실제로 굴러갑니다. 신입으로 바로 붙기 어려운 성적이면 이쪽부터 봅니다.",
     "related_ids": ["ca-uoft", "ca-vcc"],
     "last_verified": "2026-07"
   },
@@ -298,7 +298,7 @@
     "intakes": ["1월", "5월", "9월"],
     "official_url": "https://www.sfu.ca",
     "youtube_id": null,
-    "editor_note": "캠퍼스 안의 FIC(Navitas)를 거쳐 2학년으로 편입하는 경로가 한국 학생에게 가장 익숙한 SFU 진학 루트입니다.",
+    "editor_note": "캠퍼스 안에 FIC라는 패스웨이 컬리지가 있습니다. 여기서 1학년 과정을 마치고 2학년으로 올라가는 것이 한국 학생에게 가장 익숙한 SFU 진입 방식입니다.",
     "related_ids": ["ca-manitoba", "ca-ubc"],
     "last_verified": "2026-07"
   },
@@ -325,7 +325,7 @@
     "intakes": ["9월", "1월"],
     "official_url": "https://umanitoba.ca",
     "youtube_id": null,
-    "editor_note": "ICM(Navitas) 경유 편입이 정착된 대학. 매니토바주 이민 프로그램(MPNP)과 연계되는 지역이라 정주 목적 유학생에게 인기가 있습니다.",
+    "editor_note": "학비가 연 2만 4천 달러대로 이 목록에서 가장 쌉니다. 매니토바주는 주정부 이민 프로그램(MPNP)이 있어서 졸업 후 정착까지 보는 학생이 찾습니다. ICM을 거쳐 편입하는 경로도 자리를 잡았습니다.",
     "related_ids": ["ca-sfu"],
     "last_verified": "2026-07"
   },
@@ -352,7 +352,7 @@
     "intakes": ["9월", "1월"],
     "official_url": "https://www.mcgill.ca",
     "youtube_id": null,
-    "editor_note": "캐나다 최상위권. 몬트리올(불어권 도시)에 있는 영어 대학으로, 퀘벡주라 학비가 토론토·밴쿠버 명문 대비 합리적입니다.",
+    "editor_note": "QS로는 캐나다 1위입니다. 몬트리올이 불어권이라 망설이는 학생이 많은데 수업은 영어로 합니다. 퀘벡주라 학비도 연 3만 1천 달러 선이어서 토론토나 밴쿠버 명문보다 확실히 쌉니다.",
     "related_ids": ["ca-uoft"],
     "last_verified": "2026-07"
   },
@@ -380,7 +380,7 @@
     "intakes": ["9월", "1월"],
     "official_url": "https://www.ualberta.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "QS 96위. 에너지와 자원 쪽 연구가 강해서 공학으로 가려는 학생이 많이 찾습니다. 성적이 조금 모자라면 학교가 직접 운영하는 브리징 과정을 거쳐 들어가는 방법이 있습니다.",
     "related_ids": ["ca-mcgill"],
     "last_verified": "2026-07"
   },
@@ -407,7 +407,7 @@
     "intakes": ["9월"],
     "official_url": "https://uwaterloo.ca",
     "youtube_id": null,
-    "editor_note": "컴퓨터과학·수학의 캐나다 대표 명문. 코업 프로그램으로 재학 중 실리콘밸리 인턴 경력을 쌓는 학교로 유명합니다.",
+    "editor_note": "컴퓨터과학과 수학에서 캐나다를 대표하는 학교입니다. 핵심은 코업입니다. 학기와 인턴을 번갈아 하면서 졸업 전에 실무 경력을 쌓고, 실리콘밸리로 인턴을 나가는 학생이 나오는 것도 이 제도 때문입니다.",
     "related_ids": ["ca-uoft"],
     "last_verified": "2026-07"
   },
@@ -434,7 +434,7 @@
     "intakes": ["9월"],
     "official_url": "https://www.mcmaster.ca",
     "youtube_id": null,
-    "editor_note": null,
+    "editor_note": "보건과학과 의학 쪽 평판이 좋습니다. 해밀턴은 토론토에서 한 시간 거리라 생활비가 덜 듭니다. 영어나 성적이 살짝 모자라면 MELD 과정을 거쳐 학부로 넘어갑니다.",
     "related_ids": ["ca-uoft"],
     "last_verified": "2026-07"
   },
@@ -461,7 +461,7 @@
     "intakes": ["9월", "1월"],
     "official_url": "https://www.yorku.ca",
     "youtube_id": null,
-    "editor_note": "세네카 폴리테크닉과의 학점 연계가 활발해, 컬리지 → 요크 편입 경로가 잘 닦여 있습니다.",
+    "editor_note": "세네카와 학점 연계가 촘촘해서 컬리지에서 시작해 요크로 넘어오는 학생이 많습니다. 슐릭 경영과 오스굿 법학이 이 학교 얼굴입니다.",
     "related_ids": ["ca-seneca", "ca-uoft"],
     "last_verified": "2026-07"
   }
