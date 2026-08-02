@@ -30,7 +30,9 @@
 - [ ] 나머지 컬리지 36곳: ca-study-guide 결과에 등장하는 44곳 중 미입력분.
       목록·전공·URL은 ca-study-guide/data/canada_colleges_data.json에 있음
 - [x] 배너: ca-banner.jpg 적용 완료(2026-07-31) · us-banner.jpg도 미국 DB용으로 준비됨
-- [ ] ca-study-guide 진단 결과 → uni 페이지 연결 (uk/au의 HUB_UNI 패턴)
+- [x] ca-study-guide 진단 결과 → uni 페이지 연결. **2026-08-02 전수 검증: 진단 카드 56곳 중
+      23곳 매핑, id 전부 허브 페이지 실재.** 미연결 33곳은 전부 허브에 의도적으로 뺀
+      secondary 티어라 연결할 대상이 없다. 4년제 대학은 진단에 카드로 안 나온다(텍스트 언급뿐).
 - [ ] youtube_id 전부 null (공식 채널 영상 ID 채우면 섹션 자동 생성)
 
 ## 2026-08-02 작업 — 컬리지 32곳 체계로 확장

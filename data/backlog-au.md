@@ -60,4 +60,5 @@
 - [ ] 배너: images/uni/au-banner.jpg (영국처럼 공용 1장이면 35곳 전부 적용)
 - [ ] youtube_id 전부 null (대학 공식 채널 영상 ID 채우면 섹션 자동 생성)
 - [ ] qs_subject_ranks 전부 빈 배열 (검증된 것만 넣는 원칙)
-- [ ] au-study-guide 진단 결과 → uni 페이지 연결 (영국 HUB_UNI 패턴 참조)
+- [x] au-study-guide 진단 결과 → uni 페이지 연결. **2026-08-02 전수 검증: 진단 카드 11곳
+      전부 HUB_UNI 매핑 있음, id 전부 허브 페이지 실재.** 이미 돼 있던 것을 백로그가 놓치고 있었다.

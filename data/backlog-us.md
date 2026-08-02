@@ -175,7 +175,10 @@ College Scorecard는 연 1회 갱신된다. 새 판이 나오면:
 - [ ] youtube_id 전부 null.
 - [ ] `popular_majors`는 어휘를 고정해서 넣었다(i18n 사전 폭증 방지). 새 전공어를 쓰면
       빌드가 `data/i18n-uni-missing.txt`로 알려주니 i18n-uni.json에 추가할 것.
-- [ ] us-study-guide 진단 결과 → uni 페이지 연결 (uk/au의 HUB_UNI 패턴)
+- [x] us-study-guide 진단 결과 → uni 페이지 연결. **2026-08-02 전수 검증: 진단 대학 28곳 중
+      27곳 매핑 + CC 8곳 `hub` 필드, id 전부 허브 페이지 실재.** 유일한 미연결은
+      **Ohio State** — 허브 DB에 학교 자체가 없어서 규칙대로 버튼을 안 만든다.
+      오하이오주립을 DB에 추가하면 us-study-guide의 HUB_UNI에도 같이 넣을 것.
 
 ### us-study-guide(진단 사이트)와 맞춘 것 — 2026-08-02
 CC 영어요건을 공식 페이지로 대조하면서 진단 사이트 `ccColleges`의 값 3건이 틀린 것을 확인해 양쪽을 고쳤다.
