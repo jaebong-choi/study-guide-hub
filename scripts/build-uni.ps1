@@ -54,7 +54,8 @@ $COUNTRY_INFO = @{
 # 미국은 대학별 international 요강이 아니라 교육부 공시(College Scorecard) 값이라 반드시 표기한다.
 $FEE_NOTE_DEFAULT = '<p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>'
 $FEE_NOTE = @{
-    'US' = '<p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>'
+    'CA' = '<p data-en="College tuition is the international rate each college publishes for a two-semester year. Some colleges do not separate tuition from compulsory fees, so their figure is the combined amount, and the cost varies widely by programme.">컬리지 학비는 각 학교가 공시한 국제학생 요율로, 연간(2학기) 수업료 기준입니다. 학교에 따라 수업료와 필수비를 나눠 공시하지 않아 합산 금액인 경우가 있고, 전공에 따라 차이가 큽니다.</p>'
+    'US' ='<p data-en="Tuition figures come from the US Department of Education&#39;s College Scorecard (published June 2026). Private universities charge every student the same rate; at public universities this is the out-of-state rate, which is what international students generally pay, though some add an international surcharge.">학비는 미국 교육부 College Scorecard 공시(2026년 6월판) 기준입니다. 사립대는 전 학생이 같은 금액을 내고, 주립대는 주외(out-of-state) 요율로 유학생이 대체로 이 금액을 냅니다. 학교에 따라 유학생 추가 부담금이 붙을 수 있습니다.</p>'
 }
 
 # 미국 커뮤니티칼리지는 Scorecard가 아니라 각 칼리지 international 공시값이라 문구를 따로 쓴다.
