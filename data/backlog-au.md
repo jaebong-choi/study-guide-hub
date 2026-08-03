@@ -497,10 +497,45 @@ B.Information Technology (Hons) $1,142/CP → **54,816**(카드 54,770).
 - ⚠ **플린더스 `Master of Science (Computer Science)` 카드는 삭제했다.** 코스 페이지가
   **2020·2021 학비만 표시하는 상태로 멈춰 있고**(2026년 값 없음), 현행 코스 목록에도 없다. 폐지로 판단.
 
+### 🟢 모나쉬·시드니 대조 완료 — 거의 다 맞았다 (2026-08-03)
+
+**모나쉬 읽는 법**: 원문 HTML에 있다. URL에 **`?international=true`**를 붙이고 같은 도메인 `fetch`.
+정규식 `The fees for (\d{4}) are:\s*A\$([\d,]+)`. 페이지 문구가 *"Fees are per 48 credit points
+which represents a standard full-time course load for a year"*라 **연간이 확실하다.**
+
+| 과정 | 카드 | 모나쉬 공시 2026 |
+|---|---|---|
+| B.Information Technology (c2000) | 54,400 | 54,400 ✅ |
+| M.Nursing Practice (m6016) | 47,400 | 47,400 ✅ |
+| M.Biotechnology (m6030) | 52,800 | 52,800 ✅ |
+| 약학 학·석사 (p3001) | 60,100 | 60,100 ✅ |
+| 의학 통합 (m6011) | 101,600 | 101,600 ✅ |
+| M.Information Technology (c6001) | 55,500 | ⚠ **"Fees to be advised"** — 2026 미공시 |
+
+⚠ **모나쉬 M.IT는 학교가 2026 금액을 아직 안 냈다.** 카드값 55,500은 확인 불가 상태로 두었다.
+학교가 공시하면 바로 대조할 것.
+
+**시드니 읽는 법**: ⚠ **학비가 JS 주입이라 `fetch`로는 안 나온다. 페이지를 열어야 한다.**
+그리고 **기본이 국내 학생이다.** 처음 한 번 "Set your preferences" 대화상자에서
+**International → 연도(2026) → Get started**를 실제 클릭으로 눌러야 하고,
+그 뒤에는 설정이 유지돼 다른 코스 페이지도 국제 금액으로 열린다.
+
+| 과정 | 카드 | 시드니 공시 |
+|---|---|---|
+| M.Nursing | 51,300 | 51,300 ✅ |
+| M.Pharmacy | 61,700 | 61,700 ✅ |
+| B.Engineering Honours | 60,600 | 60,600 ✅ |
+| 약학 학·석사 통합 | 60,600 | 60,600 ✅ (석사 단계는 61,100) |
+| B.Science + MD | 60,600~97,000 | 60,600 → MD 97,000 ✅ |
+| Doctor of Medicine | 97,000 | 97,000 ✅ |
+| **Doctor of Veterinary Medicine** | 84,200 | **80,500** ❌ → 정정함 |
+
+**결론: 모나쉬·시드니도 학교 자료에서 온 값이라 12/13이 맞았다.**
+이로써 패턴이 확정됐다 — **틀린 것은 UQ·플린더스(CRICOS 환산)와 일부 UNSW뿐이다.**
+
 ### 남은 범위 (C단계 계속)
 
-미대조: **모나쉬 7 · 시드니 7 · QUT 4 · 멜버른 3 · hotelschool.scu 2 ·
-스윈번 · RMIT · 토렌스 · 디킨 각 1** (총 26건)
+미대조: **QUT 4 · 멜버른 3 · hotelschool.scu 2 · 스윈번 · RMIT · 토렌스 · 디킨 각 1** (총 12건)
 UTS 16건은 표본 3건이 모두 반올림 오차 수준이라 **일괄 교체는 보류**했다 — 필요하면 위 절차로 전수 대조할 것.
 
 **보류 2건**: UNSW `Master of Engineering`(추출값이 1년차 127,000 / 총액 92,500으로 뒤집혀 나온다. 눈으로 볼 것).
