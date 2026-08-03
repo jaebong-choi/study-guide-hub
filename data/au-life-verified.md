@@ -30,7 +30,7 @@ UQ 석사는 과학 학사 외에 **경영·금융·법 전공자도 과학 배�
 **학부** — 개설이 적다. 검증된 곳이 두 곳뿐이라 카드도 두 장이다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Engineering (Honours) / Master of Biomedical Engineering | 5년 | AUD 63,700 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Engineering (Honours) / Master of Biomedical Engineering | 5년 | AUD 62,000 | 6.5 (전 영역 6.0) | NSW |
 | 플린더스 | Bachelor of Engineering (Biomedical) (Honours) | 4년 | AUD 47,300 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**

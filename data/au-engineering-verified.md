@@ -10,9 +10,9 @@
 **학부** — 토목공학과 건설관리는 다른 직군이다. 카드도 그렇게 섞어 놓았다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Construction Management and Property | 3년 | AUD 51,300 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Construction Management and Property | 3년 | AUD 51,000 | 6.5 (전 영역 6.0) | NSW |
 | 플린더스 | Bachelor of Engineering (Civil) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
-| WSU | Bachelor of Construction Management (Honours) | 4년 | AUD 40,900 | 6.5 (전 영역 6.0) | NSW |
+| WSU | Bachelor of Construction Management (Honours) | 4년 | AUD 40,916 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
@@ -29,31 +29,31 @@ UQ 석사는 호주건축가협회·퀸즐랜드 건축사위원회 인증이라
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Architectural Studies | 3년 | AUD 52,200 | 6.5 (전 영역 6.0) | NSW |
-| UQ | Bachelor of Architectural Design | 3년 | AUD 43,600 | 6.5 (전 영역 6.0) | QLD |
-| WSU | Bachelor of Architectural Design | 3년 | AUD 40,900 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Architectural Studies | 3년 | AUD 52,000 | 6.5 (전 영역 6.0) | NSW |
+| UQ | Bachelor of Architectural Design | 3년 | AUD 52,528 | 6.5 (전 영역 6.0) | QLD |
+| WSU | Bachelor of Architectural Design | 3년 | AUD 40,916 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UNSW | Master of Architecture | 2년 | AUD 48,200 | 6.5 (전 영역 6.0) | 건축 학사 |
-| UQ | Master of Architecture | 2년 | AUD 44,100 | 6.5 (전 영역 6.0) | 건축 학사 (GPA 4.5/7, 또는 4.0 + 실무 6개월) |
+| UNSW | Master of Architecture | 2년 | AUD 48,500 | 6.5 (전 영역 6.0) | 건축 학사 |
+| UQ | Master of Architecture | 2년 | AUD 52,528 | 6.5 (전 영역 6.0) | 건축 학사 (GPA 4.5/7, 또는 4.0 + 실무 6개월) |
 
 ## 기계·전기 (Mechanical & Electrical)
 
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Engineering (Honours) (Electrical) | 4년 | AUD 62,400 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Engineering (Honours) (Electrical) | 4년 | AUD 61,500 | 6.5 (전 영역 6.0) | NSW |
 | 플린더스 | Bachelor of Engineering (Mechanical) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 | 플린더스 | Bachelor of Engineering (Electrical and Electronic) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 
 UNSW 전기공학은 **QS 세계대학 전공별 순위 2026 기준 호주 1위**라고 학교 페이지에 적혀 있다.
 EA 정식 인증(Professional Engineer)이고 워싱턴 어코드 상호인정 대상이다.
 
-⚠ **UNSW 학비는 62,400을 쓴다.** CRICOS에 `Bachelor of Engineering - Electrical Engineering`
-(연 50,000)이라는 옛 등록이 따로 남아 있는데, 현행 우등학사 등록(056835E, 연 62,400)이
-전공을 포괄한다. **낮은 쪽을 인용하면 실제보다 싸게 안내하게 된다.**
+⚠ **UNSW 학비는 61,500이다**(2026-08-03 학교 공시로 정정. 옛 62,400은 CRICOS 환산이었다).
+CRICOS에는 `Bachelor of Engineering - Electrical Engineering`(연 50,000)이라는 옛 등록도
+따로 남아 있다. **CRICOS만 보면 같은 학위에 두 값이 잡히니 학교 공시를 먼저 볼 것.**
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
@@ -64,15 +64,17 @@ EA 정식 인증(Professional Engineer)이고 워싱턴 어코드 상호인정 �
 ## 항공 (Aviation)
 
 ⭐ **이 계열에서 가장 중요한 사실: 조종 과정은 학비와 비행훈련비가 따로다.**
-UNSW 공식 페이지 기준 국제학생 학비는 3년 총 **AUD 348,000**(연 109,500 수준)이고,
+UNSW 공식 페이지 기준 국제학생 학비는 **1년차 AUD 62,500 · 3년 총 AUD 348,000**이고,
+⚠ **둘 다 학교 공시값이다**(`feesfirstyear` / `feescompletedegree`). 1년차 ×3과 총액이
+크게 다르니 어느 쪽을 쓰는지 밝히지 않으면 상담에서 오해가 난다. 카드에는 1년차를 넣었다.
 **상업용 조종사 면허(CPL)와 다발계기한정까지 가는 비행훈련비 AUD 154,500이 별도**다.
 200시간을 넘기면 더 든다. 입학에는 항공적성검사(AAT, 55달러)와 **CASA 1종 신체검사**가 필요하고
 2026년 최저 선발 순위는 ATAR 80이다. **학비만 보고 상담하면 1억 원 넘게 어긋난다.**
 
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Aviation (Flying) | 3년 | AUD 109,500 (+ 비행훈련비 별도) | 6.5 (전 영역 6.0) | NSW |
-| UNSW | Bachelor of Aviation (Management) | 3년 | AUD 59,800 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Aviation (Flying) | 3년 | AUD 62,500 (+ 비행훈련비 별도) | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Aviation (Management) | 3년 | AUD 61,000 | 6.5 (전 영역 6.0) | NSW |
 
 **석사 카드는 만들지 않았다.** 항공경영 석사는 그리피스(43,500)·ECU(44,700)·RMIT(49,900)에 있는데
 셋 다 지원 자격이나 영어 요건을 원문에서 못 읽었다. 진단에서 석사를 고르면 학부 목록을 보여준다.

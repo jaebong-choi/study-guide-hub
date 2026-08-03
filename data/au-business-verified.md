@@ -13,29 +13,29 @@
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UTS | Bachelor of Business | 3년 | AUD 48,800 | 6.5 (쓰기 6.0) | NSW |
-| UQ | Bachelor of Commerce | 3년 | AUD 45,800 | 6.5 (전 영역 6.0) | QLD |
-| 플린더스 | Bachelor of Business | 3년 | AUD 35,200 | **6.0** (쓰기·말하기 6.0) | SA |
+| UQ | Bachelor of Commerce | 3년 | AUD 56,800 | 6.5 (전 영역 6.0) | QLD |
+| 플린더스 | Bachelor of Business | 3년 | AUD 39,000 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
 | UTS | Master of Business Administration | 2년 | AUD 52,200 | 6.5 (쓰기 6.0) | 학사 GPA 5.25/7, 또는 학사 + **실무 4년**(또는 GMAT) |
-| UQ | Master of Commerce | 2년 | AUD 48,000 | 6.5 (전 영역 6.0) | **전공 무관 학사** GPA 4.5/7. 경영 계열이면 1.5년 단축 |
+| UQ | Master of Commerce | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | **전공 무관 학사** GPA 4.5/7. 경영 계열이면 1.5년 단축 |
 
 ## 회계·금융 (Accounting & Finance)
 
-**학부** — 이 계열에서 학비가 가장 낮은 축이다. 세 곳 다 연 3만 5천~3만 7천 달러대다.
+**학부** — 이 계열에서 학비가 가장 낮은 축이다. 세 곳이 연 35,868~39,000이다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | 그리피스 | Bachelor of Commerce | 3년 | AUD 37,000 | 6.5 (전 영역 6.0) | QLD |
-| WSU | Bachelor of Accounting | 3년 | AUD 35,900 | 6.5 (전 영역 6.0) | NSW |
-| 플린더스 | Bachelor of Accounting | 3년 | AUD 35,200 | **6.0** (쓰기·말하기 6.0) | SA |
+| WSU | Bachelor of Accounting | 3년 | AUD 35,868 | 6.5 (전 영역 6.0) | NSW |
+| 플린더스 | Bachelor of Accounting | 3년 | AUD 39,000 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사** — 둘 다 **CPA Australia·CA ANZ 인증** 과정이다. 회계사로 가는 경로가 여기서 열린다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
 | UTS | Master of Professional Accounting | 1.5년(78주) | AUD 52,200 | 6.5 (쓰기 6.0) | **회계 이외 전공** 학사(75% 이상) |
-| WSU | Master of Professional Accounting | 1.5년(78주) | AUD 39,300 | 6.5 (전 영역 6.0) | 경영 계열 학사, 또는 전공 무관 대학원 수료증 |
+| WSU | Master of Professional Accounting | 1.5년(78주) | AUD 39,337 | 6.5 (전 영역 6.0) | 경영 계열 학사, 또는 전공 무관 대학원 수료증 |
 
 ⭐ **UTS는 회계 전공자를 받지 않는다.** "in a field of study other than Accounting"이라고 조건에
 박혀 있다. 회계를 이미 전공한 학생에게 이 과정을 권하면 서류에서 걸린다. WSU는 반대로
@@ -48,7 +48,7 @@
 |---|---|---|---|---|---|
 | UTS | Bachelor of Sport and Exercise Management | 3년 | AUD 41,400 | 6.5 (쓰기 6.0) | NSW |
 | 그리피스 | Bachelor of Sport Development | 3년 | AUD 40,500 | 6.5 (전 영역 6.0) | QLD |
-| WSU | Bachelor of Sport Development | 3년 | AUD 34,800 | 6.5 (전 영역 6.0) | NSW |
+| ~~WSU~~ | ~~Bachelor of Sport Development~~ | — | — | — | ⚠ **폐지. 카드 삭제(2026-08-03)** — URL이 홈으로 리다이렉트되고 2026 요금표에도 없다 |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |

@@ -17,29 +17,29 @@
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UQ | Bachelor of Computer Science | 3년 | AUD 48,900 | 6.5 (전 영역 6.0) | QLD |
-| WSU | Bachelor of Computer Science | 3년 | AUD 38,200 | 6.5 (전 영역 6.0) | NSW |
-| 플린더스 | Bachelor of Computer Science | 3년 | AUD 37,600 | **6.0** (쓰기·말하기 6.0) | SA |
+| UQ | Bachelor of Computer Science | 3년 | AUD 60,952 | 6.5 (전 영역 6.0) | QLD |
+| WSU | Bachelor of Computer Science | 3년 | AUD 38,237 | 6.5 (전 영역 6.0) | NSW |
+| 플린더스 | Bachelor of Computer Science | 3년 | AUD 43,600 | **6.0** (쓰기·말하기 6.0) | SA |
 
-**석사** — 둘 다 **비전공자를 받지 않는다.**
+**석사** — **비전공자를 받지 않는다.**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Computer Science | 1.5년(78주) | AUD 48,000 | 6.5 (전 영역 6.0) | 컴퓨터·IT 계열 학사 |
-| 플린더스 | Master of Computer Science | 2년 | AUD 36,200 | **6.0** | 컴퓨터·IT·ICT공학 학사. 같은 전공 우등학사 소지자는 지원 불가 |
+| UQ | Master of Computer Science | 1.5년(78주) | AUD 60,952 | 6.5 (전 영역 6.0) | 컴퓨터·IT 계열 학사 |
+| ~~플린더스~~ | ~~Master of Computer Science~~ | — | — | — | ⚠ **카드 삭제(2026-08-03)** — 코스 페이지가 2020·2021 학비에서 멈춰 있고 현행 목록에도 없다. 폐지로 판단 |
 
 ## 사이버보안 (Cyber Security)
 
-**학부** — 학비 폭이 이 계열에서 가장 크다(32,500 ↔ 63,200, 거의 두 배).
+**학부** — 검증된 두 곳은 32,500 ↔ 40,500이다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Cyber Security | 3년 | AUD 63,200 | 6.5 (전 영역 6.0) | NSW |
+| ~~UNSW~~ | ~~Bachelor of Cyber Security~~ | — | — | — | ⚠ **카드 삭제(2026-08-03)** — UNSW 캔버라(ADFA) 과정이라 **국제학생 학비가 공시되지 않는다**(국내 $10,000/년만 나오고 International 토글로도 안 바뀐다). 옛 63,200은 근거가 없었다 |
 | 그리피스 | Bachelor of Cyber Security | 3년 | AUD 40,500 | 6.5 (전 영역 6.0) | QLD |
 | WSU | Bachelor of Cyber Security and Behaviour | 3년 | AUD 32,500 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Cyber Security | 2년 | AUD 48,900 | 6.5 (전 영역 6.0) | **전공 무관 학사** (GPA 5.0/7). 1.5년 단축은 관련 전공만 |
+| UQ | Master of Cyber Security | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | **전공 무관 학사** (GPA 5.0/7). 1.5년 단축은 관련 전공만 |
 | UTS | Master of Cybersecurity | 1.5년(78주) | AUD 57,100 | 6.5 (쓰기 6.0) | IT·전자공학 학사(75% 이상) 또는 IT 학사 + 실무 2년 |
 
 ⭐ **UQ 사이버보안 석사가 이 계열에서 유일하게 전공 무관 진입을 명시한다.** 컴퓨터사이언스·
@@ -50,16 +50,16 @@ AI·데이터·소프트웨어공학 석사는 전부 관련 학사를 요구한
 **학부** — 개설이 NSW에 몰려 있다. 다른 주를 원하는 학생에게는 컴퓨터사이언스를 권해야 한다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Data Science and Decisions | 3년 | AUD 58,700 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Data Science and Decisions | 3년 | AUD 60,000 | 6.5 (전 영역 6.0) | NSW |
 | UTS | Bachelor of Artificial Intelligence | 3년 | AUD 54,800 | 6.5 (쓰기 6.0) | NSW |
-| WSU | Bachelor of Data Science | 3년 | AUD 40,100 | 6.5 (전 영역 6.0) | NSW |
+| WSU | Bachelor of Data Science | 3년 | AUD 40,127 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Data Science | 2년 | AUD 48,900 | 6.5 (전 영역 6.0) | 이공계 학사. **비이공계도 미적분 + (선형대수·통계 또는 프로그래밍·DB) 이수했으면 가능** |
+| UQ | Master of Data Science | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | 이공계 학사. **비이공계도 미적분 + (선형대수·통계 또는 프로그래밍·DB) 이수했으면 가능** |
 | UTS | Master of Artificial Intelligence | 2년 | AUD 55,400 | 6.5 (쓰기 6.0) | IT·전자공학·수학 학사, 또는 관련 학사 + 실무 2년 |
-| 플린더스 | Master of Data Science | 2년 | AUD 36,200 | **6.0** | 이공계·IT·수학·통계·의과학 학사. 대학원 디플로마 경유 가능 |
+| 플린더스 | Master of Data Science | 2년 | AUD 42,900 | **6.0** | 이공계·IT·수학·통계·의과학 학사. 대학원 디플로마 경유 가능 |
 
 ## 소프트웨어공학 (Software Engineering)
 
@@ -70,7 +70,7 @@ CRICOS 전수 확인 결과 "Computer Engineering"이라는 학위명은 검증 
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UNSW | Bachelor of Engineering (Honours) / Bachelor of Computer Science | 5년 | AUD 63,900 | 6.5 (전 영역 6.0) | NSW |
+| UNSW | Bachelor of Engineering (Honours) / Bachelor of Computer Science | 5년 | AUD 61,500 | 6.5 (전 영역 6.0) | NSW |
 | 그리피스 | Bachelor of Software Engineering (Honours) | 4년 | AUD 46,000 | 6.5 (전 영역 6.0) | QLD |
 | 플린더스 | Bachelor of Engineering (Software) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 
@@ -84,10 +84,14 @@ CRICOS 전수 확인 결과 "Computer Engineering"이라는 학위명은 검증 
 
 ## 이 계열의 판단 축
 
-**IT는 "학교 등급"보다 "전공 이름"이 학비를 정한다.** 같은 WSU 안에서도 사이버보안 32,500 ·
-컴퓨터사이언스 38,200 · 데이터사이언스 40,100으로 갈리고, UNSW는 사이버보안 63,200이다.
-학비 차이가 두 배인데 졸업 후 직군은 겹친다. **그래서 "무슨 전공이냐"를 먼저 정하고
-학교를 고르는 순서가 맞다.**
+**IT는 "전공 이름"보다 "학교"가 학비를 정한다.** 같은 WSU 안에서는 사이버보안 32,500 ·
+컴퓨터사이언스 38,237 · 데이터사이언스 40,127로 8천 달러 안에서 움직이는데,
+**같은 Bachelor of Computer Science 하나만 놓고 학교를 바꾸면 38,237(WSU) → 43,600(플린더스)
+→ 60,952(UQ)로 벌어진다.** 3년이면 6만 8천 달러 차이다. 졸업 후 직군은 겹친다.
+
+⚠ **2026-08-03에 축이 뒤집혔다.** 옛 판단은 "전공 이름이 학비를 정한다"였는데,
+그 근거였던 UNSW 사이버보안 63,200이 **국제 학비 미공시로 삭제**되면서 성립하지 않게 됐다.
+UQ·플린더스 값도 CRICOS 환산이라 틀렸었다. 발행된 `it-cost` 글도 이 새 축으로 다시 썼다.
 
 ## 빅토리아 추가분 (2026-08-03 오후, 실제 크롬으로 원문 확인)
 
