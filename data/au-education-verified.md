@@ -1,0 +1,72 @@
+# 교육 계열 세부전공 — 진단 카드용 확정 데이터 (2026-08-03)
+
+**계열 자체가 신설이라 데이터를 처음부터 만들었다.**
+계열 구성: 유아교육 · 초·중등 교직 · TESOL
+
+## ⭐ 이 계열의 축: 교사 등록 영어는 입학 영어와 다르다
+
+호주교육연구원(AITSL) 자격심사 기준(2024년 5월판 공식 체크리스트)은
+**읽기·쓰기 각 7.0 이상, 말하기·듣기 각 8.0 이상**이고, **IELTS Academic만 인정한다**
+— PTE·TOEFL·PEAT·ISLPR 전부 불인정이라고 문서에 명시돼 있다. 유효기간은 2년.
+
+그런데 **대학 입학 기준은 학교마다 다르다.**
+- UTS 교직 석사: 입학부터 **7.5(듣기·말하기 8.0, 읽기·쓰기 7.0)** — 등록 기준을 그대로 요구한다.
+- 플린더스 교육: Schedule 1 **레벨 5 = 7.0(전 영역 7.0)** — 등록 기준보다 낮게 받는다.
+
+**플린더스로 입학해도 등록 단계에서 말하기·듣기 8.0을 다시 넘어야 한다.**
+간호 글에서 다룬 "입학 영어 ≠ 등록 영어"가 교직에서 더 크게 벌어진다.
+상담에서 이걸 빼면 학생이 졸업하고 나서 막힌다.
+
+반대로 **TESOL은 교사 등록 직군이 아니다.** 그래서 6.5면 된다. 같은 플린더스 안에서
+교직 7.0 vs TESOL 6.5로 갈리는 게 문서로 확인된다(Schedule 1 레벨 5 vs 레벨 3).
+
+## 유아교육 (Early Childhood Education)
+
+**학부**
+| 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
+|---|---|---|---|---|---|
+| 플린더스 | Bachelor of Early Childhood Education - Birth to 5 | 3년 | AUD 35,600 | 7.0 (전 영역 7.0) | SA |
+| 플린더스 | Bachelor of Early Childhood Education - Birth to 8 | 4년 | AUD 33,200 | 7.0 (전 영역 7.0) | SA |
+
+Birth to 5는 3년, Birth to 8은 4년이다. **연간 학비는 4년제가 더 싸다**(총액이 아니라 연간 기준).
+
+**석사**
+| 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
+|---|---|---|---|---|---|
+| 플린더스 | Master of Teaching (Early Childhood) | 2년 | AUD 33,700 | 7.0 (전 영역 7.0) | 학사 학위. **같은 분야 교원자격 보유자는 지원 불가** |
+
+## 초·중등 교직 (Primary & Secondary Teaching)
+
+**학부** — 학·석사 통합 4년이다. 학사만으로는 교원자격이 나오지 않는다.
+| 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
+|---|---|---|---|---|---|
+| UTS | Bachelor of Education Futures / Master of Teaching in Primary Education | 4년 | AUD 33,700 | **7.5 (듣기·말하기 8.0 / 읽기·쓰기 7.0)** | NSW |
+
+**석사**
+| 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
+|---|---|---|---|---|---|
+| UTS | Master of Teaching in Primary Education | 2년 | AUD 33,700 | **7.5 (듣기·말하기 8.0)** | 학사 + **초등 교과 관련 1년(8과목) 이수** |
+| UTS | Master of Teaching in Secondary Education | 2년 | AUD 33,700 | **7.5 (듣기·말하기 8.0)** | 학사 + **가르칠 교과의 전공(major)** |
+
+중등은 "가르칠 교과의 전공"이 필수다. 수학 교사가 되려면 수학 전공이 있어야 한다는 뜻이고,
+전공 없이 교직만 밟는 경로가 아니다.
+
+## TESOL — 학부 과정이 없다
+
+TESOL은 **대학원 과정만 있다.** 진단에서 학부를 골라도 아래 석사 목록이 나오도록 처리했다
+(`majorData`에 `masterSchools`만 두면 학부에서도 석사 목록과 '석사' 라벨이 나온다 — 코드 수정 완료).
+
+| 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
+|---|---|---|---|---|---|
+| UTS | Master of TESOL and Applied Linguistics | 1.5년(78주) | AUD 38,800 | 6.5 (쓰기 6.0) | 교육·상경·인문 계열 학사, 또는 **전공 무관 학사 + 실무 2년** |
+| 플린더스 | Master of TESOL | 2년 | AUD 35,000 | 6.5 (전 영역 6.0) | 학사 학위, 또는 TESOL 대학원 수료증 |
+
+## 미검증 (넣지 말 것)
+
+시드니대 Bachelor of Education (Early Childhood) 63,400 · 그리피스 Bachelor of Early Childhood
+and Primary Education 37,000 · WSU Bachelor of Education (Early Childhood) 32,500 ·
+WSU Master of Teaching (Early Childhood) 35,100 · WSU Master of Arts in TESOL 34,800.
+
+**WSU가 아깝다** — 학비가 가장 싼데(32,500) 코스 페이지가 영어 기준을 학교 일반 페이지로 넘기고,
+그 일반 페이지는 "교육은 예외"라고만 하고 숫자를 안 준다. 학교 안내 PDF(2023년판)에도
+7.5 열이 없다. **숫자를 찾으면 바로 카드로 올릴 것.**
