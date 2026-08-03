@@ -1636,11 +1636,21 @@ $srcRows
         '                    </div>' + "`n" +
         $rows + "`n" +
         '                    <p class="board-empty" hidden data-en="No articles match this filter yet.">고른 조건에 맞는 글이 아직 없습니다.</p>' + "`n" +
-        '                    <nav class="board-pager" aria-label="게시판 페이지" data-en-aria="Board pages"></nav>'
+        '                    <nav class="board-pager" aria-label="게시판 페이지" data-en-aria="Board pages"></nav>' + "`n" +
+        '                    <!--/board-->'
     $guidePath = Join-Path $repoRoot ("guide\" + $cc + ".html")
     if (Test-Path $guidePath) {
         $g = [IO.File]::ReadAllText($guidePath, [Text.Encoding]::UTF8)
-        $new = [regex]::Replace($g, '(?s)(<div class="info-board">).*?(\r?\n\s*</div>)', ('${1}' + "`n" + $cards.Replace('$', '$$$$') + '${2}'))
+        # 게시판 마크업 안에 </div>가 들어 있어서 "첫 </div>까지"로 끊으면 뒤가 남고
+        # 다음 빌드에서 통째로 덧붙는다(실제로 한 번 겪어 행이 두 배가 됐다).
+        # 그래서 끝을 <!--/board--> 주석으로 명시하고, 그 주석까지 잘라 낸다.
+        $body = $cards.Replace('$', '$$$$')
+        if ($g.Contains('<!--/board-->')) {
+            $new = [regex]::Replace($g, '(?s)(<div class="info-board">).*?<!--/board-->', ('${1}' + "`n" + $body))
+        } else {
+            # 마커가 없는 예전 페이지 — 컨테이너를 닫는 </div>(들여쓰기 16칸)까지가 게시판이다
+            $new = [regex]::Replace($g, '(?s)(<div class="info-board">).*?(\r?\n {16}</div>)', ('${1}' + "`n" + $body + '${2}'))
+        }
         if ($new -ne $g) { [IO.File]::WriteAllText($guidePath, $new, $utf8NoBom) }
     }
     Write-Host ("생성: 유학 정보 글 {0}편 + 목록 카드 ({1})" -f @($articles).Count, $cc) -ForegroundColor Green
