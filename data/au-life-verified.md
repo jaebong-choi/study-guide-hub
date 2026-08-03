@@ -81,8 +81,32 @@ UNSW는 둘 다 가장 높다. 그런데 중간에 있는 UTS·UQ는 학비 순�
   6.5(전 영역 6.0). **전공 무관 학사 + WAM 65 + 수학·과학 선수과목.** 이 학교 덕에
   "의료공학 석사 = 공학 학사 필수"가 절반만 맞는 말이 됐다 — 멜버른은 선수과목형이다.
 
+## 모나쉬 (2026-08-03 오후, 실제 크롬 + Find a course 원문)
+
+**Master of Biotechnology (M6030)** — 카드 추가함.
+연 **A$52,800**(학교 공시. CRICOS 환산 54,400보다 낮으니 학교 공시를 쓴다) ·
+**English Level B: IELTS 6.5, 듣기 6.5 · 읽기 6.5 · 쓰기 6.0 · 말하기 6.0** ·
+Entry level 1 = 2년(관련 학사 credit 60% 이상), Entry level 2 = 1년(관련 우등학사 distinction 70%) ·
+클레이턴 캠퍼스 · CRICOS 095646J.
+
+⭐ **모나쉬는 과정마다 English Level A~F를 따로 붙인다.** 대학 최저(Level A = 6.5, 전 영역 6.0)를
+그대로 쓰면 틀리는 과정이 있다. 생명공학은 **Level B**라 듣기·읽기가 반 밴드 높다.
+**모나쉬 과정을 새로 넣을 때는 반드시 그 과정의 Level을 확인할 것.**
+
+⚠ **Bachelor of Biotechnology는 카드로 만들지 않았다.** CRICOS 078846J가 Expired=No로 남아 있고
+연 60,100으로 계산되지만, **모나쉬 국제학생 학부 목록(186개)에 이 학위가 없다.**
+Find a course에서 'biotechnology'로 학부를 검색해도 Science·Pharmaceutical Science만 나온다.
+→ **CRICOS의 Expired=No는 "현재 모집 중"을 뜻하지 않는다.** 등록만 살아 있는 과정이 섞여 있다.
+새 학교·새 과정을 넣을 때 학교 코스 목록에 실제로 있는지 한 번 더 볼 것.
+
+### 기존 모나쉬 카드 대조 — 4곳 전부 일치 (같은 날 확인)
+| 카드 | 우리 값 | 학교 공시 |
+|---|---|---|
+| Bachelor of IT | 6.5 · $54,400 | Level A 6.5(전 영역 6.0) · A$54,400 ✓ |
+| Master of IT | 6.5 · 전공 무관 | Level A 6.5 · **"not necessarily in IT"** 60% 평균 ✓ |
+| Master of Nursing Practice | 7.0 · 학사 + 선수과목 | 등록 영어 기준 별도 안내 · 간호 외 학사 60% + **해부생리 6학점 필수** ✓ |
+| Bachelor of Pharmacy (Hons) | 6.5 · $60,100 | Level A 6.5(전 영역 6.0) · A$60,100 ✓ |
+
 ## 미검증 (넣지 말 것)
 
-모나쉬(생명공학 학부 60,100 · 석사 54,400 — 대학 최저 6.5는 확인했지만 **이 과정의 상향 여부**를
-코스 페이지에서 아직 안 봤다) · 맥쿼리(의공학 석사 37,000) · QUT(Biomedical Systems 석사 48,900) ·
-ANU · 애들레이드 · UWA · UOW.
+맥쿼리(의공학 석사 37,000) · QUT(Biomedical Systems 석사 48,900) · ANU · 애들레이드 · UWA · UOW.
