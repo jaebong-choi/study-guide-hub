@@ -533,9 +533,38 @@ which represents a standard full-time course load for a year"*라 **연간이 �
 **결론: 모나쉬·시드니도 학교 자료에서 온 값이라 12/13이 맞았다.**
 이로써 패턴이 확정됐다 — **틀린 것은 UQ·플린더스(CRICOS 환산)와 일부 UNSW뿐이다.**
 
-### 남은 범위 (C단계 계속)
+### 🟢 QUT·멜버른·디킨 대조 완료 — 전부 일치 (2026-08-03)
 
-미대조: **QUT 4 · 멜버른 3 · hotelschool.scu 2 · 스윈번 · RMIT · 토렌스 · 디킨 각 1** (총 12건)
+| 학교 | 과정 | 카드 | 공시 | |
+|---|---|---|---|---|
+| QUT | Bachelor of Nursing | 43,500 | 2026: 43,500 | ✅ |
+| QUT | Master of Information Technology | 45,000 | 2026: 45,000 | ✅ |
+| QUT | Master of Nursing (Entry to Practice) | 45,300 | 2026: 45,300 | ✅ |
+| 멜버른 | Doctor of Medicine | 122,976 | 2026 1년차 122,976 | ✅ |
+| 멜버른 | Master of Biomedical Engineering | 62,976 | 1년차 62,976 | ✅ |
+| 멜버른 | Master of Civil Engineering | 62,976 | 1년차 62,976 | ✅ |
+| 디킨 | Master of Biotechnology (Professional) | 45,200 | 45,200 (1yr full-time) | ✅ |
+
+**읽는 법**
+- **QUT**: 원문 HTML에 있다. 정규식 `(\d{4}): \$([\d,]+) per year`. **2026·2027이 같이 들어 있으니
+  연도를 골라야 한다**(예: 간호 2026 43,500 / 2027 45,100).
+- **멜버른**: 원문 HTML의 JSON에 들어 있다. `"international_fee_place"` 근처의
+  **`"first_year_fee"`**가 국제 1년차, `"total_fee"`가 총액이다. 403 없이 읽힌다.
+- **디킨**: 코스 URL에 `-international`이 붙은 페이지가 따로 있고 거기 금액이 그대로 나온다.
+
+### ⚠ 아직 확인 못 한 6건 — 코스 페이지에 국제 학비가 없다
+
+| 학교 | 과정 | 카드 | 막힌 이유 |
+|---|---|---|---|
+| QUT | Bachelor of Engineering (Honours) | 48,600 | 전공별로 갈라지는 상위 페이지라 금액이 없다 |
+| 스윈번 | B.Eng (Hons) Software | 37,100 | Fees 탭을 열어도 금액이 안 나온다 |
+| RMIT | B.Eng Biomedical (Hons) | 48,960 | 미확인 |
+| 토렌스 | Master of International Hotel Management | 45,600 | 미확인 |
+| 호텔스쿨(SCU) | B.Business in Hotel Management | 34,500 | ⚠ **카드 URL이 학교 홈페이지(`hotelschool.scu.edu.au/`)다.** 코스 페이지가 아니라 근거로 약하다 |
+| 호텔스쿨(SCU) | M.Business in Global Hotel Leadership | 37,000 | 위와 같음 |
+
+**호텔스쿨 두 건은 URL부터 코스 페이지로 바꿔야 한다.** 나머지는 학교 요금표(WSU식 PDF)나
+국제학생 전용 페이지(디킨식)를 찾아야 할 가능성이 크다.
 UTS 16건은 표본 3건이 모두 반올림 오차 수준이라 **일괄 교체는 보류**했다 — 필요하면 위 절차로 전수 대조할 것.
 
 **보류 2건**: UNSW `Master of Engineering`(추출값이 1년차 127,000 / 총액 92,500으로 뒤집혀 나온다. 눈으로 볼 것).
