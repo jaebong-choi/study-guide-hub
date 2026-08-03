@@ -749,6 +749,31 @@ RMIT는 2026 국제 학비를 더 이상 공시하지 않는다. 48,960은 **202
 학교가 2026을 안 냈다. 확인된 2025 공시 **38,000**을 그대로 쓴다(옛 35,000은 CRICOS 환산).
 `au-education-verified.md`에 ⚠2025 표시를 남겼으니 2026이 나오면 대조할 것.
 
+### 🟢 UTS 16건 · 그리피스 12건 전수 대조 완료 (2026-08-03)
+
+**UTS — 전부 반올림 차이였다. 정확값으로 교체했다.**
+학부: B.AI 54,800→**54,816** · B.Business 48,800→**48,816** · B.Education Futures 33,700→**33,744** ·
+B.IT 54,770→**54,816** · B.Molecular Biotech 50,500→**50,496** · B.Sport&Exercise Mgmt 41,400→**41,472** ·
+B.Nursing 48,816 ✅. 대학원: M.AI 55,400→**55,376** · MBA 52,200→**52,240** · M.Cybersecurity 57,100→**57,060** ·
+M.Medical Biotech 50,500→**50,466** · M.Prof Accounting 52,200→**52,240** · M.Sport Mgmt 42,000→**42,010** ·
+M.Teaching 초등·중등 33,700→**33,736** · M.TESOL 38,800→**38,790**.
+
+⭐ **UTS 검색기는 폼을 클릭할 필요가 없다. 같은 도메인 POST 한 번이면 된다.**
+```
+POST /fees/course-fees.cfm
+fee_type=IFUG(학부) 또는 IF(대학원 코스웍) · fee_year=2026 · cohort_year=2026
+course_area=All · Search=<과정명 일부> · op=Search
+```
+⚠ **`Search`를 비우고 `course_area=All`로 던지면 응답이 너무 커서 렌더러가 멈춘다**(실제로 겪었다).
+반드시 과정명을 넣어 결과를 좁힐 것. 환산은 백로그 위쪽 규칙 그대로
+(학부 = Fee per CP × 48, 대학원 = Fee per session × 2).
+
+**그리피스 — 12/12 전부 일치. 카드 수정 없음.**
+⚠ **그리피스는 `fetch`로는 학비가 안 나온다**(클라이언트 렌더). `?location=intl`을 붙여
+**페이지를 실제로 열고** `document.body.innerText`에서 `FEE (INDICATIVE) $X per year`를 읽어야 한다.
+- 간호 카드 URL이 코스 페이지가 아니라 계열 랜딩(`/study/nursing`)이어서
+  **학위 페이지 `bachelor-of-nursing-1162`로 교체**했다. 금액·영어(7.0)는 그대로 맞았다.
+
 **학교별 조회 방법 — 다음에 그대로 쓸 것**
 - **QUT**: 403이라 실제 크롬에서 same-origin `fetch`. ⚠ **상위 학위 페이지에는 금액이 없다** —
   전공별 페이지(`-civil`, `-electrical` …)에 `2026: $48,600 per year` 형태로 있다. 전공이 달라도 금액은 같다.

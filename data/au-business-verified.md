@@ -12,14 +12,14 @@
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UTS | Bachelor of Business | 3년 | AUD 48,800 | 6.5 (쓰기 6.0) | NSW |
+| UTS | Bachelor of Business | 3년 | AUD 48,816 | 6.5 (쓰기 6.0) | NSW |
 | UQ | Bachelor of Commerce | 3년 | AUD 56,800 | 6.5 (전 영역 6.0) | QLD |
 | 플린더스 | Bachelor of Business | 3년 | AUD 39,000 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UTS | Master of Business Administration | 2년 | AUD 52,200 | 6.5 (쓰기 6.0) | 학사 GPA 5.25/7, 또는 학사 + **실무 4년**(또는 GMAT) |
+| UTS | Master of Business Administration | 2년 | AUD 52,240 | 6.5 (쓰기 6.0) | 학사 GPA 5.25/7, 또는 학사 + **실무 4년**(또는 GMAT) |
 | UQ | Master of Commerce | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | **전공 무관 학사** GPA 4.5/7. 경영 계열이면 1.5년 단축 |
 
 ## 회계·금융 (Accounting & Finance)
@@ -34,7 +34,7 @@
 **석사** — 둘 다 **CPA Australia·CA ANZ 인증** 과정이다. 회계사로 가는 경로가 여기서 열린다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UTS | Master of Professional Accounting | 1.5년(78주) | AUD 52,200 | 6.5 (쓰기 6.0) | **회계 이외 전공** 학사(75% 이상) |
+| UTS | Master of Professional Accounting | 1.5년(78주) | AUD 52,240 | 6.5 (쓰기 6.0) | **회계 이외 전공** 학사(75% 이상) |
 | WSU | Master of Professional Accounting | 1.5년(78주) | AUD 39,337 | 6.5 (전 영역 6.0) | 경영 계열 학사, 또는 전공 무관 대학원 수료증 |
 
 ⭐ **UTS는 회계 전공자를 받지 않는다.** "in a field of study other than Accounting"이라고 조건에
@@ -46,14 +46,14 @@
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UTS | Bachelor of Sport and Exercise Management | 3년 | AUD 41,400 | 6.5 (쓰기 6.0) | NSW |
+| UTS | Bachelor of Sport and Exercise Management | 3년 | AUD 41,472 | 6.5 (쓰기 6.0) | NSW |
 | 그리피스 | Bachelor of Sport Development | 3년 | AUD 40,500 | 6.5 (전 영역 6.0) | QLD |
 | ~~WSU~~ | ~~Bachelor of Sport Development~~ | — | — | — | ⚠ **폐지. 카드 삭제(2026-08-03)** — URL이 홈으로 리다이렉트되고 2026 요금표에도 없다 |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UTS | Master of Sport Management | 1.5년(78주) | AUD 42,000 | 6.5 (쓰기 6.0) | **전공 무관 학사**(75% 이상) |
+| UTS | Master of Sport Management | 1.5년(78주) | AUD 42,010 | 6.5 (쓰기 6.0) | **전공 무관 학사**(75% 이상) |
 
 ## 이 계열의 판단 축
 

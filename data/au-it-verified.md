@@ -40,7 +40,7 @@
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
 | UQ | Master of Cyber Security | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | **전공 무관 학사** (GPA 5.0/7). 1.5년 단축은 관련 전공만 |
-| UTS | Master of Cybersecurity | 1.5년(78주) | AUD 57,100 | 6.5 (쓰기 6.0) | IT·전자공학 학사(75% 이상) 또는 IT 학사 + 실무 2년 |
+| UTS | Master of Cybersecurity | 1.5년(78주) | AUD 57,060 | 6.5 (쓰기 6.0) | IT·전자공학 학사(75% 이상) 또는 IT 학사 + 실무 2년 |
 
 ⭐ **UQ 사이버보안 석사가 이 계열에서 유일하게 전공 무관 진입을 명시한다.** 컴퓨터사이언스·
 AI·데이터·소프트웨어공학 석사는 전부 관련 학사를 요구한다. 커리어 전환 상담에서 이 한 줄이 핵심이다.
@@ -51,14 +51,14 @@ AI·데이터·소프트웨어공학 석사는 전부 관련 학사를 요구한
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UNSW | Bachelor of Data Science and Decisions | 3년 | AUD 60,000 | 6.5 (전 영역 6.0) | NSW |
-| UTS | Bachelor of Artificial Intelligence | 3년 | AUD 54,800 | 6.5 (쓰기 6.0) | NSW |
+| UTS | Bachelor of Artificial Intelligence | 3년 | AUD 54,816 | 6.5 (쓰기 6.0) | NSW |
 | WSU | Bachelor of Data Science | 3년 | AUD 40,127 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
 | UQ | Master of Data Science | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | 이공계 학사. **비이공계도 미적분 + (선형대수·통계 또는 프로그래밍·DB) 이수했으면 가능** |
-| UTS | Master of Artificial Intelligence | 2년 | AUD 55,400 | 6.5 (쓰기 6.0) | IT·전자공학·수학 학사, 또는 관련 학사 + 실무 2년 |
+| UTS | Master of Artificial Intelligence | 2년 | AUD 55,376 | 6.5 (쓰기 6.0) | IT·전자공학·수학 학사, 또는 관련 학사 + 실무 2년 |
 | 플린더스 | Master of Data Science | 2년 | AUD 42,900 | **6.0** | 이공계·IT·수학·통계·의과학 학사. 대학원 디플로마 경유 가능 |
 
 ## 소프트웨어공학 (Software Engineering)

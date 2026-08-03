@@ -59,13 +59,13 @@
 **학부** — 학·석사 통합 4년이다. 학사만으로는 교원자격이 나오지 않는다.
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UTS | Bachelor of Education Futures / Master of Teaching in Primary Education | 4년 | AUD 33,700 | **7.5 (듣기·말하기 8.0 / 읽기·쓰기 7.0)** | NSW |
+| UTS | Bachelor of Education Futures / Master of Teaching in Primary Education | 4년 | AUD 33,744 | **7.5 (듣기·말하기 8.0 / 읽기·쓰기 7.0)** | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UTS | Master of Teaching in Primary Education | 2년 | AUD 33,700 | **7.5 (듣기·말하기 8.0)** | 학사 + **초등 교과 관련 1년(8과목) 이수** |
-| UTS | Master of Teaching in Secondary Education | 2년 | AUD 33,700 | **7.5 (듣기·말하기 8.0)** | 학사 + **가르칠 교과의 전공(major)** |
+| UTS | Master of Teaching in Primary Education | 2년 | AUD 33,736 | **7.5 (듣기·말하기 8.0)** | 학사 + **초등 교과 관련 1년(8과목) 이수** |
+| UTS | Master of Teaching in Secondary Education | 2년 | AUD 33,736 | **7.5 (듣기·말하기 8.0)** | 학사 + **가르칠 교과의 전공(major)** |
 
 중등은 "가르칠 교과의 전공"이 필수다. 수학 교사가 되려면 수학 전공이 있어야 한다는 뜻이고,
 전공 없이 교직만 밟는 경로가 아니다.
@@ -77,7 +77,7 @@ TESOL은 **대학원 과정만 있다.** 진단에서 학부를 골라도 아래
 
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UTS | Master of TESOL and Applied Linguistics | 1.5년(78주) | AUD 38,800 | 6.5 (쓰기 6.0) | 교육·상경·인문 계열 학사, 또는 **전공 무관 학사 + 실무 2년** |
+| UTS | Master of TESOL and Applied Linguistics | 1.5년(78주) | AUD 38,790 | 6.5 (쓰기 6.0) | 교육·상경·인문 계열 학사, 또는 **전공 무관 학사 + 실무 2년** |
 | 플린더스 | Master of TESOL | 2년 | AUD 38,000 ⚠2025 공시 | 6.5 (전 영역 6.0) | 학사 학위, 또는 TESOL 대학원 수료증 |
 
 ## 미검증 (넣지 말 것)

@@ -12,14 +12,14 @@
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UQ | Bachelor of Biotechnology | 3년 | AUD 60,952 | 6.5 (전 영역 6.0) | QLD |
-| UTS | Bachelor of Molecular Biotechnology | 3년 | AUD 50,500 | 6.5 (쓰기 6.0) | NSW |
+| UTS | Bachelor of Molecular Biotechnology | 3년 | AUD 50,496 | 6.5 (쓰기 6.0) | NSW |
 | 플린더스 | Bachelor of Science (Biotechnology) | 3년 | AUD 43,500 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UQ | Master of Biotechnology | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | QLD |
-| UTS | Master of Medical Biotechnology | 1.5년(78주) | AUD 50,500 | 6.5 (쓰기 6.0) | NSW |
+| UTS | Master of Medical Biotechnology | 1.5년(78주) | AUD 50,466 | 6.5 (쓰기 6.0) | NSW |
 | 플린더스 | Master of Biotechnology | 2년 | AUD 46,000 | **6.0** (쓰기·말하기 6.0) | SA |
 
 UQ 석사는 과학 학사 외에 **경영·금융·법 전공자도 과학 배경이 있으면** 받는다고 프로그램 페이지가
