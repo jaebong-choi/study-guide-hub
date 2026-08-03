@@ -70,8 +70,19 @@ UNSW는 둘 다 가장 높다. 그런데 중간에 있는 UTS·UQ는 학비 순�
 - UNSW `unsw.edu.au/study/undergraduate/bachelor-of-engineering-honours-master-of-biomedical-engineering` ·
   `unsw.edu.au/study/postgraduate/master-of-biomedical-engineering`
 
+## 빅토리아 추가분 (2026-08-03 오후, 실제 크롬으로 원문 확인)
+
+- **생명공학 석사 + 디킨**: Master of Biotechnology (Professional), 2년, 연 45,200(2027 학교 공시),
+  6.5(전 영역 6.0), 질롱(Waurn Ponds). **관련 학사 또는 전공 무관 학사 + 관련 실무 2년** —
+  UQ와 함께 커리어 전환 경로가 하나 더 생겼다.
+- **의료공학 학부 + RMIT**: BH069, 4년, 연 48,960(2027 학교 공시, CRICOS 50,900보다 우선),
+  6.5(전 영역 6.0). QS 공학 호주 9위권 문구가 코스 페이지에 있다.
+- **의료공학 석사 + 멜버른대**: MC-BIOMENG, 3년(관련 전공 2년), 첫해 62,976(2026 학교 공시),
+  6.5(전 영역 6.0). **전공 무관 학사 + WAM 65 + 수학·과학 선수과목.** 이 학교 덕에
+  "의료공학 석사 = 공학 학사 필수"가 절반만 맞는 말이 됐다 — 멜버른은 선수과목형이다.
+
 ## 미검증 (넣지 말 것)
 
-모나쉬(생명공학 학부 60,100 · 석사 54,400) · 멜버른대(의공학 석사 69,500) · RMIT(의공학 학부 50,900) ·
-맥쿼리(의공학 석사 37,000) · QUT(Biomedical Systems 석사 48,900) · ANU · 애들레이드 · UWA · UOW.
-**학비는 CRICOS로 이미 뽑혀 있다.** 영어 요건만 확인되면 바로 카드로 올릴 수 있다.
+모나쉬(생명공학 학부 60,100 · 석사 54,400 — 대학 최저 6.5는 확인했지만 **이 과정의 상향 여부**를
+코스 페이지에서 아직 안 봤다) · 맥쿼리(의공학 석사 37,000) · QUT(Biomedical Systems 석사 48,900) ·
+ANU · 애들레이드 · UWA · UOW.
