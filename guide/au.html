@@ -217,71 +217,120 @@
                 <h2 data-en="Study-abroad info">유학 정보</h2>
                 <p class="sec-lead" data-en="Topic-by-topic articles written from official sources only — accreditation bodies, government pages and each university's own publications.">전공·주제별로 파고드는 글입니다. 인증기관·정부·대학 공식 자료만으로 새로 작성하며, 계속 추가됩니다.</p>
                 <div class="info-board">
-                    <a class="info-card" href="./au-info-nursing.html">
-                        <h3 data-en="Nursing in Australia — the 3-year bachelor or the 2-year graduate entry master's?">호주 간호유학 — 3년 학사와 2년 GE 석사, 내 경로는 어느 쪽일까</h3>
-                        <p data-en="Nursing draws more enquiries than any other field. The fork in the road is not your grades but whether you already hold a degree. Here are both routes with real numbers.">간호는 호주 유학 문의에서 가장 많은 전공입니다. 갈림길은 성적이 아니라 학위가 있느냐입니다. 두 경로의 학비·기간·영어 기준을 실제 숫자로 비교했습니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <div class="board-tools">
+                        <div class="board-filters" role="group" aria-label="글 분류 필터" data-en-aria="Article category filter">
+                            <button type="button" class="sort-btn board-cat on" data-c="" aria-pressed="true" data-en="All">전체</button>
+                            <button type="button" class="sort-btn board-cat" data-c="major" aria-pressed="false" data-en="Choosing a field">전공 선택</button>
+                            <button type="button" class="sort-btn board-cat" data-c="pathway" aria-pressed="false" data-en="Entry routes">진학 경로</button>
+                            <button type="button" class="sort-btn board-cat" data-c="cost" aria-pressed="false" data-en="Fees and costs">학비·비용</button>
+                            <button type="button" class="sort-btn board-cat" data-c="english" aria-pressed="false" data-en="English and entry">영어·요건</button>
+                        </div>
+                        <select class="board-track" id="bt" aria-label="대상 과정 필터" data-en-aria="Course level filter">
+                            <option value="" data-en="All levels">학부·석사 전체</option>
+                            <option value="bachelor" data-en="Bachelor">학부</option>
+                            <option value="master" data-en="Master">석사</option>
+                        </select>
+                    </div>
+                    <div class="board-head" aria-hidden="true">
+                        <span class="b-no" data-en="No.">번호</span>
+                        <span class="b-title" data-en="Title">제목</span>
+                        <span class="b-tag" data-en="Category">분류</span>
+                        <span class="b-track" data-en="Level">대상</span>
+                        <span class="b-date" data-en="Verified">정보 확인</span>
+                    </div>
+                    <a class="board-row" href="./au-info-teaching-english.html" data-cat="english" data-track="bachelor master">
+                        <span class="b-no">13</span>
+                        <span class="b-title" data-en="Getting into a teaching degree is not the English bar that ends it">교사 자격, 입학 영어를 넘어도 등록 영어가 남습니다</span>
+                        <span class="b-tag b-cat-english" data-en="English and entry">영어·요건</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-pharmacy.html">
-                        <h3 data-en="Pharmacy in Australia — three schools, three different walls">호주 약대 — 세 학교가 세운 벽이 서로 다릅니다</h3>
-                        <p data-en="Pharmacy is not a field you pick by ranking. Sydney gates on test scores, Monash on prerequisite subjects, Griffith on English. And the degree is only the start.">약대는 순위로 고르는 전공이 아닙니다. 시드니는 수능 점수, 모나쉬는 선수과목, 그리피스는 영어에서 갈립니다. 그리고 학위는 시작일 뿐입니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-business-entry.html" data-cat="pathway" data-track="bachelor master">
+                        <span class="b-no">12</span>
+                        <span class="b-title" data-en="For a business master's, your first degree decides more than the university">경영 석사는 학교보다 내 학사 전공이 먼저입니다</span>
+                        <span class="b-tag b-cat-pathway" data-en="Entry routes">진학 경로</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-medicine.html">
-                        <h3 data-en="Medicine in Australia — the entrance exam depends on which route you take">호주 의대 — 준비할 시험이 갈립니다: 학부 통합과 대학원 MD</h3>
-                        <p data-en="Medicine enquiries start with grades, but something else comes first: the integrated undergraduate route or the graduate MD. That choice decides which admissions test you sit.">의대 상담은 성적 이야기로 시작하지만, 먼저 정할 게 있습니다. 통합 과정이냐 대학원 MD냐. 이게 정해져야 볼 시험이 정해집니다. 그리고 진짜 문턱은 총비용입니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-med-tests.html" data-cat="pathway" data-track="bachelor master">
+                        <span class="b-no">11</span>
+                        <span class="b-title" data-en="For medicine, dentistry and veterinary, the admissions test comes first">의대·치대·수의대는 영어보다 시험이 먼저 갈립니다</span>
+                        <span class="b-tag b-cat-pathway" data-en="Entry routes">진학 경로</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-hospitality.html">
-                        <h3 data-en="Hospitality in Australia — university degree or hotel school?">호주 호텔경영 — 대학이냐 호텔스쿨이냐</h3>
-                        <p data-en="Both hand you a bachelor's degree. The real difference is whether a paid internship sits inside the degree, and that changes what you leave with.">둘 다 학사를 줍니다. 실질적인 차이는 유급 인턴십이 학위 안에 들어 있느냐입니다. 입학 문턱과 학비, 졸업할 때 남는 것이 각각 다릅니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-aviation-cost.html" data-cat="cost" data-track="bachelor">
+                        <span class="b-no">10</span>
+                        <span class="b-title" data-en="For a flying degree, tuition is not the bill">조종사 학비는 학비가 전부가 아닙니다</span>
+                        <span class="b-tag b-cat-cost" data-en="Fees and costs">학비·비용</span>
+                        <span class="b-track" data-en="Bachelor">학부</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-engineering.html">
-                        <h3 data-en="Engineering in Australia — check the Engineers Australia accreditation before the ranking">호주 공대 — 순위보다 Engineers Australia 인증을 먼저 보세요</h3>
-                        <p data-en="Engineering is one of the few fields where the degree itself carries professional recognition, which makes accreditation the one variable worth controlling.">공학은 학위가 곧 자격으로 이어지는 몇 안 되는 전공입니다. 그래서 학교 선택에서 통제할 수 있는 변수는 사실상 인증 하나입니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-life-entry.html" data-cat="pathway" data-track="bachelor master">
+                        <span class="b-no">9</span>
+                        <span class="b-title" data-en="Biotech and biomedical master's degrees each open a different door">생명·의공학 석사는 학교마다 문이 다릅니다</span>
+                        <span class="b-tag b-cat-pathway" data-en="Entry routes">진학 경로</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-pathway.html">
-                        <h3 data-en="A foundation year and a diploma are not the same year">파운데이션과 디플로마, 같은 1년이 아닙니다</h3>
-                        <p data-en="When grades fall short you hear two answers. They sound like the same extra year, but they finish in different places.">성적이 모자랄 때 듣는 답은 대개 둘입니다. 이름만 들으면 둘 다 1년을 더 쓰는 것 같은데, 끝나는 지점이 다릅니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-it-cost.html" data-cat="cost" data-track="bachelor master">
+                        <span class="b-no">8</span>
+                        <span class="b-title" data-en="The same IT degree can cost twice as much">같은 IT 전공인데 학비가 두 배 벌어집니다</span>
+                        <span class="b-tag b-cat-cost" data-en="Fees and costs">학비·비용</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-health-english.html">
-                        <h3 data-en="Health degrees do not share one English bar">보건 계열이라고 영어 기준이 다 같지 않습니다</h3>
-                        <p data-en="Inside one university, laboratory medicine sits at 6.0, physiotherapy at 7.0 and social work at 7.0 in every band. What creates the gap, and why the overall score alone will catch you out.">같은 대학 안에서도 임상병리는 6.0, 물리치료는 7.0, 사회복지는 전 영역 7.0입니다. 무엇이 이 차이를 만드는지, 그리고 총점만 보면 왜 걸리는지.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-health-english.html" data-cat="english" data-track="bachelor master">
+                        <span class="b-no">7</span>
+                        <span class="b-title" data-en="Health degrees do not share one English bar">보건 계열이라고 영어 기준이 다 같지 않습니다</span>
+                        <span class="b-tag b-cat-english" data-en="English and entry">영어·요건</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-it-cost.html">
-                        <h3 data-en="The same IT degree can cost twice as much">같은 IT 전공인데 학비가 두 배 벌어집니다</h3>
-                        <p data-en="A cyber security bachelor's runs 32,500 dollars at one university and 63,200 at another, and graduates end up in much the same jobs. Only one IT master's ignores what your first degree was in.">사이버보안 학사가 어디는 3만 2천 달러, 어디는 6만 3천 달러입니다. 졸업 후 가는 자리는 크게 다르지 않습니다. 그리고 IT 석사 중 전공을 안 보는 곳은 딱 한 군데입니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-pathway.html" data-cat="pathway" data-track="bachelor">
+                        <span class="b-no">6</span>
+                        <span class="b-title" data-en="A foundation year and a diploma are not the same year">파운데이션과 디플로마, 같은 1년이 아닙니다</span>
+                        <span class="b-tag b-cat-pathway" data-en="Entry routes">진학 경로</span>
+                        <span class="b-track" data-en="Bachelor">학부</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-life-entry.html">
-                        <h3 data-en="Biotech and biomedical master's degrees each open a different door">생명·의공학 석사는 학교마다 문이 다릅니다</h3>
-                        <p data-en="One asks for a related degree, one takes two years of work instead, and one only wants the maths and science prerequisites. Three doors into master's degrees that carry nearly the same name.">관련 학사를 요구하는 곳, 실무 2년으로 대신하는 곳, 수학·과학 선수과목만 채우면 받는 곳. 같은 이름의 석사인데 들어가는 방법이 셋입니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-engineering.html" data-cat="major" data-track="bachelor master">
+                        <span class="b-no">5</span>
+                        <span class="b-title" data-en="Engineering in Australia — check the Engineers Australia accreditation before the ranking">호주 공대 — 순위보다 Engineers Australia 인증을 먼저 보세요</span>
+                        <span class="b-tag b-cat-major" data-en="Choosing a field">전공 선택</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-aviation-cost.html">
-                        <h3 data-en="For a flying degree, tuition is not the bill">조종사 학비는 학비가 전부가 아닙니다</h3>
-                        <p data-en="UNSW's flying degree lists 348,000 dollars of tuition over three years. The 154,500 dollars of flight training needed for a commercial licence is not part of that number.">UNSW 조종 학사는 3년 학비 34만 8천 달러입니다. 그리고 상업용 조종사 면허까지 가는 비행훈련비 15만 4천 5백 달러가 여기 포함돼 있지 않습니다.</p>
-                        <p class="article-meta"><span data-en="About 4 min read">약 4분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-hospitality.html" data-cat="major" data-track="bachelor master">
+                        <span class="b-no">4</span>
+                        <span class="b-title" data-en="Hospitality in Australia — university degree or hotel school?">호주 호텔경영 — 대학이냐 호텔스쿨이냐</span>
+                        <span class="b-tag b-cat-major" data-en="Choosing a field">전공 선택</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-med-tests.html">
-                        <h3 data-en="For medicine, dentistry and veterinary, the admissions test comes first">의대·치대·수의대는 영어보다 시험이 먼저 갈립니다</h3>
-                        <p data-en="Dentistry sits behind UCAT, veterinary behind Casper, graduate entry behind GAMSAT. And with IELTS at 7.0 in every band, a strong overall score will not carry you.">치대는 UCAT, 수의대는 Casper, 대학원 진입은 GAMSAT입니다. 그리고 IELTS는 전 영역 7.0이라 총점으로는 넘을 수 없습니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-medicine.html" data-cat="major" data-track="bachelor master">
+                        <span class="b-no">3</span>
+                        <span class="b-title" data-en="Medicine in Australia — the entrance exam depends on which route you take">호주 의대 — 준비할 시험이 갈립니다: 학부 통합과 대학원 MD</span>
+                        <span class="b-tag b-cat-major" data-en="Choosing a field">전공 선택</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-business-entry.html">
-                        <h3 data-en="For a business master's, your first degree decides more than the university">경영 석사는 학교보다 내 학사 전공이 먼저입니다</h3>
-                        <p data-en="Two accounting master's degrees, opposite entry rules. One bars accounting graduates; the other requires a business degree. Both are CPA accredited.">회계 석사 두 곳이 정반대 조건을 답니다. 한 곳은 회계 전공자를 안 받고, 한 곳은 경영 학사를 요구합니다. 같은 CPA 인증 과정입니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-pharmacy.html" data-cat="major" data-track="bachelor master">
+                        <span class="b-no">2</span>
+                        <span class="b-title" data-en="Pharmacy in Australia — three schools, three different walls">호주 약대 — 세 학교가 세운 벽이 서로 다릅니다</span>
+                        <span class="b-tag b-cat-major" data-en="Choosing a field">전공 선택</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
-                    <a class="info-card" href="./au-info-teaching-english.html">
-                        <h3 data-en="Getting into a teaching degree is not the English bar that ends it">교사 자격, 입학 영어를 넘어도 등록 영어가 남습니다</h3>
-                        <p data-en="Australia's teacher registration standard asks for 8.0 in speaking and listening, and accepts IELTS alone. Some universities admit you at 7.0. The gap between the two arrives after graduation.">호주 교사 등록 기준은 말하기·듣기 각 8.0이고 IELTS만 인정합니다. 그런데 대학은 7.0에도 받아 줍니다. 그 사이의 간격이 졸업 후에 옵니다.</p>
-                        <p class="article-meta"><span data-en="About 5 min read">약 5분</span><span data-en="Verified 2026-08">정보 확인 2026-08</span></p>
+                    <a class="board-row" href="./au-info-nursing.html" data-cat="major" data-track="bachelor master">
+                        <span class="b-no">1</span>
+                        <span class="b-title" data-en="Nursing in Australia — the 3-year bachelor or the 2-year graduate entry master's?">호주 간호유학 — 3년 학사와 2년 GE 석사, 내 경로는 어느 쪽일까</span>
+                        <span class="b-tag b-cat-major" data-en="Choosing a field">전공 선택</span>
+                        <span class="b-track" data-en="Bachelor and master">학부·석사</span>
+                        <span class="b-date" data-en="2026-08">2026-08</span>
                     </a>
+                    <p class="board-empty" hidden data-en="No articles match this filter yet.">고른 조건에 맞는 글이 아직 없습니다.</p>
+                    <nav class="board-pager" aria-label="게시판 페이지" data-en-aria="Board pages"></nav>
                 </div>
             </div>
         </section>

@@ -66,6 +66,28 @@
 - [x] au-study-guide 진단 결과 → uni 페이지 연결. **2026-08-02 전수 검증: 진단 카드 11곳
       전부 HUB_UNI 매핑 있음, id 전부 허브 페이지 실재.** 이미 돼 있던 것을 백로그가 놓치고 있었다.
 
+## 게시판 (2026-08-03 개편)
+
+`guide/au.html`의 유학 정보가 **카드 나열에서 게시판(제목 목록)으로 바뀌었다.**
+종로유학원 게시판처럼 글이 수십 편으로 늘어나도 화면이 감당되게 하는 게 목적이다.
+
+- **한 페이지 10행**, 번호는 최신 글이 큰 번호(게시판 관습). 페이지 넘김은 11편째부터 나타난다.
+- **분류 필터(버튼)**: 전공 선택 · 진학 경로 · 학비·비용 · 영어·요건 → `articles-au.json`의 `category`
+- **대상 필터(드롭다운)**: 학부 · 석사 → 기존 `tracks` 필드를 그대로 쓴다
+- 마크업은 `build-uni.ps1`이 `<div class="info-board">` 안을 통째로 갈아 끼운다. **손으로 고치지 말 것.**
+- 스타일은 `css/guide.css`의 `.board-*`, 동작은 `js/guide.js` 맨 아래 IIFE.
+- ⚠ **`.board-row`에 `display:grid`를 줬기 때문에 `hidden` 속성이 UA 기본값에 밀린다.**
+  `.board-row[hidden]{display:none}`가 없으면 필터·페이지가 JS상으로만 동작하고 화면은 그대로다.
+  실제로 한 번 당했다. 행 표시를 건드릴 때 이 규칙을 지울 것인지 확인할 것.
+
+진단 결과(au-study-guide)의 유학 정보도 **같은 목록형**으로 맞췄다(`.rboard-*`). 결과에는 이미
+전공·트랙으로 걸러진 글만 나오므로 **필터와 페이지 넘김은 두지 않았다.**
+분류 배지 문구는 `i18n.js`의 `cat_*` 키에 있다.
+
+### 새 글을 추가할 때 꼭 넣을 것
+`data/articles-au.json`에 `category`(major·pathway·cost·english 중 하나)를 반드시 넣는다.
+빠지면 게시판에서 `major`로 취급된다. 진단에 띄울 글은 `INFO_ARTICLES` 항목에도 `cat:`을 같이 적는다.
+
 ## 유학 정보 글 (data/articles-au.json → guide/au-info-*.html)
 
 coei 게시판(coei.com/uhak-info/rc/au, 5페이지 50편)은 **다룰 주제 목록으로만** 쓴다.

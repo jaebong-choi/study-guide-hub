@@ -34,3 +34,74 @@ function setLang(l) {
 }
 
 applyLang();
+
+/* =========================================================
+ * 유학 정보 게시판 — 분류·대상 필터 + 페이지 넘김
+ * 마크업은 build-uni.ps1이 만든다. 게시판이 없는 페이지에서는 아무 일도 하지 않는다.
+ * 필터는 행의 data-cat / data-track만 보므로 언어 전환과 서로 간섭하지 않는다.
+ * ========================================================= */
+(function () {
+    var board = document.querySelector('.info-board');
+    if (!board) return;
+    var rows = [].slice.call(board.querySelectorAll('.board-row'));
+    if (!rows.length) return;
+
+    var pager = board.querySelector('.board-pager');
+    var empty = board.querySelector('.board-empty');
+    var trackSel = board.querySelector('.board-track');
+    var PER_PAGE = 10;
+    var cat = '';
+    var page = 1;
+
+    function matched() {
+        var track = trackSel ? trackSel.value : '';
+        return rows.filter(function (r) {
+            if (cat && r.getAttribute('data-cat') !== cat) return false;
+            if (track && (' ' + r.getAttribute('data-track') + ' ').indexOf(' ' + track + ' ') < 0) return false;
+            return true;
+        });
+    }
+
+    function render() {
+        var list = matched();
+        var pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+        if (page > pages) page = pages;
+        var start = (page - 1) * PER_PAGE;
+
+        rows.forEach(function (r) { r.hidden = true; });
+        list.slice(start, start + PER_PAGE).forEach(function (r) { r.hidden = false; });
+        if (empty) empty.hidden = list.length > 0;
+
+        if (!pager) return;
+        pager.innerHTML = '';
+        if (list.length <= PER_PAGE) return;
+        var mk = function (label, target, opts) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = label;
+            if (opts && opts.on) { b.className = 'on'; b.setAttribute('aria-current', 'page'); }
+            if (opts && opts.off) b.disabled = true;
+            b.addEventListener('click', function () { page = target; render(); board.scrollIntoView({ block: 'start' }); });
+            pager.appendChild(b);
+        };
+        mk('‹', page - 1, { off: page === 1 });
+        for (var p = 1; p <= pages; p++) mk(String(p), p, { on: p === page });
+        mk('›', page + 1, { off: page === pages });
+    }
+
+    board.querySelectorAll('.board-cat').forEach(function (b) {
+        b.addEventListener('click', function () {
+            cat = b.getAttribute('data-c') || '';
+            page = 1;
+            board.querySelectorAll('.board-cat').forEach(function (o) {
+                var on = o === b;
+                o.classList.toggle('on', on);
+                o.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            render();
+        });
+    });
+    if (trackSel) trackSel.addEventListener('change', function () { page = 1; render(); });
+
+    render();
+})();

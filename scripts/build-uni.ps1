@@ -1579,14 +1579,64 @@ $srcRows
         [IO.File]::WriteAllText((Join-Path $repoRoot ("guide\" + $file)), $artHtml, $utf8NoBom)
         $articleLocs += ('guide/' + $file)
     }
-    # 목록 카드는 guide\{cc}.html의 <div class="info-board"> 안을 통째로 갈아 끼운다.
-    $cards = ($articles | ForEach-Object {
-        '                    <a class="info-card" href="./' + $cc + '-info-' + $_.slug + '.html">' + "`n" +
-        '                        <h3 data-en="' + (Esc $_.title_en) + '">' + (Esc $_.title_ko) + '</h3>' + "`n" +
-        '                        <p data-en="' + (Esc $_.desc_en) + '">' + (Esc $_.desc_ko) + '</p>' + "`n" +
-        '                        <p class="article-meta"><span data-en="About ' + $_.read_min + ' min read">약 ' + $_.read_min + '분</span><span data-en="Verified ' + $_.verified + '">정보 확인 ' + $_.verified + '</span></p>' + "`n" +
+    # 목록은 guide\{cc}.html의 <div class="info-board"> 안을 통째로 갈아 끼운다.
+    # 카드 나열이 아니라 게시판(제목만 나오는 행 + 분류·대상 필터 + 페이지 넘김)이다.
+    # 글이 늘어나도 화면이 길어지지 않게 한 페이지 10행으로 끊는다.
+    $catRows = @(
+        @('major',   '전공 선택',  'Choosing a field'),
+        @('pathway', '진학 경로',  'Entry routes'),
+        @('cost',    '학비·비용',  'Fees and costs'),
+        @('english', '영어·요건',  'English and entry')
+    )
+    $catKo = @{}; $catEn = @{}
+    foreach ($r in $catRows) { $catKo[$r[0]] = $r[1]; $catEn[$r[0]] = $r[2] }
+
+    # 최신 글이 위로 오게 뒤집고 번호를 매긴다(게시판 관습).
+    $ordered = @($articles); [array]::Reverse($ordered)
+    $total = $ordered.Count
+    $i = 0
+    $rows = ($ordered | ForEach-Object {
+        $no = $total - $i; $i++
+        $cat = if ($_.category) { $_.category } else { 'major' }
+        # tracks가 없으면 학부·석사 공통으로 본다
+        $tr = if ($_.tracks) { @($_.tracks) } else { @('bachelor', 'master') }
+        $trKo = if ($tr.Count -gt 1) { '학부·석사' } elseif ($tr[0] -eq 'master') { '석사' } else { '학부' }
+        $trEn = if ($tr.Count -gt 1) { 'Bachelor and master' } elseif ($tr[0] -eq 'master') { 'Master' } else { 'Bachelor' }
+        '                    <a class="board-row" href="./' + $cc + '-info-' + $_.slug + '.html" data-cat="' + $cat + '" data-track="' + ($tr -join ' ') + '">' + "`n" +
+        '                        <span class="b-no">' + $no + '</span>' + "`n" +
+        '                        <span class="b-title" data-en="' + (Esc $_.title_en) + '">' + (Esc $_.title_ko) + '</span>' + "`n" +
+        '                        <span class="b-tag b-cat-' + $cat + '" data-en="' + (Esc $catEn[$cat]) + '">' + (Esc $catKo[$cat]) + '</span>' + "`n" +
+        '                        <span class="b-track" data-en="' + $trEn + '">' + $trKo + '</span>' + "`n" +
+        '                        <span class="b-date" data-en="' + $_.verified + '">' + $_.verified + '</span>' + "`n" +
         '                    </a>'
     }) -join "`n"
+
+    $catBtns = ($catRows | ForEach-Object {
+        '                        <button type="button" class="sort-btn board-cat" data-c="' + $_[0] + '" aria-pressed="false" data-en="' + (Esc $_[2]) + '">' + (Esc $_[1]) + '</button>'
+    }) -join "`n"
+
+    $cards =
+        '                    <div class="board-tools">' + "`n" +
+        '                        <div class="board-filters" role="group" aria-label="글 분류 필터" data-en-aria="Article category filter">' + "`n" +
+        '                            <button type="button" class="sort-btn board-cat on" data-c="" aria-pressed="true" data-en="All">전체</button>' + "`n" +
+        $catBtns.Replace('                        <button', '                            <button') + "`n" +
+        '                        </div>' + "`n" +
+        '                        <select class="board-track" id="bt" aria-label="대상 과정 필터" data-en-aria="Course level filter">' + "`n" +
+        '                            <option value="" data-en="All levels">학부·석사 전체</option>' + "`n" +
+        '                            <option value="bachelor" data-en="Bachelor">학부</option>' + "`n" +
+        '                            <option value="master" data-en="Master">석사</option>' + "`n" +
+        '                        </select>' + "`n" +
+        '                    </div>' + "`n" +
+        '                    <div class="board-head" aria-hidden="true">' + "`n" +
+        '                        <span class="b-no" data-en="No.">번호</span>' + "`n" +
+        '                        <span class="b-title" data-en="Title">제목</span>' + "`n" +
+        '                        <span class="b-tag" data-en="Category">분류</span>' + "`n" +
+        '                        <span class="b-track" data-en="Level">대상</span>' + "`n" +
+        '                        <span class="b-date" data-en="Verified">정보 확인</span>' + "`n" +
+        '                    </div>' + "`n" +
+        $rows + "`n" +
+        '                    <p class="board-empty" hidden data-en="No articles match this filter yet.">고른 조건에 맞는 글이 아직 없습니다.</p>' + "`n" +
+        '                    <nav class="board-pager" aria-label="게시판 페이지" data-en-aria="Board pages"></nav>'
     $guidePath = Join-Path $repoRoot ("guide\" + $cc + ".html")
     if (Test-Path $guidePath) {
         $g = [IO.File]::ReadAllText($guidePath, [Text.Encoding]::UTF8)
