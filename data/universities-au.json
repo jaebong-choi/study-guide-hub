@@ -215,7 +215,8 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 간호 7.0" },
     "popular_majors": ["간호학", "정보기술", "공학", "미디어", "비즈니스"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "QUT College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "QUT College 파운데이션·디플로마 운영" },
+      { "type": "foundation", "level": "ug", "provider": "QUT College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "QUT College 파운데이션 운영" },
+      { "type": "transfer", "level": "ug", "provider": "QUT College", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": "A$43,500~48,600", "note": "수능·내신 직접 지원 · '실무 중심 대학'으로 취업 연계 강점" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": "A$45,000~45,300", "note": "간호 Entry to Practice 등 전환형 석사 운영" }
     ],
@@ -243,7 +244,8 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 의학 등 일부 7.0" },
     "popular_majors": ["간호학", "비즈니스", "의학", "정보기술"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "WSU The College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "The College 파운데이션·디플로마 운영 · 수료 시 본교 진학" },
+      { "type": "foundation", "level": "ug", "provider": "WSU The College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "The College 파운데이션 운영 · 수료 시 본교 진학" },
+      { "type": "transfer", "level": "ug", "provider": "WSU The College", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3년", "cost_note": "의학 통합과정 연 A$85,520", "note": "간호학은 호주 최대 규모 · 시드니 서부 지역 취업 연계" }
     ],
     "intakes": ["2월", "7월"],
@@ -352,7 +354,8 @@
     "popular_majors": ["요리", "제과·제빵", "호텔경영", "관광·이벤트", "푸드 스터디"],
     "pathways": [
       { "type": "college", "level": "ug", "provider": null, "ielts_min": 5.5, "duration": "6개월~2년", "cost_note": null, "note": "Certificate III~Advanced Diploma · 빅토리아주 정부 식음료·관광 특화 TAFE" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "자체 학사(요리경영·푸드 스터디·관광 등) · 디플로마에서 편입 가능" }
+      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "자체 학사(요리경영·푸드 스터디·관광 등) 직접 지원" },
+      { "type": "transfer", "level": "ug", "provider": null, "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 자체 학사로 편입 가능" }
     ],
     "intakes": ["2월", "7월"],
     "official_url": "https://www.angliss.edu.au",
@@ -460,7 +463,8 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 전공별 상이" },
     "popular_majors": ["의학", "광산·자원공학", "해양과학", "경영학"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "UWA College (INTO 제휴)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션·디플로마 운영 · 수료 시 본교 진학" },
+      { "type": "foundation", "level": "ug", "provider": "UWA College (INTO 제휴)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션 운영 · 수료 시 본교 진학" },
+      { "type": "transfer", "level": "ug", "provider": "UWA College (INTO 제휴)", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년 미명시(과정별 확인) · 조건 충족 시 진학 보장 문구" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3년", "cost_note": null, "note": "Go8 멤버 · 퍼스 지역 대표 명문" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -516,7 +520,8 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 디자인 등 일부 6.0" },
     "popular_majors": ["디자인", "패션", "건축", "정보기술", "미디어"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션·연계 디플로마 자체 운영 · 수료 시 학위 과정 진학" },
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션 자체 운영 · 수료 시 학위 과정 진학" },
+      { "type": "transfer", "level": "ug", "provider": "자체 운영", "ielts_min": null, "duration": null, "cost_note": null, "note": "연계 디플로마 수료 시 학위 과정 진학 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": null, "note": "예술·디자인 분야 세계 상위권 평가의 실무 중심 대학" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -544,7 +549,8 @@
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 통번역 등 일부 7.0" },
     "popular_majors": ["통번역", "회계·금융", "언어학", "심리학"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "Macquarie University College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션·디플로마 · 수료 시 본교 진학" },
+      { "type": "foundation", "level": "ug", "provider": "Macquarie University College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션 · 수료 시 본교 진학" },
+      { "type": "transfer", "level": "ug", "provider": "Macquarie University College", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3년", "cost_note": null, "note": "시드니 북부 비즈니스 단지 인접 · 통번역(T&I) 호주 대표 프로그램" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 통번역 석사는 7.0 권장" }
     ],
@@ -600,7 +606,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 전공별 6.5~7.0" },
     "popular_majors": ["컴퓨터과학", "공학", "간호학"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "UOW College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션·디플로마 · 수료 시 본교 진학" },
+      { "type": "foundation", "level": "ug", "provider": "UOW College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션 · 수료 시 본교 진학" },
+      { "type": "transfer", "level": "ug", "provider": "UOW College", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3~4년", "cost_note": null, "note": "시드니 남쪽 1시간 해안 도시 · IT·공학 취업 성과 우수" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -628,8 +635,10 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 교육·간호 등 일부 6.5~7.0" },
     "popular_majors": ["스포츠과학", "간호학", "교육학", "사이버보안"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "Deakin College (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션·디플로마 운영 · 디플로마 수료 시 2학년 편입" },
+      { "type": "foundation", "level": "ug", "provider": "Deakin College (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션 수료 후 학사 1학년 진학" },
+      { "type": "transfer", "level": "ug", "provider": "Deakin College (Navitas)", "ielts_min": 6.0, "duration": "8~12개월", "cost_note": null, "note": "디플로마 9종(커머스·IT·공학·디자인·필름·헬스 등) 수료 시 학사 2학년 직행 · IELTS 6.0 (전 영역 5.5)" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3~4년", "cost_note": null, "note": "스포츠과학 세계 최상위권 평가" },
+      { "type": "pre-master", "level": "pg", "provider": "Deakin College (Navitas)", "ielts_min": null, "duration": null, "cost_note": null, "note": "석사 예비과정(MQP) 운영 — 영어·학점이 석사 기준에 못 미칠 때의 진입 경로 (요건은 컬리지 확인)" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
     "intakes": ["3월", "7월", "11월"],
@@ -656,7 +665,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 보건계열 6.5~7.0" },
     "popular_majors": ["간호학", "보건과학", "비즈니스"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "La Trobe College Australia (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션·디플로마 운영 · 디플로마 수료 시 2학년 편입" },
+      { "type": "foundation", "level": "ug", "provider": "La Trobe College Australia (Navitas)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션 수료 후 학사 1학년 진학" },
+      { "type": "transfer", "level": "ug", "provider": "La Trobe College Australia (Navitas)", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 학사 2학년 편입 · WAM(가중평균)·정원 조건 명시 · 8/12개월 단축형 운영" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "멜버른 북부 대형 캠퍼스 · 보건 계열 강세" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -712,7 +722,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 전공별 상이" },
     "popular_majors": ["디자인", "정보기술", "항공", "공학"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "자체 운영 (UniLink)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션·UniLink 디플로마 · 디플로마 수료 시 2학년 편입" },
+      { "type": "foundation", "level": "ug", "provider": "자체 운영 (UniLink)", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "파운데이션 수료 후 학사 1학년 진학" },
+      { "type": "transfer", "level": "ug", "provider": "자체 운영 (UniLink)", "ielts_min": null, "duration": null, "cost_note": null, "note": "UniLink 디플로마 수료 시 학사 2학년 편입" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3~4년", "cost_note": null, "note": "산업 연계 실습(Work Integrated Learning) 중심 대학" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -852,7 +863,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 보건계열 7.0" },
     "popular_majors": ["물리치료", "스포츠과학", "간호학"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "UC College", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션·디플로마 운영" },
+      { "type": "foundation", "level": "ug", "provider": "UC College", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "자체 컬리지 파운데이션 운영" },
+      { "type": "transfer", "level": "ug", "provider": "UC College", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "수도 캔버라 소재 · 보건·스포츠 계열 실습 인프라 우수" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -908,7 +920,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 6.0) · 전공별 상이" },
     "popular_majors": ["스포츠과학", "비즈니스", "요리·호스피탈리티"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "파운데이션·디플로마 자체 운영 · TAFE 부문(VU Polytechnic)도 보유" },
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "파운데이션 자체 운영 · TAFE 부문(VU Polytechnic)도 보유" },
+      { "type": "transfer", "level": "ug", "provider": "자체 운영", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "한 과목씩 집중 이수하는 '블록 모델' 수업으로 유명" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
@@ -936,7 +949,8 @@
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.0 (각 5.5) · 간호·교육 6.5~7.0" },
     "popular_majors": ["간호학", "교육학", "물리치료"],
     "pathways": [
-      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "파운데이션·디플로마 경로 운영" },
+      { "type": "foundation", "level": "ug", "provider": "자체 운영", "ielts_min": 5.5, "duration": "6개월~1년", "cost_note": null, "note": "파운데이션 경로 운영" },
+      { "type": "transfer", "level": "ug", "provider": "자체 운영", "ielts_min": null, "duration": null, "cost_note": null, "note": "디플로마 수료 시 본교 학사 편입 · 진입 학년은 과정별 확인" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년", "cost_note": null, "note": "간호학 호주 최대 규모 배출 · 전국 7개 캠퍼스" },
       { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": null, "note": "석사 직접 지원 · 전공별 요건 상이" }
     ],
