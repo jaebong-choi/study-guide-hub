@@ -1477,8 +1477,113 @@ foreach ($cc in $lists.Keys) {
     Write-Host ("생성: uni\{0} ({1} 목록 {2}곳)" -f $info.file, $cc, $l.count) -ForegroundColor Green
 }
 
+# ---------- 유학 정보 글 (data\articles-{cc}.json → guide\{cc}-info-{slug}.html) ----------
+# coei 게시판 주제를 참고하되 본문은 공식 소스로 새로 쓴 글. 목록 섹션은 guide/{cc}.html에 있다.
+$articleLocs = @()
+foreach ($cc in @('au')) {
+    $artPath = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
+    if (-not (Test-Path $artPath)) { continue }
+    $articles = Get-Content $artPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    foreach ($a in $articles) {
+        $file = "$cc-info-$($a.slug).html"
+        $srcRows = ($a.sources | ForEach-Object {
+            '                    <li><a href="' + $_.url + '" target="_blank" rel="noopener"><span data-en="' + (Esc $_.label_en) + '">' + (Esc $_.label_ko) + '</span><span aria-hidden="true">&nearr;</span></a></li>'
+        }) -join "`n"
+        $artHtml = @"
+<!DOCTYPE html>
+<html lang="ko" data-country="$cc">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$(Esc $a.title_ko) | Study Guide Hub</title>
+    <meta name="description" content="$(Esc $a.desc_ko)">
+    <link rel="canonical" href="${SITE}guide/$file">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Study Guide Hub">
+    <meta property="og:title" content="$(Esc $a.title_ko)">
+    <meta property="og:description" content="$(Esc $a.desc_ko)">
+    <meta property="og:url" content="${SITE}guide/$file">
+    <meta property="og:locale" content="ko_KR">
+    <script>
+        (function () {
+            var t = 'light';
+            try {
+                var saved = localStorage.getItem('sgh-theme');
+                if (saved === 'light' || saved === 'dark') t = saved;
+                else localStorage.setItem('sgh-theme', t);
+            } catch (e) {}
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="stylesheet" href="../css/guide.css?v=20260803">
+</head>
+<body data-title-ko="$(Esc $a.title_ko) | Study Guide Hub" data-title-en="$(Esc $a.title_en) | Study Guide Hub">
+    <header class="site-header">
+        <div class="container">
+            <a href="../index.html" class="brand">Study Guide Hub</a>
+            <div class="header-actions">
+                <div class="lang-switch" role="group" aria-label="언어 선택" data-en-aria="Language">
+                    <button type="button" data-lang="ko" class="on" onclick="setLang('ko')">KO</button>
+                    <button type="button" data-lang="en" onclick="setLang('en')">EN</button>
+                </div>
+                <button type="button" class="theme-btn" aria-label="화면 모드 전환" data-en-aria="Switch appearance" title="밝게 / 어둡게" data-en-title="Light / dark" onclick="var r=document.documentElement,t=r.getAttribute('data-theme')==='dark'?'light':'dark';r.setAttribute('data-theme',t);try{localStorage.setItem('sgh-theme',t)}catch(e){}"></button>
+                <a href="../index.html#contact" class="header-cta" data-en="Contact">상담 문의</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="guide-hero">
+            <div class="container">
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › &lt;a href=&quot;./$cc.html&quot;&gt;Australia guide&lt;/a&gt; › Info"><a href="../index.html">홈</a> › <a href="./$cc.html">호주 진학 가이드</a> › 유학 정보</p>
+                <h1 data-en="$(Esc $a.title_en)">$(Esc $a.title_ko)</h1>
+                <p class="article-meta"><span data-en="About $($a.read_min) min read">약 $($a.read_min)분</span><span data-en="Verified $($a.verified)">정보 확인 $($a.verified)</span></p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="article-body">
+$($a.body)
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h2 data-en="Official sources" style="font-size:19px;margin:34px 0 8px">공식 출처</h2>
+                <ul class="source-list">
+$srcRows
+                </ul>
+            </div>
+        </section>
+        <section class="cta-section">
+            <div class="container">
+                <h2 data-en="Which route fits your grades?">내 성적이면 어떤 경로일까?</h2>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="https://jaebong-choi.github.io/$cc-study-guide/" data-en="Start the 3-minute quiz">3분 진단 시작</a>
+                    <a class="btn btn-secondary" href="./$cc.html" data-en="Back to the Australia guide">호주 진학 가이드로</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <p data-en="This article cites official sources only; figures are as published on the dates shown.">본 글은 공식 출처만 인용하며, 수치는 표기된 확인 시점의 공시 기준입니다.</p>
+            <p data-en="A free information page, independent of any agency or institution.">본 페이지는 특정 유학원·기관과 무관한 무료 정보 페이지입니다.</p>
+            <p>© 2026 Study Guide Hub</p>
+        </div>
+    </footer>
+    <script src="../js/guide.js?v=20260802"></script>
+</body>
+</html>
+"@
+        [IO.File]::WriteAllText((Join-Path $repoRoot ("guide\" + $file)), $artHtml, $utf8NoBom)
+        $articleLocs += ('guide/' + $file)
+    }
+    Write-Host ("생성: 유학 정보 글 {0}편 ({1})" -f @($articles).Count, $cc) -ForegroundColor Green
+}
+
 # ---------- sitemap.xml / robots.txt ----------
-$locs = @('', 'privacy.html', 'guide/uk.html', 'guide/au.html', 'guide/ca.html', 'guide/us.html') + $listLocs + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
+$locs = @('', 'privacy.html', 'guide/uk.html', 'guide/au.html', 'guide/ca.html', 'guide/us.html') + $articleLocs + $listLocs + ($allIds | ForEach-Object { 'uni/' + $_ + '.html' })
 $sitemap = '<?xml version="1.0" encoding="UTF-8"?>' + "`n" +
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + "`n" +
            (($locs | ForEach-Object { '  <url><loc>' + $SITE + $_ + '</loc></url>' }) -join "`n") + "`n" +
