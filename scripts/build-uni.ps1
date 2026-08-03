@@ -490,6 +490,29 @@ $TEMPLATE = @'
         .related-ko { font-size: 15px; font-weight: 700; color: var(--text); word-break: keep-all; }
         .related-en { font-size: 12px; color: var(--mute); }
 
+        /* 함께 보면 좋은 정보 — 이 대학이 출처로 등장하는 유학 정보 글 */
+        .sec-sub { font-size: 13.5px; color: var(--mute); margin: -8px 0 14px; }
+        .uni-articles { border-top: 1px solid var(--line); }
+        .uni-article {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            padding: 13px 4px; border-bottom: 1px solid var(--line); transition: background .15s;
+        }
+        .uni-article:hover { background: var(--card-bg); }
+        .ua-title { font-size: 15px; font-weight: 600; color: var(--text); word-break: keep-all; }
+        .uni-article:hover .ua-title { color: var(--accent); }
+        .ua-tag {
+            flex-shrink: 0; font-size: 11.5px; font-weight: 700; white-space: nowrap;
+            border: 1px solid; border-radius: 999px; padding: 3px 9px;
+        }
+        .ua-major   { color: #0071e3; border-color: rgba(0, 113, 227, 0.4); }
+        .ua-pathway { color: #1a7f37; border-color: rgba(26, 127, 55, 0.4); }
+        .ua-cost    { color: #a4610a; border-color: rgba(164, 97, 10, 0.4); }
+        .ua-english { color: #8250df; border-color: rgba(130, 80, 223, 0.4); }
+        :root[data-theme="dark"] .ua-major   { color: #2997ff; border-color: rgba(41, 151, 255, 0.45); }
+        :root[data-theme="dark"] .ua-pathway { color: #34c759; border-color: rgba(52, 199, 89, 0.45); }
+        :root[data-theme="dark"] .ua-cost    { color: #ff9f0a; border-color: rgba(255, 159, 10, 0.45); }
+        :root[data-theme="dark"] .ua-english { color: #bf5af2; border-color: rgba(191, 90, 242, 0.45); }
+
         .cta-section { text-align: center; border-bottom: none; padding: 48px 0; }
         .cta-section h2 { margin-bottom: 8px; }
         .cta-lead { font-size: 14px; color: var(--body-text); margin-bottom: 20px; }
@@ -606,7 +629,7 @@ $TEMPLATE = @'
                 </div>
             </div>
         </section>
-{{VIDEO_SECTION}}{{RELATED_SECTION}}
+{{VIDEO_SECTION}}{{ARTICLE_SECTION}}{{RELATED_SECTION}}
         <!-- ⑦ 하단 CTA -->
         <section class="cta-section">
             <div class="container">
@@ -1200,6 +1223,51 @@ foreach ($file in $dataFiles) {
     foreach ($u in $unis) { $allUnis += $u; $UNI_INDEX[$u.id] = $u }
 }
 
+# 유학 정보 글 ↔ 대학 자동 매핑.
+# 글의 출처(sources)에 그 대학 도메인의 URL이 있으면 그 대학 페이지에 글을 붙인다.
+# 손으로 매핑을 관리하지 않아도 글이 늘어나면 대학 페이지가 따라온다.
+$ARTICLES_BY_CC = @{}
+foreach ($cc in @('au')) {
+    $p = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
+    if (Test-Path $p) { $ARTICLES_BY_CC[$cc.ToUpper()] = Get-Content $p -Raw -Encoding UTF8 | ConvertFrom-Json }
+}
+function Get-ArticleSection([object]$u) {
+    if (-not $ARTICLES_BY_CC.ContainsKey([string]$u.country)) { return '' }
+    try { $dom = ([uri]$u.official_url).Host.ToLower() -replace '^www\.', '' } catch { return '' }
+    if (-not $dom) { return '' }
+    # 도메인 경계 매칭 — sydney.edu.au가 westernsydney.edu.au에 걸리면 안 된다
+    $hits = @($ARTICLES_BY_CC[[string]$u.country] | Where-Object {
+        $found = $false
+        foreach ($s in @($_.sources)) {
+            try { $sh = ([uri]$s.url).Host.ToLower() } catch { continue }
+            if ($sh -eq $dom -or $sh.EndsWith('.' + $dom)) { $found = $true; break }
+        }
+        $found
+    })
+    if ($hits.Count -eq 0) { return '' }
+    $catLabel = @{ major = @('전공 선택', 'Choosing a field'); pathway = @('진학 경로', 'Entry routes');
+                   cost = @('학비·비용', 'Fees and costs'); english = @('영어·요건', 'English and entry') }
+    $cc = ([string]$u.country).ToLower()
+    $links = (@($hits) | ForEach-Object {
+        $cat = if ($catLabel.ContainsKey([string]$_.category)) { $catLabel[[string]$_.category] } else { $catLabel['major'] }
+        '<a class="uni-article" href="../guide/' + $cc + '-info-' + $_.slug + '.html">' +
+        '<span class="ua-title"' + (EnAttr $_.title_ko (Esc $_.title_en)) + '>' + (Esc $_.title_ko) + '</span>' +
+        '<span class="ua-tag ua-' + $_.category + '"' + (EnAttr $cat[0] $cat[1]) + '>' + $cat[0] + '</span></a>'
+    }) -join "`n                    "
+    return @"
+
+        <section>
+            <div class="container">
+                <h2 data-en="Worth reading alongside">함께 보면 좋은 정보</h2>
+                <p class="sec-sub" data-en="Guides that cite this university's official pages as a source.">이 대학의 공식 자료를 출처로 쓴 유학 정보 글입니다.</p>
+                <div class="uni-articles">
+                    $links
+                </div>
+            </div>
+        </section>
+"@
+}
+
 # 로고 파일 경로 찾기 (없으면 null)
 function Get-LogoRel([string]$id) {
     foreach ($ext in @('png', 'svg')) {
@@ -1369,6 +1437,9 @@ foreach ($nothing in @(1)) {
             }
         }
 
+        # 이 대학을 출처로 쓴 유학 정보 글 (없으면 빈 문자열 → 섹션 미출력)
+        $articleSection = Get-ArticleSection $u
+
         # OG 이미지 — 학교 배너가 있으면 그걸, 없으면 허브 공용 이미지
         $ogImage = if ($heroBanner) { $SITE + $bannerRel } else { $SITE + 'images/og-image.jpg?v=20260727' }
 
@@ -1407,6 +1478,7 @@ foreach ($nothing in @(1)) {
             '{{HERO_BANNER}}'         = $heroBanner
             '{{VIDEO_SECTION}}'       = $videoSection
             '{{EDITOR_NOTE_SECTION}}' = $editorSection
+            '{{ARTICLE_SECTION}}'     = $articleSection
             '{{RELATED_SECTION}}'     = $relatedSection
             '{{FEE_NOTE}}'            = if ($u.country -eq 'US' -and $u.type -eq 'college') { $FEE_NOTE_US_CC }
                                         elseif ($FEE_NOTE.ContainsKey($u.country)) { $FEE_NOTE[$u.country] }

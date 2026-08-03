@@ -99,15 +99,26 @@ CRICOS 환산값이라 낡았다 — 학교 공시가 우선.**
 
 ## 임상병리 (Laboratory Medicine)
 
-| UTas | Bachelor of Laboratory Medicine | 4년 | AUD 34,700 | **6.5** (전 영역 6.5) |
-| UTas | Master of Laboratory Medicine | 2년 | AUD 44,000 | **6.5** (전 영역 6.5) |
+⚠ **2026-08-03 정정. 단독 학사는 폐지됐다.** `53g-bachelor-of-laboratory-medicine`이 404이고
+석사 페이지가 고졸 지원자를 **Bachelor of Biomedicine / Master of Laboratory Medicine 통합 4년**으로
+안내한다("If you don't yet have an undergraduate degree..."). 예전 경고("Biomedicine으로 대체 중")가
+현실이 된 것. 카드에서 학사를 뺐고, 전공은 TESOL 패턴(masterSchools만)으로 렌더된다.
 
-⚠ UTas는 이 학사를 Bachelor of Biomedicine으로 대체 중이라고 안내한다. **입력 전 현행 여부 확인 필요.**
+| UTas | Master of Laboratory Medicine | 2년(최대 5년) | **AUD 49,613** (2027) | **6.5** (전 영역 6.5) |
+
+- 44,000은 CRICOS 환산값이었다. 코스 페이지 "2027 annual international student tuition fee" 기준으로 정정.
+- **AIMS**(Australian Institute of Medical Scientists) 인증 명시. 실습은 **NATA 인증 실험실**에서
+  해야 한다고 코스 페이지에 적혀 있다.
+- 영어 원문: "an IELTS (Academic) of 6.5, with no individual band less than 6.5" — 보건 계열 최저 축 유지.
 
 ## 족부의학 (Podiatry)
 
-| WSU | Bachelor of Podiatric Medicine | 4년 | AUD 37,800 | 7.0 (듣기·말하기 7.0 / 읽기·쓰기 6.5) |
-| 뉴캐슬 | Bachelor of Podiatric Medicine | 4년 | AUD 50,300 | 7.0 |
+⚠ **2026-08-03 정정.** 뉴캐슬 50,300은 CRICOS 환산값. 국제학생 뷰의 `Indicative fee 1`로 고쳤고
+**영역별 기준도 원문 확인**(IELTS section minimum - 7). URL도 `bachelor-of-podiatry` → 
+`bachelor-of-podiatric-medicine`(옛 주소는 다른 페이지). CRICOS 116127K.
+
+| WSU | Bachelor of Podiatric Medicine | 4년 | **AUD 37,758** (요금표 PDF) | 7.0 (듣기·말하기 7.0 / 읽기·쓰기 6.5) |
+| 뉴캐슬 | Bachelor of Podiatric Medicine | 4년 | **AUD 46,685** | **7.0 (전 영역 7.0)** |
 
 ## 글의 축 — 여기서 나온다
 

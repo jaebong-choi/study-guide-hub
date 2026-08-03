@@ -259,6 +259,29 @@
         .related-ko { font-size: 15px; font-weight: 700; color: var(--text); word-break: keep-all; }
         .related-en { font-size: 12px; color: var(--mute); }
 
+        /* 함께 보면 좋은 정보 — 이 대학이 출처로 등장하는 유학 정보 글 */
+        .sec-sub { font-size: 13.5px; color: var(--mute); margin: -8px 0 14px; }
+        .uni-articles { border-top: 1px solid var(--line); }
+        .uni-article {
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            padding: 13px 4px; border-bottom: 1px solid var(--line); transition: background .15s;
+        }
+        .uni-article:hover { background: var(--card-bg); }
+        .ua-title { font-size: 15px; font-weight: 600; color: var(--text); word-break: keep-all; }
+        .uni-article:hover .ua-title { color: var(--accent); }
+        .ua-tag {
+            flex-shrink: 0; font-size: 11.5px; font-weight: 700; white-space: nowrap;
+            border: 1px solid; border-radius: 999px; padding: 3px 9px;
+        }
+        .ua-major   { color: #0071e3; border-color: rgba(0, 113, 227, 0.4); }
+        .ua-pathway { color: #1a7f37; border-color: rgba(26, 127, 55, 0.4); }
+        .ua-cost    { color: #a4610a; border-color: rgba(164, 97, 10, 0.4); }
+        .ua-english { color: #8250df; border-color: rgba(130, 80, 223, 0.4); }
+        :root[data-theme="dark"] .ua-major   { color: #2997ff; border-color: rgba(41, 151, 255, 0.45); }
+        :root[data-theme="dark"] .ua-pathway { color: #34c759; border-color: rgba(52, 199, 89, 0.45); }
+        :root[data-theme="dark"] .ua-cost    { color: #ff9f0a; border-color: rgba(255, 159, 10, 0.45); }
+        :root[data-theme="dark"] .ua-english { color: #bf5af2; border-color: rgba(191, 90, 242, 0.45); }
+
         .cta-section { text-align: center; border-bottom: none; padding: 48px 0; }
         .cta-section h2 { margin-bottom: 8px; }
         .cta-lead { font-size: 14px; color: var(--body-text); margin-bottom: 20px; }
@@ -402,6 +425,21 @@
                 <h2 data-en="Campus tour">캠퍼스 둘러보기</h2>
                 <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/jCABpLFEl-o" title="플린더스대학교 공식 캠퍼스 영상" data-en-title="Flinders University official campus video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                 <p class="disclaimer" data-en="Source: the university's official YouTube channel">출처: 대학 공식 유튜브 채널</p>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <h2 data-en="Worth reading alongside">함께 보면 좋은 정보</h2>
+                <p class="sec-sub" data-en="Guides that cite this university's official pages as a source.">이 대학의 공식 자료를 출처로 쓴 유학 정보 글입니다.</p>
+                <div class="uni-articles">
+                    <a class="uni-article" href="../guide/au-info-health-english.html"><span class="ua-title" data-en="Health degrees do not share one English bar">보건 계열이라고 영어 기준이 다 같지 않습니다</span><span class="ua-tag ua-english" data-en="English and entry">영어·요건</span></a>
+                    <a class="uni-article" href="../guide/au-info-it-cost.html"><span class="ua-title" data-en="The same computer science degree, 68,000 dollars apart over three years">같은 컴퓨터사이언스 학사인데 3년에 6만 8천 달러 차이 납니다</span><span class="ua-tag ua-cost" data-en="Fees and costs">학비·비용</span></a>
+                    <a class="uni-article" href="../guide/au-info-life-entry.html"><span class="ua-title" data-en="Biotech and biomedical master's degrees each open a different door">생명·의공학 석사는 학교마다 문이 다릅니다</span><span class="ua-tag ua-pathway" data-en="Entry routes">진학 경로</span></a>
+                    <a class="uni-article" href="../guide/au-info-teaching-english.html"><span class="ua-title" data-en="Getting into a teaching degree is not the English bar that ends it">교사 자격, 입학 영어를 넘어도 등록 영어가 남습니다</span><span class="ua-tag ua-english" data-en="English and entry">영어·요건</span></a>
+                    <a class="uni-article" href="../guide/au-info-physio-ot.html"><span class="ua-title" data-en="The same physiotherapy master's, fifty thousand dollars apart">같은 물리치료 석사인데 2년 학비가 5만 달러 차이 납니다</span><span class="ua-tag ua-major" data-en="Choosing a field">전공 선택</span></a>
+                    <a class="uni-article" href="../guide/au-info-social-work.html"><span class="ua-title" data-en="Even the Qualifying social work master's checks your first degree">사회복지 석사, Qualifying이 붙어도 전공은 봅니다</span><span class="ua-tag ua-pathway" data-en="Entry routes">진학 경로</span></a>
+                    <a class="uni-article" href="../guide/au-info-early-childhood.html"><span class="ua-title" data-en="Three years or four, the early childhood fee is identical">유아교육 3년과 4년, 연간 학비가 같습니다</span><span class="ua-tag ua-pathway" data-en="Entry routes">진학 경로</span></a>
+                </div>
             </div>
         </section>
         <!-- ⑦ 하단 CTA -->

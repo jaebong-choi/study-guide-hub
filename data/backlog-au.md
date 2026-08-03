@@ -288,13 +288,53 @@ coei 게시판(coei.com/uhak-info/rc/au, 5페이지 50편)은 **다룰 주제 �
 5. 글은 `data/articles-au.json`에 추가 → 빌드하면 페이지·목록 카드·사이트맵이 자동.
    진단 연결은 `INFO_ARTICLES`(전공별) 또는 `INFO_COMMON`(전공 무관).
 
-### 글 현황 (18편, 2026-08-03 기준)
+## coei 게시판 이관 — 24편 체제 (2026-08-03, 사용자 지시)
+
+**"중복·낡은 것 빼고 모두 옮겨라"** 지시로 게시판 193편을 주제 단위로 전수 처리했다.
+원칙은 그대로: 사실·수치·결론은 따라가되 문장은 새로 쓴다(coei-au-topics.md 첫머리).
+
+**6편 추가 (총 24편)** — 인벤토리에서 아직 안 다뤘던 주제 전부
+| slug | coei 편수 | 축 |
+|---|---|---|
+| `podiatry` | 2 | 검증 2곳뿐, 같은 7.0인데 영역 규정이 다르다 (WSU 37,758 / 뉴캐슬 46,685) |
+| `lab-medicine` | 3 | **UTas 단독 학사 폐지** → 통합 4년 or 석사 2년(49,613) · 보건 최저 영어 6.5 |
+| `vet-routes` | 5 | 5년(UQ 448,560) vs 3+4년(시드니 DVM 322,000) — 총액 비교의 함정 |
+| `sport-management` | 3 | UTS 석사 전공 무관·1.5년 + 브리즈번 2032 |
+| `architecture` | 2 | 3+2가 기본 설계 · 인증은 EA가 아니라 AACA · 5년 총액 비교 |
+| `direct-entry` | 다수(수능·5등급제·검정고시) | 파운데이션 없이 직행 — 조건부 오퍼의 뜻 (INFO_COMMON, 학부 전용) |
+
+**옮기지 않은 것과 이유** (다음에 재론하지 말 것)
+- 기술이민(189/190/491)·생활비·학생비자 근로·장학금 — **Home Affairs 원문 조사가 선행돼야 한다**(기존 판단 유지)
+- JD·요리·와인·영화·디자인·UX·검안·카이로프랙틱 — 진단 전공 트리 밖. 트리를 넓히기 전에는 글이 붙을 곳이 없다
+- 대학별 소개 ~25편 — 글 대신 **uni 페이지 "함께 보면 좋은 정보" 연계**로 해소(아래)
+- 행사·홍보·시점성 글 — coei-au-topics.md의 "걸러낸 것" 그대로
+
+### uni 페이지 ↔ 글 자동 연계 (build-uni.ps1)
+
+대학 상세 페이지에 그 대학이 **출처(sources)로 등장하는 글**을 "함께 보면 좋은 정보"로 붙였다.
+- 매핑은 손으로 안 한다. **글 sources의 URL 호스트가 대학 official_url 도메인과 일치하면 자동으로 붙는다.**
+  글이 늘면 대학 페이지가 따라온다. 현재 35곳 중 **17곳**에 섹션이 생겼다(출처에 없는 학교는 안 생김 — 정상).
+- ⚠ 도메인 경계 매칭 필수: `sydney.edu.au`가 `westernsydney.edu.au`에 걸리면 안 된다
+  (`-eq` 또는 `.EndsWith('.'+도메인)`).
+- 토큰 `{{ARTICLE_SECTION}}` · 함수 `Get-ArticleSection` · CSS `.uni-article*`(다크 포함).
+
+### 진단 3번 질문 분리 (2026-08-03, 사용자 지시)
+
+학부 트랙에 **학력 상태(edu_status)** 질문을 성적 앞에 넣었다: 고교 재학(졸업예정)/고교 졸업/대학 재학·휴학·졸업.
+- 대학 재학·졸업을 고르면 **성적 질문을 건너뛰고** grades에 기존 라벨("대학교 재학/휴학/졸업자")을 직접 넣는다.
+- ⚠ **공유 링크 호환이 핵심**: `grades.options` 배열은 4개를 유지하고(인코딩 인덱스 기준)
+  화면에는 `optionsFn`으로 3개만 보여준다. 대학생 인코딩은 예전과 같은 `gr=3`.
+  레거시 `#r=B-A-X-3-N-0` 디코드 검증 완료. 석사 트랙은 변화 없음.
+
+### 글 현황 (24편, 2026-08-03 기준)
 nursing · pharmacy · medicine · hospitality · engineering · pathway · health-english ·
 it-cost · life-entry · aviation-cost · med-tests · business-entry · teaching-english ·
-physio-ot · social-work · college-pathway · **dental-routes** · **early-childhood**
+physio-ot · social-work · college-pathway · dental-routes · early-childhood ·
+**podiatry · lab-medicine · vet-routes · sport-management · architecture · direct-entry**
 
-⚠ **게시판이 18행이 되면서 2페이지가 됐다**(한 페이지 10행). 페이지 넘김이 실제로 도는 첫 상태다.
-빌드 3회 연속 후에도 18행 그대로인 것을 확인했다(`.board-row` 개수).
+게시판 3페이지(한 페이지 10행). 빌드 3회 연속 후 24행 유지 확인.
+이번 배치에서 나온 데이터 정정: 뉴캐슬 족부의학 50,300→**46,685**(전 영역 7.0, URL도 교체) ·
+UTas 임상병리 석사 44,000→**49,613** · **UTas 임상병리 단독 학사 폐지**(카드 제거, TESOL 패턴 렌더).
 
 ## 🔴 최우선 — CRICOS 학비가 학교 공시와 광범위하게 어긋난다 (2026-08-03 확인)
 
