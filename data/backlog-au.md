@@ -126,12 +126,27 @@ coei 게시판(coei.com/uhak-info/rc/au, 5페이지 50편)은 **다룰 주제 �
 ### 다음 배치 후보 (2026-08-03 기준, 우선순위 순)
 
 **추가 조사 없이 바로 쓸 수 있는 것** — 이미 확인된 데이터만으로 축이 선다
-1. **치위생 vs 치대** — 3년 45,000(그리피스)·51,000(뉴캐슬) vs 5년 85,200(UQ)·86,000(라트로브).
-   "이름이 비슷한데 기간도 학비도 두 배 차이인 다른 경로"가 축. 근거는
-   `au-health-verified.md` + `au-medicine-verified.md`
-2. **유아교육** — `au-education-verified.md`에 플린더스 3종 데이터 있음.
-   ⚠ `teaching-english`가 이미 등록 영어를 다루므로 **축을 달리 잡아야 한다.**
-   후보 축: Birth to 5(3년 35,600) vs Birth to 8(4년 33,200) — 연간 학비는 4년제가 더 싸다
+1. ~~**치위생 vs 치대**~~ → **완료 (2026-08-03). 4차 배치 1편 추가, 총 17편. `dental-routes`.**
+   계획한 축("기간도 학비도 두 배")보다 **강한 축이 원문에서 나왔다.** 그리피스 치위생 페이지가
+   **"not a pathway to Dentistry and Bachelor of Dental Health Science"**를 과정 안내와 지원
+   안내에 **두 번** 박아 두었다. 그래서 글은 비교가 아니라 **"갈아탈 수 없다"**로 섰다.
+   학비는 연 1.9배지만 **총액은 3.2배**(135,000 vs 426,000)다 — 비싼 연 학비 위에 2년이 더 붙는다.
+   `INFO_ARTICLES`에 치위생·치대 **두 계열 모두** 연결(보건 + 의대 계열을 가로지르는 첫 글).
+   4조합(Oh/Dt × 학부/석사) 브라우저 검증 완료, 영문 모드 한글 잔류 0.
+   조사 중 나온 것은 전부 `au-health-verified.md`에 적었다(951h vs 750h, 이중 자격,
+   조건부 인증, 20% 장학금, 그리피스 국제학생 뷰 함정).
+2. ~~**유아교육**~~ → **완료 (2026-08-03). 5차 배치 1편 추가, 총 18편. `early-childhood`.**
+   ⚠ **여기 적혀 있던 후보 축이 틀린 데이터에 기대고 있었다.** "Birth to 5(35,600) vs
+   Birth to 8(33,200), 연간은 4년제가 더 싸다"는 **성립하지 않는다.** 플린더스 코스 페이지의
+   `Annual indicative fees (2026)`를 실제 크롬으로 읽어 보니 **두 과정 다 $35,700으로 같다.**
+   저장돼 있던 세 값이 전부 CRICOS 환산값이었고 학교 공시와 어긋났다(석사는 **과정명까지** 틀렸다).
+   → `au-education-verified.md`와 진단 카드 3곳을 정정했다.
+
+   **그래서 축이 오히려 깨끗해졌다: 연간이 같으니 선택은 돈이 아니라 범위다.**
+   추가 1년 = 정확히 1년치 학비 $35,700 = **초등 저학년(Reception~Year 2) 교실**.
+   덧붙인 축 하나 더 — **연간으로 비교하면 셋 다 틀린 결론이 나온다.** 석사가 연간은 제일 비싼데
+   (38,100) 2년이라 총액은 제일 싸다(76,200 < 107,100). 기간이 다른 과정을 연간으로 세우면 안 된다.
+   4조합 검증 완료, 영문 모드 한글 잔류 0.
 
 **조사가 먼저 필요한 것**
 3. 기술이민·영주권(189/190/491) — 정부(Home Affairs) 자료 확인 필요. 우리 데이터로는 축이 안 선다
@@ -273,5 +288,221 @@ coei 게시판(coei.com/uhak-info/rc/au, 5페이지 50편)은 **다룰 주제 �
 5. 글은 `data/articles-au.json`에 추가 → 빌드하면 페이지·목록 카드·사이트맵이 자동.
    진단 연결은 `INFO_ARTICLES`(전공별) 또는 `INFO_COMMON`(전공 무관).
 
-### 글 현황 (7편)
-nursing · pharmacy · medicine · hospitality · engineering · pathway · health-english
+### 글 현황 (18편, 2026-08-03 기준)
+nursing · pharmacy · medicine · hospitality · engineering · pathway · health-english ·
+it-cost · life-entry · aviation-cost · med-tests · business-entry · teaching-english ·
+physio-ot · social-work · college-pathway · **dental-routes** · **early-childhood**
+
+⚠ **게시판이 18행이 되면서 2페이지가 됐다**(한 페이지 10행). 페이지 넘김이 실제로 도는 첫 상태다.
+빌드 3회 연속 후에도 18행 그대로인 것을 확인했다(`.board-row` 개수).
+
+## 🔴 최우선 — CRICOS 학비가 학교 공시와 광범위하게 어긋난다 (2026-08-03 확인)
+
+유아교육에서 시작된 의심이 **사실로 확인됐다.** 진단 카드는 총 **132개**(고유 URL 128개)이고,
+그중 **플린더스 25개를 실제 크롬으로 대조한 결과 대부분이 틀렸다.**
+
+### 확인된 차이 (플린더스, 국제학생 FFP, 2026년 공시)
+
+| 과정 | 사이트 카드 | 학교 공시 | 차이 |
+|---|---|---|---|
+| Bachelor of Business | 35,200 | **39,000** | +3,800 |
+| Bachelor of Accounting | 35,200 | **39,000** | +3,800 |
+| Bachelor of Computer Science | 37,600 | **43,600** | +6,000 |
+| Bachelor of Science (Biotechnology) | 38,200 | **43,500** | +5,300 |
+| B.Eng (Civil) / (Electrical) Honours | 41,700 | **47,300** | +5,600 |
+| Master of Biotechnology | 38,300 | **38,800** | +500 |
+| **Master of Physiotherapy** | 46,500 | **55,100** | **+8,600** |
+| Master of Engineering (Civil·Biomedical) | 40,400 | **39,100** | **−1,300** |
+| 유아교육 학사 Birth to 5 / 8 | 35,700 | 35,700 | ✅ (오늘 정정) |
+
+**방향이 한쪽이 아니다.** 대부분 과소평가지만 공학 석사는 반대로 과대평가다.
+그래서 "일괄 보정"이 안 되고 **과정마다 대조해야 한다.**
+
+### ⚠ 발행된 글의 핵심 주장이 걸린다
+
+`physio-ot` 글의 축이 **"플린더스 46,500 ↔ UQ 62,000, 2년이면 3만 1천 달러 차이"**인데
+**두 숫자 다 틀렸다.** 플린더스는 55,100이고, UQ 코스 페이지는 **A$79,370**을 표시한다
+(⚠ 연간인지 과정 총액인지 아직 확인 안 했다 — 반드시 확인할 것).
+방향(UQ가 더 비싸다)은 유지되지만 **본문 숫자와 제목의 "두 배 가까이"를 다시 계산해야 한다.**
+`it-cost`·`aviation-cost` 등 학비를 축으로 쓴 글도 같은 점검이 필요하다.
+
+### 조회 방법 — 다음에 그대로 쓸 것
+
+1. **플린더스는 같은 도메인에서 `fetch`로 한 번에 긁힌다.** 코스 페이지를 하나 열어 두고
+   `fetch` 루프 → `DOMParser` → 본문 텍스트에서 정규식. 23개를 한 호출로 처리했다.
+2. ⚠ **페이지에 국내(CSP)·국제(FFP) 금액이 같이 들어 있다.** 그냥 첫 `$`를 잡으면
+   **국내 보조금 금액($4,738 같은)이 잡힌다.** 반드시 `(FFP)` / `Full fee p...` 쪽을 골라야 한다.
+3. ⚠ **`postgraduate-*` URL 하나에 여러 학위가 묶여 있다**(Grad Cert·Grad Dip·Master).
+   금액이 2~3개 나오므로 자동 추출이 모호하다. **이 페이지들은 눈으로 확인해야 한다.**
+   `Domestic` / `International` 아코디언을 펴야 국제 금액이 본문에 들어온다.
+4. 플린더스·UQ 모두 403 없이 실제 크롬에서 읽힌다.
+
+### UQ 전수 대조 결과 — 20개 중 18개가 틀렸다
+
+UQ 프로그램 페이지의 `FEES A$…`가 **연간** 지표 학비다(UQ 요금 안내: "Check the program page
+for an indicative annual tuition fee"). **UQ는 대부분의 과정에 A$60,952 단일 밴드를 쓴다.**
+
+| 과정 | 카드(옛) | UQ 공시 |
+|---|---|---|
+| Doctor of Medicine | 109,328 | 109,328 ✅ |
+| Master of Engineering Science | 60,952 | 60,952 ✅ |
+| B. Architectural Design · M. Architecture | 43,600 / 44,100 | **52,528** |
+| B. Commerce | 45,800 | **56,800** |
+| B./M. Biotechnology · M. Commerce · B./M. Computer Science · M. Cyber Security · M. Data Science · M.Eng(Prof) 4종 | 44,500~50,100 | **60,952** |
+| Master of Physiotherapy Studies | 62,000 | **79,370** |
+| B. Veterinary Science (Hons) | 76,700 | **89,712** |
+| B. Dental Science (Hons) | 85,200 | **99,600** |
+
+### 🔴 A단계 완료 — `social-work` 글은 축이 통째로 틀렸었다 (2026-08-03 재작성)
+
+옛 URL `master-social-work-qualifying-**5675**`는 404였다. **실제 프로그램 코드는 5767**이고,
+저장돼 있던 값은 자릿수가 뒤바뀐 것이었다. 원문을 열어 보니 **글의 두 축이 다 거짓이었다.**
+
+| 주장(옛 글) | 원문 |
+|---|---|
+| "Qualifying = 전공 무관" | ❌ UQ: *"a bachelor's degree in a **relevant discipline**, with one year, full-time equivalent study in **social and behavioural sciences**"* + **GPA 4.0/7**. 플린더스도 같은 1년을 요구한다. |
+| "UQ 석사 29,200이 학부 32,100보다 싸다" | ❌ UQ 석사 **48,080** · 플린더스 학사 **36,300**. 두 숫자가 다 틀려서 나온 결론이었다. |
+
+**정정된 값**
+| 과정 | 기간 | 연간 | 총액 |
+|---|---|---|---|
+| 플린더스 Bachelor of Social Work | 4년 | 36,300 | 145,200 |
+| 플린더스 **Master of Social Work (Graduate Entry)** | 2년 | 41,000 | 82,000 |
+| UQ Master of Social Work (Qualifying) 5767 | 2년 | 48,080 | 96,160 |
+
+- **과정명·URL도 바뀌었다**: 플린더스는 `postgraduate-social-work` → **`master-social-work-graduate-entry`**
+  (Master of Social Work → **Graduate Entry**), 학사는 `undergraduate-social-work` → **`bachelor-social-work`**.
+- 새 축: **"Qualifying이 붙어도 전공은 본다. 다만 '관련'의 범위가 넓다."**
+  UQ가 인정 전공 목록을 공개한다(인류학·지역개발·상담·범죄학·인간서비스·원주민학·국제관계·정치학·심리학·사회학).
+  전공 관문이 없는 경로는 **학사 4년뿐**이다.
+- **연간은 석사가 비싸고 총액은 석사가 싸다**(82,000 vs 145,200). `early-childhood` 글과 같은 교훈이다.
+
+⚠ **교훈: 카드에 저장된 URL이 죽어 있으면 그 숫자도 의심할 것.** 404는 과정이 개편됐다는 신호이고,
+개편되면 이름·요건·학비가 같이 바뀐다. **글을 쓰기 전에 URL부터 열어 볼 것.**
+
+### 2026-08-03 정정 완료 (27건 + 뉴캐슬 영어)
+
+진단 `majorData`에 UQ 17건 · 플린더스 8건 · UTas 1건 · 뉴캐슬 1건을 반영했다.
+스크립트는 `scratchpad/fixfees.ps1`(옛 금액 + URL 조각을 키로 치환 — 한 URL에 과정이 둘일 때도 안전).
+`dental-routes` 글도 같이 고쳤다(UQ 99,600 · 뉴캐슬 48,535 → 총액 3.7배, 뉴캐슬이 오히려 싸다는
+문장으로 바뀜). 근거 파일은 `au-health-verified.md`·`au-medicine-verified.md`에 반영.
+
+### 학교별 조회 방법 (확인된 것)
+
+| 학교 | 방법 | 비고 |
+|---|---|---|
+| 플린더스 | 같은 도메인 `fetch` 일괄 | CSP/FFP 섞임 · `postgraduate-*`는 학위 여러 개라 눈으로 |
+| UQ | 같은 도메인 `fetch` 일괄 | `A$xxxxx` 하나만 나옴, 쉼표 없음 |
+| 그리피스 | **live 로드 필요**(JS 주입) | `?location=intl` · 값은 **전부 일치했다** |
+| UTas | live 로드 | "annual international student tuition fee" 명시 |
+| 뉴캐슬 | live 로드 + Student type을 International로 | 기본이 국내 뷰 |
+| 라트로브 | live 로드 | "per 120 credit points" = 1년치 · 일치 |
+| WSU | ⚠ **코스 페이지에 국제 학비가 없다** | 국내(CSP)만 나옴. 별도 요금표를 찾아야 함 |
+
+### 남은 범위 (호스트별, 카드 수)
+
+flinders 25 *(학부 대조 완료, 대학원 일부 남음)* · study.uq 20 *(완료)* · griffith 12 *(표본 일치)* ·
+utas 4 *(1건 완료)* · newcastle 2 *(1건 완료)* —
+**남은 것: uts 16 · unsw 13 · westernsydney 12 · monash 7 · sydney 7 · qut 4 · unimelb 3 ·
+hotelschool.scu 2 · swinburne · rmit · torrens · deakin 각 1**
+
+정정 대상은 진단 `majorData`(=사이트에 나가는 값)와 `data/au-*-verified.md` 양쪽이다.
+
+### 🟢 B단계 완료 — WSU 요금표 확보 + `physio-ot` 재작성 (2026-08-03)
+
+**WSU는 코스 페이지에 국제 학비를 안 싣는다. PDF 요금표가 정답이다.**
+`.../content/dam/digital/pdf/international/ug-intl-fees-2026.pdf` (학부) ·
+`pg-intl-fees-2026.pdf` (대학원). "Last updated May 2026" · FEES 2026 열.
+링크는 `international/applying/fees-and-costs/cost-of-tuition` 페이지에 연도별로 모여 있다.
+⚠ **`pdftotext -layout`은 이 PDF도 어긋난다**(플린더스와 같은 문제). **`-raw`를 쓸 것.**
+
+**WSU 값은 원래 거의 맞았다** — 반올림 차이(±40)뿐이라 CRICOS가 아니라 요금표에서 온 값이었다.
+정확한 수치로 9건 교체: 35,900→35,868 · 37,800→**37,758**(물리·작업·족부) · 38,200→38,237 ·
+39,300→39,337 · 40,100→40,127 · 40,900→40,916(건축디자인·건설관리). 32,500·85,520은 일치.
+
+⚠ **WSU `Bachelor of Sport Development` 카드를 삭제했다.** URL이 홈으로 리다이렉트되고
+2026 요금표에도 없다 — **폐지된 과정이다.** 스포츠경영 전공은 이제 UTS·그리피스 카드만 남는다.
+
+⚠ **`physio-ot`의 "학·석사 통합 5년"은 존재하지 않는 과정이었다.** 플린더스에 그런 단일 학위가 없다.
+실제로는 Bachelor of Health Sciences (Therapy Studies) 3년(46,700) → 석사 2년의 **별개 두 학위**다.
+글과 카드 모두 이 구조로 고쳤다.
+
+**`physio-ot` 재작성 완료.** 새 제목은 "같은 물리치료 석사인데 2년 학비가 5만 달러 차이 납니다".
+축 두 개: ① 플린더스 55,100 ↔ UQ 79,370 = 2년 약 4만 8천 5백 달러(원래 글의 3만 1천보다 커졌다)
+② **작업치료가 싼 건 분야가 아니라 학교 정책이다** — 플린더스는 OT가 5,400 싸고 **UTas는 똑같다**.
+
+### 🟡 C단계 진행 중 — UNSW 대조 완료, UTS 막힘 (2026-08-03)
+
+**UNSW 읽는 법**: 학비가 원문 HTML에 있어 같은 도메인 `fetch`로 일괄 조회된다.
+⚠ **국내·국제 두 쌍이 연달아 들어 있고 뒤쪽이 국제다.** 정규식:
+`Indicative first year full fee \$([\d,]+)` 와 `Indicative full fee to complete degree \$([\d,]+)`,
+각각 **마지막 매치**를 쓴다. 다만 아래 두 건은 예외이므로 눈으로 볼 것.
+
+**정정 9건 적용** (1년차 국제 학비 기준)
+48,200→48,500(M.Architecture) · 51,300→51,000(건설관리) · 52,200→52,000(건축학사) ·
+58,700→60,000(데이터사이언스) · 59,800→61,000(항공경영) · 62,400→61,500(전기공학) ·
+63,700→62,000(의공학 통합) · 63,900→61,500(공학·컴사 복수) · 109,500→**62,500**(조종).
+일치: B.Eng(Hons) 61,500 · M.Information Technology 63,000.
+
+**`aviation-cost` 글의 숫자는 맞았다.** 원문에 그대로 있다 — 국제 3년 총액 **$348,000**,
+그리고 *"the anticipated standard cost of flight training to obtain the minimum of a Commercial
+Pilot Licence (CPL) and Instrument Rating - Multi Engine Aeroplane is **$154,500**"* (학비 불포함).
+**틀린 건 카드였다**(109,500). 1년차 62,500으로 바꾸고 총액·훈련비는 `rank`에 적었다.
+
+### 🔴 남은 결정 두 가지
+
+1. ⚠ **UNSW `Bachelor of Cyber Security`는 국제학생 학비가 공시되지 않는다.**
+   **UNSW 캔버라(ADFA) 과정**이고 페이지에는 국내 금액($10,000/년, 3년 총액 $30,000)만 나온다.
+   International 토글을 켜도 바뀌지 않는다. **카드의 63,200은 근거가 없다.**
+   → 검증 원칙대로면 카드를 빼야 하는데, **`it-cost` 글의 축이 바로 이 숫자다**
+   ("사이버보안 학사가 어디는 3만 2천, 어디는 6만 3천"). 빼면 남는 범위는
+   WSU 32,500 ↔ 그리피스 40,500으로 **1.25배**라 "두 배" 제목이 성립하지 않는다.
+   석사까지 넣으면(UQ 60,952 등) 두 배가 살아나므로 **축을 학사→석사로 옮기는 재작성이 필요하다.**
+2. ⚠ **UNSW `Master of Engineering`은 추출값이 뒤집혀 나온다**(1년차 127,000 / 총액 92,500).
+   페이지 구조가 다른 것으로 보이니 눈으로 확인할 것. 카드값 61,000은 보류 중.
+
+### 🟢 UTS 뚫었다 — 공식 학비 검색기 쓰는 법
+
+코스 페이지는 **국내 금액만** 보여준다("Indicative total tuition fee for domestic students").
+학생 유형 드롭다운을 눌러도 국제 금액으로 안 바뀐다. **정답은 공식 검색기다.**
+
+**`https://cis.uts.edu.au/fees/course-fees.cfm`**
+1. `fee_type` = **`IFUG`**(국제 학부) 또는 **`IF`**(국제 대학원 코스워크),
+   `fee_year`/`cohort_year` = 2026, `course_area` = `All` 또는 계열 코드(IT는 **`010070`**).
+2. ⚠ **JS로 값을 넣고 `.click()` 하면 결과가 안 나온다. POST 직접 호출도 빈 결과다.**
+   **`form_input`으로 값을 넣고 Search를 실제 마우스로 클릭해야** 테이블이 뜬다.
+3. ⚠ **fee_type을 바꾸고 다시 검색하면 표가 갱신되지 않는다.** 페이지를 새로 열고 처음부터 채울 것.
+4. ⚠ **학부와 대학원의 컬럼이 다르다.**
+   - 학부(IFUG): `Course Code | Course Name | Total CP | **Fee per CP** | Fee per session`
+     → **연간 = Fee per CP × 48** (1 EFTSL = 48CP = 1년 전일제)
+   - 대학원(IF): `Course Code | Course Name | Total CP | **Fee per session(24CP)**`
+     → **연간 = Fee per session × 2**
+
+**UTS 값은 맞았다** — 반올림 차이뿐이다.
+M.Cybersecurity $28,530/세션 → **57,060**(카드 57,100) · M.Artificial Intelligence $27,688 → **55,376**(카드 55,400) ·
+B.Information Technology (Hons) $1,142/CP → **54,816**(카드 54,770).
+**WSU·그리피스·UTS는 원래 학교 자료에서 온 값이었고, 틀린 건 UQ·플린더스(CRICOS 환산) 쪽이다.**
+
+### 🟢 `it-cost` 재작성 완료
+
+- UNSW 사이버보안 학사 카드 **삭제**(국제 학비 미공시). 그래서 **"학사가 두 배"라는 옛 축은 폐기했다.**
+- 새 축: **같은 `Bachelor of Computer Science`인데 WSU 38,237 · 플린더스 43,600 · UQ 60,952.**
+  3년이면 114,711 대 182,856 = **6만 8천 1백 45달러 차이.** 영어 기준은 값을 따라 움직이지 않는다
+  (학비 중간인 플린더스가 영어는 가장 낮다).
+- 축 하나 추가: **UQ는 IT 계열 대부분에 A$60,952 단일 밴드를 쓴다.** 컴사·사이버보안·데이터사이언스·
+  소프트웨어공학이 학·석사 모두 같은 금액이다. **UQ 안에서는 전공을 바꿔도 금액이 안 바뀐다.**
+- ✅ **"UQ 사이버보안 석사 2년은 전공 무관"은 원문 확인됐다** — *"a bachelor's degree (or equivalent)
+  in **any discipline**"*. 1.5년 단축은 관련 전공 + 선수과목 3과목. 사회복지 때와 달리 이 주장은 사실이었다.
+- 플린더스 **Master of Data Science 36,200 → 42,900**(2026).
+- ⚠ **플린더스 `Master of Science (Computer Science)` 카드는 삭제했다.** 코스 페이지가
+  **2020·2021 학비만 표시하는 상태로 멈춰 있고**(2026년 값 없음), 현행 코스 목록에도 없다. 폐지로 판단.
+
+### 남은 범위 (C단계 계속)
+
+미대조: **모나쉬 7 · 시드니 7 · QUT 4 · 멜버른 3 · hotelschool.scu 2 ·
+스윈번 · RMIT · 토렌스 · 디킨 각 1** (총 26건)
+UTS 16건은 표본 3건이 모두 반올림 오차 수준이라 **일괄 교체는 보류**했다 — 필요하면 위 절차로 전수 대조할 것.
+
+**보류 2건**: UNSW `Master of Engineering`(추출값이 1년차 127,000 / 총액 92,500으로 뒤집혀 나온다. 눈으로 볼 것).
+
+- ~~`social-work`~~ · ~~`physio-ot`~~ · ~~`aviation-cost`~~ · ~~`it-cost`~~ → **숫자가 축인 글 4편 전부 정리 완료.**

@@ -10,7 +10,7 @@
 
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 입학 요건 |
 |---|---|---|---|---|---|
-| UQ | Bachelor of Dental Science (Honours) | 5년 | AUD 85,200 | **7.0 (전 영역 7.0)** | ATAR 99.0 수준 · **UCAT ANZ** · 화학 이수 |
+| UQ | Bachelor of Dental Science (Honours) | 5년 | **AUD 99,600** | **7.0 (전 영역 7.0)** | ATAR 99.0 수준 · **UCAT ANZ** · 화학 이수 |
 | 라트로브 | Bachelor of Dental Science (Honours) | 5년 | AUD 86,000 (2027 학교 공시) | **7.0 (전 영역 7.0) · IELTS만 인정** | 수능 등가표 명시(College Scholastic Ability Test) · 영어 과목 요건 |
 
 라트로브는 2026-08-03 오후 실제 크롬으로 코스 페이지 국제학생 뷰를 직접 읽었다.
@@ -31,7 +31,12 @@
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 입학 요건 |
 |---|---|---|---|---|---|
-| UQ | Bachelor of Veterinary Science (Honours) | 5년 | AUD 76,700 | **7.0 (전 영역 7.0)** | ATAR 98 수준 · **Casper 상황판단검사** · 화학·수학 이수 |
+| UQ | Bachelor of Veterinary Science (Honours) | 5년 | **AUD 89,712** | **7.0 (전 영역 7.0)** | ATAR 98 수준 · **Casper 상황판단검사** · 화학·수학 이수 |
+
+⚠ **UQ 학비는 2026-08-03에 전면 정정했다.** 저장돼 있던 값(치대 85,200 · 수의대 76,700)은 CRICOS
+환산값이라 학교 공시와 어긋났다. UQ 프로그램 페이지의 `FEES A$…`가 **연간 지표 학비**다
+(UQ 요금 안내: "Check the program page for an indicative annual tuition fee"). 자세한 내용과
+전체 대조표는 `backlog-au.md`의 "CRICOS 학비" 항목에 있다.
 
 UQ 수의대는 선발이 **조정 ATAR 60% + Casper 40%** 로 배점돼 있다고 프로그램 페이지에 명시한다.
 입학 후 파상풍·Q열 예방접종이 의무다.

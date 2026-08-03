@@ -22,18 +22,37 @@
 
 ## 유아교육 (Early Childhood Education)
 
+⚠ **2026-08-03 정정.** 아래 세 값은 원래 CRICOS 환산값(35,600 / 33,200 / 33,700)이었는데
+**학교 공시와 전부 어긋났다.** 플린더스 코스 페이지의 `Annual indicative fees (2026)`를
+실제 크롬으로 직접 읽어 고쳤다. 백로그 원칙대로 **학교 공시가 CRICOS보다 우선**이다.
+석사는 **과정명도 틀렸다** — `Master of Teaching (Early Childhood)`가 아니라 **`Master of Teaching (Birth to 5)`**.
+
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| 플린더스 | Bachelor of Early Childhood Education - Birth to 5 | 3년 | AUD 35,600 | 7.0 (전 영역 7.0) | SA |
-| 플린더스 | Bachelor of Early Childhood Education - Birth to 8 | 4년 | AUD 33,200 | 7.0 (전 영역 7.0) | SA |
+| 플린더스 | Bachelor of Early Childhood Education - Birth to 5 | 3년 | **AUD 35,700** | 7.0 (전 영역 7.0) | SA |
+| 플린더스 | Bachelor of Early Childhood Education - Birth to 8 | 4년 | **AUD 35,700** | 7.0 (전 영역 7.0) | SA (CRICOS 107184J) |
 
-Birth to 5는 3년, Birth to 8은 4년이다. **연간 학비는 4년제가 더 싸다**(총액이 아니라 연간 기준).
+⚠ **연간 학비가 같다.** 예전에 적혀 있던 "4년제가 연간으로 더 싸다"는 틀린 문장이었다.
+둘 다 2026년 FFP 기준 $35,700이다. **그래서 3년/4년 선택은 돈이 아니라 자격 범위의 문제다.**
+
+- Birth to 5 (3년) — 코스 페이지: "qualified to teach in **preschools and early childhood services**".
+  유아교육 기관까지다.
+- Birth to 8 (4년) — 코스 페이지: "qualifies you to teach in **both early childhood and junior primary
+  school settings**", 배너는 "Early Childhood & **Junior Primary** Teacher". 초등 저학년(Reception~Year 2)이 열린다.
+- 즉 **추가 1년 = 정확히 1년치 학비 $35,700 = 초등 저학년 교실.**
+  총액은 107,100(3년) vs 142,800(4년).
+- 둘 다 ACECQA 인증이고 남호주 교원등록위원회(TRB SA) 등록 자격으로 이어진다.
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| 플린더스 | Master of Teaching (Early Childhood) | 2년 | AUD 33,700 | 7.0 (전 영역 7.0) | 학사 학위. **같은 분야 교원자격 보유자는 지원 불가** |
+| 플린더스 | **Master of Teaching (Birth to 5)** | 2년 (72단위) | **AUD 38,100** | 7.0 (전 영역 7.0) | "Bachelor's degree, Graduate Certificate in Early Childhood Education (Birth to 5) or approved equivalent" |
+
+- 총액 **76,200**으로 학부 Birth to 5(107,100)보다 **약 3만 1천 달러 싸다.** 학위가 있으면 계산이 명확하다.
+- 다만 **Birth to 5다.** 초등 저학년까지 원하면 이 석사로는 안 되고 학부 4년제를 봐야 한다.
+- ⚠ 예전에 적혀 있던 **"같은 분야 교원자격 보유자는 지원 불가"는 코스 페이지에서 확인되지 않았다.**
+  지원 자격란은 전공을 명시하지 않는다. 확인 못 한 조건이라 카드에서 뺐다.
 
 ## 초·중등 교직 (Primary & Secondary Teaching)
 
