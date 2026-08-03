@@ -72,12 +72,12 @@ CRICOS 전수 확인 결과 "Computer Engineering"이라는 학위명은 검증 
 |---|---|---|---|---|---|
 | UNSW | Bachelor of Engineering (Honours) / Bachelor of Computer Science | 5년 | AUD 63,900 | 6.5 (전 영역 6.0) | NSW |
 | 그리피스 | Bachelor of Software Engineering (Honours) | 4년 | AUD 46,000 | 6.5 (전 영역 6.0) | QLD |
-| 플린더스 | Bachelor of Engineering (Software) (Honours) | 4년 | AUD 41,700 | **6.0** | SA |
+| 플린더스 | Bachelor of Engineering (Software) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Software Engineering (Professional) | 2년 | AUD 50,100 | 6.5 (전 영역 6.0) | 소프트웨어공학·컴퓨터사이언스·컴퓨터공학 학사 (GPA 5.0/7). EA 잠정 인증 |
+| UQ | Master of Software Engineering (Professional) | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | 소프트웨어공학·컴퓨터사이언스·컴퓨터공학 학사 (GPA 5.0/7). EA 잠정 인증 |
 
 카드가 한 장인 이유: 검증 가능한 학교 중 소프트웨어공학 이름의 석사를 여는 곳이 UQ뿐이다.
 멜버른대(69,500)·RMIT 등은 영어 요건을 못 읽어서 뺐다.
@@ -92,7 +92,8 @@ CRICOS 전수 확인 결과 "Computer Engineering"이라는 학위명은 검증 
 ## 빅토리아 추가분 (2026-08-03 오후, 실제 크롬으로 원문 확인)
 
 - **소프트웨어공학 학부 + 스윈번**: Bachelor of Engineering (Honours) 소프트웨어 전공(BH-ENG1),
-  4년, 연 37,100(CRICOS), **6.0(전 영역 6.0)** — 이 계열 학부 중 학비도 영어도 최저다.
+  4년, **연 47,320**(2026 학교 공시 · 2026-08-03 정정, 옛 37,100은 CRICOS 환산이었다),
+  **6.0(전 영역 6.0)** — 영어는 계열 최저지만 **학비는 최저가 아니다**(그리피스 46,000이 더 싸다).
   Engineers Australia 인증이 코스 페이지에 명시돼 있다. 호손(멜버른) 캠퍼스.
 
 ## 미검증 (넣지 말 것)

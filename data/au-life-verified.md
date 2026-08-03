@@ -11,16 +11,16 @@
 **학부**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UQ | Bachelor of Biotechnology | 3년 | AUD 47,200 | 6.5 (전 영역 6.0) | QLD |
+| UQ | Bachelor of Biotechnology | 3년 | AUD 60,952 | 6.5 (전 영역 6.0) | QLD |
 | UTS | Bachelor of Molecular Biotechnology | 3년 | AUD 50,500 | 6.5 (쓰기 6.0) | NSW |
-| 플린더스 | Bachelor of Science (Biotechnology) | 3년 | AUD 38,200 | **6.0** (쓰기·말하기 6.0) | SA |
+| 플린더스 | Bachelor of Science (Biotechnology) | 3년 | AUD 43,500 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
-| UQ | Master of Biotechnology | 2년 | AUD 44,500 | 6.5 (전 영역 6.0) | QLD |
+| UQ | Master of Biotechnology | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | QLD |
 | UTS | Master of Medical Biotechnology | 1.5년(78주) | AUD 50,500 | 6.5 (쓰기 6.0) | NSW |
-| 플린더스 | Master of Biotechnology | 2년 | AUD 38,300 | **6.0** (쓰기·말하기 6.0) | SA |
+| 플린더스 | Master of Biotechnology | 2년 | AUD 46,000 | **6.0** (쓰기·말하기 6.0) | SA |
 
 UQ 석사는 과학 학사 외에 **경영·금융·법 전공자도 과학 배경이 있으면** 받는다고 프로그램 페이지가
 명시한다(상용화 트랙이 있는 Professional Science Master's 계열).
@@ -31,13 +31,13 @@ UQ 석사는 과학 학사 외에 **경영·금융·법 전공자도 과학 배�
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UNSW | Bachelor of Engineering (Honours) / Master of Biomedical Engineering | 5년 | AUD 63,700 | 6.5 (전 영역 6.0) | NSW |
-| 플린더스 | Bachelor of Engineering (Biomedical) (Honours) | 4년 | AUD 41,700 | **6.0** (쓰기·말하기 6.0) | SA |
+| 플린더스 | Bachelor of Engineering (Biomedical) (Honours) | 4년 | AUD 47,300 | **6.0** (쓰기·말하기 6.0) | SA |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 선수 학위 |
 |---|---|---|---|---|---|
-| UQ | Master of Bioengineering (Professional) | 2년 | AUD 50,100 | 6.5 (전 영역 6.0) | **공학 4년제 학사** |
-| 플린더스 | Master of Engineering (Biomedical) | 2년 | AUD 40,400 | **6.0** (쓰기·말하기 6.0) | 전기·전자·의료공학 학사 |
+| UQ | Master of Bioengineering (Professional) | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | **공학 4년제 학사** |
+| 플린더스 | Master of Engineering (Biomedical) | 2년 | AUD 47,800 | **6.0** (쓰기·말하기 6.0) | 전기·전자·의료공학 학사 |
 
 ⚠ **의료공학 석사는 커리어 전환 경로가 아니다.** 두 학교 모두 프로그램 페이지에서 공학 계열
 학사를 요구한다고 명시한다. UQ는 **공학 4년제 학사(또는 해외 파트너교 3년 이수 후 연계)**,

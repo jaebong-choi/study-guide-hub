@@ -11,14 +11,14 @@
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UNSW | Bachelor of Construction Management and Property | 3년 | AUD 51,300 | 6.5 (전 영역 6.0) | NSW |
-| 플린더스 | Bachelor of Engineering (Civil) (Honours) | 4년 | AUD 41,700 | **6.0** | SA |
+| 플린더스 | Bachelor of Engineering (Civil) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 | WSU | Bachelor of Construction Management (Honours) | 4년 | AUD 40,900 | 6.5 (전 영역 6.0) | NSW |
 
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Civil Engineering (Professional) | 2년 | AUD 50,100 | 6.5 (전 영역 6.0) | 토목 계열 학사. EA 인증 |
-| 플린더스 | Master of Engineering (Civil) | 2년 | AUD 40,400 | **6.0** | 공학 계열 학사. 없으면 Master of Engineering Science로 안내한다 |
+| UQ | Master of Civil Engineering (Professional) | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | 토목 계열 학사. EA 인증 |
+| 플린더스 | Master of Engineering (Civil) | 2년 | AUD 47,800 | **6.0** | 공학 계열 학사. 없으면 Master of Engineering Science로 안내한다 |
 
 ## 건축 (Architecture)
 
@@ -45,8 +45,8 @@ UQ 석사는 호주건축가협회·퀸즐랜드 건축사위원회 인증이라
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 주 |
 |---|---|---|---|---|---|
 | UNSW | Bachelor of Engineering (Honours) (Electrical) | 4년 | AUD 62,400 | 6.5 (전 영역 6.0) | NSW |
-| 플린더스 | Bachelor of Engineering (Mechanical) (Honours) | 4년 | AUD 41,700 | **6.0** | SA |
-| 플린더스 | Bachelor of Engineering (Electrical and Electronic) (Honours) | 4년 | AUD 41,700 | **6.0** | SA |
+| 플린더스 | Bachelor of Engineering (Mechanical) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
+| 플린더스 | Bachelor of Engineering (Electrical and Electronic) (Honours) | 4년 | AUD 47,300 | **6.0** | SA |
 
 UNSW 전기공학은 **QS 세계대학 전공별 순위 2026 기준 호주 1위**라고 학교 페이지에 적혀 있다.
 EA 정식 인증(Professional Engineer)이고 워싱턴 어코드 상호인정 대상이다.
@@ -58,8 +58,8 @@ EA 정식 인증(Professional Engineer)이고 워싱턴 어코드 상호인정 �
 **석사**
 | 대학 | 과정 | 기간 | 연간 학비 | IELTS | 지원 자격 |
 |---|---|---|---|---|---|
-| UQ | Master of Mechanical Engineering (Professional) | 2년 | AUD 50,100 | 6.5 (전 영역 6.0) | 기계·항공·메카트로닉스 등 학사 |
-| 플린더스 | Master of Engineering (Mechanical) | 2년 | AUD 40,400 | **6.0** | 공학 계열 학사 |
+| UQ | Master of Mechanical Engineering (Professional) | 2년 | AUD 60,952 | 6.5 (전 영역 6.0) | 기계·항공·메카트로닉스 등 학사 |
+| 플린더스 | Master of Engineering (Mechanical) | 2년 | AUD 47,800 | **6.0** | 공학 계열 학사 |
 
 ## 항공 (Aviation)
 

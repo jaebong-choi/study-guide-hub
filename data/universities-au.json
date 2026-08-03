@@ -264,21 +264,21 @@
     "city": "Sydney · Melbourne · Brisbane",
     "qs_rank": null,
     "qs_subject_ranks": [],
-    "tuition_ug_min": 34500,
-    "tuition_ug_max": 34500,
-    "tuition_pg_min": 37000,
-    "tuition_pg_max": 37000,
+    "tuition_ug_min": 26000,
+    "tuition_ug_max": 26000,
+    "tuition_pg_min": 26000,
+    "tuition_pg_max": 26000,
     "currency": "AUD",
     "english": { "ielts_min": 6.0, "accepted": ["ielts", "toefl", "pte"], "note": "학사 6.0 · 석사 6.5" },
     "popular_majors": ["호텔경영", "글로벌 호텔 리더십"],
     "pathways": [
-      { "type": "direct", "level": "ug", "provider": "Southern Cross University 제휴", "ielts_min": 6.0, "duration": "3년 (2년 압축 가능)", "cost_note": "A$34,500", "note": "Mulpha 호텔그룹 합작 · 인터콘티넨탈 등 현장 실습 연계" },
-      { "type": "direct", "level": "pg", "provider": "Southern Cross University 제휴", "ielts_min": 6.5, "duration": "2년", "cost_note": "A$37,000", "note": "글로벌 호텔 리더십 석사 · 유급 인턴십 포함" }
+      { "type": "direct", "level": "ug", "provider": "Southern Cross University 제휴", "ielts_min": 6.0, "duration": "3년 (2년 압축 가능)", "cost_note": "A$26,000", "note": "Mulpha 호텔그룹 합작 · 인터콘티넨탈 등 현장 실습 연계" },
+      { "type": "direct", "level": "pg", "provider": "Southern Cross University 제휴", "ielts_min": 6.5, "duration": "2년", "cost_note": "A$26,000", "note": "글로벌 호텔 리더십 석사 · 유급 인턴십 포함" }
     ],
     "intakes": ["2월", "7월"],
     "official_url": "https://hotelschool.scu.edu.au",
     "youtube_id": "bKxtLV0dEHk",
-    "editor_note": "시드니와 멜버른, 브리즈번 도심에서 호텔경영 학위 과정을 운영합니다. 서던크로스대학교 학위로 나오고 실습이 과정 안에 들어가 있습니다. 학비는 연 3만 4천 호주달러대입니다.",
+    "editor_note": "시드니와 멜버른, 브리즈번 도심에서 호텔경영 학위 과정을 운영합니다. 서던크로스대학교 학위로 나오고 실습이 과정 안에 들어가 있습니다. 학비는 학사와 석사가 연 2만 6천 호주달러로 같습니다.",
     "related_ids": ["au-bmihms"],
     "last_verified": "2026-07"
   },
