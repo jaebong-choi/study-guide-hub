@@ -96,7 +96,7 @@
     "tuition_ug_min": 54400,
     "tuition_ug_max": 60100,
     "tuition_pg_min": 47400,
-    "tuition_pg_max": 55500,
+    "tuition_pg_max": 57200,
     "currency": "AUD",
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 간호·의학 계열 7.0" },
     "popular_majors": ["약학", "정보기술", "공학", "경영학", "간호학"],
@@ -104,7 +104,7 @@
       { "type": "foundation", "level": "ug", "provider": "Monash College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "Monash College 파운데이션 · 수료 성적 충족 시 본교 1학년 진학" },
       { "type": "transfer", "level": "ug", "provider": "Monash College", "ielts_min": 6.0, "duration": "8개월~1년", "cost_note": null, "note": "디플로마 수료 시 본교 2학년 편입" },
       { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": "A$54,400~60,100", "note": "수능·내신 직접 지원 · 약학은 학·석사 통합(우수학사) 운영" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": "A$47,400~55,500", "note": "석사 직접 지원 · 의학(MD) 통합과정은 연 A$101,600" }
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": "A$47,400~57,200", "note": "석사 직접 지원 · 의학(MD) 통합과정은 연 A$101,600" }
     ],
     "intakes": ["2월", "7월"],
     "official_url": "https://www.monash.edu",
