@@ -1,0 +1,92 @@
+﻿==================== physiotherapy
+Australian Catholic University Limited     Bachelor of Physiotherapy                                    4.0yr  52500
+Curtin University                          Bachelor of Science (Physiotherapy)                          4.0yr  43800
+Griffith University                        Bachelor of Physiotherapy                                    4.0yr  55000
+The University of Sydney                   Bachelor of Applied Science (Physiotherapy)                  4.0yr  68900
+University of Canberra                     Bachelor of Physiotherapy                                    4.0yr  45000
+Western Sydney University                  Bachelor of Physiotherapy                                    4.0yr  37800
+Curtin University                          Doctor of Physiotherapy                                      3.0yr  53700
+Curtin University                          Master of Clinical Physiotherapy                             1.0yr  54500
+Flinders University                        Bachelor of Health Sciences / Master of Physiotherapy        5.0yr  42800
+Flinders University                        Master of Physiotherapy                                      2.0yr  46500
+La Trobe University (La Trobe)             Master of Physiotherapy Practice                             2.0yr  56700
+La Trobe University (La Trobe)             Master of Physiotherapy Practice                             2.0yr  61200
+Royal Melbourne Institute of Technology    Master of Physiotherapy                                      2.0yr  55700
+Swinburne University of Technology         Master of Physiotherapy                                      2.0yr  54400
+The University of Queensland               Master of Physiotherapy                                      1.0yr  49600
+The University of Queensland               Master of Physiotherapy Studies                              2.0yr  62000
+The University of Sydney                   Master of Physiotherapy                                      2.0yr  67000
+University of Canberra                     Master of Physiotherapy                                      2.0yr  55000
+University of Tasmania (UTas)              Master of Physiotherapy                                      2.0yr  50700
+Macquarie University (Macquarie)           Doctor of Physiotherapy                                      3.0yr  65600
+The University of Sydney                   Doctor of Physiotherapy                                      3.0yr  71400
+==================== occupational
+Australian Catholic University Limited     Bachelor of Occupational Therapy                             4.0yr  52500
+Deakin University (Deakin)                 Bachelor of Occupational Therapy                             4.0yr  48900
+Edith Cowan University                     Bachelor of Science (Occupational Therapy)                   4.0yr  43700
+Griffith University                        Bachelor of Occupational Therapy                             4.0yr  42000
+The University of Sydney                   Bachelor of Applied Science (Occupational Therapy)           4.0yr  68900
+University of Canberra                     Bachelor of Occupational Therapy                             4.0yr  42500
+Western Sydney University                  Bachelor of Occupational Therapy                             4.0yr  37800
+Curtin University                          Master of Occupational Therapy                               2.0yr  66100
+Flinders University                        Bachelor of Health Sciences / Master of Occupational Therapy   5.0yr  40900
+Flinders University                        Master of Occupational Therapy                               2.0yr  41900
+La Trobe University (La Trobe)             Master of Occupational Therapy Practice                      2.0yr  50600
+Swinburne University of Technology         Master of Occupational Therapy                               2.0yr  48000
+The University of Queensland               Master of Occupational Therapy Studies                       2.0yr  64600
+The University of Sydney                   Master of Occupational Therapy                               2.0yr  63200
+University of Canberra                     Master of Occupational Therapy                               2.0yr  48500
+University of Tasmania (UTas)              Master of Occupational Therapy                               2.0yr  50700
+==================== socialwork
+Australian Catholic University Limited     Bachelor of Social Work                                      4.0yr  32400
+Curtin University                          Bachelor of Social Work                                      4.0yr  43300
+Deakin University (Deakin)                 Bachelor of Social Work                                      4.0yr  39400
+Edith Cowan University                     Bachelor of Social Work                                      4.0yr  39500
+Flinders University                        Bachelor of Social Work                                      4.0yr  32100
+Griffith University                        Bachelor of Social Work                                      4.0yr  36000
+The University of Queensland               Bachelor of Social Work                                      4.0yr  47200
+The University of Sydney                   Bachelor of Social Work                                      4.0yr  58900
+The University of Sydney                   Bachelor of Arts / Bachelor of Social Work                   5.0yr  59800
+University of Tasmania (UTas)              Bachelor of Social Work with Honours                         4.0yr  39800
+University of the Sunshine Coast           Bachelor of Social Work                                      4.0yr  29500
+University of the Sunshine Coast           Bachelor of Social Work/Bachelor of Criminology and Justice   5.0yr  29500
+Victoria University                        Bachelor of Social Work                                      4.0yr  36400
+Western Sydney University                  Bachelor of Social Work                                      4.0yr  32500
+Western Sydney University                  Bachelor of Criminal and Community Justice/Bachelor of Social Work   5.0yr  32500
+Australian Catholic University Limited     Master of Social Work (Qualifying)                           2.0yr  32100
+Curtin University                          Master of Social Work (Qualifying)                           2.0yr  46200
+Edith Cowan University                     Master of Social Work (Qualifying)                           2.0yr  39000
+Flinders University                        Master of Social Work                                        2.0yr  35200
+Griffith University                        Master of Social Work                                        2.0yr  40500
+Griffith University                        Master of Social Work                                        2.0yr  40500
+La Trobe University (La Trobe)             Master of Social Work                                        2.0yr  38500
+Royal Melbourne Institute of Technology    Master of Social Work                                        2.0yr  40300
+The University of Newcastle (UoN)          Master of Social Work (Qualifying)                           2.0yr  45300
+The University of Queensland               Master of Social Work (Qualifying)                           2.0yr  29200
+The University of Sydney                   Master of Social Work (Qualifying)                           2.0yr  54900
+The University of Sydney                   Master of Social Work                                        1.0yr  54100
+The University of Western Australia (UWA)  Master of Social Work (Coursework)                           2.0yr  39300
+University of Southern Queensland          Master of Social Work (Qualifying)                           2.0yr  31800
+University of Tasmania (UTas)              Master of Social Work (Qualifying)                           2.0yr  38200
+University of the Sunshine Coast           Master of Social Work (Qualifying)                           2.0yr  30500
+Western Sydney University                  Master of Social Work (Qualifying)                           2.0yr  34800
+==================== medlab
+Curtin University                          Bachelor of Science (Laboratory Medicine)                    4.0yr  46700
+Deakin University (Deakin)                 Bachelor of Medical Imaging                                  4.0yr  48400
+Flinders University                        Bachelor of Medical Science (Laboratory Medicine)            4.0yr  39000
+Griffith University                        Bachelor of Medical Laboratory Science                       4.0yr  41500
+Murdoch University (Murdoch)               Bachelor of Science/Bachelor of Laboratory Medicine          4.0yr  32900
+Murdoch University (Murdoch)               Bachelor of Laboratory Medicine                              4.0yr  41200
+The University of Sydney                   Bachelor of Applied Science (Diagnostic Radiography)         4.0yr  68900
+University of Canberra                     Bachelor of Medical Radiation Science (Medical Imaging)      4.0yr  45000
+University of Southern Queensland          Bachelor of Medical Laboratory Science                       4.0yr  31400
+University of Tasmania (UTas)              Bachelor of Laboratory Medicine                              4.0yr  34700
+Royal Melbourne Institute of Technology    Master of Laboratory Medicine                                2.0yr  49900
+The University of Newcastle (UoN)          Master of Laboratory Medicine                                2.0yr  54600
+The University of Sydney                   Master of Diagnostic Radiography                             2.0yr  64800
+University of Canberra                     Master of Medical Imaging                                    2.0yr  72800
+University of Tasmania (UTas)              Master of Laboratory Medicine                                2.0yr  44000
+==================== podiatry
+The University of Newcastle (UoN)          Bachelor of Podiatric Medicine                               4.0yr  50300
+Western Sydney University                  Bachelor of Podiatric Medicine                               4.0yr  37800
+The University of Western Australia (UWA)  Doctor of Podiatric Medicine                                 3.0yr  73300
