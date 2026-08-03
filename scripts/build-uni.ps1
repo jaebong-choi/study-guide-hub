@@ -1579,7 +1579,21 @@ $srcRows
         [IO.File]::WriteAllText((Join-Path $repoRoot ("guide\" + $file)), $artHtml, $utf8NoBom)
         $articleLocs += ('guide/' + $file)
     }
-    Write-Host ("생성: 유학 정보 글 {0}편 ({1})" -f @($articles).Count, $cc) -ForegroundColor Green
+    # 목록 카드는 guide\{cc}.html의 <div class="info-board"> 안을 통째로 갈아 끼운다.
+    $cards = ($articles | ForEach-Object {
+        '                    <a class="info-card" href="./' + $cc + '-info-' + $_.slug + '.html">' + "`n" +
+        '                        <h3 data-en="' + (Esc $_.title_en) + '">' + (Esc $_.title_ko) + '</h3>' + "`n" +
+        '                        <p data-en="' + (Esc $_.desc_en) + '">' + (Esc $_.desc_ko) + '</p>' + "`n" +
+        '                        <p class="article-meta"><span data-en="About ' + $_.read_min + ' min read">약 ' + $_.read_min + '분</span><span data-en="Verified ' + $_.verified + '">정보 확인 ' + $_.verified + '</span></p>' + "`n" +
+        '                    </a>'
+    }) -join "`n"
+    $guidePath = Join-Path $repoRoot ("guide\" + $cc + ".html")
+    if (Test-Path $guidePath) {
+        $g = [IO.File]::ReadAllText($guidePath, [Text.Encoding]::UTF8)
+        $new = [regex]::Replace($g, '(?s)(<div class="info-board">).*?(\r?\n\s*</div>)', ('${1}' + "`n" + $cards.Replace('$', '$$$$') + '${2}'))
+        if ($new -ne $g) { [IO.File]::WriteAllText($guidePath, $new, $utf8NoBom) }
+    }
+    Write-Host ("생성: 유학 정보 글 {0}편 + 목록 카드 ({1})" -f @($articles).Count, $cc) -ForegroundColor Green
 }
 
 # ---------- sitemap.xml / robots.txt ----------
