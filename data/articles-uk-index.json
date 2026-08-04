@@ -61,5 +61,12 @@
                                   "cat":  "major",
                                   "min":  6,
                                   "ver":  "2026-08"
-                              }
+                              },
+    "pathway-english":  {
+                            "ko":  "[영국 진학 준비과정] 영어 점수가 과정 길이를 정합니다.",
+                            "en":  "[UK pathway courses] Your English score sets the course length",
+                            "cat":  "english",
+                            "min":  6,
+                            "ver":  "2026-08"
+                        }
 }
