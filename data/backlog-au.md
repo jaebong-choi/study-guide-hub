@@ -961,7 +961,22 @@ vet-routes의 5년 총액도 본문 `448,500` 대 표 `448,560`이었다. 둘 �
 ⚠ **문장 속 줄표(—)가 123건 남아 있다.** 영국 글에는 없앤 것인데 호주는 대부분
 H2 제목의 라벨 용도(`1번 문 — 관련 학사`)라 이번엔 손대지 않았다. 정리하려면 별도 판단이 필요하다.
 
-### 본문 사진 5편 적용 (2026-08-04) — 상세 절차는 backlog-uk.md
+### 본문 사진 8편 적용 (2026-08-04) — 상세 절차는 backlog-uk.md
+
+| 글 | 파일 | 캡션에 넣은 것 |
+|---|---|---|
+| `aviation-cost` | `au-flight-training.jpg` | 비행훈련비 AUD 154,500 (학위와 별도) |
+| `it-cost` | `au-brisbane.jpg` | UQ AUD 60,900 ↔ WSU AUD 38,200 |
+| `physio-ot` | `au-adelaide.jpg` | 플린더스 AUD 55,100 (셋 중 최저) |
+| `culinary` | `au-commercial-kitchen.jpg` | 공립 AUD 23,000 · 브랜드 AUD 42,000 + 유급 실습 6개월 |
+| `nursing` | `au-nursing-simulation.jpg` | 두 경로 모두 인증 임상 실습 · 등록 단계 영어 |
+| `architecture` | `au-architecture-studio.jpg` | 3+2 = 5년, 학사만으로는 등록 불가 |
+| `early-childhood` | `au-early-childhood.jpg` | 3년·4년 모두 연 AUD 35,700, 1년 더 내고 얻는 건 Reception~Year 2 |
+| `engineering` | `au-engineering-workshop.jpg` | EA 인증 · QUT가 연 AUD 12,000 낮음 |
+
+**26편 중 8편.** 나머지 18편은 축이 경로·요건·시험이라 사진이 정보가 되지 않는다.
+넣는다면 남은 후보는 `dental-routes`(치과) · `vet-routes`(수의) · `hospitality`(호텔) ·
+`lab-medicine`(실험실) · `pharmacy`(조제) 정도다.
 
 ⚠ **사진 기준이 넓어졌다(사용자 지시).** 장소 사진만이 아니라 **글 주제와 연관된 사진**도 쓴다.
 사용자 예시: 요리 글에 주방 사진, 컴퓨터사이언스 글에 AI 관련 사진.
