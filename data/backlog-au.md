@@ -169,6 +169,13 @@ coei 게시판(coei.com/uhak-info/rc/au, 5페이지 50편)은 **다룰 주제 �
    **그 블록은 손으로 고치지 말 것**(빌드가 덮어쓴다).
 3. 진단에 띄우려면 au-study-guide의 `INFO_ARTICLES`에 전공 키로, 전공 무관이면 `INFO_COMMON`에 등록.
    `tracks`로 학부/석사를 가른다(null이면 둘 다).
+   ⚠ 제목·설명은 진단에 옮겨 적지 말 것. 허브 색인에서 받아 간다(위 "글 제목의 단일 출처" 절).
+
+⚠ **`articles-au.json`의 `majors` 필드는 아무 데서도 안 쓰인다** (2026-08-04 확인).
+`build-uni.ps1`·`guide.js`·진단 세 곳 모두 참조하지 않는다. 전공→글 매핑은 진단의
+`INFO_ARTICLES`가 전부 갖고 있다. 그래서 이 필드에 슬러그가 어긋난 채로 남아 있어도
+(`veterinary`/`veterinary-science`, `early-childhood`/`early-childhood-education`)
+화면에는 아무 영향이 없다. **여기 값을 고쳐도 동작이 바뀌지 않으니 이 필드를 근거로 삼지 말 것.**
 
 ## 세부 전공 재편 — **완료 (2026-08-03)**
 
