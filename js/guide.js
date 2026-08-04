@@ -25,6 +25,10 @@ function applyLang() {
     document.querySelectorAll('.lang-switch button').forEach(function (b) {
         b.classList.toggle('on', b.getAttribute('data-lang') === LANG);
     });
+
+    // ⚠ 반드시 마지막에. 위에서 innerHTML을 통째로 갈아 끼우기 때문에
+    //   먼저 채워 두면 언어를 바꿀 때마다 원화가 지워진다.
+    renderKrw();
 }
 
 function setLang(l) {
@@ -32,6 +36,59 @@ function setLang(l) {
     try { localStorage.setItem('sgh-lang', l); } catch (e) {}
     applyLang();
 }
+
+/* =========================================================
+ * 원화 환산 — 조회 시점 환율로 금액 옆에 병기한다.
+ * uni/ 상세 페이지와 같은 방식이고, 통화는 <html data-country>에서 고른다.
+ * 환율을 못 받으면 조용히 비워 둔다(금액만 보인다).
+ * ========================================================= */
+var FX_CCY = { uk: 'GBP', au: 'AUD', us: 'USD', ca: 'CAD' };
+var FX_RATE = null;
+
+function renderKrw() {
+    var els = document.querySelectorAll('.krw');
+    if (!els.length || !FX_RATE) return;
+    var en = LANG === 'en';
+
+    function fmt(v) {
+        var man = Math.round(v * FX_RATE / 10000);
+        if (en) return '₩' + (man * 10000).toLocaleString('en-US');
+        if (man >= 10000) {
+            var eok = Math.floor(man / 10000), rest = man % 10000;
+            return eok + '억' + (rest ? ' ' + rest.toLocaleString('ko-KR') + '만' : '') + ' 원';
+        }
+        return man.toLocaleString('ko-KR') + '만 원';
+    }
+
+    els.forEach(function (el) {
+        var min = parseFloat(el.getAttribute('data-min'));
+        var max = parseFloat(el.getAttribute('data-max'));
+        if (isNaN(min) && isNaN(max)) return;
+        if (isNaN(min)) min = max;
+        if (isNaN(max)) max = min;
+        var range = min === max
+            ? fmt(min)
+            : (en ? fmt(min) + ' ~ ' + fmt(max) : fmt(min).replace(' 원', '') + '~' + fmt(max));
+        el.textContent = (en ? 'approx. ' : '약 ') + range;
+    });
+
+    var today = new Date();
+    document.querySelectorAll('.fx-date').forEach(function (el) {
+        el.textContent = en
+            ? 'Rate as of ' + today.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })
+            : today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
+    });
+}
+
+(function () {
+    if (!document.querySelector('.krw')) return;
+    var ccy = FX_CCY[document.documentElement.getAttribute('data-country')];
+    if (!ccy) return;
+    fetch('https://open.er-api.com/v6/latest/' + ccy)
+        .then(function (r) { return r.json(); })
+        .then(function (d) { FX_RATE = d && d.rates && d.rates.KRW; renderKrw(); })
+        .catch(function () {});
+})();
 
 applyLang();
 

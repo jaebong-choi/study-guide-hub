@@ -1603,7 +1603,7 @@ foreach ($cc in @('au', 'uk')) {
         })();
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="../css/guide.css?v=20260804">
+    <link rel="stylesheet" href="../css/guide.css?v=20260805">
 </head>
 <body data-title-ko="$(Esc $a.title_ko) | Study Guide Hub" data-title-en="$(Esc $a.title_en) | Study Guide Hub">
     <header class="site-header">
@@ -1631,6 +1631,7 @@ foreach ($cc in @('au', 'uk')) {
             <div class="container">
                 <div class="article-body">
 $($a.body)
+                    <p class="fx-date"></p>
                 </div>
             </div>
         </section>
@@ -1659,7 +1660,7 @@ $srcRows
             <p>© 2026 Study Guide Hub</p>
         </div>
     </footer>
-    <script src="../js/guide.js?v=20260802"></script>
+    <script src="../js/guide.js?v=20260805"></script>
 </body>
 </html>
 "@
