@@ -696,12 +696,38 @@ GPhC의 **IELTS 7.0(네 영역 모두 7.0, 한 번의 시험)** 은 **영국 밖
   ⚠ **의사·치과의사와 달리 약사는 실기 2차가 없다.** 한 번 합격하면 다음 회부터 면제.
 - 응시수수료 220,000원, 2026년 접수 6월 15~18일(국시원).
 
+### ⭐ 인정 목록 확인 완료 — 그리고 학비 순서가 뒤집혔다 (사용자 승인 후 파일 수령)
+`보건복지부장관이 인정하는 외국학교 현황`(공공데이터포털, 901행 XLSX, **2026-06-02 기준**)을
+받아 확인했다. **약사 직종 영국 대학은 16곳**이다.
+
+Aston · Cardiff · King's College London · Kingston · **Liverpool John Moores** · Brighton ·
+Birmingham · East Anglia · UCL School of Pharmacy · Manchester · Newcastle · **Nottingham** ·
+Bath · Portsmouth · Reading · Sussex
+
+⭐ **글에 실은 4곳 중 학비가 싼 두 곳이 목록에 없다.**
+| 학교 | 학비 | 약사 인정 목록 |
+|---|---|---|
+| 드몽포트 | £17,300 | **없음** (전 직종 통틀어 미등재) |
+| 랭커셔(구 UCLan) | £18,750 | **약사 없음** (⚠ **의사 직종으로는 올라 있다**) |
+| 아스턴 | £22,575 | 있음 |
+| 노팅엄 | £33,500 | 있음 |
+
+**학비 순서와 정확히 반대다.** 한국 복귀를 염두에 둔 학생에게는 싼 두 곳에 절차가 하나 더 붙는다.
+⚠ **목록에 없다 = 불인정이 아니다.** "신청된 학교에 한해 심사"라고 명시돼 있어 대개 아직
+신청이 없었다는 뜻이다. 본인이 인정심사를 신청하면 된다(성적·교과과정·교수요목·면허증, 아포스티유).
+글에 이 단서를 함께 적었다.
+
+**파일 받는 방법 — 다음에 그대로 쓸 것**
+1. `data.go.kr/data/15126577/fileData.do`에서 다운로드 버튼의 `fn_fileDataDown` 인자를 본다.
+2. `POST /tcs/dss/selectFileDataDownload.do` (publicDataPk·publicDataDetailPk·fileDetailSn·
+   publicDataTyCode=PR0051) → 응답의 **`atchFileId`**를 받는다.
+3. `POST /cmm/cmm/check-limit.json`으로 **`needCaptcha`를 먼저 확인한다.**
+   ⚠ true면 거기서 멈춘다 — CAPTCHA는 우회하지 않는다. 이번에는 false였다.
+4. `GET /cmm/cmm/fileDownload.do?atchFileId=...&fileDetailSn=1` → 45KB xlsx.
+5. XLSX는 zip이라 `sharedStrings.xml` + `worksheets/sheet1.xml`을 정규식으로 읽으면 된다
+   (Excel 없이). 헤더는 `직종 | 구분 | 국가명 | 학교명`, 2행은 주석이라 건너뛴다.
+
 ### 확인하지 못한 것
-- **개별 영국 약대가 보건복지부 인정 목록에 있는지.** 목록은 공공데이터포털에
-  `보건복지부장관이 인정하는 외국학교 현황`(901행 XLSX, 2026-06-02 기준)으로 공개돼 있는데
-  **미리보기가 메타데이터만 보여주고 오픈 API도 0건이라 파일을 받아야만 확인된다.**
-  ⚠ **"신청된 학교에 한해 심사"**라고 명시돼 있어 목록에 없으면 인정심사를 따로 신청해야 한다.
-  글에는 이 사실과 "직접 확인하라"는 안내를 적었다. **다음에 파일을 받아 약사·영국 행만 뽑으면 된다.**
 - 인정기준 고시의 **[별표 1·2] 세부 심사기준** — law.go.kr에서 HWP/PDF 첨부로만 제공돼 미열람.
 - DMU IELTS 영역별 최소치(코스 페이지에 총점만 있다). ⚠ 검색 스니펫에는 7.0이 돌아다니는데
   **원문은 6.5 총점**이다.
