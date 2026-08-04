@@ -734,7 +734,7 @@
     "country": "UK",
     "city": "Brighton",
     "qs_rank": 278,
-    "qs_subject_ranks": [{ "subject": "국제개발학", "rank": 1 }],
+    "qs_subject_ranks": [{ "subject": "개발학", "rank": 1 }],
     "tuition_ug_min": 23500,
     "tuition_ug_max": 27300,
     "tuition_pg_min": 23500,
@@ -1239,7 +1239,7 @@
     "city": "Oxford",
     "qs_rank": 374,
     "qs_subject_ranks": [
-      { "subject": "호스피탈리티·레저 매니지먼트", "rank": 29 }
+      { "subject": "호스피탈리티·레저경영", "rank": 29 }
     ],
     "tuition_ug_min": 18250,
     "tuition_ug_max": 19700,
