@@ -69,7 +69,7 @@
     "city": "Edinburgh",
     "qs_rank": 34,
     "qs_subject_ranks": [
-      { "subject": "수의학", "rank": 5 }
+      { "subject": "수의학", "rank": 6 }
     ],
     "tuition_ug_min": 26500,
     "tuition_ug_max": 37500,
@@ -1032,7 +1032,7 @@
     "name_en": "SOAS University of London",
     "country": "UK",
     "city": "London",
-    "qs_rank": null,
+    "qs_rank": 458,
     "qs_subject_ranks": [
       { "subject": "개발학", "rank": 2 },
       { "subject": "인류학", "rank": 19 }

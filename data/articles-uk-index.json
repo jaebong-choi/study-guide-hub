@@ -47,5 +47,12 @@
                          "cat":  "cost",
                          "min":  5,
                          "ver":  "2026-08"
-                     }
+                     },
+    "subject-rankings":  {
+                             "ko":  "[영국 대학 순위] 세계 1위 전공 셋이 종합 100위 밖입니다.",
+                             "en":  "[UK rankings] Three world-leading subjects sit outside the overall top 100",
+                             "cat":  "major",
+                             "min":  5,
+                             "ver":  "2026-08"
+                         }
 }
