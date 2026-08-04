@@ -58,3 +58,101 @@
 - [x] uk-dmu 드몽포트
 - [x] uk-anglia-ruskin 앵글리아러스킨
 - [x] uk-ljmu 리버풀존무어스
+
+---
+
+# 작업 기록 (AU 방식 승계)
+
+## 🟢 진단 카드 38건 학비 전수 대조 (2026-08-04)
+
+**일치 11건 · 정정 27건.** 카드의 "약 £X ~ £Y" 범위 대부분이 한 해 뒤처진 값이었고
+(2026-27 공시가 더 높음), **과정 자체가 개편·개명된 것이 6건** 나왔다.
+정정값은 전부 대학 공시 원문이고, 확인된 카드는 정확값(단일 금액)으로 바꿨다.
+
+### 과정 개편 — 작년 이름으로 검색하면 없는 과정이 나온다
+| 옛 이름(카드) | 현재 |
+|---|---|
+| Leeds MA Advertising and Marketing | **MSc Marketing Management with Advertising** £31,500 |
+| Leeds MSc (Eng) Civil Engineering | 단독 과정 없음 → **MSc (Eng) Structural Engineering** £33,500 |
+| Leeds LLM International Law | **LLM International Law and Global Governance** £28,750 |
+| Manchester MSc International Development | **MSc Global Development** 계열 £30,500 |
+| Manchester MSc Electrical and Electronic Eng | 그 이름 없음 → **MSc Electrical Power Systems Engineering** £38,400 |
+| Warwick MSc Business Analytics | **MSc Business Analytics & Artificial Intelligence** £38,150 |
+| Lancaster MSc Accounting and Financial Mgmt | **MSc Accounting and Finance** (£30,000, 리다이렉트 확인) |
+| Sheffield Civil/Structural | **MSc Civil and Structural Engineering** 통합 £32,905 |
+| Birmingham MSc Sport Policy, Business and Mgmt | **MSc Sport Business, Management and Leadership** £27,090 |
+| Cranfield "MSc Aerospace Engineering" | 그 이름 없음 → **Aerospace Vehicle Design** £33,045 / Automotive £29,025 |
+
+⚠ **Leeds MA TESOL은 교육 경력 2년 필수다.** 경력 없는 지원자는 같은 학교
+**TESOL Studies MA**(£28,750)로 지원한다. 카드도 그쪽으로 바꿨고 desc에 요건을 적었다.
+
+### 큰 폭 정정 (요주의)
+UCL MA Education 27~30k → **£39,200** · Edinburgh DS/AI 38.5~42k → **£45,410** ·
+KCL DS·Cyber → **£40,450** · QMUL Laws LLM → **£33,000**(SQE 병행판은 £37,950) ·
+Southampton Cyber·EE → **£35,000** · Glasgow 셋 다(£29,355 / £33,210 / £33,210).
+Goldsmiths Media&Comms는 반대로 **내려서** £23,000.
+
+### 학교별 조회 방법 — 다음에 그대로 쓸 것
+| 학교 | 방법 |
+|---|---|
+| Leeds | `courses.leeds.ac.uk` 코스 페이지 same-origin fetch. `International fees £X (Total)` 패턴 |
+| Manchester | 코스 페이지 fetch. `tuition fees are as follows: … International, including EU, students (per annum): £X` |
+| KCL | 코스 URL 뒤에 **`/fees`**를 붙이면 fetch로 잡힌다. `Full time tuition fees international £X per year (2026/27)` |
+| Glasgow | fetch로는 안 나온다(JS). **페이지를 실제로 열어** `International & EU Full-time fee: £X` |
+| Edinburgh | 코스 페이지엔 금액이 없다. **registryservices.ed.ac.uk의 2026-2027 taught-masters 표**(692행)에서 찾을 것 |
+| Sheffield | fetch로는 안 나온다. 실제로 열면 `£X Overseas students`. 2026 코스 목록에서 슬러그 확인 |
+| Southampton | 코스 페이지에 금액 없음. **`/courses/fees/postgraduate.page` 중앙 표**(545행) |
+| York | 코스 페이지 fetch. `fees for 2026/27 … Full-time (1 year) £UK £Intl` |
+| UCL | 실제로 열고 **"International students" 탭 클릭** 필요. `Overseas tuition fees (2026/27)` |
+| Bath | 코스 페이지에 금액 없음. **`/corporate-information/<학부>-taught-postgraduate-tuition-fees-2026-27`** |
+| Goldsmiths | 코스 페이지에 있으나 **`pg-fees-2026-27.pdf`가 정답**(pdftotext -raw) |
+| QMUL | 코스 페이지에 다 있다. ⚠ 옵션(SQE·파트타임)별 금액이 여럿이니 `Full-time September 2026` 블록을 볼 것 |
+| Leicester | SPA라 **"Fees and funding" 탭을 클릭해야** 금액이 붙는다 (href 없는 쪽 탭) |
+| Cranfield | 금액이 innerHTML에 있다. ⚠ **2025-26·2026-27이 나란히 있으니** 연도 라벨을 앞에서 확인 |
+| WBS(워릭) | `wbs.ac.uk/courses/masters/<slug>/fees/` |
+| Lancaster | 코스 페이지 표는 장학금 표. 학비는 그 표의 첫 금액(£30,000) |
+
+## 🟢 진단 구조 점검 + 해외고 다이렉트 버그 수정 (2026-08-04)
+
+**학부 5문항(학력→내신→영어→계열→목표)·석사 5문항(영어→GPA→전공 2단계→전공 일치→목표)**
+구조 자체는 학생 관점에 맞게 서 있다. 영어 환산기(TOEFL·PTE), 특수 전공 직접 입력, 뒤로 가기,
+공유 링크까지 있다. 고친 것 하나, 남긴 것 둘:
+
+- **고침**: `status='intl'`(해외고 A-level·IB)이 파운데이션으로 추천되던 버그.
+  A-level·IB는 영국 대학이 그대로 받는 자격이라 **다이렉트가 기본**이고 옥스브리지·G5도 이 전형이다.
+  `ugRouteDecision`/`ugRouteReason`에 intl → `direct` 분기 추가, i18n 키
+  `directUgTitle`/`directUgSub`/`rIntl` 신설(ko·en 짝).
+- **남김 1**: 석사 트랙에 **경력 질문이 없다.** MBA(실무 4년 또는 GMAT)·비전공 전환에서 경력이
+  자격 요건인데 sameMajor 질문의 note로만 언급된다. 질문 추가는 공유 링크 인코딩(#p= JSON이라
+  AU보다 안전)과 함께 검토.
+- **남김 2**: UG 결과의 파운데이션 유형 추천(fndTypeRecommend)이 intl(다이렉트) 학생에게도
+  표시된다. 정보성이라 틀리진 않지만 direct 추천과 나란히 있으면 혼동 여지.
+
+## 🟢 HUB_UNI 점검 결과 (2026-08-04)
+
+**진단에 등장하는 학교는 전부 허브에 연결돼 있다**(UNI_ALIAS 포함, 누락 0).
+허브 49곳 중 진단에 아예 안 나오는 20곳이 남는다:
+cardiff · liverpool · surrey · reading · royal-holloway · city · brunel · soas · birkbeck ·
+lbs · rvc · aston · oxford-brookes · westminster · northumbria · middlesex · uclan · dmu ·
+anglia-ruskin · ljmu.
+→ 이건 매핑 문제가 아니라 **진단 콘텐츠 확장** 문제다. UG_UNIS(현재 22곳)에 추가하려면
+파운데이션 운영 형태(자체/제휴/기관)를 확인해야 하는데, **허브 universities-uk.json의
+pathways 필드에 이미 검증된 데이터가 있다**(49/49). 그걸 소스로 쓰면 재조사가 필요 없다.
+
+## 🟢 유학 정보 글 구조 개통 (2026-08-04)
+
+- `build-uni.ps1`의 두 루프(`$ARTICLES_BY_CC`, `$articleLocs`)에 `'uk'` 추가.
+- `guide/uk.html`에 `<div class="info-board">` 섹션 신설(자주 묻는 질문과 공식 출처 사이).
+- `data/articles-uk.json` 생성, **1편: `msc-fees-2026`** — 이번 38건 대조에서 나온 축
+  ("같은 1년 석사가 £23,000~£45,410, 밴드를 가르는 건 계열이다 / 유통되는 숫자는 한 해 뒤처져 있다").
+- 빌드 3회 연속 게시판 행수 유지 확인(au 26 · uk 1). 대학 페이지 글 연계는 소스 도메인 자동
+  매칭이라 리즈·KCL·에든버러 등 출처에 있는 학교 페이지에 자동으로 붙는다.
+
+### 다음에 이어갈 자리
+1. **coei uk 게시판(coei.com/uhak-info/rc/uk) 인벤토리** — 글이 많지 않다고 하니 AU처럼
+   주제 목록만 만들고 본문은 우리 데이터로 새로 쓴다. 원저자 문제(AU와 동일)도 같은 원칙.
+2. **UG(파운데이션) 기관별 요건 검증** — UG_UNIS의 fnd/iyo는 운영 형태까지만 있고
+   IELTS·내신 기준이 없다. 기관(Kaplan·INTO·Study Group·CEG) 공식 페이지에서 확인할 것.
+3. **PG 카드 학교 폭 확장** — 현재 19전공 38카드(학교 17곳). 허브 미등장 20곳 중
+   상담 수요 있는 곳(카디프·리버풀·서리 등)을 전공별로 추가.
+4. **UG 학비 데이터** — 진단 UG 결과에 학비 표가 있는데(commit 7fa8ff5) 값 검증은 아직.
