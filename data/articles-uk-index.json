@@ -40,5 +40,12 @@
                          "cat":  "cost",
                          "min":  5,
                          "ver":  "2026-08"
+                     },
+    "london-costs":  {
+                         "ko":  "[런던 유학비] 학부 학비는 런던이 더 쌉니다.",
+                         "en":  "[London costs] Undergraduate fees run lower in London",
+                         "cat":  "cost",
+                         "min":  5,
+                         "ver":  "2026-08"
                      }
 }
