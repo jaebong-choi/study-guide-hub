@@ -72,11 +72,12 @@ function renderKrw() {
         el.textContent = (en ? 'approx. ' : '약 ') + range;
     });
 
+    // 문구는 각 국가 진단 결과 페이지(au-study-guide 등)와 같은 것을 쓴다
     var today = new Date();
     document.querySelectorAll('.fx-date').forEach(function (el) {
         el.textContent = en
-            ? 'Rate as of ' + today.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })
-            : today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율 기준';
+            ? 'KRW amounts converted at the rate as of ' + today.toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })
+            : '원화는 ' + today.getFullYear() + '. ' + (today.getMonth() + 1) + '. ' + today.getDate() + '. 환율로 환산한 참고 값입니다.';
     });
 }
 
