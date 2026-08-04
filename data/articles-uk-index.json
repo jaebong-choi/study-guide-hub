@@ -1,0 +1,44 @@
+{
+    "msc-fees-2026":  {
+                          "ko":  "[영국 석사 학비] 같은 1년 석사인데 학비는 두 배까지 벌어집니다.",
+                          "en":  "[UK master\u0027s fees] The same one year, and the price can double",
+                          "cat":  "cost",
+                          "min":  4,
+                          "ver":  "2026-08"
+                      },
+    "foundation-accepted":  {
+                                "ko":  "[영국 파운데이션] 임페리얼이 인정하는 과정은 두 곳뿐입니다.",
+                                "en":  "[UK foundation] Imperial accepts exactly two foundation courses",
+                                "cat":  "pathway",
+                                "min":  5,
+                                "ver":  "2026-08"
+                            },
+    "iyo-second-year":  {
+                            "ko":  "[영국 IYO] 파운데이션은 150개 학위로, IYO는 세 갈래로 이어집니다.",
+                            "en":  "[UK International Year One] A foundation opens 150+ degrees; the IYO opens three routes",
+                            "cat":  "pathway",
+                            "min":  4,
+                            "ver":  "2026-08"
+                        },
+    "foundation-fees":  {
+                            "ko":  "[영국 파운데이션 학비] 가격을 정하는 건 운영사가 아니라 목표 대학",
+                            "en":  "[UK foundation fees] The university sets the price, not the provider",
+                            "cat":  "cost",
+                            "min":  4,
+                            "ver":  "2026-08"
+                        },
+    "foundation-intakes":  {
+                               "ko":  "[영국 파운데이션 입학] 10월에 시작하든 1월에 시작하든 같은 날 끝납니다.",
+                               "en":  "[UK foundation intakes] Start in October or start in January, you finish on the same day",
+                               "cat":  "pathway",
+                               "min":  4,
+                               "ver":  "2026-08"
+                           },
+    "ug-fees-2026":  {
+                         "ko":  "[영국 학부 학비] 학비를 정하는 건 학교 이름이 아니라 전공",
+                         "en":  "[UK bachelor\u0027s fees] The subject sets the price, not the university\u0027s name",
+                         "cat":  "cost",
+                         "min":  5,
+                         "ver":  "2026-08"
+                     }
+}

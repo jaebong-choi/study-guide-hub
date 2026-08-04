@@ -1667,6 +1667,27 @@ $srcRows
         [IO.File]::WriteAllText((Join-Path $repoRoot ("guide\" + $file)), $artHtml, $utf8NoBom)
         $articleLocs += ('guide/' + $file)
     }
+
+    # 진단 사이트(au-study-guide 등)가 결과 화면에 글을 띄울 때 읽는 가벼운 색인.
+    # 원본 articles-{cc}.json은 본문까지 들어 있어 200KB가 넘으므로 통째로 주지 않는다.
+    # ⚠ 제목을 진단에 복사해 두면 반드시 어긋난다 — 2026-08-04에 26편이 전부 어긋나 있었다.
+    #   진단은 이 색인만 보고, 제목·설명은 articles-{cc}.json 한곳에서만 고친다.
+    #   담는 것은 결과 카드가 실제로 그리는 필드뿐이다(설명은 카드에 안 나온다).
+    $index = [ordered]@{}
+    foreach ($a in $articles) {
+        $index[$a.slug] = [ordered]@{
+            ko  = $a.title_ko
+            en  = $a.title_en
+            cat = $(if ($a.category) { $a.category } else { 'major' })
+            min = $a.read_min
+            ver = $a.verified
+        }
+    }
+    [IO.File]::WriteAllText(
+        (Join-Path $repoRoot ("data\articles-" + $cc + "-index.json")),
+        ($index | ConvertTo-Json -Depth 5), $utf8NoBom)
+    Write-Host ("생성: data\articles-{0}-index.json ({1}편)" -f $cc, $index.Count) -ForegroundColor Green
+
     # 목록은 guide\{cc}.html의 <div class="info-board"> 안을 통째로 갈아 끼운다.
     # 카드 나열이 아니라 게시판(제목만 나오는 행 + 분류·대상 필터 + 페이지 넘김)이다.
     # 글이 늘어나도 화면이 길어지지 않게 한 페이지 10행으로 끊는다.
