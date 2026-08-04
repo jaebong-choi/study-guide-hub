@@ -1568,6 +1568,9 @@ foreach ($cc in @('au', 'uk')) {
     $artPath = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
     if (-not (Test-Path $artPath)) { continue }
     $articles = Get-Content $artPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    # 빵부스러기·CTA에 들어가는 국가 이름. 나라를 늘리면 여기만 추가하면 된다.
+    $ccNameKo = @{ 'au' = '호주'; 'uk' = '영국'; 'ca' = '캐나다'; 'us' = '미국' }[$cc]
+    $ccNameEn = @{ 'au' = 'Australia'; 'uk' = 'UK'; 'ca' = 'Canada'; 'us' = 'US' }[$cc]
     foreach ($a in $articles) {
         $file = "$cc-info-$($a.slug).html"
         $srcRows = ($a.sources | ForEach-Object {
@@ -1600,7 +1603,7 @@ foreach ($cc in @('au', 'uk')) {
         })();
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="../css/guide.css?v=20260803">
+    <link rel="stylesheet" href="../css/guide.css?v=20260804">
 </head>
 <body data-title-ko="$(Esc $a.title_ko) | Study Guide Hub" data-title-en="$(Esc $a.title_en) | Study Guide Hub">
     <header class="site-header">
@@ -1619,7 +1622,7 @@ foreach ($cc in @('au', 'uk')) {
     <main>
         <section class="guide-hero">
             <div class="container">
-                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › &lt;a href=&quot;./$cc.html&quot;&gt;Australia guide&lt;/a&gt; › Info"><a href="../index.html">홈</a> › <a href="./$cc.html">호주 진학 가이드</a> › 유학 정보</p>
+                <p class="crumb" data-en="&lt;a href=&quot;../index.html&quot;&gt;Home&lt;/a&gt; › &lt;a href=&quot;./$cc.html&quot;&gt;$ccNameEn guide&lt;/a&gt; › Info"><a href="../index.html">홈</a> › <a href="./$cc.html">$ccNameKo 진학 가이드</a> › 유학 정보</p>
                 <h1 data-en="$(Esc $a.title_en)">$(Esc $a.title_ko)</h1>
                 <p class="article-meta"><span data-en="About $($a.read_min) min read">약 $($a.read_min)분</span><span data-en="Verified $($a.verified)">정보 확인 $($a.verified)</span></p>
             </div>
@@ -1644,7 +1647,7 @@ $srcRows
                 <h2 data-en="Which route fits your grades?">내 성적이면 어떤 경로일까?</h2>
                 <div class="hero-actions">
                     <a class="btn btn-primary" href="https://jaebong-choi.github.io/$cc-study-guide/" data-en="Start the 3-minute quiz">3분 진단 시작</a>
-                    <a class="btn btn-secondary" href="./$cc.html" data-en="Back to the Australia guide">호주 진학 가이드로</a>
+                    <a class="btn btn-secondary" href="./$cc.html" data-en="Back to the $ccNameEn guide">$ccNameKo 진학 가이드로</a>
                 </div>
             </div>
         </section>

@@ -897,3 +897,40 @@ course_area=All · Search=<과정명 일부> · op=Search
 **앞으로 학비를 고칠 때는 같은 목록의 rank·desc를 반드시 같이 읽을 것.**
 
 - ~~`social-work`~~ · ~~`physio-ot`~~ · ~~`aviation-cost`~~ · ~~`it-cost`~~ → **숫자가 축인 글 4편 전부 정리 완료.**
+
+## 글 안의 표·그래프·사진 (2026-08-04, 사용자 지시)
+
+### ⚠ 표가 안 보이던 원인 — 클래스 이름
+글 본문의 표는 반드시 **`<div class="table-wrap"><table class="fact-table">`** 로 쓴다.
+`tbl-wrap` 같은 다른 이름을 쓰면 **CSS가 하나도 안 걸려 줄만 나열된 것처럼 보인다**.
+실제로 2026-08-04에 새로 쓴 글 2편(`skilled-migration`·uk `msc-fees-2026`)이 이 상태로 나갔다.
+기존 23편은 정상이었다 — 컨벤션을 따르지 않은 게 원인이지 CSS 문제가 아니다.
+
+### 막대그래프 — 라이브러리 없이 CSS만
+표로는 안 잡히는 **격차**를 보여줄 때 쓴다. 폭은 인라인 `--w`(최댓값 기준 %)로 준다.
+```html
+<div class="bar-chart">
+  <p class="bc-cap" data-en="EN caption">차트 설명</p>
+  <div class="bar-row is-high">          <!-- is-high 빨강 · is-low 초록 · 없으면 중립 -->
+    <span class="bc-label" data-en="EN">항목</span>
+    <span class="bc-track"><span class="bc-fill" style="--w:80%"></span></span>
+    <span class="bc-val">60점</span>
+  </div>
+</div>
+```
+- 색은 `--bar`(중립) · `--bar-high` · `--bar-low` 세 변수로 테마별 정의돼 있다.
+  ⚠ **브랜드색 `--accent`(노랑)를 막대에 쓰지 말 것** — 빨강·초록과 섞이면 신호등처럼 읽힌다.
+- `is-high`/`is-low`는 **글의 결론에 해당하는 항목에만** 붙인다. 다 칠하면 강조가 사라진다.
+- 520px 아래에서는 라벨이 윗줄로 빠지도록 돼 있다.
+
+### 본문 사진
+`images/article/`에 두고 `{국가코드}-{주제}.jpg`로 이름을 붙인다. 규격·마크업은
+`images/article/README.md`에 적어 뒀다. **`alt`와 `data-en-alt`를 짝으로** 넣어야
+영문 모드에서 대체 텍스트도 바뀐다. 스타일은 `.article-body figure`가 처리한다.
+
+⚠ **CSS를 고치면 `guide.css?v=` 버전을 올릴 것.** `build-uni.ps1`과 `guide/*.html`에 함께 있다.
+i18n.js 캐시 함정과 같은 문제다.
+
+### 빌드 템플릿의 국가 하드코딩 (같은 날 수정)
+글 페이지의 빵부스러기·CTA에 "호주 진학 가이드"가 박혀 있어 **영국 글에도 호주로 나갔다.**
+`$ccNameKo`/`$ccNameEn` 맵으로 바꿨다. 나라를 늘리면 그 맵에만 추가하면 된다.
