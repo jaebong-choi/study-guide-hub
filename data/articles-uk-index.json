@@ -54,5 +54,12 @@
                              "cat":  "major",
                              "min":  5,
                              "ver":  "2026-08"
-                         }
+                         },
+    "pharmacy-registration":  {
+                                  "ko":  "[영국 약대] 학위 다음에 52주가 더 있습니다.",
+                                  "en":  "[UK pharmacy] The degree is followed by another 52 weeks",
+                                  "cat":  "major",
+                                  "min":  6,
+                                  "ver":  "2026-08"
+                              }
 }
