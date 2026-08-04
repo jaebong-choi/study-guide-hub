@@ -1685,8 +1685,10 @@ $srcRows
     $rows = ($ordered | ForEach-Object {
         $no = $total - $i; $i++
         $cat = if ($_.category) { $_.category } else { 'major' }
-        # tracks가 없으면 학부·석사 공통으로 본다
-        $tr = if ($_.tracks) { @($_.tracks) } else { @('bachelor', 'master') }
+        # tracks가 없으면 학부·석사 공통으로 본다.
+        # ⚠ if 전체를 @()로 감싼다. 안쪽에만 @()를 쓰면 원소 1개짜리 배열이 대입 과정에서
+        #   문자열로 풀려서 $tr[0]이 첫 글자('m')가 된다. 그래서 석사 글이 학부로 표시됐다.
+        $tr = @(if ($_.tracks) { $_.tracks } else { 'bachelor', 'master' })
         $trKo = if ($tr.Count -gt 1) { '학부·석사' } elseif ($tr[0] -eq 'master') { '석사' } else { '학부' }
         $trEn = if ($tr.Count -gt 1) { 'Bachelor and master' } elseif ($tr[0] -eq 'master') { 'Master' } else { 'Bachelor' }
         '                    <a class="board-row" href="./' + $cc + '-info-' + $_.slug + '.html" data-cat="' + $cat + '" data-track="' + ($tr -join ' ') + '">' + "`n" +
