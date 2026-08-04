@@ -974,9 +974,25 @@ H2 제목의 라벨 용도(`1번 문 — 관련 학사`)라 이번엔 손대지 
 | `early-childhood` | `au-early-childhood.jpg` | 3년·4년 모두 연 AUD 35,700, 1년 더 내고 얻는 건 Reception~Year 2 |
 | `engineering` | `au-engineering-workshop.jpg` | EA 인증 · QUT가 연 AUD 12,000 낮음 |
 
-**26편 중 8편.** 나머지 18편은 축이 경로·요건·시험이라 사진이 정보가 되지 않는다.
-넣는다면 남은 후보는 `dental-routes`(치과) · `vet-routes`(수의) · `hospitality`(호텔) ·
-`lab-medicine`(실험실) · `pharmacy`(조제) 정도다.
+| `dental-routes` | `au-dental-clinic.jpg` | 그리피스가 치위생은 치대 경로가 아니라고 두 번 명시 |
+| `vet-routes` | `au-veterinary-clinic.jpg` | UQ 5년 AUD 449,000 ↔ 시드니 DVM 4년 AUD 322,000 |
+| `hospitality` | `au-hotel-reception.jpg` | 그리피스 AUD 41,000(전공 무관) ↔ BMIHMS AUD 45,600(유급 인턴십 내장) |
+| `lab-medicine` | `au-medical-lab.jpg` | 단독 학사 폐지 → 통합 4년 또는 2년 석사 |
+| `pharmacy` | `au-pharmacy.jpg` | APC 인증 과정 + 인턴 1년 + 등록시험 |
+
+**26편 중 13편.** 나머지 13편은 축이 경로·요건·시험이라 사진이 정보가 되지 않아 남겼다.
+
+### ⚠ Envato 자동화 — 앱 멈춤 회피 절차 (2026-08-04)
+이미지 그리드를 반복 스크린샷하다 앱이 멈춘 뒤 방식을 바꿨다. 메모리 `cloudflare-browser-crash` 참고.
+
+1. **검색 결과는 `find`로 제목만 뽑는다.** 그리드 스크린샷이 아예 필요 없다.
+2. **`read_page`로 그 tile의 href를 얻어 상세 페이지로 직접 `navigate`한다.**
+   ⚠ tile을 `computer` 클릭으로 여는 건 자주 실패한다.
+3. **Download는 좌표 클릭이 확실하다**(`ref` 클릭은 잘 안 먹는다).
+   버튼 y좌표는 제목 줄 수에 따라 다르다 — 1줄 160 · 2줄 174 · 3줄 189.
+4. ⚠ **페이지 진입 직후 첫 클릭은 자주 무시된다.** 다운로드 폴더를 확인해 안 받아졌으면
+   스크린샷 1장으로 상태를 보고 다시 클릭한다.
+5. **받은 JPG를 `Read`로 열지 말 것.** 크기·용량은 PowerShell로 수치만 확인한다.
 
 ⚠ **사진 기준이 넓어졌다(사용자 지시).** 장소 사진만이 아니라 **글 주제와 연관된 사진**도 쓴다.
 사용자 예시: 요리 글에 주방 사진, 컴퓨터사이언스 글에 AI 관련 사진.
