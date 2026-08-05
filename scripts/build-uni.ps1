@@ -1603,7 +1603,7 @@ foreach ($cc in @('au', 'uk', 'ca')) {
         })();
     </script>
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="../css/guide.css?v=20260805">
+    <link rel="stylesheet" href="../css/guide.css?v=20260806">
 </head>
 <body data-title-ko="$(Esc $a.title_ko) | Study Guide Hub" data-title-en="$(Esc $a.title_en) | Study Guide Hub">
     <header class="site-header">

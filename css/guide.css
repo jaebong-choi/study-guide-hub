@@ -243,7 +243,9 @@ mark {
 .bar-row { display: grid; grid-template-columns: minmax(88px, 27%) 1fr auto; align-items: center; gap: 10px; }
 .bar-row .bc-label { font-size: 13.5px; color: var(--body-text); word-break: keep-all; line-height: 1.35; }
 .bar-row .bc-track { background: var(--line); border-radius: 999px; height: 22px; overflow: hidden; }
-.bar-row .bc-fill { display: block; height: 100%; width: var(--w, 0%); border-radius: 999px; background: var(--bar); }
+/* --x를 주면 막대가 그 지점에서 시작한다 — 값 하나가 아니라 구간(하단~상단)을 보여줄 때 쓴다.
+   안 주면 0이라 기존 막대는 그대로 왼쪽 끝에서 시작한다. */
+.bar-row .bc-fill { display: block; height: 100%; width: var(--w, 0%); margin-inline-start: var(--x, 0%); border-radius: 999px; background: var(--bar); }
 .bar-row .bc-val { font-size: 13.5px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; }
 /* 강조 막대 — 글의 결론에 해당하는 항목 */
 .bar-row.is-high .bc-fill { background: var(--bar-high); }
