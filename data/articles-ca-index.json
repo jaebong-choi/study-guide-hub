@@ -68,5 +68,12 @@
                               "cat":  "pathway",
                               "min":  6,
                               "ver":  "2026-08"
-                          }
+                          },
+    "college-degree-fees":  {
+                                "ko":  "[컬리지 학사 학위] 4년제 학위인데 가장 싼 대학보다 연 C$3,570 쌉니다.",
+                                "en":  "[College bachelor\u0027s degrees] A four-year degree, and CA$3,570 a year below the cheapest university on the list.",
+                                "cat":  "cost",
+                                "min":  5,
+                                "ver":  "2026-08"
+                            }
 }
