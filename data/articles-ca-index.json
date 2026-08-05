@@ -12,5 +12,12 @@
                               "cat":  "cost",
                               "min":  5,
                               "ver":  "2026-08"
-                          }
+                          },
+    "english-requirements":  {
+                                 "ko":  "[캐나다 컬리지 영어] \"컬리지는 6.0\"이 가장 자주 틀리는 말입니다.",
+                                 "en":  "[Canadian college English] \"Colleges want a 6.0\" is the line that misses most often",
+                                 "cat":  "english",
+                                 "min":  4,
+                                 "ver":  "2026-08"
+                             }
 }

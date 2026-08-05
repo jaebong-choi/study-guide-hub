@@ -1162,14 +1162,14 @@
         "tuition_pg_max":  null,
         "currency":  "CAD",
         "english":  {
-                        "ielts_min":  6.5,
+                        "ielts_min":  6.0,
                         "accepted":  [
                                          "ielts",
                                          "toefl",
                                          "pte",
                                          "duolingo"
                                      ],
-                        "note":  "대부분 과정 6.5 (각 6.0) · 실무간호와 간호학사도 같은 6.5 · 미달 시 부설 ELS 과정 4단계 수료로 진입"
+                        "note":  "디플로마·인증서 6.0 (각 5.5) · 학위와 대학원 서티피킷 6.5 (각 6.0) · 작업치료사보조·물리치료사보조·실무간호·약국테크니션 디플로마도 6.5 · 미달 시 부설 어학 과정을 거쳐 진입"
                     },
         "popular_majors":  [
                                "엔지니어링 테크",
