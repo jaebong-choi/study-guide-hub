@@ -61,5 +61,12 @@
                                  "cat":  "cost",
                                  "min":  6,
                                  "ver":  "2026-08"
-                             }
+                             },
+    "intakes-deadlines":  {
+                              "ko":  "[캐나다 지원 마감] 1월 15일은 온타리오 고교생의 마감입니다. 한국에서 지원하면 공통 마감이 없습니다.",
+                              "en":  "[Canadian deadlines] January 15 is the Ontario high school student\u0027s deadline. Apply from Korea and there is no common deadline at all.",
+                              "cat":  "pathway",
+                              "min":  6,
+                              "ver":  "2026-08"
+                          }
 }
