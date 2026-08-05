@@ -19,6 +19,33 @@
 새 축을 열려면 `data/coei-ca-topics.md`와 딥 리서치 보고서
 (`~/Documents/Canada_Article_Topics_Research_20260805/`)부터 다시 볼 것.
 
+### ✅ 진단 결과 페이지 다크모드 (2026-08-05, 사용자 지적)
+
+**다크모드로 바꿔도 결과 본문이 흰 판으로 남았다.** 원인은 하나였다 —
+`#result-details`와 `#consulting-section`이 `bg-apple-light text-apple-dark-surface`로
+**고정**돼 있었다. 그 위 CSS 주석에 "밝은 섹션은 원래 밝으므로 건드리지 않는다"고
+적혀 있던 걸 보면 다크모드를 넣을 때의 **의도한 선택**이었는데, 실제로 보면 결함이다.
+
+- 두 요소에서 그 두 클래스를 떼고, **다크를 기본으로 두고 `[data-theme="light"]`에서 되돌리는**
+  나머지 구역과 같은 방식으로 바꿨다.
+- 안쪽도 같이 뒤집었다 — `.apple-card`·`.apple-card-flat` 배경, `text-[#1d1d1f]`,
+  `text-gray-500/600/700`, `border-gray-100/200`, `.region-badge` 3종, `text-green-600`·`text-red-500`.
+- 로컬에서 양쪽 테마를 실측했다. 다크 `#0b0b0f`/`#f5f5f7`, 라이트 `#f5f5f7`/`#1d1d1f`,
+  카드는 `#1d1d1f`↔`#ffffff`. **라이트 모드는 고치기 전과 동일하다.**
+- 낡은 CSS 주석도 새 동작에 맞게 고쳤다. **새 섹션에 `bg-apple-light`를 쓰지 말 것.**
+
+⚠ **AU에 같은 문제가 훨씬 크게 남아 있다.** `bg-apple-light`가 CA는 3곳뿐이었는데
+**AU는 42곳**이다. UK·US는 0곳이라 이미 정리돼 있다(UK는 `#result-section`이 `bg-white`인데
+라이트 오버라이드가 없어 같은 증상일 수 있다 — 확인 안 했다).
+→ **AU를 고치려면 이 커밋의 CSS를 본떠 쓰되, 42곳이라 훨씬 큰 작업이다.**
+
+💡 `ca-study-guide/serve-static.ps1`을 넣어 뒀다(허브·US에 있던 것과 같은 파일).
+`powershell -File serve-static.ps1 -Port 4322`로 띄우고 결과 페이지는 콘솔에서
+`['result-hero','result-details'].forEach(id=>document.getElementById(id).classList.remove('hidden'))`로
+바로 열어 볼 수 있다. 퀴즈를 다 풀 필요가 없다.
+⚠ 끝나면 반드시 프로세스를 죽일 것. 포트로 찾으면 소유자가 `System`으로 나오니
+**스크립트 이름으로 powershell 프로세스를 찾아야 한다.**
+
 ### 컬리지 학사 학비 — 크롬으로 조지브라운을 채웠다 (2026-08-05 심야)
 
 `college-degree-fees`는 **3곳(코네스토가·조지브라운·세네카)** 수치로 서 있다.
