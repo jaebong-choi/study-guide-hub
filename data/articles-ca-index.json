@@ -19,5 +19,12 @@
                                  "cat":  "english",
                                  "min":  4,
                                  "ver":  "2026-08"
-                             }
+                             },
+    "transfer-routes":  {
+                            "ko":  "[캐나다 편입] 컬리지 2년이 대학 2년으로 그대로 옮겨 가지는 않습니다.",
+                            "en":  "[Canadian transfer] Two years of college does not become two years of university",
+                            "cat":  "pathway",
+                            "min":  5,
+                            "ver":  "2026-08"
+                        }
 }
