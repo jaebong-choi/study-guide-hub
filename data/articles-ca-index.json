@@ -75,5 +75,12 @@
                                 "cat":  "cost",
                                 "min":  5,
                                 "ver":  "2026-08"
-                            }
+                            },
+    "scholarships":  {
+                         "ko":  "[캐나다 장학금] 전액은 학교가 지명해야 지원할 수 있고, 그 마감이 입학보다 먼저 닫힙니다.",
+                         "en":  "[Canadian scholarships] The full rides need a school nomination, and that deadline closes before the admission one.",
+                         "cat":  "cost",
+                         "min":  5,
+                         "ver":  "2026-08"
+                     }
 }
