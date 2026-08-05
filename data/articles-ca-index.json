@@ -27,11 +27,11 @@
                             "min":  5,
                             "ver":  "2026-08"
                         },
-    "living-cost-proof":  {
-                              "ko":  "[캐나다 생활비] C$22,895는 생활비가 아니라 증빙 기준액입니다.",
-                              "en":  "[Canadian living costs] CA$22,895 is not a budget, it is a threshold",
-                              "cat":  "cost",
-                              "min":  4,
-                              "ver":  "2026-08"
-                          }
+    "living-costs":  {
+                         "ko":  "[캐나다 생활비] 방값은 도시에 따라 세 배 넘게 갈립니다.",
+                         "en":  "[Canadian living costs] Rent varies by more than three times between cities",
+                         "cat":  "cost",
+                         "min":  5,
+                         "ver":  "2026-08"
+                     }
 }
