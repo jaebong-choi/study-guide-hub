@@ -5,5 +5,12 @@
                              "cat":  "pathway",
                              "min":  4,
                              "ver":  "2026-08"
-                         }
+                         },
+    "college-fees-2026":  {
+                              "ko":  "[캐나다 컬리지 학비] 컬리지 20곳을 한 표에 놓으면 두 배 넘게 벌어집니다.",
+                              "en":  "[Canadian college fees] Put 20 colleges in one table and the top is over twice the bottom",
+                              "cat":  "cost",
+                              "min":  5,
+                              "ver":  "2026-08"
+                          }
 }
