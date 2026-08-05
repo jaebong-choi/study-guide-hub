@@ -122,24 +122,24 @@
     "city": "Brisbane",
     "qs_rank": 40,
     "qs_subject_ranks": [],
-    "tuition_ug_min": 53760,
-    "tuition_ug_max": 53760,
-    "tuition_pg_min": 60952,
+    "tuition_ug_min": 52528,
+    "tuition_ug_max": 60952,
+    "tuition_pg_min": 48080,
     "tuition_pg_max": 60952,
     "currency": "AUD",
     "english": { "ielts_min": 6.5, "accepted": ["ielts", "toefl", "pte"], "note": "표준 6.5 (각 6.0) · 과정별 상이" },
     "popular_majors": ["공학", "경영학", "생명과학", "의학"],
     "pathways": [
       { "type": "foundation", "level": "ug", "provider": "UQ College", "ielts_min": 5.5, "duration": "8개월~1년", "cost_note": null, "note": "UQ 부설 파운데이션 · 수료 성적 충족 시 본교 진학" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": "공학 A$53,760", "note": "수능·A-level 등 인정 성적으로 직접 지원" },
-      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": "공학과학 A$60,952", "note": "석사 직접 지원 · 의학(MD)은 연 A$109,328" }
+      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.5, "duration": "3~4년", "cost_note": "A$52,528~60,952 (건축디자인~공학·컴사, 2027)", "note": "수능·A-level 등 인정 성적으로 직접 지원" },
+      { "type": "direct", "level": "pg", "provider": null, "ielts_min": 6.5, "duration": "1~2년", "cost_note": "A$48,080~60,952 (사회복지~공학과학, 2027)", "note": "석사 직접 지원 · 의학(MD)은 연 A$109,328" }
     ],
     "intakes": ["2월", "7월"],
     "official_url": "https://www.uq.edu.au",
     "youtube_id": "7l72QC0UwCc",
     "editor_note": "QS 40위. 브리즈번에 있어 시드니나 멜버른보다 생활비가 덜 듭니다. 공학과 생명과학이 강합니다.",
     "related_ids": [],
-    "last_verified": "2026-07"
+    "last_verified": "2026-08"
   },
   {
     "id": "au-uts",
