@@ -47,5 +47,12 @@
                              "cat":  "pathway",
                              "min":  5,
                              "ver":  "2026-08"
-                         }
+                         },
+    "ossd-mechanism":  {
+                           "ko":  "[캐나다 OSSD] 지원자를 가르는 건 국적이 아니라 그해에 졸업장을 받느냐입니다.",
+                           "en":  "[Canada OSSD] What sorts applicants is not nationality but whether the diploma lands this year",
+                           "cat":  "pathway",
+                           "min":  5,
+                           "ver":  "2026-08"
+                       }
 }
