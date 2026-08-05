@@ -11,7 +11,7 @@
 
 | 남은 일 | 왜 |
 |---|---|
-| **사진 7편** | 1차 5편만 사진이 있다. 나머지는 전부 비어 있다 |
+| **사진 1편** | `college-degree-fees`만 남았다. 쓸 컷도 찾아 놨다(키치너). 나머지 4편은 안 넣는 게 맞다 |
 | **컬리지 학사 학비 기준 통일** | 조지브라운을 채워 3곳이 됐다. 다만 표 20곳의 출처 기준이 섞여 있다 |
 
 새 축을 열려면 `data/coei-ca-topics.md`와 딥 리서치 보고서
@@ -81,11 +81,33 @@ B308의 No는 그 과정이 **Suspended**이고 CIP가 N/A인 것과 얽힌 것�
 - 노출은 `ca-study-guide/index.html`의 `INFO_CA`에 slug를 추가해야 걸린다.
   ⚠ **제목은 복사하지 말 것.** 색인만 읽는다.
 
-### 사진이 7편 비어 있다
-`coop-permit` · `study-permit-cap` · `ossd-mechanism` · `university-fees-2026` ·
-`intakes-deadlines` · `college-degree-fees` · `scholarships`. 1차 5편만 사진이 있다.
-Envato 절차는 "본문 사진" 절에 있고, ⚠ 그 작업이 앱을 멈추게 한 이력이 있으니
-**시작하기 전에 가용 RAM을 재고 Chrome 창을 닫을 것**([[cloudflare-browser-crash]]).
+### 사진 — 2편 넣었고 5편 남았다 (2026-08-05 심야)
+
+✅ `university-fees-2026` → `ca-montreal-skyline.jpg` (몽루아얄에서 본 몬트리올 도심,
+   1400x570 · q78 · 141KB). 캡션이 맥길 C$31,837~71,687 · 격차 C$39,850을 담는다.
+✅ `scholarships` → `ca-toronto-skyline.jpg` (토론토 아일랜드에서 본 CN타워, 1400x550 · q78 · 108KB).
+   캡션이 피어슨 연 37명 · 학교당 1명 · 지명 마감 10월 9일을 담는다.
+
+**남은 5편 중 4편은 안 넣는 게 맞다고 본다.** 영국 `subject-rankings` 선례와 같은 이유다 —
+`study-permit-cap` · `intakes-deadlines` · `ossd-mechanism` · `coop-permit`은 전부 제도 글이라
+**그 숫자를 내는 장소가 없다.** 넣으려면 일반명사 스톡(웃는 학생·사무실)이 되는데 이 문서가 금지한다.
+남은 실제 후보는 `college-degree-fees` 하나다.
+
+⚠ **이번 세션에 Envato 썸네일이 한 장도 렌더되지 않았다.** 20초 넘게 기다려도 검은 판이다.
+→ **`find`로 제목만 뽑아 고르고, 가공한 파일을 `Read`로 열어 확인하는 방식이 통했다.**
+   (원본 말고 100KB대 가공본을 여는 것이라 부하가 작다. 두 장 다 제목과 일치했다.)
+   스크린샷 반복이 예전에 앱을 멈추게 한 부하이니 이 순서를 유지할 것.
+
+⚠ **상세 페이지 열기가 불안정하다.** `find`로 잡은 **generic 제목 요소**를 클릭하면 열릴 때가 있고
+안 열릴 때가 있다(`link` 요소를 클릭하면 대체로 안 열린다). 세 번 시도해도 안 열리면 접을 것.
+
+💡 **`college-degree-fees`용 컷은 찾아 놨다.** 코네스토가가 있는 키치너다.
+`kitchener`는 커버리지가 거의 없어서 볼티모어·빈·신시내티·벨라루스가 그리드를 채우는데,
+**진짜가 딱 한 장 있다 — "Kitchener, Ontario, Canada downtown cityscape at dusk."**
+다음 세션에서 그것만 노리면 된다. 캡션은 코네스토가 디플로마 C$15,477 → 학위 C$16,933을 담으면 된다.
+
+Envato 절차는 "본문 사진" 절과 `backlog-uk.md`에 있다. ⚠ 시작 전에
+**가용 RAM을 재고 Chrome 창을 닫을 것**([[cloudflare-browser-crash]]).
 
 ### 맥길에서 배운 것 — 전제를 물려받지 말 것
 앞 세션이 "맥길 금액은 프로그램마다 학점이 달라 환산이 필요하다"고 인계했는데 **틀렸다.**
