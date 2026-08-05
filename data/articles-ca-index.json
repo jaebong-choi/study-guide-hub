@@ -33,5 +33,19 @@
                          "cat":  "cost",
                          "min":  5,
                          "ver":  "2026-08"
-                     }
+                     },
+    "coop-permit":  {
+                        "ko":  "[캐나다 코업] 2026년 4월 1일, 코업 워크퍼밋이 사라졌습니다.",
+                        "en":  "[Canadian co-op] The co-op work permit disappeared on 1 April 2026",
+                        "cat":  "pathway",
+                        "min":  4,
+                        "ver":  "2026-08"
+                    },
+    "study-permit-cap":  {
+                             "ko":  "[캐나다 스터디 퍼밋] 2026년 캡 30만 9,670은 발급 수가 아니라 접수 자리입니다.",
+                             "en":  "[Canada study permit] The 2026 cap of 309,670 counts applications, not permits",
+                             "cat":  "pathway",
+                             "min":  5,
+                             "ver":  "2026-08"
+                         }
 }
