@@ -833,8 +833,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  null,
-        "tuition_ug_max":  null,
+        "tuition_ug_min":  31837,
+        "tuition_ug_max":  71687,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -860,7 +860,7 @@
                              "provider":  null,
                              "ielts_min":  6.5,
                              "duration":  "3~4년",
-                             "cost_note":  "학교가 프로그램별 1학년 총액으로 공시 · 공식 페이지 확인",
+                             "cost_note":  "C$31,837~71,687 (교육~경영, 30학점 기준·수업료만)",
                              "note":  "수능·내신으로 직접 지원 · 파운데이션 없이 성적 위주 선발"
                          },
                          {
@@ -879,11 +879,11 @@
                     ],
         "official_url":  "https://www.mcgill.ca",
         "youtube_id":  "r-1ZhLj7orw",
-        "editor_note":  "QS로는 캐나다 1위입니다. 몬트리올이 불어권이라 망설이는 학생이 많은데 수업은 영어로 합니다. 퀘벡주라 학비 체계가 다른데, 학교가 프로그램별 1학년 총액으로 공시해서 다른 대학과 나란히 놓기 어렵습니다. 지원 전 해당 과정 페이지에서 확인하세요.",
+        "editor_note":  "QS로는 캐나다 1위입니다. 몬트리올이 불어권이라 망설이는 학생이 많은데 수업은 영어로 합니다. 퀘벡주라 학비 체계가 다릅니다. 교육·간호·음악처럼 주정부가 요율을 정하는 학과는 연 C$31,837인데, 학교가 직접 정하는 인문은 C$54,000, 경영은 C$71,687입니다. 전공에 따라 두 배 넘게 벌어지니 학과부터 정하고 보세요. 대신 입학할 때의 학점당 금액이 졸업까지 잠깁니다.",
         "related_ids":  [
                             "ca-uoft"
                         ],
-        "last_verified":  "2026-07"
+        "last_verified":  "2026-08"
     },
     {
         "id":  "ca-alberta",
