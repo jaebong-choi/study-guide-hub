@@ -833,8 +833,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  31000,
-        "tuition_ug_max":  46350,
+        "tuition_ug_min":  null,
+        "tuition_ug_max":  null,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -1092,8 +1092,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  36110,
-        "tuition_ug_max":  36110,
+        "tuition_ug_min":  37080,
+        "tuition_ug_max":  41495,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",

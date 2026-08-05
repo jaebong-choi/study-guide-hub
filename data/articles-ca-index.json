@@ -54,5 +54,12 @@
                            "cat":  "pathway",
                            "min":  5,
                            "ver":  "2026-08"
-                       }
+                       },
+    "university-fees-2026":  {
+                                 "ko":  "[캐나다 대학 학비] 같은 학사 학위인데 매니토바와 토론토대가 3.7배 벌어집니다.",
+                                 "en":  "[Canadian university fees] The same bachelor\u0027s degree, and Manitoba to Toronto is a factor of 3.7",
+                                 "cat":  "cost",
+                                 "min":  6,
+                                 "ver":  "2026-08"
+                             }
 }
