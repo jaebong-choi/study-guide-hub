@@ -1,0 +1,9 @@
+{
+    "pgwp-eligibility":  {
+                             "ko":  "[캐나다 PGWP] 전공 목록보다 졸업장 종류를 먼저 봅니다.",
+                             "en":  "[Canada PGWP] The credential decides first, the subject second",
+                             "cat":  "pathway",
+                             "min":  4,
+                             "ver":  "2026-08"
+                         }
+}

@@ -1239,7 +1239,7 @@ foreach ($file in $dataFiles) {
 # 글의 출처(sources)에 그 대학 도메인의 URL이 있으면 그 대학 페이지에 글을 붙인다.
 # 손으로 매핑을 관리하지 않아도 글이 늘어나면 대학 페이지가 따라온다.
 $ARTICLES_BY_CC = @{}
-foreach ($cc in @('au', 'uk')) {
+foreach ($cc in @('au', 'uk', 'ca')) {
     $p = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
     if (Test-Path $p) { $ARTICLES_BY_CC[$cc.ToUpper()] = Get-Content $p -Raw -Encoding UTF8 | ConvertFrom-Json }
 }
@@ -1564,7 +1564,7 @@ foreach ($cc in $lists.Keys) {
 # ---------- 유학 정보 글 (data\articles-{cc}.json → guide\{cc}-info-{slug}.html) ----------
 # coei 게시판 주제를 참고하되 본문은 공식 소스로 새로 쓴 글. 목록 섹션은 guide/{cc}.html에 있다.
 $articleLocs = @()
-foreach ($cc in @('au', 'uk')) {
+foreach ($cc in @('au', 'uk', 'ca')) {
     $artPath = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
     if (-not (Test-Path $artPath)) { continue }
     $articles = Get-Content $artPath -Raw -Encoding UTF8 | ConvertFrom-Json
