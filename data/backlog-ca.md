@@ -201,16 +201,37 @@ DB에 `logo` 필드가 따로 없으니 **학교를 추가하면 로고도 같�
 1. ⚠ **그리드가 처음엔 전부 검은 자리표시자로 뜬다.** 스크린샷을 다시 찍는 게 아니라
    `computer{action:"wait", duration:3}` **한 번** 넣고 찍으면 그때 렌더된다.
    (재촬영 반복이 예전에 앱을 멈추게 한 부하다 — [[cloudflare-browser-crash]])
-2. ⚠ **`find`가 준 제목과 그리드 타일 순서는 대응하지 않는다.**
-   "Trees And Condo Tower In Downtown Toronto"를 검색해 첫 타일을 받았더니
-   **밀라노 사진**(`torre-solaria-from-biblioteca-degli-alberi-in-milan`)이 떨어졌다.
-   검색이 의미 유사(나무+타워)로 매칭해서 다른 나라 사진을 1번에 올린 것이다.
-   → **믿을 것은 상세 페이지의 탭 제목 하나다.** `navigate` 후 `wait 3`을 하면
+2. ⚠ **검색어를 길게 쓰지 말 것. 짧은 지명 한 단어가 정답이다.**
+   `toronto`는 깨끗하게 나오는데 `Toronto downtown street`나
+   `Trees And Condo Tower In Downtown Toronto`처럼 여러 단어를 넣으면
+   Envato가 **"We couldn't find a close match"** 배너를 띄우고 **무관한 사진으로
+   그리드를 채운다.** 실제로 밀라노(Torre Solaria)와 샌디에이고가 1번에 올라왔고
+   `torre-solaria-...jpg`를 받을 뻔했다. (사용자가 `toronto` 한 단어 결과를
+   보여 줘서 알았다.)
+   → **그리드 위에 그 배너가 떴는지 먼저 볼 것.** 떴으면 그 검색 결과는 버린다.
+   → 지명 커버리지가 없는 도시도 있다. `halifax`는 배너 없이도 샬럿(미국) 사진을
+   내놓았다. **핼리팩스·소도시는 안 되고, toronto·vancouver·calgary는 된다.**
+3. ⚠ **믿을 것은 상세 페이지의 탭 제목 하나다.** `navigate` 후 `wait 3`을 하면
    탭 제목에 원본 제목이 그대로 나온다. 스크린샷 없이 확인된다.
-   → 받은 뒤에도 **`Downloads` 파일명을 반드시 확인할 것.** 오늘 이걸로 걸렀다.
+   → 받은 뒤에도 **`Downloads` 파일명을 반드시 확인할 것.** 두 번 이걸로 걸렀다.
+4. 그리드 렌더에 **10~18초**가 걸린다. `wait 10` → 스크린샷 → `wait 8` → 스크린샷이
+   실제로 통한 순서다(`wait`는 최대 10초).
 
 검색 URL 형식: `https://app.envato.com/search?itemType=photos&term=...`
 (`/photos?terms=`는 검색어가 안 먹고 무작위 결과가 나온다)
+
+### 캐나다 글 사진 5장 (2026-08-05) — 캡션이 숫자를 담는다
+| 글 | 파일 | 캡션의 숫자 |
+|---|---|---|
+| `pgwp-eligibility` | `ca-convocation.jpg` | 학위면 전공 무검사 / 디플로마는 CIP 1,100개 |
+| `college-fees-2026` | `ca-calgary-downtown.jpg` | SAIT C$17,400~30,100 (최대 폭) |
+| `english-requirements` | `ca-nursing-simulation.jpg` | 서스캐처원 국제교육간호사 7.0 (각 7.0) |
+| `transfer-routes` | `ca-vancouver-downtown.jpg` | UBC 60학점 · 필수 학점의 50% 상한 |
+| `living-cost-proof` | `ca-toronto-park.jpg` | C$22,895 (실제 지출은 대개 그 위) |
+
+⚠ `ca-convocation`은 다섯 장 중 가장 약하다. 학위수여식 검색은 대부분
+"웃는 학생" 스톡이라 **이 문서가 금지한 유형**이다. 뒤에서 찍은 기록물 성격의 컷을
+골라 피했지만, 캐나다를 특정하지 못한다. 더 나은 컷을 찾으면 교체할 것.
 
 ### 다음에 쓸 만한 주제
 - 학교 소개 9편은 안 쓴다(uni 페이지와 겹침). 에디터 노트 보강 재료로만.
