@@ -1,12 +1,13 @@
 # US 대학 DB 백로그
 
-## 🔜 남은 일: 사진 7장 (Envato — 사용자 세션 필요)
-글 3편(toefl-new-scale·affordable-universities·sat-required-2027)은 **2026-08-06 작성·푸시 완료**(ff2466c).
-US 글은 이제 7편이고 english 분류도 1편 생겼다. 사진만 남았다 — 7편 전부 없음.
-주제·규격은 `data/coei-us-topics.md`와 `images/article/README.md`(1200px+, 200KB 이하, figure 마크업).
-Envato는 사용자 구독 세션이 필요하므로 Claude in Chrome으로 진행할 것(CA 때와 같은 방식).
+## ✅ coei 기반 글 작업 완료 (2026-08-06)
+글 3편(toefl-new-scale·affordable-universities·sat-required-2027) 작성·푸시(ff2466c) 후
+**7편 전부 사진까지 넣어 푸시 완료**(587f081). US 글 7편, english 분류 1편.
+사진은 Envato(Claude in Chrome, 사용자 구독 세션)에서 받아 1400px·200KB 이하로 압축,
+`images/article/us-*.jpg` 7장. 원본은 사용자 Downloads 폴더에 남아 있다.
 ⚠ 글 쓰며 확인한 것: **저학비 글의 순위 대비 헤드라인은 플로리다가 아니라 퍼듀다**(QS 100 · $28,794 —
 QS 300 안 + $30K 미만은 퍼듀·플로리다 둘뿐). 앞 세션 선정 메모에는 퍼듀가 빠져 있었다.
+다음 글감(백로그 기존 항목): OPT/STEM 연장 · 주립대 유학생 추가 부담금 실태.
 
 ## 이번 세션 완료분 (2026-08-06)
 이번 세션에서 넷을 처리했다.
