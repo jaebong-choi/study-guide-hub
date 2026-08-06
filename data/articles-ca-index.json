@@ -82,5 +82,12 @@
                          "cat":  "cost",
                          "min":  5,
                          "ver":  "2026-08"
-                     }
+                     },
+    "study-permit-rules":  {
+                               "ko":  "[캐나다 스터디 퍼밋] 전학은 새 퍼밋, 휴학은 150일, 수료 후엔 90일입니다.",
+                               "en":  "[Canadian study permit] A new permit to change schools, 150 days of leave, 90 days once you finish",
+                               "cat":  "pathway",
+                               "min":  5,
+                               "ver":  "2026-08"
+                           }
 }
