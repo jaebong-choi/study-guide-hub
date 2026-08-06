@@ -89,5 +89,12 @@
                                "cat":  "pathway",
                                "min":  5,
                                "ver":  "2026-08"
-                           }
+                           },
+    "pgwp-course-flags":  {
+                              "ko":  "[캐나다 PGWP] 학교가 적격이어도 과정이 비학점이면 안 나옵니다.",
+                              "en":  "[Canadian PGWP] An eligible school is not enough: non-credit programs do not qualify",
+                              "cat":  "pathway",
+                              "min":  5,
+                              "ver":  "2026-08"
+                          }
 }
