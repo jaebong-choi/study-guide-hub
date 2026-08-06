@@ -26,5 +26,26 @@
                           "cat":  "pathway",
                           "min":  4,
                           "ver":  "2026-08"
-                      }
+                      },
+    "toefl-new-scale":  {
+                            "ko":  "[토플 개편] 점수를 스스로 환산하지 마세요. 학교마다 답이 다릅니다.",
+                            "en":  "[TOEFL update] Don\u0027t convert your own score — each university\u0027s answer is different",
+                            "cat":  "english",
+                            "min":  4,
+                            "ver":  "2026-08"
+                        },
+    "affordable-universities":  {
+                                    "ko":  "[미국 저학비] 2만 달러대 명단은 패스웨이 명단과 거의 겹칩니다.",
+                                    "en":  "[US low tuition] The twenty-thousands list nearly matches the pathway partner list",
+                                    "cat":  "cost",
+                                    "min":  5,
+                                    "ver":  "2026-08"
+                                },
+    "sat-required-2027":  {
+                              "ko":  "[미국 SAT] 시험 선택제는 위에서부터 끝나는 중입니다.",
+                              "en":  "[US SAT] Test-optional is ending from the top down",
+                              "cat":  "pathway",
+                              "min":  4,
+                              "ver":  "2026-08"
+                          }
 }
