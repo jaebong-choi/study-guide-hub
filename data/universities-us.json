@@ -7019,6 +7019,184 @@
         "last_verified":  "2026-07"
     },
     {
+        "id":  "us-ohio-state",
+        "type":  "university",
+        "name_ko":  "오하이오주립대학교",
+        "name_en":  "Ohio State University",
+        "country":  "US",
+        "city":  "Columbus",
+        "qs_rank":  201,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  40022,
+        "tuition_ug_max":  40022,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "USD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl"
+                                     ],
+                        "note":  null
+                    },
+        "popular_majors":  [
+                               "경영",
+                               "공학",
+                               "심리학",
+                               "교육학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  null,
+                             "note":  null
+                         }
+                     ],
+        "intakes":  [
+                        "8월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.osu.edu",
+        "youtube_id":  null,
+        "editor_note":  "QS 201위. 단일 캠퍼스 기준 미국 최대급 주립이고, 입학 연도의 학비를 졸업까지 동결하는 Tuition Guarantee를 운영해 4년 재정 계획이 서는 학교입니다. 주외 학비가 연 4만 달러로 UC 계열보다 1만 달러쯤 낮습니다. 빅텐 대형 주립의 인프라를 상대적으로 낮은 학비로 쓰고 싶다면 먼저 볼 곳입니다.",
+        "related_ids":  [
+
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "us-uc-riverside",
+        "type":  "university",
+        "name_ko":  "캘리포니아대학교 리버사이드",
+        "name_en":  "University of California, Riverside",
+        "country":  "US",
+        "city":  "Riverside",
+        "qs_rank":  398,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  49806,
+        "tuition_ug_max":  49806,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "USD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl"
+                                     ],
+                        "note":  null
+                    },
+        "popular_majors":  [
+                               "농업",
+                               "경영",
+                               "컴퓨터과학",
+                               "생명과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  null,
+                             "note":  null
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  null,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "UC TAG 참여 캠퍼스입니다. 남캘리포니아 CC에서 성적 조건을 채워 넘어오는 학생이 많습니다"
+                         }
+                     ],
+        "intakes":  [
+                        "8월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.ucr.edu",
+        "youtube_id":  null,
+        "editor_note":  "QS 398위. UC TAG 참여 캠퍼스라 캘리포니아 CC에서 성적 조건을 채우면 편입이 보장됩니다. 신입으로 UC에 바로 붙기 빠듯한 성적이라면 이쪽 문이 넓습니다. 감귤 연구에서 출발한 학교답게 농업 계열의 전통이 깊습니다.",
+        "related_ids":  [
+
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
+        "id":  "us-uc-merced",
+        "type":  "university",
+        "name_ko":  "캘리포니아대학교 머시드",
+        "name_en":  "University of California, Merced",
+        "country":  "US",
+        "city":  "Merced",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  49823,
+        "tuition_ug_max":  49823,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "USD",
+        "english":  {
+                        "ielts_min":  6.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "IELTS 6.5 · TOEFL iBT 80(2026년 1월 이전 척도) · 듀오링고 120 · 전공에 따라 더 높을 수 있습니다"
+                    },
+        "popular_majors":  [
+                               "컴퓨터과학",
+                               "생명과학",
+                               "공학",
+                               "심리학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "direct",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.5,
+                             "duration":  "4년",
+                             "cost_note":  null,
+                             "note":  null
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  null,
+                             "duration":  "2+2년",
+                             "cost_note":  null,
+                             "note":  "UC TAG 참여 캠퍼스입니다. UC 중 규모가 가장 작아, 2+2 설계에서 UC 학위를 확보해 두는 안전판으로 쓰입니다"
+                         }
+                     ],
+        "intakes":  [
+                        "8월",
+                        "1월"
+                    ],
+        "official_url":  "https://www.ucmerced.edu",
+        "youtube_id":  null,
+        "editor_note":  "UC 아홉 학부 캠퍼스의 막내로 재학생이 9천 명대라 UC치고 아주 작습니다. QS 종합 순위에는 아직 안 잡히지만 졸업장은 같은 UC입니다. TAG 참여 캠퍼스여서 캘리포니아 CC에서 조건을 채우면 편입이 보장되니, 2+2 설계에서 UC 학위를 확보해 두는 안전판으로 쓰입니다.",
+        "related_ids":  [
+
+                        ],
+        "last_verified":  "2026-07"
+    },
+    {
         "id":  "us-smc",
         "type":  "college",
         "name_ko":  "샌타모니카 칼리지",

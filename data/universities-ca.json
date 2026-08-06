@@ -2179,5 +2179,453 @@
 
                         ],
         "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-bicc",
+        "type":  "secondary",
+        "name_ko":  "BICC 국제 사립고",
+        "name_en":  "Birmingham International Collegiate of Canada",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  20000,
+        "tuition_ug_max":  20000,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  null,
+                        "accepted":  [
+                                         "internal"
+                                     ],
+                        "note":  "공인 성적이 없으면 교장 면접과 자체 영어 시험을 보고, 공인 성적을 내면 면접이 면제되며 점수에 맞는 레벨 시험만 봅니다. 듀오링고 115 · IELTS 6.5 · TOEFL 79 이상이면 영어 시험 자체가 면제됩니다. 대학 진학용 영어는 EAP 과정(100 중급 IELTS 4.0~5.0 · 200 중상급 5.0~6.5 · 300 상급 6.5~7.0, 각 12주 300시간)으로 올립니다"
+                    },
+        "majors_heading":  "개설 과목 계열",
+        "popular_majors":  [
+                               "대학 진학 과정",
+                               "ESL",
+                               "비즈니스",
+                               "컴퓨터",
+                               "시각예술"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "고3 이수·졸업 → 12학년 편입",
+                             "ielts_min":  null,
+                             "duration":  "1~2학기",
+                             "cost_note":  "과목당 C$2,500",
+                             "note":  "최대 23학점 + 봉사활동 30시간 인정 · 남은 7과목만 이수하면 졸업 요건 30학점을 채웁니다"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "성인 학생(Mature Student) 조건 충족 시",
+                             "ielts_min":  null,
+                             "duration":  "1~2학기",
+                             "cost_note":  "과목당 C$2,500",
+                             "note":  "최대 26학점 + 봉사활동 40시간 인정 · 남은 4과목만 이수하면 됩니다 · 학교 안내서는 고교 졸업 후 1년이 지난 만 19세 이상을 성인 학생으로 봅니다"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "고2(11학년) 수료 → 12학년 편입",
+                             "ielts_min":  null,
+                             "duration":  "1년",
+                             "cost_note":  "연 C$20,000 (8과목)",
+                             "note":  "최대 22학점 + 봉사활동 30시간 인정"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "고1(10학년) 수료 → 11학년 편입",
+                             "ielts_min":  null,
+                             "duration":  "2년",
+                             "cost_note":  "연 C$20,000 (8과목)",
+                             "note":  "최대 16학점 + 봉사활동 20시간 인정"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "중3(9학년) 수료 → 10학년 편입",
+                             "ielts_min":  null,
+                             "duration":  "3년",
+                             "cost_note":  "연 C$20,000 (8과목)",
+                             "note":  "최대 8학점 + 봉사활동 10시간 인정"
+                         }
+                     ],
+        "intakes":  [
+                        "3월",
+                        "9월",
+                        "12월"
+                    ],
+        "official_url":  "https://bicc-edu.com",
+        "youtube_id":  null,
+        "extra_facts":  [
+                            {
+                                "label":  "첫해 납부 총액",
+                                "value":  "C$21,100 — 학비 C$20,000(8과목) + 전형료 C$300 + 교재렌트·학생운영비 C$800"
+                            },
+                            {
+                                "label":  "과목 추가 비용",
+                                "value":  "2과목 C$4,400 · 4과목 C$8,800 · 6과목 C$13,200"
+                            },
+                            {
+                                "label":  "입학 시험",
+                                "value":  "수학(12학년은 함수 수준 확인)과 영어 두 가지 · 듀오링고 115 · IELTS 6.5 · TOEFL 79 이상이면 영어 시험 면제"
+                            },
+                            {
+                                "label":  "2025학년도 진학 국가",
+                                "value":  "캐나다 30% · 영국 30% · 호주 20% · 홍콩 10% · 미국 5% · 기타(네덜란드·독일) 5%"
+                            },
+                            {
+                                "label":  "한국 학생 성적 (2025)",
+                                "value":  "평균 내신 91점 · 1인당 평균 7.5개 오퍼"
+                            }
+                        ],
+        "editor_note":  "노스욕 영 스트리트에 있는 유학생 중심 OSSD 학교입니다. 졸업 요건은 30학점(필수 18 + 선택 12)과 봉사활동 40시간, 그리고 10학년 읽기·쓰기 문해력 시험입니다. 위 진학 경로의 학점 인정 폭은 학교 안내서(2026년 4월판)의 학점 전환표를 그대로 옮긴 것으로, 어느 학년을 마치고 들어오느냐에 따라 남은 과목 수가 정해집니다. 학기는 가을(9월~12월 초)·겨울(12월~3월 초)·봄(3월 말~6월) 세 번이고 7·8월에 3주짜리 섬머스쿨이 따로 있습니다. 학기마다 들을 과목과 과목 수를 학생이 직접 정하고 교사가 그 계획을 손봐 주는 방식이라, 남은 학점을 어떤 속도로 채울지 스스로 조절할 수 있습니다. 안내서에 실린 2025학년도 실적은 한국 학생(이민자 포함) 95명이 받은 합격 건수 기준으로 캐나다 485건, 영국 159건, 호주 27건, 홍콩 24건, 미국 18건, 의대 11건입니다. 캐나다 485건 중 토론토대가 122건(세인트조지 48·미시사가 34·스카버러 40)이고 요크 76, 워털루 64, 맥마스터 53, 퀸즈 39, TMU 38, 오타와 37, OCAD 13이 뒤를 잇습니다. 영국은 KCL 40, 버밍엄 20, UCL 15, 바스 14, 더럼 12건 순이고 이 가운데 약학 합격이 43건입니다.",
+        "related_ids":  [
+                            "ca-taie",
+                            "ca-umc",
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-taie",
+        "type":  "secondary",
+        "name_ko":  "TAIE 국제 사립고",
+        "name_en":  "TAIE International Institute",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  24760,
+        "tuition_ug_max":  29950,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  null,
+                        "accepted":  [
+                                         "internal",
+                                         "ielts",
+                                         "toefl"
+                                     ],
+                        "note":  "OSSD 과정은 공인 성적 없이 입학할 수 있고(12학년 입학은 권장), 고교 졸업자용 UPC 과정은 IELTS 5.5 또는 TOEFL iBT 55 이상을 요구합니다"
+                    },
+        "majors_heading":  "개설 과목 계열",
+        "popular_majors":  [
+                               "대학 진학 과정",
+                               "ESL",
+                               "비즈니스",
+                               "수학",
+                               "과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "OSSD 취득 (7~12학년)",
+                             "ielts_min":  null,
+                             "duration":  "1~2년",
+                             "cost_note":  "10학점 C$29,950 · 8학점 C$24,760",
+                             "note":  "연 6학기제라 11·12학년 과목을 8주 단위로 이수합니다 · 기숙사를 직접 운영합니다"
+                         },
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "UPC (고교 졸업자 전용 과정 포함)",
+                             "ielts_min":  5.5,
+                             "duration":  "1~2학기",
+                             "cost_note":  null,
+                             "note":  "이미 고교를 마친 학생이 12학년 과목만 새로 이수해 대학 지원 성적을 만드는 과정입니다 · Elite 과정은 고교 졸업자만 받습니다"
+                         }
+                     ],
+        "intakes":  [
+                        "연 6학기 · 상시 입학"
+                    ],
+        "official_url":  "https://www.taie.ca",
+        "youtube_id":  null,
+        "editor_note":  "1998년에 문을 연 기숙형 학교로, 7~12학년과 ESL·UPC를 함께 운영합니다. 2026년 8월 1일 시행 요금표 기준 학비는 10학점 C$29,950, 8학점 C$24,760이고 등록비는 C$300입니다. 기숙사는 12개월 기준 2인실 C$18,960, 1인실 C$28,560이며 홈스테이는 4개월 C$8,000(식사 포함)입니다. 연 6학기라 입학 시기를 맞추기 쉽고, 원하는 학기 시작 2~4개월 전 지원을 권장합니다.",
+        "related_ids":  [
+                            "ca-bicc",
+                            "ca-umc",
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-umc",
+        "type":  "secondary",
+        "name_ko":  "UMC 국제 사립고",
+        "name_en":  "UMC High School",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  18400,
+        "tuition_ug_max":  18400,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  null,
+                        "accepted":  [
+                                         "internal"
+                                     ],
+                        "note":  "자체 온라인 영어 배치 시험을 보고 반을 정합니다. 공인 성적은 요구하지 않고 IELTS 준비 과목을 따로 운영합니다"
+                    },
+        "majors_heading":  "개설 과목 계열",
+        "popular_majors":  [
+                               "대학 진학 과정",
+                               "ESL",
+                               "비즈니스",
+                               "컴퓨터",
+                               "시각예술"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "pathway",
+                             "level":  "ug",
+                             "provider":  "OSSD 취득 (9~12학년)",
+                             "ielts_min":  null,
+                             "duration":  "1~3년",
+                             "cost_note":  "과목당 C$2,300 (학기 8과목 이상)",
+                             "note":  "8주 학기제로 학기마다 대면 2학점에 온라인 1학점까지 더할 수 있어 4년 과정을 3년에 마치는 구조입니다"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "3월",
+                        "7월",
+                        "9월"
+                    ],
+        "official_url":  "https://umchighschool.com",
+        "youtube_id":  null,
+        "editor_note":  "2008년에 문을 연 학교로 캠퍼스는 이스트 토론토 에글린턴에 있습니다. 학비는 국제학생 기준 과목당 C$2,300(학기 8과목 이상, 8과목 미만은 C$2,400)이고, 표에 적은 연 학비는 8과목을 들었을 때의 금액입니다. 등록비는 C$250, 홈스테이는 월 C$1,550(2개월 이상)입니다. 가을·겨울·봄·여름 네 학기로 나뉘어 있어 중간에 들어가도 학기를 기다리지 않습니다.",
+        "related_ids":  [
+                            "ca-bicc",
+                            "ca-taie",
+                            "ca-uoft"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-alexander",
+        "type":  "college",
+        "name_ko":  "알렉산더 컬리지",
+        "name_en":  "Alexander College",
+        "country":  "CA",
+        "city":  "Vancouver",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  15840,
+        "tuition_ug_max":  19800,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "IELTS 6.0(작문 6.0) · TOEFL iBT 80(작문 19) · PTE 60 · 듀오링고 110 · 미달 시 부설 영어 과정을 먼저 듣습니다"
+                    },
+        "popular_majors":  [
+                               "대학 편입",
+                               "비즈니스",
+                               "컴퓨터",
+                               "자연과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "BC Transfer (사립 컬리지)",
+                             "ielts_min":  6.0,
+                             "duration":  "2+2년",
+                             "cost_note":  "학점당 C$660 (상경 상급 과목 C$750)",
+                             "note":  "준학사(Associate) 과정을 마치고 UBC·SFU·UVic 등으로 편입합니다 · 사립 컬리지 과정만으로는 졸업 후 취업허가(PGWP)가 나오지 않고, 편입한 대학에서 학사를 마쳐야 대상이 됩니다"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "4월",
+                        "7월",
+                        "9월"
+                    ],
+        "official_url":  "https://alexandercollege.ca",
+        "youtube_id":  null,
+        "editor_note":  "2006년에 세워진 밴쿠버·버나비의 사립 컬리지로, BC 편입 제도(BC Transfer)에 들어 있어 학점이 공립대로 그대로 넘어갑니다. 고교 졸업 성적이 명문대 직접 지원에 조금 모자랄 때 2년을 여기서 채우고 3학년으로 편입하는 길입니다. 학비는 학점당 C$660으로 공시되어 있어 표의 금액은 연 24~30학점을 들었을 때로 환산한 값이고, 지원비는 C$200입니다. 학기가 1·4·7·9월 네 번이라 시작 시점을 고르기 쉽습니다.",
+        "related_ids":  [
+                            "ca-ubc",
+                            "ca-sfu",
+                            "ca-langara"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-fic",
+        "type":  "college",
+        "name_ko":  "프레이저 인터내셔널 컬리지 (FIC)",
+        "name_en":  "Fraser International College",
+        "country":  "CA",
+        "city":  "Burnaby",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  28967,
+        "tuition_ug_max":  39162,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  6.0,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "pte",
+                                         "duolingo"
+                                     ],
+                        "note":  "직접 입학은 6.0(읽기·쓰기 6.0, 말하기 5.5) · TOEFL iBT 78 · 듀오링고 110 · PTE 58 · 5.5는 통합 과정, 5.0은 4학기 과정으로 시작합니다"
+                    },
+        "majors_heading":  "패스웨이로 진학 가능한 전공 (SFU 학위)",
+        "popular_majors":  [
+                               "인문·사회",
+                               "경영",
+                               "커뮤니케이션",
+                               "컴퓨터사이언스",
+                               "엔지니어링",
+                               "환경",
+                               "보건",
+                               "자연과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "UTP 2단계 · International Year One (Navitas)",
+                             "ielts_min":  6.0,
+                             "duration":  "3학기 · 30학점",
+                             "cost_note":  "C$39,162",
+                             "note":  "고교 졸업(12학년 이수)자 대상 · 기준 성적을 채우면 SFU 2학년으로 진학합니다"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "UTP 1단계 · 파운데이션 (Navitas)",
+                             "ielts_min":  6.0,
+                             "duration":  "2학기",
+                             "cost_note":  "C$28,967",
+                             "note":  "11학년(고2) 수료자 대상 · 수료하면 UTP 2단계로 이어집니다"
+                         },
+                         {
+                             "type":  "college",
+                             "level":  "ug",
+                             "provider":  null,
+                             "ielts_min":  6.0,
+                             "duration":  "2년",
+                             "cost_note":  "연 C$39,162 (30학점)",
+                             "note":  "준학사(Associate of Arts) 과정 · SFU 외의 BC 공립대로 편입할 때 쓰는 선택지입니다"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.fraseric.ca",
+        "youtube_id":  null,
+        "editor_note":  "2006년에 문을 연 북미 최초의 대학 부설 패스웨이 컬리지로, 사이먼프레이저대(SFU) 버나비 캠퍼스 안에 있습니다. 수업을 SFU 캠퍼스에서 듣고 기준 성적을 채우면 2학년으로 올라가므로 학위 기간은 4년 그대로입니다. 진학할 수 있는 학위는 인문·사회(BA), 경영(BBA), 커뮤니케이션, 커뮤니케이션·아트·테크놀로지, 컴퓨터사이언스(BSc), 엔지니어링 사이언스, 환경(BA·BSc·BEnv), 보건과학(BA·BSc), 자연과학(BSc)입니다. 학비는 2026 가을~2027 여름 요금표 기준으로 UTP 2단계 30학점이 C$39,162, 파운데이션이 C$28,967입니다.",
+        "related_ids":  [
+                            "ca-sfu",
+                            "ca-ubc",
+                            "ca-alexander"
+                        ],
+        "last_verified":  "2026-08"
+    },
+    {
+        "id":  "ca-tmuic",
+        "type":  "college",
+        "name_ko":  "토론토메트로폴리탄대 인터내셔널 컬리지 (TMUIC)",
+        "name_en":  "Toronto Metropolitan University International College",
+        "country":  "CA",
+        "city":  "Toronto",
+        "qs_rank":  null,
+        "qs_subject_ranks":  [
+
+                             ],
+        "tuition_ug_min":  28397,
+        "tuition_ug_max":  36468,
+        "tuition_pg_min":  null,
+        "tuition_pg_max":  null,
+        "currency":  "CAD",
+        "english":  {
+                        "ielts_min":  5.5,
+                        "accepted":  [
+                                         "ielts",
+                                         "toefl",
+                                         "duolingo"
+                                     ],
+                        "note":  "UTP 2단계 직접 입학은 5.5(각 5.0 이상) · TOEFL iBT 69 · 듀오링고 95 · 5.0은 통합 과정, 4.5는 부설 영어 과정(EAP)부터 시작합니다"
+                    },
+        "majors_heading":  "패스웨이로 진학 가능한 전공 (TMU 학위)",
+        "popular_majors":  [
+                               "인문·사회",
+                               "경영(커머스)",
+                               "미디어·크리에이티브",
+                               "공학",
+                               "경제·금융",
+                               "자연과학"
+                           ],
+        "pathways":  [
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "UTP 2단계 · International Year One (Navitas)",
+                             "ielts_min":  5.5,
+                             "duration":  "3학기",
+                             "cost_note":  "C$36,468 (2026/27)",
+                             "note":  "고교 졸업(12학년 이수)자 대상 · 기준 성적을 채우면 TMU 2학년으로 진학합니다"
+                         },
+                         {
+                             "type":  "transfer",
+                             "level":  "ug",
+                             "provider":  "UTP 1단계 · 파운데이션 (Navitas)",
+                             "ielts_min":  null,
+                             "duration":  "2학기",
+                             "cost_note":  "C$28,397 (2026/27)",
+                             "note":  "11학년(고2) 수료자 대상 · 수료하면 UTP 2단계로 이어집니다"
+                         }
+                     ],
+        "intakes":  [
+                        "1월",
+                        "5월",
+                        "9월"
+                    ],
+        "official_url":  "https://www.torontomuic.ca",
+        "youtube_id":  null,
+        "editor_note":  "2020년에 시작한 토론토메트로폴리탄대(TMU, 옛 라이어슨) 연계 패스웨이 컬리지입니다. 진학할 수 있는 학위는 인문(BA), 커머스(BComm), 크리에이티브 인더스트리(BA), 공학(캐나다 공학인증 CEAB 인정 과정), 경제·금융(BA), 자연과학(BSc)입니다. 학비는 2026/27학년도 기준으로 UTP 2단계 3학기가 C$36,468, 파운데이션 2학기가 C$28,397입니다. 학기는 1·5·9월 세 번입니다.",
+        "related_ids":  [
+                            "ca-uoft",
+                            "ca-york",
+                            "ca-seneca"
+                        ],
+        "last_verified":  "2026-08"
     }
 ]

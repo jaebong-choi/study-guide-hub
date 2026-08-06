@@ -13,6 +13,7 @@ $TYPE_LABEL = @{
     'university' = '종합대학'
     'college'    = '컬리지'
     'specialty'  = '특수대학'
+    'secondary'  = '국제 사립고'
 }
 $PATHWAY_LABEL = @{
     'foundation' = '파운데이션'
@@ -53,6 +54,8 @@ $COUNTRY_INFO = @{
 # 학비 출처 문구 — 국가마다 근거가 달라 푸터에서 따로 밝힌다.
 # 미국은 대학별 international 요강이 아니라 교육부 공시(College Scorecard) 값이라 반드시 표기한다.
 $FEE_NOTE_DEFAULT = '<p data-en="Fees follow official university publications and vary by course and year.">학비는 공식 요강 기준이며 전공·연도에 따라 달라질 수 있습니다.</p>'
+# 국제 사립고는 학년이 아니라 과목 수로 학비를 매긴다. 대학 요율과 같은 줄에 놓으면 오해가 생긴다.
+$FEE_NOTE_SECONDARY = '<p data-en="Private schools price by the number of credit courses taken, not by year group, so the annual figure here is the school&#39;s published international rate for a normal full course load. Boarding, homestay and registration fees are charged separately.">국제 사립고는 학년이 아니라 <b>이수 과목 수</b>로 학비를 매깁니다. 여기 적은 연간 금액은 각 학교가 공시한 국제학생 요율을 정상 이수 과목 수 기준으로 적은 것이고, 기숙사·홈스테이·등록비는 별도입니다.</p>'
 $FEE_NOTE = @{
     'AU' = '<p data-en="Fees are either the range each university publishes in its official fee schedule, or the middle range (25th-75th percentile) of annual tuition for courses registered on the Australian Government&#39;s CRICOS register (checked August 2026). Actual fees vary by course.">학비는 각 대학이 공시한 요금표 범위이거나, 대학이 학비를 과정별로만 공시하는 경우 호주 정부 CRICOS 등록부에 등록된 과정별 학비를 연간으로 환산한 중간 구간(25~75%)입니다(2026년 8월 확인). 실제 학비는 전공에 따라 다릅니다.</p>'
     'CA' = '<p data-en="College tuition is the international rate each college publishes for a two-semester year. Some colleges do not separate tuition from compulsory fees, so their figure is the combined amount, and the cost varies widely by programme.">컬리지 학비는 각 학교가 공시한 국제학생 요율로, 연간(2학기) 수업료 기준입니다. 학교에 따라 수업료와 필수비를 나눠 공시하지 않아 합산 금액인 경우가 있고, 전공에 따라 차이가 큽니다.</p>'
@@ -81,6 +84,7 @@ $LIST_FILTERS = @{
     'CA' = @(
         @('type-college',    '컬리지',             'Colleges'),
         @('type-university', '4년제 대학',         'Universities'),
+        @('type-secondary',  '국제 사립고',        'International private schools'),
         @('transfer',        '대학 편입 연계',     'University transfer route')
     )
 }
@@ -169,12 +173,19 @@ function Fmt-Ielts($v) {
     return ([double]$v).ToString('0.0', [cultureinfo]::InvariantCulture)
 }
 
-function New-PathwayCard($pw, [string]$diagUrl, [string]$country) {
+# 국제 사립고처럼 입학에 공인 성적을 요구하지 않는 학교는 밴드 대신 '불요'로 적는다.
+function Ielts-Text($v)   { if ($null -eq $v) { return '불요' }        return (Fmt-Ielts $v) }
+function Ielts-TextEn($v) { if ($null -eq $v) { return 'Not required' } return (Fmt-Ielts $v) }
+
+function New-PathwayCard($pw, [string]$diagUrl, [string]$country, [string]$schoolType) {
     $pwLabel = if ($PATHWAY_LABEL.ContainsKey($pw.type)) { $PATHWAY_LABEL[$pw.type] } else { $pw.type }
     # 호주의 편입은 디플로마 경유라는 것을 라벨에서 드러낸다
     if ($country -eq 'AU' -and $pw.type -eq 'transfer') { $pwLabel = '편입 (호주 디플로마)' }
-    # 캐나다의 pathway는 현지 고교 학점(OSSD 등)을 쌓는 경로라 '패스웨이'로 뭉뚱그리지 않는다
-    if ($country -eq 'CA' -and $pw.type -eq 'pathway') { $pwLabel = '캐나다 국제 사립학교를 통한 진학' }
+    # 캐나다의 pathway는 현지 고교 학점(OSSD 등)을 쌓는 경로라 '패스웨이'로 뭉뚱그리지 않는다.
+    # 사립고 자기 페이지에서는 "국제 사립학교를 통한"이 동어반복이라 결과만 적는다.
+    if ($country -eq 'CA' -and $pw.type -eq 'pathway') {
+        $pwLabel = if ($schoolType -eq 'secondary') { 'OSSD 취득 후 대학 진학' } else { '캐나다 국제 사립학교를 통한 진학' }
+    }
     # 경로 안내 모달 — 해당하는 경로는 진단으로 바로 가지 않고 프로그램 설명을 먼저 띄운다
     $guideKey = $null
     if ($country -eq 'AU' -and $pw.type -eq 'foundation') { $guideKey = 'au-foundation' }
@@ -578,8 +589,8 @@ $TEMPLATE = @'
                         <p class="stat-sub krw" data-min="{{UG_MIN}}" data-max="{{UG_MAX}}"></p>
                     </div>
                     <div class="stat-card">
-                        <p class="stat-label" data-en="IELTS requirement">IELTS 기준</p>
-                        <p class="stat-value">{{IELTS_MIN}}</p>
+                        {{IELTS_LABEL}}
+                        <p class="stat-value"{{IELTS_MIN_EN}}>{{IELTS_MIN}}</p>
                         <p class="stat-sub"{{ACCEPTED_SUB_EN}}>{{ACCEPTED_SUB}}</p>
                     </div>
                     <div class="stat-card">
@@ -606,7 +617,7 @@ $TEMPLATE = @'
         <!-- ④ 전공 -->
         <section>
             <div class="container">
-                <h2 data-en="Popular subjects">인기 전공</h2>
+                {{MAJOR_HEADING}}
                 <div class="major-tags">{{MAJOR_TAGS}}</div>
                 {{SUBJECT_RANK_LIST}}
             </div>
@@ -757,15 +768,17 @@ $TEMPLATE = @'
         'ca-ossd': {
             ko: {
                 t: '캐나다 국제 사립학교를 통한 진학이란?',
-                f: [['한국 고교', '2학년~졸업'], ['국제 사립학교', 'OSSD 학점 1~2년'], ['학사 1학년', 'UofT · UBC 등']],
+                f: [['한국 고교', '2학년~졸업 후'], ['국제 사립학교', 'OSSD 학점 4과목~2년'], ['학사 1학년', 'UofT · UBC 등']],
                 b: ['토론토 등지의 인가 사립학교에서 <mark>온타리오 고교 졸업장(OSSD)</mark> 학점을 이수하고, <mark>캐나다 내신</mark>으로 대학에 지원하는 경로입니다. 대학이 캐나다 성적표를 그대로 읽기 때문에 한국 학생이 <mark>UofT·UBC</mark>에 닿는 대표 루트입니다.',
-                    'OSSD는 단일 시험이 아니라 <mark>학점 누적</mark> 방식이라 꾸준한 과제·출석이 성적을 만듭니다. <mark>12학년 학점</mark> 비중이 커서 <mark>11학년</mark>에 진입하면 여유가 생기고, 입학 시 IELTS 없이 ESL을 병행할 수 있습니다.']
+                    'OSSD는 단일 시험이 아니라 <mark>학점 누적</mark> 방식이라 꾸준한 과제·출석이 성적을 만듭니다. <mark>12학년 학점</mark> 비중이 커서 <mark>11학년</mark>에 진입하면 여유가 생기고, 입학 시 IELTS 없이 ESL을 병행할 수 있습니다.',
+                    '<mark>고교를 이미 마쳤어도</mark> 닫히는 길이 아닙니다. 온타리오는 만 18세 이상을 <mark>성인 학생</mark>으로 보고 이전 학력을 학점으로 인정합니다. 9·10학년 최대 16학점, 11·12학년 최대 10학점까지 인정받아 <mark>11·12학년 4학점</mark>만 실제로 이수하면 졸업 요건 30학점이 채워집니다. 다만 이 절차는 교육청 소속 학교에 의무이고 <mark>사립학교는 채택 여부가 학교 재량</mark>이라, 몇 과목을 들어야 하는지는 학교마다 확인해야 합니다.']
             },
             en: {
                 t: 'Studying at a Canadian international private school',
-                f: [['Korean high school', 'Year 2 to graduate'], ['Private school', 'OSSD credits, 1-2 years'], ['Bachelor Year 1', 'UofT, UBC and more']],
+                f: [['Korean high school', 'Year 2 onwards'], ['Private school', 'four credits to two years'], ['Bachelor Year 1', 'UofT, UBC and more']],
                 b: ['You earn <mark>Ontario Secondary School Diploma (OSSD)</mark> credits at a licensed private school in Toronto and apply with <mark>Canadian grades</mark>. Universities read a Canadian transcript directly, which is why this is the usual route into <mark>UofT and UBC</mark>.',
-                    'OSSD is <mark>credit-based</mark> rather than exam-based, so steady coursework and attendance build the grade. <mark>Grade 12 credits</mark> carry the most weight, so entering by <mark>grade 11</mark> gives you room, and ESL runs alongside without an IELTS score at entry.']
+                    'OSSD is <mark>credit-based</mark> rather than exam-based, so steady coursework and attendance build the grade. <mark>Grade 12 credits</mark> carry the most weight, so entering by <mark>grade 11</mark> gives you room, and ESL runs alongside without an IELTS score at entry.',
+                    'The route does not close once you <mark>have already finished school</mark>. Ontario treats anyone aged 18 or over as a <mark>mature student</mark> and recognises previous study for credit: up to 16 grade 9 and 10 credits and up to 10 grade 11 and 12 credits, so taking just <mark>four grade 11 and 12 courses</mark> completes the 30 the diploma requires. School boards must offer this assessment, but <mark>private schools apply it by choice</mark>, so ask each school how many courses you would actually take.']
             }
         },
         'ca-pathway': {
@@ -1309,7 +1322,11 @@ foreach ($nothing in @(1)) {
 
         # 핵심 수치 — 학부 학비가 없는 대학원 전용 학교는 석사 학비로 라벨을 바꿔 표시
         $tuitionUg = Fmt-Tuition $u.tuition_ug_min $u.tuition_ug_max $symbol
-        $tuitionLabel = '<p class="stat-label" data-en="Annual tuition (UG)">연간 학비 (학부)</p>'
+        $tuitionLabel = if ($u.type -eq 'secondary') {
+            '<p class="stat-label" data-en="Annual tuition (high school)">연간 학비 (고교)</p>'
+        } else {
+            '<p class="stat-label" data-en="Annual tuition (UG)">연간 학비 (학부)</p>'
+        }
         $statMin = $u.tuition_ug_min; $statMax = $u.tuition_ug_max
         if ($null -eq $tuitionUg) {
             $tuitionUg = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
@@ -1338,11 +1355,11 @@ foreach ($nothing in @(1)) {
         $pathwayCards = ''
         if ($ugPaths.Count -gt 0 -and $pgPaths.Count -gt 0) {
             $pathwayCards += '<h3 class="pw-group" data-en="Undergraduate">학사 과정</h3>'
-            foreach ($pw in $ugPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country }
+            foreach ($pw in $ugPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country $u.type }
             $pathwayCards += '<h3 class="pw-group" data-en="Postgraduate">석사 과정</h3>'
-            foreach ($pw in $pgPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country }
+            foreach ($pw in $pgPaths) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country $u.type }
         } else {
-            foreach ($pw in @($u.pathways)) { if ($null -ne $pw) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country } }
+            foreach ($pw in @($u.pathways)) { if ($null -ne $pw) { $pathwayCards += New-PathwayCard $pw $diagUrl $u.country $u.type } }
         }
 
         # 학교 로고 — images/uni/{id}-logo.(png|svg) 파일이 있으면 학교명 우측에 표시
@@ -1397,12 +1414,13 @@ foreach ($nothing in @(1)) {
         $rows = ''
         $ugText = Fmt-Tuition $u.tuition_ug_min $u.tuition_ug_max $symbol
         $pgText = Fmt-Tuition $u.tuition_pg_min $u.tuition_pg_max $symbol
-        if ($ugText) { $rows += '<tr><th data-en="UG annual tuition">학부 연간 학비</th><td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
+        $ugRowTh = if ($u.type -eq 'secondary') { '<th data-en="Annual tuition">연간 학비</th>' } else { '<th data-en="UG annual tuition">학부 연간 학비</th>' }
+        if ($ugText) { $rows += '<tr>' + $ugRowTh + '<td>' + $ugText + ' <small class="krw" data-min="' + $u.tuition_ug_min + '" data-max="' + $u.tuition_ug_max + '"></small></td></tr>' }
         if ($pgText) { $rows += '<tr><th data-en="PG annual tuition">석사 연간 학비</th><td>' + $pgText + ' <small class="krw" data-min="' + $u.tuition_pg_min + '" data-max="' + $u.tuition_pg_max + '"></small></td></tr>' }
-        $ieltsKo = 'IELTS ' + (Fmt-Ielts $u.english.ielts_min)
-        $ieltsEn = $ieltsKo
+        $ieltsKo = if ($null -eq $u.english.ielts_min) { '공인 성적 불요' } else { 'IELTS ' + (Fmt-Ielts $u.english.ielts_min) }
+        $ieltsEn = if ($null -eq $u.english.ielts_min) { 'No test score required' } else { $ieltsKo }
         if ($u.english.note) {
-            $ieltsEn = $ieltsKo + ' (' + (Esc (En $u.english.note)) + ')'
+            $ieltsEn = $ieltsEn + ' (' + (Esc (En $u.english.note)) + ')'
             $ieltsKo += ' (' + (Esc $u.english.note) + ')'
         }
         $rows += '<tr><th data-en="Minimum English">영어 최소 기준</th><td' + (EnAttr $ieltsKo $ieltsEn) + '>' + $ieltsKo + '</td></tr>'
@@ -1410,6 +1428,12 @@ foreach ($nothing in @(1)) {
         $acceptedAllEn = (@($u.english.accepted | ForEach-Object { En $ENGLISH_LABEL[$_] })) -join ([string][char]0x00B7)
         $rows += '<tr><th data-en="Accepted English tests">인정 영어 시험</th><td' + (EnAttr $acceptedAllKo $acceptedAllEn) + '>' + $acceptedAllKo + '</td></tr>'
         $rows += '<tr><th data-en="Intakes">입학 시기</th><td' + (EnAttr $intakesKo $intakesEn) + '>' + $intakesKo + '</td></tr>'
+        # 학교별로 표에 더 붙일 줄이 있으면(입학 시험, 납부 총액, 진학 실적 등) 여기서 이어 붙인다
+        foreach ($ef in @($u.extra_facts)) {
+            if ($null -eq $ef -or -not $ef.label) { continue }
+            $rows += '<tr><th' + (EnAttr $ef.label (En $ef.label)) + '>' + (Esc $ef.label) + '</th><td' +
+                     (EnAttr $ef.value (En $ef.value)) + '>' + (Esc $ef.value) + '</td></tr>'
+        }
 
         # 비어 있으면 렌더링하지 않는 섹션
         $editorSection = ''
@@ -1471,13 +1495,26 @@ foreach ($nothing in @(1)) {
             '{{TUITION_LABEL}}'       = $tuitionLabel
             '{{TUITION_UG}}'          = $tuitionUg
             '{{TUITION_UG_EN}}'       = $tuitionUgEn
-            '{{IELTS_MIN}}'           = Fmt-Ielts $u.english.ielts_min
+            '{{IELTS_LABEL}}'         = if ($null -eq $u.english.ielts_min) {
+                                            '<p class="stat-label" data-en="English requirement">영어 요건</p>'
+                                        } else {
+                                            '<p class="stat-label" data-en="IELTS requirement">IELTS 기준</p>'
+                                        }
+            '{{IELTS_MIN}}'           = Ielts-Text $u.english.ielts_min
+            '{{IELTS_MIN_EN}}'        = EnAttr (Ielts-Text $u.english.ielts_min) (Ielts-TextEn $u.english.ielts_min)
             '{{ACCEPTED_SUB}}'        = $acceptedSub
             '{{ACCEPTED_SUB_EN}}'     = $acceptedSubEn
             '{{INTAKES}}'             = $intakesKo
             '{{INTAKES_EN}}'          = (EnAttr $intakesKo $intakesEn)
             '{{PATHWAY_COUNT}}'       = [string](@($u.pathways).Count)
             '{{PATHWAY_CARDS}}'       = $pathwayCards
+            # 전공 섹션 제목 — 학교 성격에 따라 "인기 전공"이 안 맞는 곳이 있다.
+            # 패스웨이 컬리지는 진학해 들어갈 학위 목록이고, 사립고는 개설 과목 계열이다.
+            '{{MAJOR_HEADING}}'       = if ($u.majors_heading) {
+                                            '<h2' + (EnAttr $u.majors_heading (En $u.majors_heading)) + '>' + (Esc $u.majors_heading) + '</h2>'
+                                        } else {
+                                            '<h2 data-en="Popular subjects">인기 전공</h2>'
+                                        }
             '{{MAJOR_TAGS}}'          = $majorTags
             '{{SUBJECT_RANK_LIST}}'   = $subjectRankList
             '{{FACT_ROWS}}'           = $rows
@@ -1493,6 +1530,7 @@ foreach ($nothing in @(1)) {
             '{{ARTICLE_SECTION}}'     = $articleSection
             '{{RELATED_SECTION}}'     = $relatedSection
             '{{FEE_NOTE}}'            = if ($u.country -eq 'US' -and $u.type -eq 'college') { $FEE_NOTE_US_CC }
+                                        elseif ($u.type -eq 'secondary') { $FEE_NOTE_SECONDARY }
                                         elseif ($FEE_NOTE.ContainsKey($u.country)) { $FEE_NOTE[$u.country] }
                                         else { $FEE_NOTE_DEFAULT }
         }
@@ -1507,6 +1545,9 @@ foreach ($nothing in @(1)) {
         $cardLogo = if ($uniLogo) { $uniLogo.Replace('class="uni-logo"', 'class="card-logo"').Replace('src="../', 'src="../') } else { '<span></span>' }
         $qsBadge = if ($null -ne $u.qs_rank) {
             '<span class="qs-badge" data-en="QS #' + $u.qs_rank + '">QS ' + $u.qs_rank + '위</span>'
+        } elseif ($u.type -eq 'secondary') {
+            # 고등학교에 대학 랭킹을 붙이면 안 된다. 학교 성격을 대신 적는다.
+            '<span class="qs-badge is-unranked" data-en="OSSD credit school">OSSD 학점 학교</span>'
         } else {
             '<span class="qs-badge is-unranked" data-en="Outside QS top 200">QS 200위권 밖</span>'
         }
@@ -1530,7 +1571,7 @@ foreach ($nothing in @(1)) {
                     <div class="card-meta">
                         <span$(EnAttr $u.city (En $u.city))>$(Esc $u.city)</span>
                         <span data-en="Fees <b>$feeEnVal</b>">학비 <b>$tuitionUg</b></span>
-                        <span>IELTS <b>$(Fmt-Ielts $u.english.ielts_min)</b></span>
+                        <span$(EnAttr "IELTS <b>$(Ielts-Text $u.english.ielts_min)</b>" "IELTS <b>$(Ielts-TextEn $u.english.ielts_min)</b>")>IELTS <b>$(Ielts-Text $u.english.ielts_min)</b></span>
                     </div>
                     <span class="card-go" data-en="View details &rarr;">자세히 보기 &rarr;</span>
                 </a>
@@ -1564,7 +1605,7 @@ foreach ($cc in $lists.Keys) {
 # ---------- 유학 정보 글 (data\articles-{cc}.json → guide\{cc}-info-{slug}.html) ----------
 # coei 게시판 주제를 참고하되 본문은 공식 소스로 새로 쓴 글. 목록 섹션은 guide/{cc}.html에 있다.
 $articleLocs = @()
-foreach ($cc in @('au', 'uk', 'ca')) {
+foreach ($cc in @('au', 'uk', 'ca', 'us')) {
     $artPath = Join-Path $repoRoot ("data\articles-" + $cc + ".json")
     if (-not (Test-Path $artPath)) { continue }
     $articles = Get-Content $artPath -Raw -Encoding UTF8 | ConvertFrom-Json

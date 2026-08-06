@@ -8,6 +8,11 @@
 - english.accepted enum: ielts, toefl, pte, duolingo, toeic, cambridge, internal
 - pathways.type enum: foundation, iyo, direct, pre-master, pathway, transfer, college
 - pathways.level enum: ug(학사) | pg(석사), 생략 시 ug — 둘 다 있으면 페이지에서 학사/석사 그룹으로 표시
+- type=secondary(국제 사립고)만 english.ielts_min 에 null 을 허용한다 — 공인 성적 없이 입학하고 ESL을 병행하는 학교다
+- majors_heading: 전공 태그 섹션 제목을 바꾸고 싶을 때만 넣는 선택 필드. 없으면 "인기 전공".
+  패스웨이 컬리지는 "패스웨이로 진학 가능한 전공", 사립고는 "개설 과목 계열"로 쓴다
+- extra_facts: 학비·요건 표에 줄을 더 붙이는 선택 필드. [{ "label": "...", "value": "..." }] 배열.
+  입학 시험, 첫해 납부 총액, 진학 실적처럼 그 학교에만 있는 값을 넣는다
 - youtube_id: 대학 공식 채널 영상 ID만(URL 아님), 없으면 null — 있으면 하단에 임베드
 - 배너 이미지: images/uni/{id}.jpg 파일이 리포에 있으면 상세 페이지 상단에 자동 표시 (스키마 필드 아님)
 - 로고: images/uni/{id}-logo.png(또는 .svg), 반드시 투명 배경 — 모든 학교 동일한 160x88 박스에 표시되고 다크 모드에선 흰색 단색으로 자동 반전

@@ -5,7 +5,7 @@
 $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 
-$TYPE_ENUM     = @('university', 'college', 'specialty')
+$TYPE_ENUM     = @('university', 'college', 'specialty', 'secondary')
 $ENGLISH_ENUM  = @('ielts', 'toefl', 'pte', 'duolingo', 'toeic', 'cambridge', 'internal')
 $PATHWAY_ENUM  = @('foundation', 'iyo', 'direct', 'pre-master', 'pathway', 'transfer', 'college')
 $REQUIRED      = @('id', 'type', 'name_ko', 'name_en', 'country', 'city', 'currency', 'english', 'popular_majors', 'pathways', 'intakes', 'official_url', 'last_verified')
@@ -84,8 +84,10 @@ foreach ($file in $dataFiles) {
 
         # english
         if ($u.english) {
-            if (-not (Test-NullOrNumber $u.english.ielts_min) -or $null -eq $u.english.ielts_min) {
-                $errors.Add("[$label] english.ielts_min 는 숫자여야 합니다")
+            # 국제 사립고는 공인 성적 없이 입학하고 ESL을 병행하므로 null 을 허용한다
+            $ieltsOptional = ($u.type -eq 'secondary')
+            if (-not (Test-NullOrNumber $u.english.ielts_min) -or ($null -eq $u.english.ielts_min -and -not $ieltsOptional)) {
+                $errors.Add("[$label] english.ielts_min 는 숫자여야 합니다 (type=secondary 만 null 허용)")
             }
             if (-not $u.english.accepted -or $u.english.accepted.Count -eq 0) {
                 $errors.Add("[$label] english.accepted 가 비어 있습니다")

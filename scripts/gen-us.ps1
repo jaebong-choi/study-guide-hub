@@ -42,18 +42,25 @@ $OVERRIDE = @{
         note     = "US News '가장 혁신적인 대학' 1위를 여러 해 지켜온 학교입니다. 이 목록에서 QS 순위가 가장 높으면서 영어 요건은 IELTS 6.0으로 낮은 편이라 패스웨이 경로로 많이 갑니다."
         direct   = '전공별 요건 상이 · 간호·공학 IELTS 6.5, 크롱카이트 저널리즘 7.0'
     }
+    'us-uc-merced' = @{
+        accepted = @('ielts','toefl','duolingo')
+        engNote  = 'IELTS 6.5 · TOEFL iBT 80(2026년 1월 이전 척도) · 듀오링고 120 · 전공에 따라 더 높을 수 있습니다'
+    }
     'us-uic'     = @{ note = 'US News 전국 84위(Shorelight 공시). 시카고 유일의 공립 연구중심대학이고 간호·보건 계열이 강합니다.' }
     'us-american'= @{ note = 'US News 전국 88위(Shorelight 공시). 워싱턴 D.C.에 있어 국제관계·정치 전공의 인턴 연계가 강점입니다.' }
     'us-auburn'  = @{ note = 'US News 전국 102위(Shorelight 공시). 공학·건축이 강한 남부의 대형 주립대입니다.' }
 }
 
 # CC 2+2 편입 도착지 — 공식 근거가 있는 학교에만 편입 경로 카드를 붙인다.
-# UC TAG 참여 캠퍼스는 UC 입학처 공식 목록(Davis·Irvine·Merced·Riverside·Santa Barbara·Santa Cruz) 기준이고,
-# 머시드·리버사이드는 아직 DB에 없어서 빠져 있다. UCLA·버클리·샌디에이고는 TAG 미참여라 일반 편입으로 적는다.
+# UC TAG 참여 캠퍼스는 UC 입학처 공식 목록(Davis·Irvine·Merced·Riverside·Santa Barbara·Santa Cruz) 기준이며
+# 2026-08-06 머시드·리버사이드가 DB에 들어오면서 여섯 캠퍼스가 전부 카드를 갖게 됐다.
+# UCLA·버클리·샌디에이고는 TAG 미참여라 일반 편입으로 적는다.
 # 편입 IELTS는 학교·전공마다 달라 카드에 점수를 넣지 않는다(null).
 $TRANSFER = @{
     'us-uc-davis'      = 'UC TAG 참여 캠퍼스입니다. 캘리포니아 CC에서 조건을 채우면 편입 보장을 신청할 수 있습니다'
     'us-uc-irvine'     = 'UC TAG 참여 캠퍼스입니다. 어바인밸리 등 인근 CC에서 넘어오는 경로가 자리를 잡았습니다'
+    'us-uc-merced'     = 'UC TAG 참여 캠퍼스입니다. UC 중 규모가 가장 작아, 2+2 설계에서 UC 학위를 확보해 두는 안전판으로 쓰입니다'
+    'us-uc-riverside'  = 'UC TAG 참여 캠퍼스입니다. 남캘리포니아 CC에서 성적 조건을 채워 넘어오는 학생이 많습니다'
     'us-ucsb'          = 'UC TAG 참여 캠퍼스입니다. 캘리포니아 CC 2년 이수 후 3학년으로 들어갑니다'
     'us-uc-santa-cruz' = 'UC TAG 참여 캠퍼스입니다. TAG 신청 정원이 상대적으로 여유 있는 편입니다'
     'us-ucla'          = 'TAG는 없지만 편입 합격자의 93%가 캘리포니아 CC 출신입니다. 신입 지원보다 편입 쪽 문이 넓습니다'

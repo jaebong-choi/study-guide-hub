@@ -1,0 +1,30 @@
+{
+    "university-fees-2026":  {
+                                 "ko":  "[미국 대학 학비] 사립대는 어디나 비슷하고, 주립대가 갈립니다.",
+                                 "en":  "[US tuition] Private universities cost much the same everywhere — it is the publics that spread",
+                                 "cat":  "cost",
+                                 "min":  5,
+                                 "ver":  "2026-08"
+                             },
+    "pathway-vs-conditional":  {
+                                   "ko":  "[미국 패스웨이] 조건부 입학과 헷갈리면 1년을 잃습니다.",
+                                   "en":  "[US pathways] Confuse a pathway with conditional admission and you lose a year",
+                                   "cat":  "pathway",
+                                   "min":  5,
+                                   "ver":  "2026-08"
+                               },
+    "cc-transfer-tag":  {
+                            "ko":  "[미국 CC 편입] 편입 보장(TAG)에 UCLA는 들어 있지 않습니다.",
+                            "en":  "[US community colleges] UCLA is not in the transfer guarantee",
+                            "cat":  "pathway",
+                            "min":  5,
+                            "ver":  "2026-08"
+                        },
+    "f1-visa-steps":  {
+                          "ko":  "[미국 F-1 비자] 서둘러야 하는 건 서류가 아니라 예약입니다.",
+                          "en":  "[US F-1 visa] The thing to rush is not the paperwork — it is the booking",
+                          "cat":  "pathway",
+                          "min":  4,
+                          "ver":  "2026-08"
+                      }
+}
