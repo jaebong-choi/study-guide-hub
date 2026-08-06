@@ -224,8 +224,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  17100,
-        "tuition_ug_max":  18300,
+        "tuition_ug_min":  18005,
+        "tuition_ug_max":  19167,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -1306,8 +1306,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  15300,
-        "tuition_ug_max":  19300,
+        "tuition_ug_min":  15885,
+        "tuition_ug_max":  20055,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -1456,8 +1456,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  14800,
-        "tuition_ug_max":  17900,
+        "tuition_ug_min":  14794,
+        "tuition_ug_max":  14794,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -1856,8 +1856,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  22100,
-        "tuition_ug_max":  28100,
+        "tuition_ug_min":  22500,
+        "tuition_ug_max":  28470,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",
@@ -2061,8 +2061,8 @@
         "qs_subject_ranks":  [
 
                              ],
-        "tuition_ug_min":  18100,
-        "tuition_ug_max":  22000,
+        "tuition_ug_min":  16000,
+        "tuition_ug_max":  22700,
         "tuition_pg_min":  null,
         "tuition_pg_max":  null,
         "currency":  "CAD",

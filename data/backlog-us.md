@@ -1,5 +1,11 @@
 # US 대학 DB 백로그
 
+## ✅ 진단 질문지·판정 로직 점검 (2026-08-06) — 이상 없다
+
+us-study-guide `ugRouteDecision`(direct/transfer/pathway/mix)의 문구가 허브 글 셋과 일치한다 —
+UC 편입 SAT 불요(`cc-transfer-tag`), 패스웨이 조건부 보장·1학년 대체(`pathway-vs-conditional`),
+최상위권 SAT 필수(`sat-required-2027`). 분기 키와 질문 값도 전부 대응. 고친 것 없음.
+
 ## ✅ coei 기반 글 작업 완료 (2026-08-06)
 글 3편(toefl-new-scale·affordable-universities·sat-required-2027) 작성·푸시(ff2466c) 후
 **7편 전부 사진까지 넣어 푸시 완료**(587f081). US 글 7편, english 분류 1편.
