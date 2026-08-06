@@ -65,8 +65,8 @@
     "city": "Sydney",
     "qs_rank": 28,
     "qs_subject_ranks": [],
-    "tuition_ug_min": 60600,
-    "tuition_ug_max": 60600,
+    "tuition_ug_min": 49200,
+    "tuition_ug_max": 65900,
     "tuition_pg_min": 51300,
     "tuition_pg_max": 61700,
     "currency": "AUD",
@@ -80,7 +80,7 @@
     "intakes": ["2월", "7월"],
     "official_url": "https://www.sydney.edu.au",
     "youtube_id": "wuUK-mmpiZY",
-    "editor_note": "QS 28위. 호주에서 가장 오래된 대학이고 캠퍼스가 시드니 도심에 붙어 있습니다. 약학과 간호가 강합니다. 학비는 연 6만 호주달러 선입니다.",
+    "editor_note": "QS 28위. 호주에서 가장 오래된 대학이고 캠퍼스가 시드니 도심에 붙어 있습니다. 약학과 간호가 강합니다. 학비는 학부에 따라 연 4만 9천~6만 6천 호주달러로 벌어집니다.",
     "related_ids": [],
     "last_verified": "2026-07"
   },
@@ -318,8 +318,8 @@
     "city": "Sydney · Melbourne · Adelaide · Brisbane",
     "qs_rank": null,
     "qs_subject_ranks": [],
-    "tuition_ug_min": 23300,
-    "tuition_ug_max": 23300,
+    "tuition_ug_min": 20559,
+    "tuition_ug_max": 23287,
     "tuition_pg_min": null,
     "tuition_pg_max": null,
     "currency": "AUD",
@@ -327,7 +327,7 @@
     "popular_majors": ["요리(퀴진)", "제과(파티세리)", "국제 레스토랑 경영", "국제 호텔 경영"],
     "pathways": [
       { "type": "college", "level": "ug", "provider": null, "ielts_min": 5.5, "duration": "1년 6개월~2년", "cost_note": null, "note": "Advanced Diploma(퀴진·파티세리) · 실습 중심 프랑스 요리 교육" },
-      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년 (2.3년 단축 가능)", "cost_note": "총 A$69,860", "note": "Bachelor of Business(국제 레스토랑·호텔 경영) · 유급 산업 실습(WIL) 포함" }
+      { "type": "direct", "level": "ug", "provider": null, "ielts_min": 6.0, "duration": "3년 (2.3년 단축 가능)", "cost_note": "총 A$61,676~69,860 (과정별)", "note": "Bachelor of Business(국제 레스토랑·호텔 경영) · 유급 산업 실습(WIL) 포함" }
     ],
     "intakes": ["1월", "7월"],
     "official_url": "https://www.cordonbleu.edu/australia",
