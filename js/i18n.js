@@ -27,17 +27,17 @@ const I18N = {
         themeTitle: "밝게 / 어둡게",
         langAria: "언어 선택",
 
-        heroEyebrow: "무료 유학 가이드 · US / UK / AU / CA & ESL",
+        heroEyebrow: "🎓 <strong>무료 유학 가이드</strong> · US / UK / AU / CA & ESL",
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
-        /* 히어로 슬라이드 3장 */
+        /* 히어로 슬라이드 3장 — ① 3분 입학 진단 ② 국가별 최신 대학 정보 ③ 전문가 게시글 */
         hs1Title: "내 성적으로 갈 수 있는<br>길부터 확인하세요",
-        hs1Sub: "국가별 3분 진단이 성적과 목표에 맞는 진학 경로를 보여줍니다.",
-        hs2Title: "학비와 요건, 학교 공시에서<br>직접 확인해 정리했습니다",
-        hs2Sub: "미국·영국·호주·캐나다 대학 259곳을 학교별 페이지로 담았습니다.",
-        hs3Title: "올해도 유학 규정이<br>계속 바뀌고 있습니다",
-        hs3Sub: "스터디 퍼밋부터 학비 개정까지, 공식 원문으로 확인해 게시판에 올립니다.",
+        hs1Sub: "미국·영국·호주·캐나다, 국가별 3분 대학 입학 진단을 무료로 제공합니다.",
+        hs2Title: "국가별 최신 대학 정보를<br>학교 페이지로 정리했습니다",
+        hs2Sub: "4개국 대학 259곳의 학비와 입학 요건을 공식 공시에서 직접 확인해 담았습니다.",
+        hs3Title: "전문가가 확인한<br>최신 유학 정보 게시글",
+        hs3Sub: "규정과 학비가 바뀔 때마다 공식 원문을 확인해 국가별 게시판에 올립니다.",
         heroChipsLabel: "3분 진단 바로 시작",
         heroBrowse: "학교별로 먼저 둘러보기 ↓",
         heroDotsAria: "히어로 소개 선택",
@@ -82,10 +82,10 @@ const I18N = {
         usName: "미국",
         usDesc: "Direct·패스웨이·2+2 편입 3개 경로 진단. US News 2026 랭킹 데이터 기반.",
         cardGo: "진단 시작",
-        auAlt: "세계지도 위 호주 국기",
-        ukAlt: "세계지도 위 영국 국기",
-        caAlt: "세계지도 위 캐나다 국기",
-        usAlt: "뉴욕 거리의 미국 성조기",
+        auAlt: "하버브리지에서 본 시드니 오페라하우스와 도심",
+        ukAlt: "석양의 런던 타워브리지 항공 전경",
+        caAlt: "호수에서 본 토론토 CN타워와 스카이라인",
+        usAlt: "맨해튼 마천루 항공 전경",
 
         eslTitle: "대학 진학이 아니라 어학연수를 알아보고 있다면",
         eslSub: "영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.",
@@ -139,7 +139,7 @@ const I18N = {
         themeTitle: "Light / dark",
         langAria: "Select language",
 
-        heroEyebrow: "Free Study Abroad Guide · US / UK / AU / CA & ESL",
+        heroEyebrow: "🎓 <strong>Free Study Abroad Guide</strong> · US / UK / AU / CA & ESL",
         heroTitle: "Find your route to<br>studying abroad",
         /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
@@ -147,11 +147,11 @@ const I18N = {
 
         /* Hero slides */
         hs1Title: "Start with the routes your grades can reach",
-        hs1Sub: "A three-minute assessment shows the entry pathways that match your grades and goals.",
-        hs2Title: "Fees and requirements, taken from each school's own pages",
-        hs2Sub: "259 universities and colleges across the US, the UK, Australia and Canada, each with its own page.",
-        hs3Title: "Study rules keep changing this year",
-        hs3Sub: "From study permits to tuition updates, we check the official sources and post what changed.",
+        hs1Sub: "Free three-minute admissions assessments for the US, the UK, Australia and Canada.",
+        hs2Title: "The latest university information, country by country",
+        hs2Sub: "Fees and entry requirements for 259 universities and colleges, checked against each school's official pages.",
+        hs3Title: "Expert-checked study abroad updates",
+        hs3Sub: "When rules or fees change, we verify the official source and post it to each country's board.",
         heroChipsLabel: "Start a three-minute assessment",
         heroBrowse: "Browse universities first ↓",
         heroDotsAria: "Choose a hero slide",
@@ -196,10 +196,10 @@ const I18N = {
         usName: "United States",
         usDesc: "Three routes compared — direct entry, pathways and 2+2 community-college transfer. Based on US News 2026 ranking data.",
         cardGo: "Start assessment",
-        auAlt: "Australian flag pinned to a world map",
-        ukAlt: "British flag pinned to a world map",
-        caAlt: "Canadian flag pinned to a world map",
-        usAlt: "The American flag on a New York street",
+        auAlt: "Sydney Harbour and the Opera House seen from the Harbour Bridge",
+        ukAlt: "Aerial view of Tower Bridge, London, at sunset",
+        caAlt: "The Toronto skyline and CN Tower seen from the water",
+        usAlt: "Aerial view of Manhattan skyscrapers",
 
         eslTitle: "Looking for a language course rather than a degree?",
         eslSub: "Compare language schools across six countries — the UK, Ireland, Malta, Canada, Australia and New Zealand — on a single map.",
