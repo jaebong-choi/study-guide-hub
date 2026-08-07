@@ -116,6 +116,139 @@ function openConsultForm() {
     }
 }
 
+/* 언어 전환 때 다시 그려야 하는 동적 UI의 콜백 목록.
+ * i18n.js의 applyLang()이 끝에서 순회한다. (var — window 전역이어야 한다) */
+var langHooks = [];
+
+/* ---------- 히어로 슬라이드 ----------
+ * 문구(.hero-slide)와 사진(.hero-photo)을 같은 인덱스로 전환한다.
+ * 모션 축소 설정에서는 자동 재생을 끄고 점(dot) 클릭 전환만 남긴다. */
+const REDUCE_MOTION = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".hero-slide");
+    const photos = document.querySelectorAll(".hero-photo");
+    const dotsWrap = document.getElementById("hero-dots");
+    if (!slides.length || !dotsWrap) return;
+
+    let cur = 0;
+    let timer = null;
+
+    slides.forEach((_, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        if (i === 0) b.classList.add("on");
+        b.addEventListener("click", () => { goTo(i); restart(); });
+        dotsWrap.appendChild(b);
+    });
+    const dots = dotsWrap.querySelectorAll("button");
+    syncDotLabels();
+
+    function goTo(i) {
+        cur = i;
+        slides.forEach((s, k) => s.classList.toggle("is-on", k === i));
+        photos.forEach((p, k) => p.classList.toggle("is-on", k === i));
+        dots.forEach((d, k) => d.classList.toggle("on", k === i));
+    }
+    function next() { goTo((cur + 1) % slides.length); }
+    function restart() {
+        if (REDUCE_MOTION) return;
+        clearInterval(timer);
+        timer = setInterval(next, 6500);
+    }
+
+    /* 점 라벨은 언어를 따라간다 — i18n.js가 언어 전환 때 onLangChange()를 부른다 */
+    function syncDotLabels() {
+        dots.forEach((d, i) => d.setAttribute("aria-label", t("heroDot")(i + 1)));
+    }
+    langHooks.push(syncDotLabels);
+
+    /* 히어로 위에 마우스가 있거나 탭이 백그라운드면 잠시 멈춘다 */
+    const hero = document.querySelector(".hero--split");
+    if (hero) {
+        hero.addEventListener("mouseenter", () => clearInterval(timer));
+        hero.addEventListener("mouseleave", restart);
+    }
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) clearInterval(timer); else restart();
+    });
+    restart();
+});
+
+/* ---------- 스크롤 리빌 ----------
+ * JS가 있을 때만 숨겼다가(html.js-reveal) 화면에 들어오면 .in을 붙인다. */
+document.documentElement.classList.add("js-reveal");
+
+const revealIO = ("IntersectionObserver" in window)
+    ? new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -5% 0px" })
+    : null;
+
+function observeReveals(root) {
+    const els = (root || document).querySelectorAll(".reveal:not(.in)");
+    if (!revealIO) { els.forEach(el => el.classList.add("in")); return; }
+    els.forEach((el, i) => {
+        el.style.setProperty("--rd", (Math.min(i, 5) * 0.07) + "s");
+        revealIO.observe(el);
+    });
+}
+document.addEventListener("DOMContentLoaded", () => observeReveals(document));
+
+/* 안전장치: 옵저버가 어떤 이유로든 안 돌면(구형 브라우저·특수 환경)
+ * 내용이 숨은 채 남지 않도록 2초 뒤 전부 표시한다. */
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        if (!document.querySelector(".reveal.in")) {
+            document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+        }
+    }, 2000);
+});
+
+/* ---------- 최신 유학 정보 ----------
+ * 빌드가 만드는 4개국 게시판 색인에서 나라별 최근 2편을 모아 보여준다.
+ * 색인 순서가 곧 발행 순서라 뒤에서부터 집는다. 하나도 못 받으면 섹션째 숨긴다. */
+const LATEST_CCS = ["ca", "us", "uk", "au"];
+const LATEST_BADGE = { ca: "CA", us: "US", uk: "UK", au: "AU" };
+let latestItems = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+    const section = document.getElementById("latest");
+    const list = document.getElementById("latest-list");
+    if (!section || !list) return;
+
+    Promise.all(LATEST_CCS.map(cc =>
+        fetch("data/articles-" + cc + "-index.json")
+            .then(r => r.ok ? r.json() : null)
+            .then(idx => {
+                if (!idx) return [];
+                return Object.entries(idx).slice(-2).reverse()
+                    .map(([slug, a]) => ({ cc, slug, ko: a.ko, en: a.en, min: a.min }));
+            })
+            .catch(() => [])
+    )).then(groups => {
+        /* 나라별 최근 글을 번갈아 배치한다 (ca1, us1, uk1, au1, ca2, ...) */
+        latestItems = [];
+        for (let i = 0; i < 2; i++) groups.forEach(g => { if (g[i]) latestItems.push(g[i]); });
+        if (!latestItems.length) return;
+        renderLatest();
+        section.hidden = false;
+        observeReveals(section);
+    });
+
+    function renderLatest() {
+        list.innerHTML = latestItems.map(item => `
+            <a class="latest-item reveal" href="guide/${item.cc}-info-${item.slug}.html">
+                <span class="country-badge badge--${item.cc}">${LATEST_BADGE[item.cc]}</span>
+                <span class="latest-title">${LANG === "en" && item.en ? item.en : item.ko}</span>
+                <span class="latest-min">${t("latestMin")(item.min)}</span>
+            </a>`).join("");
+    }
+    langHooks.push(() => { if (latestItems.length) { renderLatest(); list.querySelectorAll(".reveal").forEach(el => el.classList.add("in")); } });
+});
+
 /* ---------- 간단 알림 토스트 ---------- */
 let noticeTimer = null;
 function showNotice(msg) {

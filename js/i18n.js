@@ -31,6 +31,28 @@ const I18N = {
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
+        /* 히어로 슬라이드 3장 */
+        hs1Title: "내 성적으로 갈 수 있는<br>길부터 확인하세요",
+        hs1Sub: "국가별 3분 진단이 성적과 목표에 맞는 진학 경로를 보여줍니다.",
+        hs2Title: "학비와 요건, 학교 공시에서<br>직접 확인해 정리했습니다",
+        hs2Sub: "미국·영국·호주·캐나다 대학 259곳을 학교별 페이지로 담았습니다.",
+        hs3Title: "올해도 유학 규정이<br>계속 바뀌고 있습니다",
+        hs3Sub: "스터디 퍼밋부터 학비 개정까지, 공식 원문으로 확인해 게시판에 올립니다.",
+        heroChipsLabel: "3분 진단 바로 시작",
+        heroBrowse: "학교별로 먼저 둘러보기 ↓",
+        heroDotsAria: "히어로 소개 선택",
+        heroDot: n => n + "번째 소개",
+
+        /* 학교별 행 한 줄 요약 */
+        rowUsSub: "아이비리그 · 패스웨이 제휴 · 커뮤니티칼리지",
+        rowUkSub: "QS 순위 · 연간 학비 · IELTS · 진학 경로",
+        rowAuSub: "Go8 명문 · 요리학교 · TAFE · 편입 경로",
+        rowCaSub: "UofT·UBC · 공립 컬리지 · 편입·PGWP",
+
+        /* 최신 유학 정보 */
+        sectionLatest: "최신 유학 정보",
+        latestMin: n => "약 " + n + "분",
+
         sectionUniGuide: "학교별로 알아보기",
         bannerUkTitle: "영국 대학교 49곳",
         bannerUkSub: "QS 순위·연간 학비·IELTS 기준·진학 경로를 학교별로 정리했습니다.",
@@ -65,7 +87,7 @@ const I18N = {
         caAlt: "세계지도 위 캐나다 국기",
         usAlt: "뉴욕 거리의 미국 성조기",
 
-        eslTitle: "🗺️ 대학 진학이 아니라 어학연수를 알아보고 있다면",
+        eslTitle: "대학 진학이 아니라 어학연수를 알아보고 있다면",
         eslSub: "영국 · 아일랜드 · 몰타 · 캐나다 · 호주 · 뉴질랜드, 6개국 어학원을 지도에서 한눈에 비교하세요.",
         eslGo: "지도 보기",
 
@@ -123,6 +145,28 @@ const I18N = {
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */
         heroSub: "Take a three-minute assessment for your chosen country, see which entry pathways match your grades and goals, then take the result to an advisor.",
 
+        /* Hero slides */
+        hs1Title: "Start with the routes your grades can reach",
+        hs1Sub: "A three-minute assessment shows the entry pathways that match your grades and goals.",
+        hs2Title: "Fees and requirements, taken from each school's own pages",
+        hs2Sub: "259 universities and colleges across the US, the UK, Australia and Canada, each with its own page.",
+        hs3Title: "Study rules keep changing this year",
+        hs3Sub: "From study permits to tuition updates, we check the official sources and post what changed.",
+        heroChipsLabel: "Start a three-minute assessment",
+        heroBrowse: "Browse universities first ↓",
+        heroDotsAria: "Choose a hero slide",
+        heroDot: n => "Slide " + n,
+
+        /* University rows */
+        rowUsSub: "Ivy League, pathway partners and community colleges",
+        rowUkSub: "QS rank, tuition, IELTS and entry routes",
+        rowAuSub: "The Go8, culinary schools, TAFE and transfer routes",
+        rowCaSub: "UofT, UBC, public colleges, transfer and PGWP",
+
+        /* Latest updates */
+        sectionLatest: "Latest updates",
+        latestMin: n => n + " min read",
+
         sectionUniGuide: "Browse by university",
         bannerUkTitle: "49 UK universities",
         bannerUkSub: "QS rankings, annual tuition, IELTS requirements and entry routes, school by school.",
@@ -157,7 +201,7 @@ const I18N = {
         caAlt: "Canadian flag pinned to a world map",
         usAlt: "The American flag on a New York street",
 
-        eslTitle: "🗺️ Looking for a language course rather than a degree?",
+        eslTitle: "Looking for a language course rather than a degree?",
         eslSub: "Compare language schools across six countries — the UK, Ireland, Malta, Canada, Australia and New Zealand — on a single map.",
         eslGo: "Open the map",
 
@@ -255,6 +299,9 @@ function applyLang() {
 
     /* 다크/라이트 라벨도 언어를 따라간다 */
     if (typeof syncThemeLabel === "function") syncThemeLabel();
+
+    /* 동적으로 그려지는 UI(히어로 점 라벨·최신 글 목록)도 다시 그린다 */
+    if (window.langHooks) window.langHooks.forEach(function (fn) { try { fn(); } catch (e) {} });
 }
 
 function setLang(l) {

@@ -769,3 +769,242 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 .guide-links a:nth-child(1) { color: var(--uk); }
 .guide-links a:nth-child(3) { color: var(--ca); }
 .guide-links a:hover { border-bottom-color: currentColor; }
+
+/* =========================================================
+ * 2026-08 메인 페이지 리디자인
+ *  동선: 히어로(슬라이드+진단 칩) → 진단 카드 → 학교별 행 → 최신 글 → ESL → 상담
+ *  기존 토큰(색·서체·테마)은 그대로 쓰고, 여기서는 새 구성만 얹는다.
+ * ========================================================= */
+
+/* ---------- 히어로: 좌 텍스트 / 우 사진, 슬라이드 3장 ---------- */
+.hero--split { text-align: left; padding: 118px 0 64px; }
+.hero--split .hero-glow { left: 22%; }
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+}
+.hero--split .hero-eyebrow { margin-bottom: 22px; }
+
+/* 슬라이드는 같은 그리드 칸에 겹쳐 두고 투명도로 전환한다.
+ * 높이는 가장 긴 슬라이드가 정하므로 전환 중 레이아웃이 뛰지 않는다. */
+.hero-slides { display: grid; }
+.hero-slide {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(14px);
+    /* 나가는 문구는 빨리 지우고(0.35s), 들어오는 문구는 살짝 늦게 올린다(아래 delay).
+     * 두 문구가 겹쳐 보이는 크로스페이드 잔상을 줄인다. */
+    transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+.hero-slide.is-on {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    transition: opacity 0.55s ease 0.22s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.22s;
+}
+.hero--split .hero-slide h1 {
+    font-size: clamp(34px, 4.3vw, 50px);
+    margin-bottom: 14px;
+    text-wrap: balance;
+}
+.hero-sub {
+    font-size: 18px;
+    color: var(--body-text);
+    max-width: 470px;
+    margin: 0;
+    text-align: left;
+    text-wrap: pretty;
+    word-break: keep-all;
+}
+
+/* 슬라이드 선택 점 */
+.hero-dots { display: flex; gap: 7px; margin: 24px 0 30px; }
+.hero-dots button {
+    width: 20px; height: 4px;
+    border: 0; border-radius: 99px;
+    background: var(--line-strong);
+    opacity: 0.45;
+    padding: 0;
+    transition: opacity 0.25s ease, width 0.25s ease, background 0.25s ease;
+}
+.hero-dots button.on { width: 32px; opacity: 1; background: var(--text); }
+.hero-dots button:hover { opacity: 0.8; }
+
+/* 진단 시작 칩 */
+.hero-start-label { font-size: 13px; font-weight: 700; color: var(--mute); letter-spacing: 0.02em; margin-bottom: 10px; }
+/* 2×2 고정 그리드 — 한국어(짧음)·영어(김) 어느 쪽이든 균형이 맞는다 */
+.hero-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; max-width: 420px; }
+.hero-chip {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 12px 20px;
+    border: 1px solid var(--line);
+    border-radius: 99px;
+    background: var(--card-bg);
+    font-size: 15.5px; font-weight: 700;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.hero-chip:hover { transform: translateY(-2px); }
+.hero-chip:active { transform: translateY(0) scale(0.98); }
+.chip-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.chip--us .chip-dot { background: var(--us); }
+.chip--uk .chip-dot { background: var(--uk); }
+.chip--au .chip-dot { background: var(--au); }
+.chip--ca .chip-dot { background: var(--ca); }
+.chip--us:hover { border-color: var(--us); }
+.chip--uk:hover { border-color: var(--uk); }
+.chip--au:hover { border-color: var(--au); }
+.chip--ca:hover { border-color: var(--ca); }
+.hero-browse {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 14px; font-weight: 600;
+    color: var(--mute);
+    transition: color 0.2s ease;
+}
+.hero-browse:hover { color: var(--text); }
+
+/* 우측 사진 패널 — 슬라이드와 함께 크로스페이드, 켄번스 확대 */
+.hero-visual {
+    position: relative;
+    aspect-ratio: 5 / 4.1;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 60px rgba(4, 10, 22, 0.45);
+}
+html[data-theme="light"] .hero-visual { box-shadow: 0 18px 48px rgba(15, 30, 60, 0.16); }
+.hero-photo {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 0.9s ease;
+}
+.hero-photo.is-on {
+    opacity: 1;
+    transform: scale(1.06);
+    transition: opacity 0.9s ease, transform 8s linear;
+}
+.hero-visual::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(200deg, rgba(0, 0, 0, 0) 55%, rgba(4, 8, 16, 0.38) 100%);
+    pointer-events: none;
+}
+html[data-theme="light"] .hero-visual::after { background: linear-gradient(200deg, rgba(0, 0, 0, 0) 60%, rgba(15, 30, 60, 0.18) 100%); }
+
+/* ---------- 학교별 안내: 콤팩트 행 ---------- */
+.uni-guide { padding-top: 8px; }
+.uni-rows { border-top: 1px solid var(--line); }
+.uni-row {
+    display: grid;
+    grid-template-columns: 64px auto 1fr auto;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 6px;
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s ease;
+}
+.uni-row:hover { background: var(--card-bg); }
+.uni-row-thumb {
+    width: 64px; height: 64px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+.uni-row:hover .uni-row-thumb { transform: scale(1.06); }
+.uni-row .country-badge { margin: 0; }
+.uni-row-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.uni-row-main strong {
+    font-size: 17px; font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+}
+.uni-row-sub {
+    font-size: 13.5px;
+    color: var(--mute);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.uni-row-go {
+    font-size: 18px; color: var(--mute);
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.uni-row:hover .uni-row-go { transform: translateX(4px); color: var(--text); }
+.uni-row--us:hover .uni-row-go { color: var(--us); }
+.uni-row--uk:hover .uni-row-go { color: var(--uk); }
+.uni-row--au:hover .uni-row-go { color: var(--au); }
+.uni-row--ca:hover .uni-row-go { color: var(--ca); }
+
+/* 가이드 링크 색 — 행 순서(US·UK·AU·CA)에 맞춘다 */
+.guide-links a:nth-child(1) { color: var(--us); }
+.guide-links a:nth-child(2) { color: var(--uk); }
+.guide-links a:nth-child(3) { color: var(--au); }
+.guide-links a:nth-child(4) { color: var(--ca); }
+
+/* ---------- 최신 유학 정보 ---------- */
+.latest { padding: 46px 0 10px; }
+.latest-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 40px;
+    border-top: 1px solid var(--line);
+}
+.latest-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 4px;
+    border-bottom: 1px solid var(--line);
+    min-width: 0;
+    transition: background 0.2s ease;
+}
+.latest-item:hover { background: var(--card-bg); }
+.latest-item .country-badge {
+    margin: 0;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+.latest-title {
+    font-size: 14.5px; font-weight: 600;
+    color: var(--text);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.latest-item:hover .latest-title { text-decoration: underline; text-underline-offset: 3px; }
+.latest-min { font-size: 12.5px; color: var(--mute); white-space: nowrap; }
+
+/* ---------- 스크롤 리빌 ----------
+ * JS가 <html>에 js-reveal을 붙인 뒤에만 숨긴다. JS가 없으면 그대로 보인다. */
+html.js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--rd, 0s);
+}
+html.js-reveal .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    html.js-reveal .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- 반응형 ---------- */
+@media (max-width: 960px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+    .hero-visual { aspect-ratio: 16 / 9; }
+    .latest-list { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+    .hero--split { padding: 104px 0 48px; }
+    .hero--split .hero-slide h1 { font-size: 31px; }
+    .hero-sub { font-size: 15.5px; }
+    .hero-chips { max-width: none; }
+    .hero-chip { justify-content: center; }
+    .uni-row { grid-template-columns: 48px auto 1fr auto; gap: 12px; }
+    .uni-row-thumb { width: 48px; height: 48px; border-radius: 10px; }
+    .uni-row-sub { display: none; }
+}
