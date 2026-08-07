@@ -74,12 +74,8 @@ html[data-theme="light"] {
 }
 
 /* 라이트 모드에서 카드 그림자로 깊이 표현 */
-html[data-theme="light"] .country-card,
 html[data-theme="light"] .esl-banner {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-html[data-theme="light"] .country-card:hover {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08), 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -325,10 +321,6 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     .br-desktop { display: none; }
 }
 
-/* ---------- 국가 카드 ---------- */
-.countries {
-    padding: 46px 0 34px;
-}
 /* 섹션 제목 — 작은 회색 라벨이 아니라 화면 가운데의 헤드라인으로 둔다.
  * 스크롤 중 어느 구간인지 한눈에 잡히도록 본문 크기와 대비를 크게 벌렸다. */
 .section-title {
@@ -343,80 +335,6 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     max-width: 22ch;
     word-break: keep-all;
 }
-.card-grid {
-    display: grid;
-    /* 국가 4개 → 2×2 배치. 카드가 넓어져 배너처럼 보이도록 하고, 모바일에서는 1열로 */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-}
-.country-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--card-bg);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 0;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.25s ease;
-    /* backdrop-filter는 쓰지 않는다. 페이지 배경이 단색이라 시각 효과가 없는 반면,
-     * transform 애니메이션 중 레이어 정렬을 흐트러뜨려 사진/본문 경계에
-     * 헤어라인 틈을 만드는 주범이 된다. */
-}
-.country-card:hover { transform: translateY(-4px); }
-.country-card:active { transform: translateY(-2px) scale(0.99); }
-
-.card-photo {
-    position: relative;
-    /* 2열 배치로 카드 폭이 넓어진 만큼 사진도 살짝 높여 비율을 맞춘다 */
-    height: 190px;
-    flex-shrink: 0;
-    /* 여기서 overflow:hidden으로 잘라내면 사진 하단이 정확히 경계선에서 끝나는데,
-     * 애니메이션 중 이미지 레이어가 소수점 픽셀로 어긋나면 그 경계에 헤어라인
-     * 틈이 보인다. 그래서 자르지 않고: 위·좌·우 넘침은 카드의 overflow:hidden이
-     * 잘라 주고, 아래 넘침(확대 시 최대 약 4px)은 ::after 그라데이션을 사진보다
-     * 6px 아래까지 연장해 불투명하게 덮는다. 경계선이 한 요소의 연속 페인트
-     * 내부에 묻히므로 어떤 프레임에서도 틈이 생길 수 없다. */
-}
-.card-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    transition: transform 0.4s ease;
-    /* 확대 애니메이션 시작 시 레이어 승격으로 인한 순간 어긋남 방지 */
-    will-change: transform;
-}
-.card--uk .card-photo img { object-position: center 28%; }
-.country-card:hover .card-photo img { transform: scale(1.04); }
-.card-photo::after {
-    content: "";
-    position: absolute;
-    /* 사진 아래로 6px 더 내려가 사진/본문 경계선을 통째로 덮는다.
-     * 확대 시 아래로 삐져나오는 이미지(최대 약 4px)도 여기에 묻힌다. */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: -6px;
-    /* 91%(사진 하단 약 12px 위)에서 이미 카드색으로 완전히 덮고 끝까지 유지 */
-    background: linear-gradient(180deg,
-        rgba(0, 0, 0, 0) 44%,
-        var(--card-fade-mid) 76%,
-        var(--card-fade) 91%,
-        var(--card-fade) 100%);
-    pointer-events: none;
-}
-
-.card-body {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 20px 26px 26px;
-    /* hover 틴트 오버레이(.country-card::after) 위로 올려 글자는 틴트되지 않게 */
-    position: relative;
-    z-index: 1;
-}
 
 .country-badge {
     display: inline-flex;
@@ -429,36 +347,13 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     padding: 6px 12px;
     border-radius: 8px;
     margin-bottom: 14px;
-    margin-top: -36px;
     position: relative;
     z-index: 1;
-    /* backdrop-filter 금지: 배지가 사진/본문 경계에 걸쳐 있어서, 애니메이션 중
-     * backdrop 샘플링이 어긋나면 배지 주변에 경계선이 밀린 잔상(틈)이 보인다. */
 }
 .badge--au { color: var(--au); background: var(--badge-bg-au); }
 .badge--uk { color: var(--uk); background: var(--badge-bg-uk); }
 .badge--ca { color: var(--ca); background: var(--badge-bg-ca); }
 .badge--us { color: var(--us); background: var(--badge-bg-us); }
-.country-card h3 {
-    font-size: 22px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 4px;
-}
-.country-card .card-sub {
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-.country-card .card-desc {
-    font-size: 14.5px;
-    color: var(--body-text);
-    text-wrap: pretty;
-    line-height: 1.55;
-    word-break: keep-all;
-    flex-grow: 1;
-    margin-bottom: 20px;
-}
 .card-go {
     display: inline-flex;
     align-items: center;
@@ -467,40 +362,10 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
     font-weight: 600;
 }
 .card-go::after { content: "→"; transition: transform 0.2s ease; }
-.country-card:hover .card-go::after { transform: translateX(3px); }
-
-.card--au:hover { border-color: var(--au); }
-.card--au .card-sub, .card--au .card-go { color: var(--au); }
-.card--uk:hover { border-color: var(--uk); }
-.card--uk .card-sub, .card--uk .card-go { color: var(--uk); }
-.card--ca:hover { border-color: var(--ca); }
-.card--ca .card-sub, .card--ca .card-go { color: var(--ca); }
-.card--us:hover { border-color: var(--us); }
-.card--us .card-sub, .card--us .card-go { color: var(--us); }
-
-/* hover 틴트는 카드 배경을 바꾸는 대신, 사진과 본문을 한 장으로 덮는
- * 오버레이의 투명도만 올린다. 배경색과 사진 그라데이션을 각각 전환하면
- * 전환 중간 프레임에서 두 보간이 미세하게 어긋나 경계에 띠(틈)가 보이는데,
- * 오버레이 한 장이면 경계 양쪽이 어떤 프레임에서든 항상 같은 색이다. */
-.card--au { --hover-tint: rgba(41, 151, 255, 0.09); }
-.card--uk { --hover-tint: rgba(255, 222, 89, 0.08); }
-.card--ca { --hover-tint: rgba(255, 112, 89, 0.09); }
-.card--us { --hover-tint: rgba(255, 92, 119, 0.09); }
-.country-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--hover-tint);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-    pointer-events: none;
-}
-.country-card:hover::after { opacity: 1; }
 
 /* ---------- 학교별 안내 (영국 대학 DB) ---------- */
 .uni-guide { padding: 46px 0 4px; }
-/* 국가별 대학 리스트 배너 — 텍스트 좌 + 사진 우 가로형 카드 2장.
- * 아래 국가 진단 카드(사진 상단형 3열)와 레이아웃 계열을 다르게 가져간다. */
+/* 국가별 대학 리스트 배너 — 텍스트 좌 + 사진 우 가로형 카드 2장. */
 .uni-banners { display: grid; gap: 14px; }
 .uni-banner {
     display: grid;
@@ -747,11 +612,6 @@ html[data-theme="light"] .switch-icon.icon-sun { color: var(--bg); }
 }
 
 /* ---------- 반응형 ---------- */
-@media (max-width: 900px) {
-    .card-grid { grid-template-columns: 1fr; }
-    .country-card .card-desc { margin-bottom: 14px; }
-}
-
 @media (max-width: 640px) {
     .hero { padding: 120px 0 56px; }
     .hero h1 { font-size: 34px; }
