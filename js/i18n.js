@@ -27,7 +27,7 @@ const I18N = {
         themeTitle: "밝게 / 어둡게",
         langAria: "언어 선택",
 
-        heroEyebrow: "🎓 <strong>무료 유학 가이드</strong> · US / UK / AU / CA & ESL",
+        heroEyebrow: "🌏 <strong>무료 유학 가이드</strong> · US / UK / AU / CA & ESL",
         heroTitle: "유학, 진단에서<br>시작하세요",
         heroSub: "국가별 3분 진단으로 내 조건에 맞는 진학 경로를 확인하고,<br class=\"br-desktop\">결과 그대로 상담까지 이어가세요.",
 
@@ -139,7 +139,7 @@ const I18N = {
         themeTitle: "Light / dark",
         langAria: "Select language",
 
-        heroEyebrow: "🎓 <strong>Free Study Abroad Guide</strong> · US / UK / AU / CA & ESL",
+        heroEyebrow: "🌏 <strong>Free Study Abroad Guide</strong> · US / UK / AU / CA & ESL",
         heroTitle: "Find your route to<br>studying abroad",
         /* 영어는 강제 줄바꿈 없이 흐르게 둔다. <br>를 넣으면 문장 중간에서 끊긴다.
            줄 길이는 CSS의 text-wrap: pretty가 고르게 맞춘다. */

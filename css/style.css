@@ -148,11 +148,13 @@ a:focus-visible, button:focus-visible {
     white-space: nowrap;
     flex-shrink: 0;
 }
-.brand .brand-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--au), var(--esl));
+/* 브랜드 심볼 — 링 + 졸업모자. currentColor라 다크·라이트 어디서든 글자색을 따라간다.
+ * (2026-08 로고 도입 전에는 .brand-dot 그라데이션 점이었다.) */
+.brand .brand-mark {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    color: var(--au);
 }
 .header-cta {
     font-size: 13px;
