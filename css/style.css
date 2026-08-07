@@ -1036,3 +1036,51 @@ html.js-reveal .reveal.in { opacity: 1; transform: none; }
     .uni-row-thumb { width: 48px; height: 48px; border-radius: 10px; }
     .uni-row-sub { display: none; }
 }
+
+/* ---------- 문의 모달 (Tally 대체, 2026-08) ---------- */
+.consult-modal { position: fixed; inset: 0; z-index: 200; display: none; }
+.consult-modal.show { display: block; }
+.consult-backdrop { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.55); }
+html[data-theme="light"] .consult-backdrop { background: rgba(20, 24, 34, 0.45); }
+.consult-card {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(480px, calc(100vw - 32px));
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 28px 26px 26px;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+}
+.consult-x {
+    position: absolute; top: 14px; right: 16px;
+    border: 0; background: none; color: var(--mute);
+    font-size: 26px; line-height: 1; padding: 4px;
+}
+.consult-x:hover { color: var(--text); }
+.consult-card h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 6px; }
+.consult-sub { font-size: 13.5px; color: var(--mute); margin-bottom: 20px; text-wrap: pretty; }
+#consult-form label { display: block; font-size: 13px; font-weight: 600; color: var(--body-text); margin-bottom: 14px; }
+#consult-form input[type="text"], #consult-form select, #consult-form textarea {
+    display: block; width: 100%; margin-top: 6px;
+    padding: 11px 14px;
+    border: 1px solid var(--line); border-radius: 11px;
+    background: var(--bg); color: var(--text);
+    font-size: 15px;
+}
+#consult-form textarea { resize: vertical; }
+#consult-form input:focus-visible, #consult-form select:focus-visible, #consult-form textarea:focus-visible {
+    outline: 2px solid var(--au); outline-offset: 0;
+}
+/* 허니팟 — 화면·스크린리더 모두에서 숨긴다 */
+.consult-hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
+.consult-agree { display: flex !important; gap: 9px; align-items: flex-start; font-weight: 500 !important; }
+.consult-agree input { margin-top: 3px; accent-color: var(--au); }
+.consult-agree a { color: var(--au); text-decoration: underline; text-underline-offset: 2px; }
+.consult-submit { width: 100%; margin-top: 4px; }
+.consult-err { color: #ff6b6b; font-size: 13px; margin-top: 10px; min-height: 16px; }
+.consult-done { text-align: center; padding: 22px 0 6px; }
+.consult-done-title { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+.consult-done-sub { font-size: 14px; color: var(--mute); margin-bottom: 20px; }
