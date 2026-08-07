@@ -40,7 +40,7 @@
     </script>
 
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-    <link rel="stylesheet" href="css/style.css?v=20260828">
+    <link rel="stylesheet" href="css/style.css?v=20260829">
 
     <!--
     GA4 애널리틱스 — {{GA4_ID}} 값이 준비되면 아래 주석을 해제하고 ID를 교체하세요.
@@ -78,12 +78,16 @@
     </header>
 
     <main>
-        <!-- 히어로 — 3장 슬라이드(문구·사진 크로스페이드) + 국가 선택 진단 칩.
-             슬라이드는 js/main.js가 돌리고, 모션 축소 설정에서는 첫 장에 고정된다. -->
-        <section class="hero hero--split">
-            <div class="hero-glow"></div>
-            <div class="container hero-grid">
-                <div class="hero-copy">
+        <!-- 히어로 — 국가별 풍경을 은은하게 깐 가운데 정렬 구성.
+             문구(.hero-slide)와 배경(.hero-photo)은 js/main.js가 같은 인덱스로 돌리고,
+             모션 축소 설정에서는 첫 장에 고정된다. -->
+        <section class="hero hero--scenic">
+            <div class="hero-bg" aria-hidden="true">
+                <img class="hero-photo is-on" src="images/hero/hero-us.jpg?v=20260829" alt="">
+                <img class="hero-photo" src="images/hero/hero-uk.jpg?v=20260829" alt="">
+                <img class="hero-photo" src="images/hero/hero-ca.jpg?v=20260829" alt="">
+            </div>
+            <div class="container hero-center">
                     <p class="hero-eyebrow" data-i18n-html="heroEyebrow">🌏 <strong>무료 유학 가이드</strong> · US / UK / AU / CA &amp; ESL</p>
                     <div class="hero-slides" id="hero-slides">
                         <div class="hero-slide is-on">
@@ -110,12 +114,6 @@
                         </div>
                         <a class="hero-browse" href="#uni-guide" data-i18n="heroBrowse">학교별로 먼저 둘러보기 ↓</a>
                     </div>
-                </div>
-                <div class="hero-visual" aria-hidden="true">
-                    <img class="hero-photo is-on" src="images/hero/hero-assess.jpg?v=20260829" alt="">
-                    <img class="hero-photo" src="images/hero/hero-campus.jpg?v=20260829" alt="">
-                    <img class="hero-photo" src="images/hero/hero-library.jpg?v=20260829" alt="">
-                </div>
             </div>
         </section>
 
@@ -275,6 +273,6 @@
     </footer>
 
     <script src="js/i18n.js?v=20260827"></script>
-    <script src="js/main.js?v=20260828"></script>
+    <script src="js/main.js?v=20260829"></script>
 </body>
 </html>

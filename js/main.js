@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
     langHooks.push(syncDotLabels);
 
     /* 히어로 위에 마우스가 있거나 탭이 백그라운드면 잠시 멈춘다 */
-    const hero = document.querySelector(".hero--split");
+    const hero = document.querySelector(".hero--scenic");
     if (hero) {
         hero.addEventListener("mouseenter", () => clearInterval(timer));
         hero.addEventListener("mouseleave", restart);
