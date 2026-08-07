@@ -12,7 +12,8 @@
  *                        "[필수] 개인정보 수집·이용 동의 — 항목: 이름, 연락처 / 목적: 유학 상담
  *                         안내 연락 / 보유: 상담 종료 또는 동의 철회 시까지(최대 1년)"
  *                        + privacy.html 링크
- * KAKAO_CHANNEL_URL : 카카오톡 채널 URL (예: "https://pf.kakao.com/_xxxxxx"). 비어 있으면 버튼 숨김.
+ * KAKAO_CHANNEL_URL : 카카오톡 채널 "채널 추가" URL. 비어 있으면 버튼이 안내 문구만 띄운다.
+ *                     홈 주소(/ 없이)는 채널을 공개로 돌리기 전까지 404가 나므로 /friend 를 쓴다.
  * CONTACT_EMAIL     : 문의용 이메일 (푸터·privacy.html에 표시)
  * GA4_ID            : GA4 측정 ID (예: "G-XXXXXXXXXX"). index.html 하단 GA4 주석 참고.
  * ========================================================= */
@@ -20,7 +21,7 @@ const CONFIG = {
     BRAND_NAME: "Study Guide Hub",          // {{BRAND_NAME}}
     // 자체 문의 접수 API (Cloudflare Worker). 관리자: {CONTACT_API}/admin
     CONTACT_API: "https://sgh-contact.studyguidehub.workers.dev",
-    KAKAO_CHANNEL_URL: "",                  // {{KAKAO_CHANNEL_URL}}
+    KAKAO_CHANNEL_URL: "https://pf.kakao.com/_hILBX/friend",
     CONTACT_EMAIL: "",                      // {{CONTACT_EMAIL}}
     GA4_ID: ""                              // {{GA4_ID}}
 };
